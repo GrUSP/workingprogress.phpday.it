@@ -1,0 +1,87 @@
+.geninfo__container
+  padding: 3em 0
+  margin: 0
+
+.geninfo__container .inner
+  margin: 0 auto
+  max-width: 1200px
+
+.geninfo__container h2
+  color: $main-color
+
+.geninfo__container 
+  font-size: .9em
+
+.geninfo-info
+  display: flex
+  flex-direction: column
+  align-content: space-between
+
+.geninfo-info .row-info
+  flex-grow: 1
+
+.geninfo-info .row__social
+  font-size: .9em
+  font-weight: 700
+  padding: 1em 0
+
+.geninfo-info .row__social p
+  margin-bottom: 8px
+
+.social-icon
+  width: 40px
+  height: 40px
+  display: inline-flex
+  background-color: $main-color
+  border-radius: 20px
+  margin: 0 8px
+
+.social-icon svg path
+  fill: $main-text-color_inverted
+
+.social-icon:hover, .social-icon:active, .social-icon:focus
+  background-color: $main-text-color_inverted
+  border: 1px solid $main-color
+
+.social-icon:hover svg path, .social-icon:active svg path, .social-icon:focus svg path
+  fill: $main-color
+
+.geninfo-buttons
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+  align-content: center
+
+.geninfo-buttons__button-container
+  min-width: 200px
+  height: 200px
+  margin: 10px
+  display: flex
+  flex-direction: column
+  align-items: center
+  align-content: center
+  justify-content: center
+  text-align: center
+  background-color: $main-color
+
+.geninfo-buttons__button-container a
+  color: $main-text-color_inverted
+  font-size: .8em
+  font-weight: 600
+
+.geninfo-buttons__button
+  width: 120px
+  height: 120px
+
+.geninfo-buttons__button svg path
+  fill: $main-text-color_inverted
+
+.geninfo-buttons__button-container:hover, .geninfo-buttons__button-container:focus, .geninfo-buttons__button-container:active
+  background-color: $main-text-color_inverted
+  border: 1px solid $main-color
+
+.geninfo-buttons__button-container:hover > a, .geninfo-buttons__button-container:focus > a, .geninfo-buttons__button-container:active > a
+  color: $main-color
+
+.geninfo-buttons__button-container:hover svg path, .geninfo-buttons__button-container:focus svg path, .geninfo-buttons__button-container:active svg path
+  fill: $main-color

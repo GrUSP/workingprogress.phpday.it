@@ -1,0 +1,103 @@
+.workshop__container
+  padding: 3em 0
+  margin: 0
+  background-color: $main-text-color_inverted
+
+.workshop__container .inner
+  margin: 0 auto
+  max-width: 1200px
+
+.workshop__container h2
+  text-align: center
+  font-style: normal
+  color: $main-color
+
+.workshop__container .tabs li
+  font-size: 1.5em
+  font-weight: 600
+  padding: 20px
+  margin: 10px
+  display: inline-block
+  background-color: $main-text-color_hue-light
+  &.is-active
+    background-color: $main-color
+  &.is-active a
+    color: $main-text-color_inverted
+    
+.workshop__container .tabs li a:hover, .workshop__container .tabs li a:active, .workshop__container .tabs li a:focus
+  text-decoration: none
+  color: $main-text-color
+
+.workshop__container .tab-content
+  padding: 1em 0
+
+.workshop__container .tab-content .columns
+  display: none
+  margin-bottom: 0
+
+.workshop__container .tab-content .columns:first-child
+  display: flex
+
+.workshop__container .tab-content .card-content
+  padding: 20px
+
+.workshop__container .tab-content .card-content .card-image
+  width: 100px
+  height: 100px
+  border-radius: 50px
+  overflow: hidden
+
+.workshop__container .tab-content .card-content .title
+  color: $main-color
+  font-weight: 600
+  padding: 1em 0
+
+.workshop__container .tab-content .card-content .subtitle
+  font-size: .9em
+  font-style: italic
+
+.workshop__container .tab-content .has-border
+  display: inline-block
+  border: 8px solid $main-color_hue-medium
+  padding: 1em
+
+.workshop__container .tab-content .row-info
+  color: $main-text-color
+
+.workshop__container .tab-content .row-info
+  display: flex
+  flex-direction: row
+  align-items: center
+  text-transform: uppercase
+
+.workshop__container .tab-content .info-icon
+  margin-top: 6px
+
+.workshop__container .tab-content .info-icon.padded
+  padding: 0 0 0 30px
+
+.workshop__container .tab-content svg
+  height: 30PX
+  width: auto
+
+.workshop__container .tab-content h5
+  text-transform: none
+  font-weight: 600
+  color: $main-color
+
+.workshop__container .tab-content p
+  font-size: .9em
+
+.workshop__container .tab-content .row__more
+  padding-top: 2em
+
+.workshop__container .tab-content .button.is-primary
+  background-color: $main-color
+  font-weight: 700
+  padding-left: 2em
+  padding-right: 2em
+  margin-right: 1em
+.workshop__container .tab-content .button.is-primary:hover, .workshop__container .tab-content .button.is-primary:active, .workshop__container .tab-content .button.is-primary:focus
+  color: $main-color
+  border-color: $main-color
+  background-color: $main-text-color_inverted

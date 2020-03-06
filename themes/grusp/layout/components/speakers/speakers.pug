@@ -1,0 +1,23 @@
+section(id="speakers")
+  .speakers__container
+    - no_of_speakers = 0
+    - suffix = ""
+    each item in site.data.speakers
+      - no_of_speakers++
+    if no_of_speakers > 1
+      - suffix = "s"
+    .columns
+      .column.inner
+        h2 !{no_of_speakers} speaker!{suffix}
+        .inner_holder
+          each speaker in site.data.speakers
+            - filename = "/img/"+speaker.speaker_pic_filename
+            a(href="")
+              .card.speaker-card
+                .card-image
+                  img(src=filename)
+                .card-content
+                  p.title !{speaker.speaker_name}
+                  p
+                    em !{speaker.speaker_role}
+                  p.subtitle !{speaker.speaker_talk_title}

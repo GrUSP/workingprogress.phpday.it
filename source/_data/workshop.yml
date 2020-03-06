@@ -1,0 +1,16 @@
+- workshop_date: April 1, 2020
+  workshop_location: Verona
+  workshop_teacher: Andrea Vassallo
+  workshop_pic_filename: andreavassallo.png
+  workshop_teacher_role: full stack developer
+  workshop_teacher_org: Nebulab
+  workshop_title: Create an application with Rails and Vue.js
+  workshop_description: Lorem ipsum dolor sic amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+- workshop_date: April 2, 2020
+  workshop_location: Verona
+  workshop_teacher: Filippo Gangi Dino
+  workshop_pic_filename: fili1.jpg
+  workshop_teacher_role: team leader
+  workshop_teacher_org: ???
+  workshop_title: Create an application with Rails, without Vue.js ;)
+  workshop_description: Lorem ipsum dolor sic amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua

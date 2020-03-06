@@ -1,0 +1,10 @@
+header
+  div.nav-container
+    a(href="/" aria-label="home page")
+      .header-logo
+        include ../../source/img/conference-logo.svg
+    nav(role="navigation" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement" aria-label="Main menu")
+      ul
+        each item in theme.menu
+          li
+            a(href=url_for(item) aria-label="home page") !{item}

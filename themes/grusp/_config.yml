@@ -1,0 +1,33 @@
+
+# html lang
+language: "en"
+
+basedir: /
+
+# main menu navigation
+menu:
+  Welcome: welcome
+  Schedule: schedule
+  Workshops: workshops
+  Sponsor: sponsor
+
+# stylesheets loaded in the <head>
+stylesheets:
+- /css/grusp.css
+
+# favicon
+favicon: /ico/favicon.ico
+
+# scripts loaded in the end of the body / commented out to prevent errors in compiling layout.pug
+# scripts:
+# [AS] commented out as there are no forms here (and Lighthouse throws a SyntaxError on trying to import Axios)
+#- /js/welaikatest.js
+
+open_graph:
+  type: website
+  title: page.title
+  name: config.title
+  url: config.url
+  description: config.description
+  locale: config.language
+  image: 'themes/grusp/source/img/grusp-logo-full.svg'

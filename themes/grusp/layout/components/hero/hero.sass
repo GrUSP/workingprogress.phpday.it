@@ -1,0 +1,78 @@
+@import "bulma/sass/layout/hero"
+@import "bulma/sass/utilities/mixins"
+@import "bulma/sass/utilities/controls"
+@import "bulma/sass/elements/button"
+
+.hero__container
+  @extend .hero
+  flex-direction: row
+  width: 100vw
+  //- this is to avoid having `hero-head` and `hero-foot` (see bulma docs)
+  height: 100vh
+  background-image: url("../img/hero.jpg")
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center center
+  position: relative
+  +tablet
+    background-image: url("../img/tablet_hero.jpg")
+  +desktop
+    background-image: url("../img/desktop_hero.jpg")
+  +widescreen
+    background-image: url("../img/widescreen_hero.jpg")
+  +fullhd
+    background-image: url("../img/hero.jpg")
+  +tablet-vertical
+    background-image: url("../img/tablet_vertical_hero.jpg")
+  +medium-phone
+    background-image: url("../img/mobile_medium_hero.jpg")
+  +small-phone
+    background-image: url("../img/mobile_small_hero.jpg")
+
+.hero__container .inner
+  align-items: center
+
+.hero__container .row-info
+  color: $main-text-color_inverted
+
+.hero__container .row-info
+  display: flex
+  flex-direction: row
+  align-items: center
+  text-transform: uppercase
+
+.hero__container .info-icon
+  margin-top: 6px
+
+.hero__container .info-icon.padded
+  padding: 0 0 0 30px
+
+.hero__container svg
+  height: 30PX
+  width: auto
+
+.hero__container svg path
+  fill: $main-text-color_inverted
+
+.info__location
+  padding: 0 30px 0 10px
+
+.info__date
+  padding: 0 0 0 10px
+
+.hero__container .row__title
+  padding: 1em 0
+
+.hero__container .row__title h1
+    font-size: 3em
+    font-weight: 700
+    color: $main-text-color_inverted
+
+.hero__container .button.is-primary
+  background-color: $main-color
+  font-weight: 700
+  padding-left: 2em
+  padding-right: 2em
+.hero__container .button.is-primary:hover, .hero__container .button.is-primary:active, .hero__container .button.is-primary:focus
+  color: $main-color
+  background-color: $main-text-color_inverted
