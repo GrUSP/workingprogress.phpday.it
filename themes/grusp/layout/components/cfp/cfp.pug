@@ -3,7 +3,6 @@ section(id="cfp")
     .columns.inner
       .column
         h1(role="heading" aria-level="2").title.is-1 Call For Papers Now Open!
-        each item in site.data.defaults
-          .row-info
-            span Submissions accepted until !{item.cfp_deadline}
-            button.button.is-medium.is-rounded.is-primary REGISTER NOW
+        .row-info
+          span Submissions accepted until !{site.data.defaults.cfp_deadline}
+          button.button.is-medium.is-rounded.is-primary REGISTER NOW

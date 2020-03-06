@@ -1,17 +1,16 @@
 section(id="hero")
   .hero__container
-    each item in site.data.defaults
-      .columns.inner
-        .column
-          .row-info
-            .info-icon
-              include ../../../source/ico/ico-where.svg
-            .info__location !{item.conference_city}
-            | &nbsp;|&nbsp;
-            .info-icon.padded
-              include ../../../source/ico/ico-calendar.svg
-            .info__date !{item.conference_date}
-          .row__title
-            h1(role="heading" aria-level="1").title.is-1 Welcome to !{item.conference_title}
-          .row__more
-            button.button.is-large.is-rounded.is-primary BUY TICKETS NOW
+    .columns.inner
+      .column
+        .row-info
+          .info-icon
+            include ../../../source/ico/ico-where.svg
+          .info__location !{site.data.defaults.conference_city}
+          | &nbsp;|&nbsp;
+          .info-icon.padded
+            include ../../../source/ico/ico-calendar.svg
+          .info__date !{site.data.defaults.conference_date}
+        .row__title
+          h1(role="heading" aria-level="1").title.is-1 Welcome to !{site.data.defaults.conference_title}
+        .row__more
+          button.button.is-large.is-rounded.is-primary BUY TICKETS NOW
