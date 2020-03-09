@@ -1,0 +1,58 @@
+section(id="sponsors")
+  .sponsors__container
+    .inner
+      h2.title.is-2 Sponsors
+      if site.data.sponsors.main
+        .row__underlined
+          h3.title.is-3 Main
+        .columns
+          each sponsor in site.data.sponsors.main
+            .column.column__main
+              - filename = "/img/logos/"+sponsor.logo_filename
+              a(href=sponsor.site_url target="_blank")
+                img(src=filename alt=sponsor.name)
+      if site.data.sponsors.platinum
+        .row__underlined
+          h3.title.is-3 Platinum
+        .columns
+          each sponsor in site.data.sponsors.platinum
+            .column.column__platinum
+              - filename = "/img/logos/"+sponsor.logo_filename
+              a(href=sponsor.site_url target="_blank")
+                img(src=filename alt=sponsor.name)
+      if site.data.sponsors.gold
+        .row__underlined
+          h3.title.is-3 Gold
+        .columns
+          each sponsor in site.data.sponsors.gold
+            .column.column__gold
+              - filename = "/img/logos/"+sponsor.logo_filename
+              a(href=sponsor.site_url target="_blank")
+                img(src=filename alt=sponsor.name)
+      if site.data.sponsors.silver
+        .row__underlined
+          h3.title.is-3 Silver
+        .columns
+          each sponsor in site.data.sponsors.silver
+            .column.column__silver
+              - filename = "/img/logos/"+sponsor.logo_filename
+              a(href=sponsor.site_url target="_blank")
+                img(src=filename alt=sponsor.name)
+      if site.data.sponsors.bronze
+        .row__underlined
+          h3.title.is-3 Bronze
+        .columns
+          each sponsor in site.data.sponsors.bronze
+            .column.column__bronze
+              - filename = "/img/logos/"+sponsor.logo_filename
+              a(href=sponsor.site_url target="_blank")
+                img(src=filename alt=sponsor.name)
+      if site.data.sponsors.media
+        .row__underlined
+          h3.title.is-3 Media partners
+        .columns
+          each sponsor in site.data.sponsors.media
+            .column.column__media
+              - filename = "/img/logos/"+sponsor.logo_filename
+              a(href=sponsor.site_url target="_blank")
+                img(src=filename alt=sponsor.name)

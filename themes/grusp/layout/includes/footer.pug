@@ -1,0 +1,44 @@
+footer.has-background-dark
+  .columns.inner
+    .column.first.one-third
+      - start_date = date(site.data.defaults.conference.date, config.date_format_hero)
+      p.footer__p_padded 
+        strong !{site.data.defaults.conference.city}
+          | ,&nbsp;
+          time(datetime=site.data.defaults.conference.date) !{start_date}
+      p Browse past editions:
+      each item in site.data.defaults.conference.past_editions
+        - url = "https://" + item + "/" + site.data.defaults.conference.base_url
+        a(href=url target="_blank").past-edition !{item}
+      .row__social
+        p You can follow !{site.data.defaults.conference.title} on
+        a(href="https://www.facebook.com/RubyDayIT/" target="_blank")
+          .social-icon
+            include ../../source/ico/ico-social-facebook.svg
+        a(href="https://twitter.com/rubydayIT" target="_blank")
+          .social-icon
+            include ../../source/ico/ico-social-twitter.svg
+        a(href="https://vimeo.com/grusp" target="_blank")
+          .social-icon
+            include ../../source/ico/ico-social-vimeo.svg
+        a(href="https://www.youtube.com/channel/UCdWnwC8nz_CCFQrmLBrLCVw" target="_blank")
+          .social-icon
+            include ../../source/ico/ico-social-youtube.svg
+    .column.one-third
+      nav(role="navigation" aria-label="Footer menu")
+        ul
+          each item in theme.menu
+            li
+              a(href=url_for(item) aria-label="!{item}") !{item}
+    .column.one-third
+      .footer__logo
+        include ../../source/img/grusp-logo-full.svg
+  .columns.inner.is-centered
+    .column
+      p !{site.data.defaults.conference.title} is &copy; by Grusp and its awesome staff
+      p Contact us at 
+        a(href="mailto:site.data.defaults.conference.contact_email") !{site.data.defaults.conference.contact_email}
+      p You can read our 
+        a(href="") privacy policy
+        | &nbsp; and our 
+        a(href="") code of conduct

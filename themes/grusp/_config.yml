@@ -11,6 +11,15 @@ menu:
   Workshops: workshops
   Sponsor: sponsor
 
+# footer menu navigation
+footer_menu:
+  Top: top
+  Tickets: schedule
+  Sponsors: sponsors
+  Scholarships: scholarships
+  Talks: talks
+  Newsletter: newsletter
+
 # stylesheets loaded in the <head>
 stylesheets:
 - /css/grusp.css

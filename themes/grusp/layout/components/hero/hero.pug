@@ -5,12 +5,36 @@ section(id="hero")
         .row-info
           .info-icon
             include ../../../source/ico/ico-where.svg
-          .info__location !{site.data.defaults.conference_city}
+          .info__location !{site.data.defaults.conference.city}
           | &nbsp;|&nbsp;
           .info-icon.padded
             include ../../../source/ico/ico-calendar.svg
-          .info__date !{site.data.defaults.conference_date}
+            - start_date = date(site.data.defaults.conference.date, config.date_format_hero)
+          .info__date
+            time(datetime=site.data.defaults.conference.date) !{start_date}
         .row__title
-          h1(role="heading" aria-level="1").title.is-1 Welcome to !{site.data.defaults.conference_title}
+          h1(role="heading" aria-level="1").title.is-1 Welcome to !{site.data.defaults.conference.title}
         .row__more
-          button.button.is-large.is-rounded.is-primary BUY TICKETS NOW
+          .columns
+            .column.is-two-thirds
+              .countdown-container
+                .days-container
+                  .days 00
+                  .days-label days
+                .hours-container
+                  .hours 00
+                  .hours-label hours
+                .minutes-container
+                  .minutes 00
+                  .minutes-label minutes
+                .seconds-container
+                  .seconds 00
+                  .seconds-label seconds
+            script(type="text/javascript" src='/js/layout/components/hero/hero.js')
+            script(type="text/javascript").
+              document.addEventListener("DOMContentLoaded", function(event) {
+                var a = "#{site.data.defaults.conference.date}";
+                countDownClock(a);
+              });
+            .column
+              button.button.is-large.is-rounded.is-primary BUY TICKETS NOW

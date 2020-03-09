@@ -2,10 +2,13 @@ extends includes/layout.pug
 
 block content
   include components/hero/hero.pug
-  if site.data.defaults.cfp_open
+  if site.data.defaults.conference.cfp_open
     include components/cfp/cfp.pug
   include components/generalinfo/generalinfo.pug
-  if site.data.defaults.speakers_visible
+  if site.data.defaults.conference.speakers_visible
     include components/speakers/speakers.pug
   include components/workshop/workshop.pug
   include components/media/media.pug
+  include components/location/location.pug
+  include components/sponsors/sponsors.pug
+  include components/newsletter/newsletter.pug

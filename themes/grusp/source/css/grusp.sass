@@ -25,6 +25,12 @@ body
   margin: 0
   padding: 0
   font-size: 20px
+  width: 100vw
+
+section
+  width: 100%
+  margin: 0
+  padding: 0
 
 h1
   font-size: 3em
@@ -112,10 +118,10 @@ nav li
 nav a
   color: $main-text-color_inverted
   text-transform: capitalize
-nav a:hover, nav a:active
-  color: $main-text-color_inverted
-  font-weight: 700
-  text-decoration: underline
+  &:hover, &:active
+    color: $main-text-color_inverted
+    font-weight: 700
+    text-decoration: underline
 
 //- Hero section
 @import "../../layout/components/hero/hero"
@@ -129,3 +135,46 @@ nav a:hover, nav a:active
 @import "../../layout/components/workshop/workshop"
 //- Media section
 @import "../../layout/components/media/media"
+//- Location section
+@import "../../layout/components/location/location"
+//- Sponsors section
+@import "../../layout/components/sponsors/sponsors"
+//- Newsletter section
+@import "../../layout/components/newsletter/newsletter"
+
+
+//- Footer
+footer .columns.inner
+  margin: 0 auto
+  *
+    color: $main-text-color_inverted
+  .footer__p_padded, .footer__a_padded
+    padding: 1em 0
+  a
+    font-weight: 600
+  a.past-edition
+    margin-right: 8px
+    &:after
+      content: "|"
+      display: inline
+      padding-left: 8px
+  a.past-edition:last-of-type:after
+      content: ""
+  .row__social
+    font-size: .9em
+    font-weight: 700
+    padding: 2em 0
+    p
+      margin-bottom: 8px
+  nav
+    text-align: left
+    ul
+      li
+        display: block
+        padding: .5em 0
+        a
+          text-transform: uppercase
+  .footer__logo, .footer__logo svg
+    max-width: 300px
+footer .inner.is-centered .column
+  text-align: center

@@ -48,7 +48,7 @@
   padding: 0 0 0 30px
 
 .hero__container svg
-  height: 30PX
+  height: 30px
   width: auto
 
 .hero__container svg path
@@ -73,6 +73,35 @@
   font-weight: 700
   padding-left: 2em
   padding-right: 2em
-.hero__container .button.is-primary:hover, .hero__container .button.is-primary:active, .hero__container .button.is-primary:focus
-  color: $main-color
-  background-color: $main-text-color_inverted
+  &:hover, &:active, &:focus
+    color: $main-color
+    background-color: $main-text-color_inverted
+
+.row__more
+  display: flex
+  justify-content: flex-start
+
+.row__more .columns
+  align-items: baseline
+  width: 100%
+
+.countdown-container
+  display: flex
+  justify-content: flex-start
+
+.days-container, .hours-container, .minutes-container, .seconds-container
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+  justify-content: flex-start
+  width: 120px
+  height: 120px
+
+.days, .hours, .minutes, .seconds
+  font-weight: 600
+  font-size: 2em
+  color: $main-text-color_inverted
+
+.days-label, .hours-label, .minutes-label, .seconds-label
+  font-size: .8em
+  color: $main-text-color_inverted

@@ -7,7 +7,7 @@ section(id="workshop")
     if no_of_workshops > 1
       - suffix = "s"
     .inner
-      h2 !{no_of_workshops} workshop!{suffix}
+      h2.title.is-2 !{no_of_workshops} workshop!{suffix}
       .tabs.is-centered.is-toggle.is-centered.is-fullwidth
         ul
           - workshop_no = 0
@@ -19,30 +19,30 @@ section(id="workshop")
             else
               - active_class = ""
             li(class=""+active_class)
-              a !{workshop.workshop_date}
+              a !{workshop.date}
         .tab-content
           each workshop in site.data.workshop
-            - filename = "/img/"+workshop.workshop_pic_filename
+            - filename = "/img/ws_teachers/"+workshop.pic_filename
             .columns
               .column.is-one-quarter
                 .card
                   .card-content
                     .card-image
                       img(src=filename)
-                    p.title !{workshop.workshop_teacher}
-                    p.subtitle !{workshop.workshop_teacher_role}
-                    p.subtitle @ !{workshop.workshop_teacher_org}
+                    p.title !{workshop.teacher}
+                    p.subtitle !{workshop.teacher_role}
+                    p.subtitle @ !{workshop.teacher_org}
               .column.has-border
                 .row-info
                   .info-icon
                     include ../../../source/ico/ico-where.svg
-                  .info__location !{workshop.workshop_location}
+                  .info__location !{workshop.location}
                   | &nbsp;|&nbsp;
                   .info-icon.padded
                     include ../../../source/ico/ico-calendar.svg
-                  .info__date !{workshop.workshop_date}
-                h5 !{workshop.workshop_title}
-                p !{workshop.workshop_description}
+                  .info__date !{workshop.date}
+                h5 !{workshop.title}
+                p !{workshop.description}
                 .row__more
                   button.button.is-medium.is-rounded.is-primary BUY TICKETS NOW
                   button.button.is-medium.is-rounded.is-primary READ MORE

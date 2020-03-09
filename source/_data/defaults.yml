@@ -1,11 +1,22 @@
-conference_title: "Ruby Day"
-conference_city: "Verona"
-conference_date: "April 11 2020"
-conference_location_name: "Hotel San Marco"
-conference_location_address: "Via Longhena 42, 37138 Verona (VE) Italy"
-# set to false to make CFP section disappear from home page!
-cfp_open: true
-cfp_deadline: "February 29, 2020"
-geninfo_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-# set to false to make Speakers section disappear from home page!
-speakers_visible: true
+conference:
+  title: "Ruby Day"
+  city: "Verona"
+  date: 2020-04-11T09:00
+  location_name: "Hotel San Marco"
+  location_address: "Via Longhena 42, 37138 Verona (VE) Italy"
+  # set to false to make CFP section disappear from home page!
+  cfp_open: true
+  cfp_deadline: 2020-02-29T17:00
+  geninfo_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  # set to false to make Speakers section disappear from home page!
+  speakers_visible: true
+  base_url: "rubyday.it/"
+  contact_email: "info@grusp.org"
+  past_editions:
+    2011: "2011"
+    2012: "2012"
+    2013: "2013"
+    2014: "2014"
+    2015: "2015"
+    2016: "2016"
+    2019: "2019"

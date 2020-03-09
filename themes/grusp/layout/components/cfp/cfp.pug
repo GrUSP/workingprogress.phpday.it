@@ -4,5 +4,6 @@ section(id="cfp")
       .column
         h1(role="heading" aria-level="2").title.is-1 Call For Papers Now Open!
         .row-info
-          span Submissions accepted until !{site.data.defaults.cfp_deadline}
+          - cfp_deadline = date(site.data.defaults.conference.cfp_deadline, config.date_format_hero)
+          span Submissions accepted until #{cfp_deadline}
           button.button.is-medium.is-rounded.is-primary REGISTER NOW

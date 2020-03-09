@@ -8,10 +8,10 @@ section(id="speakers")
       - suffix = "s"
     .columns
       .column.inner
-        h2 !{no_of_speakers} speaker!{suffix}
+        h2.title.is-2 !{no_of_speakers} speaker!{suffix}
         .inner_holder
           each speaker in site.data.speakers
-            - filename = "/img/"+speaker.speaker_pic_filename
+            - filename = "/img/speakers/"+speaker.speaker_pic_filename
             a(href="")
               .card.speaker-card
                 .card-image
