@@ -19,14 +19,14 @@ html(lang=config.language)
     else
       meta(name='description', content=page.description)
     //- Favicons
-    link(rel="apple-touch-icon" sizes="180x180" href="/ico/apple-touch-icon.png")
-    link(rel="icon" type="image/png" sizes="32x32" href="/ico/favicon-32x32.png")
-    link(rel="icon" type="image/png" sizes="16x16" href="/ico/favicon-16x16.png")
-    link(rel="manifest" href="/ico/site.webmanifest")
-    link(rel="mask-icon" href="/ico/safari-pinned-tab.svg" color="#5bbad5")
-    link(rel="shortcut icon" href="/ico/favicon.ico")
+    link(rel="apple-touch-icon" sizes="180x180" href="/assets/ico/apple-touch-icon.png")
+    link(rel="icon" type="image/png" sizes="32x32" href="/assets/ico/favicon-32x32.png")
+    link(rel="icon" type="image/png" sizes="16x16" href="/assets/ico/favicon-16x16.png")
+    link(rel="manifest" href="/assets/ico/site.webmanifest")
+    link(rel="mask-icon" href="/assets/ico/safari-pinned-tab.svg" color="#5bbad5")
+    link(rel="shortcut icon" href="/assets/ico/favicon.ico")
     meta(name="msapplication-TileColor" content="#ffc40d")
-    meta(name="msapplication-config" content="/ico/browserconfig.xml")
+    meta(name="msapplication-config" content="/assets/ico/browserconfig.xml")
     meta(name="theme-color" content="#ffffff")
 
     != open_graph()
@@ -41,12 +41,12 @@ html(lang=config.language)
       each url in theme.scripts
         script(src=url)
 
-  body
-    #content-outer
-      include header.pug
-      #content-inner(role="main")
-        if body
-          div!= body
-        else
-          block content
-    include footer.pug
+    body
+      #content-outer
+        include header.pug
+        #content-inner(role="main")
+          if body
+            div!= body
+          else
+            block content
+      include footer.pug

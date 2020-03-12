@@ -15,22 +15,21 @@ menu:
 footer_menu:
   Top: top
   Tickets: schedule
-  Sponsors: sponsors
+  Sponsor: sponsor
   Scholarships: scholarships
   Talks: talks
   Newsletter: newsletter
 
 # stylesheets loaded in the <head>
 stylesheets:
-- /css/grusp.css
+- /assets/css/grusp.css
 
 # favicon
-favicon: /ico/favicon.ico
+favicon: /assets/ico/favicon.ico
 
 # scripts loaded in the end of the body / commented out to prevent errors in compiling layout.pug
-# scripts:
-# [AS] commented out as there are no forms here (and Lighthouse throws a SyntaxError on trying to import Axios)
-#- /js/welaikatest.js
+scripts:
+- /assets/js/menu.js
 
 open_graph:
   type: website
@@ -39,4 +38,4 @@ open_graph:
   url: config.url
   description: config.description
   locale: config.language
-  image: 'themes/grusp/source/img/grusp-logo-full.svg'
+  image: 'themes/grusp/source/assets/img/grusp-logo-full.svg'

@@ -13,6 +13,7 @@
 @import "bulma/sass/utilities/mixins"
 @import "bulma/sass/base/_all"
 @import "bulma/sass/grid/columns"
+@import "bulma/sass/components/navbar"
 
 //- Common rules
 
@@ -22,10 +23,12 @@ html
   box-sizing: inherit
 
 body
+  box-sizing: content-box
   margin: 0
   padding: 0
   font-size: 20px
   width: 100vw
+  color: $main-text-color
 
 section
   width: 100%
@@ -62,10 +65,16 @@ a:hover, a:active, a:focus
 
 //- Common classes
 
+.container
+  padding: 1em 0
+
 .inner
   width: 90%
   max-width: 1200px
   margin: 2em auto
+
+.is-centered
+  text-align: center
 
 //- Additional mixins
 =small-phone
@@ -86,6 +95,13 @@ header
   position: fixed
   width: 100%
   z-index: 999
+  transition: background-color .5s ease-in
+  background-color: $main-color
+  padding: 0
+  +desktop
+    padding: 1em 0
+  &.is-transparent
+    background-color: transparent
 
 .header-logo
   width: 120px
@@ -96,54 +112,76 @@ header
 .header-logo svg
   width: 160px
   height: 27px
-
+  max-width: 120px
+  +desktop
+    max-width: 160px
+  
 .header-logo svg path
   fill: $main-text-color_inverted
 
 .nav-container
-  width: 90%
+  width: 100%
   max-width: 1280px
-  margin: 16px auto
-  display: table
+  margin: 0 auto
 
-nav
-  display: table-cell
-  text-align: right
-  vertical-align: top
-
-nav li
-  display: inline-flex
-  padding: 0 .5em
-
-nav a
-  color: $main-text-color_inverted
-  text-transform: capitalize
-  &:hover, &:active
+.navbar
+  display: flex
+  align-items: flex-start
+  justify-content: space-between
+  background-color: transparent
+  .navbar-menu
+    background-color: transparent
+    box-shadow: none
+    transition: display .5s ease-in
+    &.is-active
+      background-color: $main-color
+      .navbar-end
+        width: 100vw
+        position: fixed
+        top: 0
+        right: 0
+        left: 0
+        background-color: $main-color
+  .navbar-item
     color: $main-text-color_inverted
-    font-weight: 700
-    text-decoration: underline
+    margin: 0 1em
+    &:hover, &:active, &:focus
+      color: $main-text-color_inverted
+      background-color: transparent
+      font-weight: 700
+      text-decoration: underline
 
-//- Hero section
-@import "../../layout/components/hero/hero"
-//- Call for papers section
-@import "../../layout/components/cfp/cfp"
-//- General information section
-@import "../../layout/components/generalinfo/generalinfo"
-//- Speakers section
-@import "../../layout/components/speakers/speakers"
-//- Workshop section
-@import "../../layout/components/workshop/workshop"
-//- Media section
-@import "../../layout/components/media/media"
-//- Location section
-@import "../../layout/components/location/location"
-//- Sponsors section
-@import "../../layout/components/sponsors/sponsors"
-//- Newsletter section
-@import "../../layout/components/newsletter/newsletter"
+.navbar-burger
+  color: $main-text-color_inverted
+  position: absolute
+  right: 0
+  z-index: 100
 
+//- Home page
+//-   Hero section
+@import "../../../layout/components/hero/hero"
+//-   Call for papers section
+@import "../../../layout/components/cfp/cfp"
+//-   General information section
+@import "../../../layout/components/generalinfo/generalinfo"
+//-   Speakers section
+@import "../../../layout/components/speakers/speakers"
+//-   Workshop section
+@import "../../../layout/components/workshop/workshop"
+//-   Media section
+@import "../../../layout/components/media/media"
+//-   Location section
+@import "../../../layout/components/location/location"
+//-   Sponsors section
+@import "../../../layout/components/sponsors/sponsors"
+//-   Newsletter section
+@import "../../../layout/components/newsletter/newsletter"
+
+//- Page: Sponsor
+@import "../../../layout/pages/sponsor"
 
 //- Footer
+
 footer .columns.inner
   margin: 0 auto
   *
@@ -177,4 +215,4 @@ footer .columns.inner
   .footer__logo, .footer__logo svg
     max-width: 300px
 footer .inner.is-centered .column
-  text-align: center
+  font-size: .9em

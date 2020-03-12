@@ -1,10 +1,23 @@
-header
-  div.nav-container
-    a(href="/" aria-label="home page")
-      .header-logo
-        include ../../source/img/conference-logo.svg
-    nav(role="navigation" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement" aria-label="Main menu")
-      ul
-        each item in theme.menu
-          li
-            a(href=url_for(item) aria-label="home page") !{item}
+if(is_home())
+  script(type="text/javascript" src='/assets/js/header.js')
+
+- classes = ""
+if(is_home())
+  - classes += "is-transparent"
+
+header(class=classes id="header")
+  .nav-container
+    nav(role="navigation" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement" aria-label="Main menu").navbar
+      .navbar-brand
+        a(href="/" aria-label="home page").navbar-item
+          .header-logo
+            include ../../source/assets/img/conference-logo.svg
+        a.navbar-burger(role="button" aria-label="menu" aria-expanded="false" data-target="main_menu")
+          span(aria-hidden="true")
+          span(aria-hidden="true")
+          span(aria-hidden="true")
+      .navbar-menu(id="main_menu")
+        .navbar-start
+        .navbar-end
+          each item in theme.menu
+            a(href=url_for(item) aria-label="home page").navbar-item !{item}

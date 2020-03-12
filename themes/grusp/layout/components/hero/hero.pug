@@ -4,11 +4,11 @@ section(id="hero")
       .column
         .row-info
           .info-icon
-            include ../../../source/ico/ico-where.svg
+            include ../../../source/assets/ico/ico-where.svg
           .info__location !{site.data.defaults.conference.city}
           | &nbsp;|&nbsp;
           .info-icon.padded
-            include ../../../source/ico/ico-calendar.svg
+            include ../../../source/assets/ico/ico-calendar.svg
             - start_date = date(site.data.defaults.conference.date, config.date_format_hero)
           .info__date
             time(datetime=site.data.defaults.conference.date) !{start_date}
@@ -30,7 +30,7 @@ section(id="hero")
                 .seconds-container
                   .seconds 00
                   .seconds-label seconds
-            script(type="text/javascript" src='/js/layout/components/hero/hero.js')
+            script(type="text/javascript" src='/assets/js/layout/components/hero/hero.js')
             script(type="text/javascript").
               document.addEventListener("DOMContentLoaded", function(event) {
                 var a = "#{site.data.defaults.conference.date}";

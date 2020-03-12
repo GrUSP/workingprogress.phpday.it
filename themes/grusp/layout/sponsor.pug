@@ -1,0 +1,69 @@
+extends includes/layout.pug
+
+block content
+  - contact_url = "mailto:" + site.data.defaults.conference.contact_email
+  section(id="sponsor")
+    .container
+      .inner
+        h1.title-is-1= page.title
+        p.is-size-4.has-text-weight-bold !{site.data.page_sponsor.intro.slogan_1}
+        p.is-size-4.has-text-weight-bold !{site.data.page_sponsor.intro.slogan_2}
+        p !{site.data.page_sponsor.intro.content_1}
+        p !{site.data.page_sponsor.intro.content_2}
+        p !{site.data.page_sponsor.intro.content_3}
+    .container.background-light.is-centered
+      .inner
+        h2.title.is-2 !{site.data.page_sponsor.block_2.title}
+        p.is-size-4.has-text-weight-bold !{site.data.page_sponsor.block_2.slogan}
+        .columns.has-text-left
+          .column
+            h3.title.is-3 !{site.data.page_sponsor.block_2.subtitle_1}
+            p !{site.data.page_sponsor.block_2.content_1}
+          .column
+            h3.title.is-3 !{site.data.page_sponsor.block_2.subtitle_2}
+            p !{site.data.page_sponsor.block_2.content_2}
+              a(href=contact_url) !{site.data.defaults.conference.contact_email}
+    .container
+      .inner.options-container
+        each level in site.data.page_sponsor.levels
+          .level-block
+            .level-block__intro
+              h3.is-title.is-3 !{level.name}
+              p.is-size-1.has-text-weight-bold € !{number_format(level.amount)}
+              p !{level.vat_label}
+              p !{level.available_slots} available slots
+
+            if level.description_1
+              .triangle.triangle_description_1
+            else
+              if level.description_2
+                .triangle.triangle_description_2
+              else
+                if level.description_3
+                  .triangle.triangle_description_3
+                else
+                  if level.description_4
+                    .triangle.triangle_description_4
+
+            if level.description_1
+              .level-block__description_1
+                ul
+                  each item in level.description_1
+                    li !{item}
+            if level.description_2
+              .level-block__description_2
+                ul
+                  each item in level.description_2
+                    li !{item}
+            if level.description_3
+              .level-block__description_3
+                ul
+                  each item in level.description_3
+                    li !{item}
+            if level.description_4
+              .level-block__description_4
+                ul
+                  each item in level.description_4
+                    li !{item}
+
+  include components/newsletter/newsletter

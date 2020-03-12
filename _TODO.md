@@ -1,8 +1,12 @@
 # TODO
 
+* FORMS (where and how)
+
 ## Theme
 
 * a special `defaults.sass` file for each conference, with color palette
+* mobile menu
+* hero: parallax
 
 ## Assets
 
@@ -11,7 +15,6 @@
 
 ## Content
 
-* header + hero: parallax + colored header on scroll
 * links & info: aria attributes + opengraph
 * date in speakers come hero
 * link: solo aria attributes
@@ -21,6 +24,7 @@
 # DONE
 
 * favicon + tiles (grusp logo); done quickly with sample logo
+* colored header on scroll
 * hero
   * countdown
 * date in CFP come hero
