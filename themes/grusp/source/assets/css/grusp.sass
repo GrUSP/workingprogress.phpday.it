@@ -142,14 +142,40 @@ header
         right: 0
         left: 0
         background-color: $main-color
-  .navbar-item
+  .navbar-link
     color: $main-text-color_inverted
-    margin: 0 1em
+    font-weight: 600
+    &:not(.is-arrowless)::after
+      content: "+"
+      transform: none
+      top: 40%
     &:hover, &:active, &:focus
       color: $main-text-color_inverted
       background-color: transparent
-      font-weight: 700
       text-decoration: underline
+  .navbar-item
+    color: $main-text-color_inverted
+    margin: 0 1em
+    font-weight: 600
+    &:hover, &:active, &:focus
+      color: $main-text-color_inverted
+      background-color: transparent
+      text-decoration: underline
+    &.has-dropdown:focus .navbar-link, &.has-dropdown:hover .navbar-link, &.has-dropdown.is-active .navbar-link
+      background-color: transparent
+    a
+      background-color: transparent
+      &:hover, &:active, &:focus
+        background-color: transparent
+        color: $main-text-color_inverted
+
+.navbar-dropdown
+  background-color: $main-color
+  border: none
+  border-bottom-left-radius: 0
+  border-bottom-right-radius: 0
+  box-shadow: none
+  font-size: 1em
 
 .navbar-burger
   color: $main-text-color_inverted
@@ -179,6 +205,8 @@ header
 
 //- Page: Sponsor
 @import "../../../layout/pages/sponsor"
+//- Page: Welcome / COC
+@import "../../../layout/pages/coc"
 
 //- Footer
 

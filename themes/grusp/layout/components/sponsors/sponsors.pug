@@ -1,7 +1,10 @@
 section(id="sponsors")
   .sponsors__container
     .inner
-      h2.title.is-2 Sponsors
+      if(is_home())
+        h2.title.is-2 Sponsors
+      else
+        h2.title.is-2 Thanks to
       if site.data.sponsors.main
         .row__underlined
           h3.title.is-3 Main

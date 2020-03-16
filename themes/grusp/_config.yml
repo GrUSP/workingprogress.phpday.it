@@ -7,9 +7,13 @@ basedir: /
 # main menu navigation
 menu:
   Welcome: welcome
-  Schedule: schedule
-  Workshops: workshops
+  # Schedule: schedule
+  # Workshops: workshops
   Sponsor: sponsor
+
+# welcome submenu
+welcome_submenu:
+  COC: coc
 
 # footer menu navigation
 footer_menu:

@@ -7,7 +7,7 @@ if(is_home())
 
 header(class=classes id="header")
   .nav-container
-    nav(role="navigation" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement" aria-label="Main menu").navbar
+    nav(role="navigation" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement" aria-label="Main menu").navbar.dropdown
       .navbar-brand
         a(href="/" aria-label="home page").navbar-item
           .header-logo
@@ -20,4 +20,12 @@ header(class=classes id="header")
         .navbar-start
         .navbar-end
           each item in theme.menu
-            a(href=url_for(item) aria-label="home page").navbar-item !{item}
+            if(item == "welcome")
+              if(theme.welcome_submenu)
+                .navbar-item.has-dropdown.is-hoverable
+                  a(href=url_for(item) aria-label=item).navbar-link !{item}
+                  .navbar-dropdown
+                    each subitem in theme.welcome_submenu
+                      a(href=url_for(subitem) aria-label=subitem).navbar-item !{subitem}
+            else
+              a(href=url_for(item) aria-label=item).navbar-item !{item}
