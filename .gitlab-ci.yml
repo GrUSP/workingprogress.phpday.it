@@ -25,7 +25,7 @@ deploy_prod:
   script:
     - npx hexo clean && npx hexo g
     - "LIVE_URL=$(netlify deploy --json --prod --dir=public/ -s $NETLIFY_SITE_ID -a $NETLIFY_AUTH_TOKEN | grep -oP '(?<=\"url\": \")[^\"]*')"
-    - "curl -X POST -H 'Content-type: application/json' --data '{\"text\": \"${CI_PROJECT_NAME} deployato con successo dal branch ${CI_COMMIT_REF_NAME}, ${LIVE_URL}\"}' $SLACK_WEBHOOK_URL"
+    - "curl -X POST -H 'Content-type: application/json' --data '{\"text\": \"$CI_PROJECT_NAME deployato con successo dal branch $CI_COMMIT_REF_NAME, $LIVE_URL\"}' $SLACK_WEBHOOK_URL"
   only:
     refs:
       - master
