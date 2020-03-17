@@ -2,34 +2,28 @@
   padding: 3em 0
   margin: 0
   background-color: $main-text-color_hue-light
-
-.speakers__container .inner
-  margin: 0 auto
-  max-width: 1200px
-
-.speakers__container h2
-  text-align: center
-  font-style: normal
-  color: $main-color
-
-.speakers__container a:hover, .speakers__container a:active, .speakers__container a:focus
-  text-decoration: none
-.speakers__container a p.title, .speakers__container a p em
-  color: $main-text-color
-.speakers__container a p:hover, .speakers__container a p:active, .speakers__container a p:focus
-  color: $main-color_hue-medium
-.speakers__container a p em:hover, .speakers__container a p em:active, .speakers__container a p em:focus
-  color: $main-color_hue-medium
-
-.speakers__container a .card-image
-  max-height: 260px
-  overflow: hidden
-
-.speakers__container a .card-image img
-  transition: transform .5s
-
-.speakers__container a .card-image img:hover, .speakers__container a .card-image img:active, .speakers__container a .card-image img:focus
-  transform: scale(1.1)
+  .inner
+    margin: 0 auto
+    max-width: 1200px
+  h2
+    text-align: center
+    font-style: normal
+    color: $main-color
+  a:hover, a:active, a:focus
+    text-decoration: none
+  a p.title, a p em
+    color: $main-text-color
+  p:hover, a p:active, a p:focus
+    color: $main-color_hue-medium
+  a p em:hover, a p em:active, a p em:focus
+    color: $main-color_hue-medium
+  a .card-image
+    max-height: 260px
+    overflow: hidden
+    img
+      transition: transform .5s
+      &:hover, &:active, &:focus
+        transform: scale(1.1)
 
 .inner_holder
   display: flex
@@ -39,15 +33,11 @@
   max-width: 300px
   padding: 20px
   text-align: center
-
-.speaker-card .subtitle, .speaker-card p
-  font-size: .9em
-
-.speaker-card .title, .speaker-card .subtitle
-  font-weight: 600
-
-.speaker-card .title
-  font-size: 1em
-
-.speaker-card .subtitle
-  color: $main-color
+  .subtitle, p
+    font-size: .9em
+  .title, .subtitle
+    font-weight: 600
+  .title
+    font-size: 1em
+  .subtitle
+    color: $main-color

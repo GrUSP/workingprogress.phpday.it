@@ -149,6 +149,9 @@ header
       content: "+"
       transform: none
       top: 40%
+      color: transparent
+      +desktop
+        color: $main-text-color_inverted
     &:hover, &:active, &:focus
       color: $main-text-color_inverted
       background-color: transparent
@@ -160,6 +163,7 @@ header
     &:hover, &:active, &:focus
       color: $main-text-color_inverted
       background-color: transparent
+    &:hover > a, &:active > a, &:focus > a
       text-decoration: underline
     &.has-dropdown:focus .navbar-link, &.has-dropdown:hover .navbar-link, &.has-dropdown.is-active .navbar-link
       background-color: transparent
@@ -182,6 +186,9 @@ header
   position: absolute
   right: 0
   z-index: 100
+  &:hover, &:active, &:focus
+    color: $main-text-color_inverted
+    text-decoration: none
 
 //- Home page
 //-   Hero section
@@ -219,6 +226,7 @@ footer .columns.inner
   a
     font-weight: 600
   a.past-edition
+    display: inline-block
     margin-right: 8px
     &:after
       content: "|"

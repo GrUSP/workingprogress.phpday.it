@@ -23,7 +23,7 @@ header(class=classes id="header")
             if(item == "welcome")
               if(theme.welcome_submenu)
                 .navbar-item.has-dropdown.is-hoverable
-                  a(href=url_for(item) aria-label=item).navbar-link !{item}
+                  a(aria-label=item).navbar-link !{item}
                   .navbar-dropdown
                     each subitem in theme.welcome_submenu
                       a(href=url_for(subitem) aria-label=subitem).navbar-item !{subitem}

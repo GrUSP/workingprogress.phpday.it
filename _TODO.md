@@ -7,6 +7,8 @@
 * a special `defaults.sass` file for each conference, with color palette
 * mobile menu
 * hero: parallax
+* location
+  * link in "get directions"!
 
 ## Assets
 

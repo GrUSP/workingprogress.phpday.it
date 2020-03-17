@@ -21,21 +21,20 @@
     border: 1px solid $main-color
     &.is-active
       background-color: $main-color
+      &:hover > a, &:active > a, &:focus > a
+        padding: 1em 0
     &.is-active a
       color: $main-text-color_inverted
-
-.workshop__container .tabs li a:hover, .workshop__container .tabs li a:active, .workshop__container .tabs li a:focus
-  text-decoration: none
-  color: $main-text-color
-.workshop__container .tabs li.is-active:hover, .workshop__container .tabs li.is-active:active, .workshop__container .tabs li.is-active:focus, .workshop__container .tabs li.is-active:hover > a, .workshop__container .tabs li.is-active:active > a, .workshop__container .tabs li.is-active:focus > a
-  text-decoration: none
-  color: $main-color
-  background-color: $main-text-color_inverted
-
-.workshop__container .tab-content
-  padding: 1em 0
+    a:hover, a:active, a:focus
+      text-decoration: none
+      color: $main-text-color
+    &:hover, &:active, &:focus
+      text-decoration: none
+      color: $main-color
+      background-color: $main-text-color_inverted
   .columns
     display: none
+    margin-top: 1em
     margin-bottom: 0
   .columns:first-child
     display: flex
@@ -86,8 +85,7 @@
     padding-left: 2em
     padding-right: 2em
     margin-right: 1em
-
-.workshop__container .tab-content .button.is-primary:hover, .workshop__container .tab-content .button.is-primary:active, .workshop__container .tab-content .button.is-primary:focus
-  color: $main-color
-  border-color: $main-color
-  background-color: $main-text-color_inverted
+    &:hover, &:active, &:focus
+      color: $main-color
+      border-color: $main-color
+      background-color: $main-text-color_inverted
