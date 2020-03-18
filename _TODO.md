@@ -1,6 +1,9 @@
 # TODO
 
-* FORMS (where and how)
+* FORMS (where and how: netlify forms?)
+* [Netlify] Alert: Insecure mixed content detected in compassionate-goldstine-1d9c01
+  * (i namespace skiantati nei SVG hanno `http`)
+
 
 ## Theme
 
@@ -9,6 +12,7 @@
 * hero: parallax
 * location
   * link in "get directions"!
+* 404 page (https://blog.kiprosh.com/show-custom-404-error-page-for-netlify-applications/)
 
 ## Assets
 
