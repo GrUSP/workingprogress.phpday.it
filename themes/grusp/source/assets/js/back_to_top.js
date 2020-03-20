@@ -1,12 +1,11 @@
-document.addEventListener("DOMContentLoaded", () => {
-	var myNav = document.getElementById('back_to_top');
-	window.onscroll = function () {
-		"use strict";
+window.addEventListener("scroll", function () {
+    "use strict";
+  var backToTop = document.getElementById('back_to_top');
 		if (document.body.scrollTop >= document.body.clientHeight || document.documentElement.scrollTop >= document.documentElement.clientHeight) {
-			myNav.classList.remove("is-hidden");
+      this.console.log("scroll");
+			backToTop.classList.remove("is-hidden");
 		}
 		else {
-			myNav.classList.add("is-hidden");
+			backToTop.classList.add("is-hidden");
 		}
-	}
 });

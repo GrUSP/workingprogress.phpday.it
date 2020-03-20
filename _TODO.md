@@ -12,11 +12,11 @@
 	* breadcrumbs
 		* installato `hexo-breadcrumbs`
     * **non funziona**: `page.breadcrumb` == undefined, `page.breadcrumb.html` -> BOOOM
+* conference logo in `source` invece che nel tema!
 
 ## Theme
 
 * a special `defaults.sass` file for each conference, with color palette
-* mobile menu
 * hero: parallax
 * location
   * link in "get directions"!
@@ -56,3 +56,4 @@
 * pagina speaker
 	* foto più grande (200)
 	* descrizione talk sotto il titolo, di fianco alla foto; se sbrodola piuttosto gira attorno alla foto(?)
+* mobile menu

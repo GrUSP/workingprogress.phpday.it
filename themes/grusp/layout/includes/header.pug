@@ -1,8 +1,6 @@
-if(is_home())
-  script(type="text/javascript" src='/assets/js/header.js')
-
 - classes = ""
 if(is_home())
+  script(type="text/javascript" src='/assets/js/header.js')
   - classes += "is-transparent"
 
 header(class=classes id="header")
@@ -29,6 +27,3 @@ header(class=classes id="header")
                       a(href=url_for(subitem) aria-label=subitem).navbar-item !{subitem}
             else
               a(href=url_for(item) aria-label=item).navbar-item !{item}
-
-  if(!is_home())
-    include breadcrumbs.pug
