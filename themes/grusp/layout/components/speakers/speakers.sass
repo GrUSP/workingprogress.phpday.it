@@ -11,7 +11,7 @@
     color: $main-color
   a:hover, a:active, a:focus
     text-decoration: none
-  a p.title, a p em
+  a p.subtitle, a p em
     color: $main-text-color
   p:hover, a p:active, a p:focus
     color: $main-color_hue-medium
@@ -24,21 +24,24 @@
       transition: transform .5s
       &:hover, &:active, &:focus
         transform: scale(1.1)
-
-.inner_holder
-  display: flex
-  justify-content: center
-  flex-wrap: wrap
-
-.speaker-card
-  max-width: 300px
-  padding: 20px
-  text-align: center
-  .subtitle, p
-    font-size: .9em
-  .title, .subtitle
-    font-weight: 600
-  .title
-    font-size: 1em
-  .subtitle
-    color: $main-color
+  .inner_holder
+    display: flex
+    justify-content: center
+    flex-wrap: wrap
+    .speaker-card
+      max-width: 250px
+      padding: 20px
+      text-align: center
+      .card-content
+        display: flex
+        flex-direction: column
+        min-height: 120px
+        .title, .subtitle
+          font-weight: 600
+        .subtitle, p
+          font-size: .9em
+        .title
+          font-size: 1em
+          margin-top: .5em
+          margin-bottom: auto
+          color: $main-color

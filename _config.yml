@@ -5,11 +5,15 @@
 # Site
 title: grusp
 subtitle: ''
-description: 'sample site/theme for Grusp conferences 2020'
+description: 'Theme for Grusp conferences 2020'
 keywords:
 author: weLaika
 language: en
 timezone: 'Europe/Rome'
+
+# Breadcrumbs
+breadcrumb:
+  display: true
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'

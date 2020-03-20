@@ -1,0 +1,134 @@
+#speakers
+  padding-top: 40px
+  h1
+    text-transform: capitalize
+    color: $main-color
+    font-size: 2em
+    line-height: 1.2
+    +tablet
+      font-size: 3em
+      line-height: 1.5
+  h2
+    font-style: normal
+    text-align: center
+    font-size: 1.8em
+    line-height: 1.2
+    +tablet
+      font-size: 2em
+      line-height: 1.5
+    &.speaker-name
+      font-size: 1.2em
+      color: $main-color
+      //- this is to avoid hiding the title under the top header on scroll
+      padding-top: 5em
+      margin-top: -5em
+    &.talk-title
+      text-align: left
+      font-size: 1.4em
+      line-height: 1.2
+      color: $main-color
+  h3
+    font-size: 1.5em
+    +tablet
+      font-size: 1.8em
+  p
+    margin: .5em 0
+  .row-info
+      display: flex
+      flex-direction: row
+      align-items: center
+      justify-content: flex-end
+      text-transform: uppercase
+      color: $main-text-color
+      font-size: .7em
+      +tablet
+        font-size: 1em
+  .info-icon
+    margin-top: 6px
+  .info-icon.padded
+    padding: 0 0 0 10px
+    +tablet
+      padding: 0 0 0 30px
+
+.has-dynamic-background:nth-of-type(odd)
+  background-color: $main-text-color_hue-light
+
+.block-speaker
+  padding: 2em 0
+  .columns
+    margin: 0
+    .column
+      padding: 0
+    .column_speaker
+      flex-basis: auto
+      flex-grow: 0
+  .speaker-card
+    max-width: 10em
+    padding: 0
+    margin-right: 2em
+  .speaker-info
+    display: flex
+    justify-content: flex-start
+    align-items: baseline
+    .column
+      display: flex
+      flex-basis: auto
+    .column:first-of-type
+      flex-grow: 0
+    .column:last-of-type
+      flex-grow: 1
+      margin: 0 1em
+  .columns_talk-title
+    display: block
+  .has-border
+    border: 8px solid $main-color_hue-medium
+    background-color: $main-text-color_inverted
+    padding: 1em
+    margin-top: 2em
+    text-align: left
+    p
+      font-size: .8em
+    span.speaker-name
+      color: $main-color
+      &:after
+        content: " "
+
+a.secondary-menu-button
+  width: 60px
+  height: 50px
+  margin-left: -80px
+  margin-top: 0
+  right: 0
+  background-color: $main-color
+  border-top-left-radius: 30px
+  border-bottom-left-radius: 30px
+  color: $main-text-color_inverted
+  font-size: 2em
+  font-weight: 600
+  padding-left: 20px
+  transition: all .5s ease-in
+  &:hover, &:active, &:focus
+    color: $main-text-color_inverted
+    text-decoration: none
+  .chevron
+    position: relative
+    &::before
+      transform: rotate(-135deg)
+      right: 30px
+      top: 16px
+
+aside.menu.secondary-menu
+  width: 8em
+  padding: 1em
+  position: fixed
+  right: -10em
+  top: 5em
+  background-color: $main-color
+  transition: all .5s
+  display: inline-flex
+  .secondary-menu-button-container
+    display: inline-flex
+  a
+    color: $main-text-color_inverted
+  &:target
+    right: 0

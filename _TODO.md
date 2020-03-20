@@ -1,9 +1,17 @@
 # TODO
 
-* FORMS (where and how: netlify forms?)
-* [Netlify] Alert: Insecure mixed content detected in compassionate-goldstine-1d9c01
-  * (i namespace skiantati nei SVG hanno `http`)
-
+* home
+	* workshop
+		* tutto dentro il blocco viola
+		* nome, qualifica e contatto (con la foto inline) sotto a titolo e desc
+		* prova NO TAB ma i blocchi uno sotto l'altro
+	* newsletter
+		* embed mailchimp
+* dove ci andrebbero form: PULSANTI che vanno alle google form o quant'altro
+* tutte le pagine
+	* breadcrumbs
+		* installato `hexo-breadcrumbs`
+    * **non funziona**: `page.breadcrumb` == undefined, `page.breadcrumb.html` -> BOOOM
 
 ## Theme
 
@@ -12,6 +20,7 @@
 * hero: parallax
 * location
   * link in "get directions"!
+* the "location + date" row appears in several pages. Make a mini-component?
 * 404 page (https://blog.kiprosh.com/show-custom-404-error-page-for-netlify-applications/)
 
 ## Assets
@@ -31,6 +40,19 @@
 
 * favicon + tiles (grusp logo); done quickly with sample logo
 * colored header on scroll
-* hero
-  * countdown
+
+* home
+	* hero
+	  * countdown
+	  * la hero image DEVE ESSERE IN SOURCE e non nel tema
+	* speaker
+		* prima titolo talk e poi nome e qualifica più piccoli
+		* eventualmente troncare se è lungo; magari se il n. di speaker è > 10
+		* .speaker-card {max-width: 250px}
 * date in CFP come hero
+* [Netlify] Alert: Insecure mixed content detected in compassionate-goldstine-1d9c01
+  * (i namespace skiantati nei SVG hanno `http`)
+* pulsante Back to top like we were in the 1990s :)
+* pagina speaker
+	* foto più grande (200)
+	* descrizione talk sotto il titolo, di fianco alla foto; se sbrodola piuttosto gira attorno alla foto(?)

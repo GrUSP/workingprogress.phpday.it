@@ -19,6 +19,7 @@
 
 html
   box-sizing: border-box
+  scroll-behavior: smooth
 *, *:before, *:after
   box-sizing: inherit
 
@@ -26,7 +27,7 @@ body
   box-sizing: content-box
   margin: 0
   padding: 0
-  font-size: 20px
+  font-size: 16px
   width: 100vw
   color: $main-text-color
 
@@ -211,9 +212,13 @@ header
 @import "../../../layout/components/newsletter/newsletter"
 
 //- Page: Sponsor
-@import "../../../layout/pages/sponsor"
+@import "../../../layout/pages/page_sponsor"
 //- Page: Welcome / COC
-@import "../../../layout/pages/coc"
+@import "../../../layout/pages/page_coc"
+//- Page: Welcome / Scholarships
+@import "../../../layout/pages/page_scholarships"
+//- Page: Speakers & talks
+@import "../../../layout/pages/page_speakers"
 
 //- Footer
 
@@ -252,3 +257,32 @@ footer .columns.inner
     max-width: 300px
 footer .inner.is-centered .column
   font-size: .9em
+
+// scroll to top button
+.back-to-top
+  width: 60px
+  height: 50px
+  background-color: $main-color
+  position: fixed
+  bottom: 20px
+  right: 0
+  transition: all .5s ease-in
+  border-top-left-radius: 30px
+  border-bottom-left-radius: 30px
+
+// not indented to make it general (used in speakers page)
+.chevron
+  color: $main-text-color_inverted
+  transition: all .5s ease-in
+  &::before
+    border-style: solid
+    border-width: 4px 4px 0 0
+    content: ''
+    display: inline-block
+    height: 16px
+    right: 18px
+    position: absolute
+    top: 20px
+    transform: rotate(-45deg)
+    vertical-align: top
+    width: 16px

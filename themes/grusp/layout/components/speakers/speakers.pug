@@ -1,23 +1,33 @@
-section(id="speakers")
+section(id="hero__speakers")
   .speakers__container
     - no_of_speakers = 0
     - suffix = ""
+    //- this is to truncate titles if there are more than 10 speakers (20200319 request)
+    - truncate = false
     each item in site.data.speakers
       - no_of_speakers++
     if no_of_speakers > 1
       - suffix = "s"
+    //- this is to truncate titles if there are more than 10 speakers (20200319 request)
+    if no_of_speakers > 7
+      - truncate = true
     .columns
       .column.inner
         h2.title.is-2 !{no_of_speakers} speaker!{suffix}
         .inner_holder
           each speaker in site.data.speakers
             - filename = "/img/speakers/"+speaker.speaker_pic_filename
-            a(href="")
+            - target_href = "/speakers#" + speaker.speaker_name
+            a(href=target_href)
               .card.speaker-card
                 .card-image
                   img(src=filename)
                 .card-content
-                  p.title !{speaker.speaker_name}
+                  - theTitle = speaker.speaker_talk_title
+                  if (truncate)
+                    if(theTitle.length > 40)
+                      - theTitle = theTitle.substr(0,40) + "..."
+                  p.title !{theTitle}
+                  p.subtitle !{speaker.speaker_name}
                   p
                     em !{speaker.speaker_role}
-                  p.subtitle !{speaker.speaker_talk_title}
