@@ -16,8 +16,9 @@ breadcrumb:
   display: true
 
 # URL
-## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+## If your site is put in a subdirectory, set url as 'yoursite.com/child' and root as '/child/'
+# TODO actual URL (per site)
+url: https://localhost:4000/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:

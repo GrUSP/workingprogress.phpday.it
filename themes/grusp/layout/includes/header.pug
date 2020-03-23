@@ -24,6 +24,8 @@ header(class=classes id="header")
                   a(aria-label=item).navbar-link !{item}
                   .navbar-dropdown
                     each subitem in theme.welcome_submenu
-                      a(href=url_for(subitem) aria-label=subitem).navbar-item !{subitem}
+                      //- this. is. horrible.
+                      - subpage_url = url_for(site.url) + 'welcome' + url_for(subitem) + '.html'
+                      a(href=url_for(subpage_url) aria-label=subitem).navbar-item !{subitem}
             else
               a(href=url_for(item) aria-label=item).navbar-item !{item}

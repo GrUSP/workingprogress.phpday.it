@@ -7,6 +7,8 @@
 		* prova NO TAB ma i blocchi uno sotto l'altro
 	* newsletter
 		* embed mailchimp
+* pagina sponsor
+	* nuovi colori 
 * dove ci andrebbero form: PULSANTI che vanno alle google form o quant'altro
 * tutte le pagine
 	* breadcrumbs

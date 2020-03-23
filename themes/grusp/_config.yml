@@ -17,13 +17,13 @@ welcome_submenu:
   Scholarships: scholarships
 
 # footer menu navigation
-footer_menu:
-  Top: top
-  Tickets: schedule
-  Sponsor: sponsor
-  Scholarships: scholarships
-  Talks: talks
-  Newsletter: newsletter
+# footer_menu:
+#   Top: top
+#   Tickets: schedule
+#   Sponsor: sponsor
+#   Scholarships: scholarships
+#   Talks: talks
+#   Newsletter: newsletter
 
 # stylesheets loaded in the <head>
 stylesheets:

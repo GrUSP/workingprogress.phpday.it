@@ -4,7 +4,8 @@
 @import "./fonts"
 
 //- Defaults: colors, etc
-@import "./defaults"
+@import "defaults"
+@import "_mixins"
 
 //- Bulma
 @import "bulma/sass/utilities/initial-variables"
@@ -35,6 +36,9 @@ section
   width: 100%
   margin: 0
   padding: 0
+  padding-top: 80px
+  &#hero
+    padding-top: 0
 
 h1
   font-size: 3em
@@ -58,6 +62,9 @@ h5
   font-size: 1.2em
   text-transform: uppercase
 
+p
+  margin: 1em 0
+
 a
   color: $main-color
 a:hover, a:active, a:focus
@@ -76,19 +83,6 @@ a:hover, a:active, a:focus
 
 .is-centered
   text-align: center
-
-//- Additional mixins
-=small-phone
-  @media screen and (orientation: portrait) and (max-width: 360px)
-    @content
-
-=medium-phone
-  @media screen and (orientation: portrait) and (max-width: 600px)
-    @content
-
-=tablet-vertical
-  @media screen and (orientation: portrait) and (min-width: 768px)
-    @content
 
 //- Header
 
@@ -212,13 +206,16 @@ header
 @import "../../../layout/components/newsletter/newsletter"
 
 //- Page: Sponsor
-@import "../../../layout/pages/page_sponsor"
+@import "./page_sponsor"
 //- Page: Welcome / COC
-@import "../../../layout/pages/page_coc"
+@import "./page_coc"
 //- Page: Welcome / Scholarships
-@import "../../../layout/pages/page_scholarships"
+@import "./page_scholarships"
 //- Page: Speakers & talks
-@import "../../../layout/pages/page_speakers"
+@import "./page_speakers"
+
+//-   Breadcrumbs
+@import "./breadcrumbs"
 
 //- Footer
 
