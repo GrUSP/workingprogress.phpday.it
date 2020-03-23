@@ -1,3 +1,13 @@
-nav.breadcrumb
-  //- doesn't work ;_;
-  //-- page.breadcrumb.html
+block content
+  .container_breadcrumbs
+    .inner
+      nav.breadcrumb.has-arrow-separator
+        ul
+          li
+            a(href=url_for(site.url)) home
+          //- this. is. horrible.
+          if(is_current("welcome/coc") || is_current("welcome/scholarships"))
+            li
+              a(href=url_for("welcome")) welcome
+          li.is-active
+            a(href=url_for(page)) !{page.title}
