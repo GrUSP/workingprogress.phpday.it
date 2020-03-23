@@ -11,7 +11,7 @@
 	* nuovi colori 
 * dove ci andrebbero form: PULSANTI che vanno alle google form o quant'altro
 * tutte le pagine
-	* breadcrumbs
+	* breadcrumbs:q:
 		* installato `hexo-breadcrumbs`
     * **non funziona**: `page.breadcrumb` == undefined, `page.breadcrumb.html` -> BOOOM
 * conference logo in `source` invece che nel tema!
