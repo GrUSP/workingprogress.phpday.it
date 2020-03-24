@@ -7,10 +7,7 @@
 	* parallax
 	* background: ora il tema si aspetta `hero.jpg` (e `location.jpg`) -- rendere possibile usare altri tipi di immagine. 
 		* usare `defaults`?
-		* usare semplicemente qualsiasi cosa ci sia in `imG/home/` indipendentemente dal filetype?
-* location
-  * link in "get directions"!
-* the "location + date" row appears in several pages. Make a mini-component?
+		* usare semplicemente qualsiasi cosa ci sia in `img/home/` indipendentemente dal filetype?
 * 404 page (https://blog.kiprosh.com/show-custom-404-error-page-for-netlify-applications/)
 * home
 	* newsletter
@@ -45,6 +42,8 @@
 		* prima titolo talk e poi nome e qualifica più piccoli
 		* eventualmente troncare se è lungo; magari se il n. di speaker è > 10
 		* .speaker-card {max-width: 250px}
+	* location
+		* link in "get directions"!
 * date in CFP come hero
 * [Netlify] Alert: Insecure mixed content detected in compassionate-goldstine-1d9c01
   * (i namespace skiantati nei SVG hanno `http`)
@@ -61,3 +60,4 @@
 	* **non funziona**: `page.breadcrumb` == undefined, `page.breadcrumb.html` -> BOOOM
 	* fatti breadcrumb a manella
 * conference logo: in `source` invece che nel tema!
+* privacy policy
