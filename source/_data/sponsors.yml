@@ -3,6 +3,11 @@ main:
     name: "weLaika"
     logo_filename: "logo-welaika.png"
     site_url: "https://welaika.com/"
+diamond:
+  sponsor1:
+    name: "weLaika"
+    logo_filename: "logo-welaika.png"
+    site_url: "https://welaika.com/"
 platinum:
   sponsor1:
     name: "weLaika"
@@ -24,6 +29,14 @@ silver:
     site_url: "https://welaika.com/"
 bronze:
   sponsor1:
+    name: "weLaika"
+    logo_filename: "logo-welaika.png"
+    site_url: "https://welaika.com/"
+  sponsor2:
+    name: "weLaika"
+    logo_filename: "logo-welaika.png"
+    site_url: "https://welaika.com/"
+  sponsor3:
     name: "weLaika"
     logo_filename: "logo-welaika.png"
     site_url: "https://welaika.com/"
