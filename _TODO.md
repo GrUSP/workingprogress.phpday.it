@@ -1,29 +1,23 @@
 # TODO
 
-* home
-	* workshop
-		* tutto dentro il blocco viola
-		* nome, qualifica e contatto (con la foto inline) sotto a titolo e desc
-		* prova NO TAB ma i blocchi uno sotto l'altro
-	* newsletter
-		* embed mailchimp
-* pagina sponsor
-	* nuovi colori 
-* dove ci andrebbero form: PULSANTI che vanno alle google form o quant'altro
-* tutte le pagine
-	* breadcrumbs:q:
-		* installato `hexo-breadcrumbs`
-    * **non funziona**: `page.breadcrumb` == undefined, `page.breadcrumb.html` -> BOOOM
-* conference logo in `source` invece che nel tema!
-
 ## Theme
 
 * a special `defaults.sass` file for each conference, with color palette
-* hero: parallax
+* hero: 
+	* parallax
+	* background: ora il tema si aspetta `hero.jpg` (e `location.jpg`) -- rendere possibile usare altri tipi di immagine. 
+		* usare `defaults`?
+		* usare semplicemente qualsiasi cosa ci sia in `imG/home/` indipendentemente dal filetype?
 * location
   * link in "get directions"!
 * the "location + date" row appears in several pages. Make a mini-component?
 * 404 page (https://blog.kiprosh.com/show-custom-404-error-page-for-netlify-applications/)
+* home
+	* newsletter
+		* embed mailchimp
+* dove ci andrebbero form: PULSANTI che vanno alle google form o quant'altro
+* breadcrumbs:
+	* disinstallare `hexo-breadcrumbs`
 
 ## Assets
 
@@ -59,3 +53,11 @@
 	* foto più grande (200)
 	* descrizione talk sotto il titolo, di fianco alla foto; se sbrodola piuttosto gira attorno alla foto(?)
 * mobile menu
+* pagina sponsor
+	* nuovi colori 
+	* automatizzato conteggio available slots
+* breadcrumbs:
+	* installato `hexo-breadcrumbs`
+	* **non funziona**: `page.breadcrumb` == undefined, `page.breadcrumb.html` -> BOOOM
+	* fatti breadcrumb a manella
+* conference logo: in `source` invece che nel tema!
