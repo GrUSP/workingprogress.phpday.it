@@ -8,7 +8,7 @@ block content
       .inner
         .columns
           .column
-            h1.title-is-1= page.title
+            h1(role="heading" aria-level="1").title-is-1= page.title
           .column
             .row-info
               .info-icon
@@ -29,16 +29,16 @@ block content
                 - filename = "/img/speakers/"+speaker.speaker_pic_filename
                 .card.speaker-card
                   .card-image
-                    img(src=filename)
+                    img(src=filename role="figure" aria-label=speaker.speaker_name)
               .column
                 .columns.speaker-info
                   .column
-                    h2(id=speaker.speaker_name).speaker-name !{speaker.speaker_name}
+                    h2(role="heading" aria-level="2" id=speaker.speaker_name).speaker-name !{speaker.speaker_name}
                   .column
                     p !{speaker.speaker_role}
                 .columns.columns_talk-title
                   .column
-                    h2.talk-title !{speaker.talk_title}
+                    h2(role="heading" aria-level="2").talk-title !{speaker.talk_title}
                     p !{speaker.talk_description}
             .has-border
               p
@@ -48,10 +48,10 @@ block content
   script(type="text/javascript" src='/assets/js/speakers_menu.js')
   aside(id="secondary_menu").menu.secondary-menu
     .secondary-menu-button-container
-      a(href="#menu" id="secondary_menu_button").secondary-menu-button.is-active
+      a(href="#menu" id="secondary_menu_button" role="navigation" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement" aria-label="Speakers menu").secondary-menu-button.is-active
         .chevron(id="speaker_menu_chevron")
     ul.menu-list
       each speaker in site.data.speakers
         - target_href = "#" + speaker.speaker_name
         li
-          a(href=target_href).secondary-menu-list-item !{speaker.speaker_name}
+          a(href=target_href role="button" aria-label=speaker.speaker_name).secondary-menu-list-item !{speaker.speaker_name}

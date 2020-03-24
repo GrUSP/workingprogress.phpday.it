@@ -9,7 +9,7 @@ block content
       .inner
         .title-container
           include ../source/assets/ico/ico-scholarship.svg
-          h1.title-is-1 !{site.data.page_scholarships.intro.main_title}
+          h1(role="heading" aria-level="1").title-is-1 !{site.data.page_scholarships.intro.main_title}
         p
           strong !{site.data.page_scholarships.intro.content_1}
         p.text_bigger !{site.data.page_scholarships.intro.content_2}
@@ -17,7 +17,7 @@ block content
     .container.container__short-version
       .inner
         if site.data.page_scholarships.short_version.title
-          h2.title.is-2 !{site.data.page_scholarships.short_version.title}
+          h2(role="heading" aria-level="2").title.is-2 !{site.data.page_scholarships.short_version.title}
         p !{site.data.page_scholarships.short_version.content_1}
         if(site.data.page_scholarships.short_version.content_2)
           p
@@ -33,24 +33,24 @@ block content
     .container.container__long-version
       .inner
         if site.data.page_scholarships.long_version.title
-          h2.title.is-2 !{site.data.page_scholarships.long_version.title}
-        h3 !{site.data.page_scholarships.long_version.content_1}
+          h2(role="heading" aria-level="2").title.is-2 !{site.data.page_scholarships.long_version.title}
+        h3(role="heading" aria-level="3") !{site.data.page_scholarships.long_version.content_1}
         p !{site.data.page_scholarships.long_version.content_2_beginning}
-          a(href=site.data.page_scholarships.long_version.content_2_link_url target="_blank") !{site.data.page_scholarships.long_version.content_2_link_label}
+          a(href=site.data.page_scholarships.long_version.content_2_link_url target="_blank" role="button" rel="external" aria-label=content_2_link_label) !{site.data.page_scholarships.long_version.content_2_link_label}
           | !{site.data.page_scholarships.long_version.content_2_ending}
-        h3 !{site.data.page_scholarships.long_version.content_3}
+        h3(role="heading" aria-level="3") !{site.data.page_scholarships.long_version.content_3}
         p !{site.data.page_scholarships.long_version.content_4}
-        h3 !{site.data.page_scholarships.long_version.content_5}
+        h3(role="heading" aria-level="3") !{site.data.page_scholarships.long_version.content_5}
         p !{site.data.page_scholarships.long_version.content_6}
-          a(href=contact_url) !{site.data.defaults.conference.contact_email}
+          a(href=contact_url role="button" rel="external" aria-label="contact email") !{site.data.defaults.conference.contact_email}
 
     .container.container_diversity-sponsors
       .inner
-        h4.title.is-4  !{site.data.page_scholarships.diversity_sponsors_title}
+        h4(role="heading" aria-level="4").title.is-4  !{site.data.page_scholarships.diversity_sponsors_title}
         each sponsor in site.data.page_scholarships.diversity_sponsors
           .column
             - filename = "/img/logos/"+sponsor.logo_filename
-            a(href=sponsor.site_url target="_blank")
+            a(href=sponsor.site_url target="_blank" rel="external" role="button" aria-label=sponsor.name)
               img(src=filename alt=sponsor.name)
     include components/newsletter/newsletter
     include components/sponsors/sponsors

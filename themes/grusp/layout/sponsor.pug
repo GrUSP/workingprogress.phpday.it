@@ -7,7 +7,7 @@ block content
 
     .container
       .inner
-        h1.title-is-1= page.title
+        h1(role="heading" aria-level="1").title-is-1= page.title
         p.is-size-4.has-text-weight-bold !{site.data.page_sponsor.intro.slogan_1}
         p.is-size-4.has-text-weight-bold !{site.data.page_sponsor.intro.slogan_2}
         p !{site.data.page_sponsor.intro.content_1}
@@ -15,16 +15,16 @@ block content
         p !{site.data.page_sponsor.intro.content_3}
     .container.background-light.is-centered
       .inner
-        h2.title.is-2 !{site.data.page_sponsor.block_2.title}
+        h2(role="heading" aria-level="2").title.is-2 !{site.data.page_sponsor.block_2.title}
         p.is-size-4.has-text-weight-bold !{site.data.page_sponsor.block_2.slogan}
         .columns.has-text-left
           .column
-            h3.title.is-3 !{site.data.page_sponsor.block_2.subtitle_1}
+            h3(role="heading" aria-level="3").title.is-3 !{site.data.page_sponsor.block_2.subtitle_1}
             p !{site.data.page_sponsor.block_2.content_1}
           .column
-            h3.title.is-3 !{site.data.page_sponsor.block_2.subtitle_2}
+            h3(role="heading" aria-level="3").title.is-3 !{site.data.page_sponsor.block_2.subtitle_2}
             p !{site.data.page_sponsor.block_2.content_2}
-              a(href=contact_url) !{site.data.defaults.conference.contact_email}
+              a(href=contact_url role="button" rel="external" aria-label="contact email") !{site.data.defaults.conference.contact_email}
       //- count number of occupied slots (number of items in each sponsorship level in 'sponsors.yml')
       //- at each sponsorship level, the number of available slots is calculated based on the maximum number of slots specified in 'page_sponsor.yml' for the level
       - occupied_slots_main = 0

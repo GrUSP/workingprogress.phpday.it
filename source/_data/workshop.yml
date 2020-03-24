@@ -7,6 +7,7 @@ workshop1:
   teacher_org: Nebulab
   title: Create an application with Rails and Vue.js
   description: Lorem ipsum dolor sic amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+  page_url: ""
 workshop2:
   date: April 2, 2020
   location: Verona
@@ -16,3 +17,5 @@ workshop2:
   teacher_org: "???"
   title: Create an application with Rails, without Vue.js ;)
   description: Lorem ipsum dolor sic amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+  ticket_url: ""
+  page_url: ""

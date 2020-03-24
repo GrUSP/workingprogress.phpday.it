@@ -2,8 +2,8 @@ section(id="cfp").section_nopadding
   .cfp__container
     .columns.inner
       .column
-        h1(role="heading" aria-level="2").title.is-1 Call For Papers Now Open!
+        h1(role="heading" aria-level="2").title.is-1 !{site.data.defaults.conference.cfp_open_title}
         .row-info
           - cfp_deadline = date(site.data.defaults.conference.cfp_deadline, config.date_format_hero)
-          span Submissions accepted until #{cfp_deadline}
-          a.button.is-medium.is-rounded.is-primary REGISTER NOW
+          span !{site.data.defaults.conference.cfp_open_label} #{cfp_deadline}
+          a(aria-label=site.data.defaults.conference.cfp_register_aria_label).button.is-medium.is-rounded.is-primary !{site.data.defaults.conference.cfp_register_label}

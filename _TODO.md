@@ -2,19 +2,22 @@
 
 ## Theme
 
+* OCIO aggiungere l'attributo aria-label negli SVG
 * a special `defaults.sass` file for each conference, with color palette
-* hero: 
-	* parallax
-	* background: ora il tema si aspetta `hero.jpg` (e `location.jpg`) -- rendere possibile usare altri tipi di immagine. 
-		* usare `defaults`?
-		* usare semplicemente qualsiasi cosa ci sia in `img/home/` indipendentemente dal filetype?
 * 404 page (https://blog.kiprosh.com/show-custom-404-error-page-for-netlify-applications/)
 * home
+	* hero: 
+		* background: ora il tema si aspetta `hero.jpg` (e `location.jpg`) -- rendere possibile usare altri tipi di immagine. 
+			* usare `defaults`?
+			* usare semplicemente qualsiasi cosa ci sia in `img/home/` indipendentemente dal filetype?
+	* workshop
+		* link a pagina workshop (`#anchor` se pagina unica)
 	* newsletter
 		* embed mailchimp
 * dove ci andrebbero form: PULSANTI che vanno alle google form o quant'altro
 * breadcrumbs:
 	* disinstallare `hexo-breadcrumbs`
+* workshop page
 
 ## Assets
 
@@ -23,10 +26,8 @@
 
 ## Content
 
-* links & info: aria attributes + opengraph
+* links & info: opengraph
 * date in speakers come hero
-* link: solo aria attributes
-  * OCIO aggiungere l'attributo aria-label negli SVG
 * schema.org: in JSON-LD! specie per schema.org/Event
 
 # DONE
@@ -38,6 +39,7 @@
 	* hero
 	  * countdown
 	  * la hero image DEVE ESSERE IN SOURCE e non nel tema
+	* parallax
 	* speaker
 		* prima titolo talk e poi nome e qualifica più piccoli
 		* eventualmente troncare se è lungo; magari se il n. di speaker è > 10
@@ -61,3 +63,6 @@
 	* fatti breadcrumb a manella
 * conference logo: in `source` invece che nel tema!
 * privacy policy
+* aria attributes in links
+* parameterized labels for language agnosticism
+* social links as component

@@ -18,14 +18,16 @@ header(class=classes id="header")
         .navbar-start
         .navbar-end
           each item in theme.menu
+            - aria_label = item + " page"
             if(item == "welcome")
               if(theme.welcome_submenu)
                 .navbar-item.has-dropdown.is-hoverable
-                  a(aria-label=item).navbar-link !{item}
+                  a(aria-label=aria_label).navbar-link !{item}
                   .navbar-dropdown
                     each subitem in theme.welcome_submenu
                       //- this. is. horrible.
                       - subpage_url = url_for(site.url) + 'welcome' + url_for(subitem) + '.html'
-                      a(href=url_for(subpage_url) aria-label=subitem).navbar-item !{subitem}
+                      - aria_label = subitem + " page"
+                      a(href=url_for(subpage_url) aria-label=aria_label).navbar-item !{subitem}
             else
-              a(href=url_for(item) aria-label=item).navbar-item !{item}
+              a(href=url_for(item) aria-label=aria_label).navbar-item !{item}

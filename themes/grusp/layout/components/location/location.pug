@@ -5,7 +5,7 @@ section(id="location").section_nopadding
         .info-icon
           include ../../../source/assets/ico/ico-where.svg
         .info__location !{site.data.defaults.conference.city}
-      h2.title.is-2 !{site.data.defaults.conference.location_name}
+      h2(role="heading" aria-level="2").title.is-2 !{site.data.defaults.conference.location_name}
       p
         strong !{site.data.defaults.conference.location_address}
-      a(href=site.data.defaults.conference.location_maps_url target="_blank").button.is-medium.is-rounded.is-primary GET DIRECTIONS
+      a(href=site.data.defaults.conference.location_maps_url target="_blank").button.is-medium.is-rounded.is-primary !{site.data.defaults.conference.location_maps_label}

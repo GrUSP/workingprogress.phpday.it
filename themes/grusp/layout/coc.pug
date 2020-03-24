@@ -9,12 +9,12 @@ block content
       .inner
         .title-container
           include ../source/assets/ico/ico-coc.svg
-          h1.title-is-1 !{site.data.page_coc.intro.main_title}
+          h1(role="heading" aria-level="1").title-is-1 !{site.data.page_coc.intro.main_title}
         p !{site.data.page_coc.intro.content_1}
         p !{site.data.page_coc.intro.content_2}
     .container.container__short-version
       .inner
-        h2.title.is-2 !{site.data.page_coc.short_version.title}
+        h2(role="heading" aria-level="2").title.is-2 !{site.data.page_coc.short_version.title}
         p !{site.data.page_coc.short_version.content_1}
         if(site.data.page_coc.short_version.content_2)
           p !{site.data.page_coc.short_version.content_2}
@@ -28,7 +28,7 @@ block content
           p !{site.data.page_coc.short_version.content_6}
     .container.container__long-version
       .inner
-        h2.title.is-2 !{site.data.page_coc.long_version.title}
+        h2(role="heading" aria-level="2").title.is-2 !{site.data.page_coc.long_version.title}
         p !{site.data.page_coc.long_version.content_1}
         if(site.data.page_coc.long_version.content_2)
           p !{site.data.page_coc.long_version.content_2}
@@ -41,7 +41,7 @@ block content
         if(site.data.page_coc.long_version.content_6)
           p !{site.data.page_coc.long_version.content_6}
         .info-box
-          h2.title.is-2  !{site.data.page_coc.long_version.contact_info_title}
+          h2(role="heading" aria-level="2").title.is-2  !{site.data.page_coc.long_version.contact_info_title}
           p !{site.data.page_coc.long_version.contact_content_1}
           if(site.data.page_coc.long_version.contact_content_2)
             p !{site.data.page_coc.long_version.contact_content_2}

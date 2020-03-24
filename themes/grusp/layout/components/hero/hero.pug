@@ -13,23 +13,23 @@ section(id="hero").section_nopadding
           .info__date
             time(datetime=site.data.defaults.conference.date) !{start_date}
         .row__title
-          h1(role="heading" aria-level="1").title.is-1 Welcome to !{site.data.defaults.conference.title}
+          h1(role="heading" aria-level="1").title.is-1 !{site.data.defaults.conference.title_pre} !{site.data.defaults.conference.title}
         .row__more
           .columns
             .column.is-two-thirds
-              .countdown-container
+              .countdown-container(role="timer")
                 .days-container
                   .days 00
-                  .days-label days
+                  .days-label !{site.data.defaults.conference.countdown_days}
                 .hours-container
                   .hours 00
-                  .hours-label hours
+                  .hours-label !{site.data.defaults.conference.countdown_hours}
                 .minutes-container
                   .minutes 00
-                  .minutes-label minutes
+                  .minutes-label !{site.data.defaults.conference.countdown_minutes}
                 .seconds-container
                   .seconds 00
-                  .seconds-label seconds
+                  .seconds-label !{site.data.defaults.conference.countdown_seconds}
             script(type="text/javascript" src='/assets/js/layout/components/hero/hero.js')
             script(type="text/javascript").
               document.addEventListener("DOMContentLoaded", function(event) {
@@ -37,4 +37,4 @@ section(id="hero").section_nopadding
                 countDownClock(a);
               });
             .column
-              a.button.is-large.is-rounded.is-primary BUY TICKETS NOW
+              a(aria-label=site.data.defaults.conference.buy_tickets_label).button.is-large.is-rounded.is-primary !{site.data.defaults.conference.buy_tickets_label}

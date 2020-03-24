@@ -13,15 +13,15 @@ section(id="hero__speakers").section_nopadding
       - truncate = true
     .columns
       .column.inner
-        h2.title.is-2 !{no_of_speakers} speaker!{suffix}
+        h2(role="heading" aria-level="2").title.is-2 !{no_of_speakers} !{site.data.defaults.conference.speakers_title}!{suffix}
         .inner_holder
           each speaker in site.data.speakers
             - filename = "/img/speakers/"+speaker.speaker_pic_filename
             - target_href = "/speakers#" + speaker.speaker_name
-            a(href=target_href)
+            a(href=target_href role="button" aria-label=speaker.speaker_name)
               .card.speaker-card
                 .card-image
-                  img(src=filename)
+                  img(src=filename role="figure" aria-label=speaker.speaker_name)
                 .card-content
                   - theTitle = speaker.talk_title
                   if (truncate)

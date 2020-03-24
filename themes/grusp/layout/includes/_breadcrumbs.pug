@@ -1,13 +1,13 @@
 block content
   .container_breadcrumbs
     .inner
-      nav.breadcrumb.has-arrow-separator
+      nav(role="navigation" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement" aria-label="breadcrumbs menu").breadcrumb.has-arrow-separator
         ul
           li
-            a(href=url_for(site.url)) home
+            a(href=url_for(site.url) role="button" aria-label="home page") home
           //- this. is. horrible.
           if(is_current("welcome/coc") || is_current("welcome/scholarships"))
             li
-              a(href=url_for("welcome")) welcome
+              a(href=url_for("welcome") role="button" aria-label="welcome page") welcome
           li.is-active
-            a(href=url_for(page)) !{page.title}
+            a(href=url_for(page) role="button" aria-label=page.title) !{page.title}

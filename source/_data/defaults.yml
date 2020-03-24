@@ -1,18 +1,55 @@
 conference:
+  # these are for the hero section
+  title_pre: "Welcome to"
   title: "Ruby Day"
   city: "Verona"
   date: 2020-04-11T09:00
+  countdown_days: "days"
+  countdown_hours: "hours"
+  countdown_minutes: "minutes"
+  countdown_seconds: "seconds"
+  buy_tickets_label: "Buy tickets now"
+  # set to false to make CFP section disappear from home page!
+  cfp_open: true
+  cfp_open_label: "Submissions accepted until"
+  cfp_open_title: "Call For Papers Now Open!"
+  cfp_deadline: 2020-02-29T17:00
+  cfp_register_label: "Apply now"
+  cfp_register_aria_label: "Apply now for our Call for papers"
+  geninfo_title: "What is it?"
+  geninfo_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  geninfo_about_label: "About"
+  geninfo_coc_label: "Code of conduct"
+  geninfo_scholarships_label: "Scholarships"
+  geninfo_tickets_label: "Buy tickets"
+  # set to false to make Speakers section disappear from home page!
+  speakers_visible: true
+  speakers_title: "speaker"
+  # this is for the Workshops section in home page
+  workshops_title: "workshop"
+  workshops_tickets_label: "Buy tickets now"
+  workshops_readmore_label: "Read more"
+  # this is for the Location section in home page
   location_name: "Hotel San Marco"
   location_address: "Via Longhena 42, 37138 Verona (VE) Italy"
   location_maps_url: "https://www.google.com/maps/place/Hotel+San+Marco+Fitness+Pool+%26+SPA/@45.4399961,10.9697441,17z/data=!3m1!4b1!4m8!3m7!1s0x4781e1e30a8be6af:0x8091b108e1d130c6!5m2!4m1!1i2!8m2!3d45.4399961!4d10.9719328"
-  # set to false to make CFP section disappear from home page!
-  cfp_open: true
-  cfp_deadline: 2020-02-29T17:00
-  geninfo_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-  # set to false to make Speakers section disappear from home page!
-  speakers_visible: true
+  location_maps_label: "Get directions"
+  # this is for the Sponsors section in home page
+  sponsor_title_home: "Sponsors"
+  # this is for the Newsletter block
+  newsletter_title: "Stay in the loop!"
+  newsletter_subtitle: "Subscribe to our newsletter"
+  # this is for the Social links block
+  social_follow_pre: "You can follow"
+  social_follow_post: "on"
+  social_fb_url: "https://www.facebook.com/RubyDayIT/"
+  social_twitter_url: "https://twitter.com/rubydayIT"
+  social_vimeo_url: "https://vimeo.com/grusp"
+  social_youtube_url: "https://www.youtube.com/channel/UCdWnwC8nz_CCFQrmLBrLCVw"
+  # this is for the "previous editions" links
   base_url: "rubyday.it/"
   contact_email: "info@grusp.org"
+  past_editions_pre: "Browse past editions:"
   past_editions:
     2011: "2011"
     2012: "2012"
@@ -21,4 +58,10 @@ conference:
     2015: "2015"
     2016: "2016"
     2019: "2019"
-privacy_policy_url: "https://www.iubenda.com/privacy-policy/13404179"
+  footer_copy_text: "is &copy; by Grusp and its awesome staff"
+  footer_contact_text: "Contact us at "
+  footer_links_pre: "You can read our "
+  footer_links_privacy_link_label: "privacy policy"
+  footer_link_middle: "&nbsp; and our "
+  privacy_policy_url: "https://www.iubenda.com/privacy-policy/13404179"
+  footer_coc_link_label: "code of conduct"

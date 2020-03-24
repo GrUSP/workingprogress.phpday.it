@@ -7,45 +7,32 @@ footer.has-background-dark
         strong !{site.data.defaults.conference.city}
           | ,&nbsp;
           time(datetime=site.data.defaults.conference.date) !{start_date}
-      p Browse past editions:
+      p !{site.data.defaults.conference.past_editions_pre}
       p
         each item in site.data.defaults.conference.past_editions
           - url = "https://" + item + "/" + site.data.defaults.conference.base_url
           a(href=url target="_blank").past-edition !{item}
-      .row__social
-        p You can follow !{site.data.defaults.conference.title} on
-        a(href="https://www.facebook.com/RubyDayIT/" target="_blank")
-          .social-icon
-            include ../../source/assets/ico/ico-social-facebook.svg
-        a(href="https://twitter.com/rubydayIT" target="_blank")
-          .social-icon
-            include ../../source/assets/ico/ico-social-twitter.svg
-        a(href="https://vimeo.com/grusp" target="_blank")
-          .social-icon
-            include ../../source/assets/ico/ico-social-vimeo.svg
-        a(href="https://www.youtube.com/channel/UCdWnwC8nz_CCFQrmLBrLCVw" target="_blank")
-          .social-icon
-            include ../../source/assets/ico/ico-social-youtube.svg
+      include _social.pug
     .column.is-one-third
-      nav(role="navigation" aria-label="Footer menu")
+      nav(role="navigation" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement" aria-label="Footer menu")
         ul
           each item in theme.menu
             li
-              a(href=url_for(item) aria-label="!{item}") !{item}
+              a(href=url_for(item) role="button" aria-label=item) !{item}
     .column.is-one-third
       .footer__logo
         include ../../../../source/img/grusp-logo-full.svg
   .columns.inner.is-centered
     .column
-      p !{site.data.defaults.conference.title} is &copy; by Grusp and its awesome staff
-      p Contact us at 
-        a(href=contact_url) !{site.data.defaults.conference.contact_email}
-      p You can read our 
-        a(href=site.data.defaults.privacy_policy_url target="_blank") privacy policy
-        | &nbsp; and our 
-        a(href="/welcome/coc.html") code of conduct
+      p !{site.data.defaults.conference.title} !{site.data.defaults.conference.footer_copy_text}
+      p !{site.data.defaults.conference.footer_contact_text}
+        a(href=contact_url role="button" rel="external") !{site.data.defaults.conference.contact_email}
+      p !{site.data.defaults.conference.footer_links_pre}
+        a(href=site.data.defaults.conference.privacy_policy_url target="_blank") !{site.data.defaults.conference.footer_links_privacy_link_label}
+        | #{site.data.defaults.conference.footer_link_middle}
+        a(href="/welcome/coc.html") !{site.data.defaults.conference.footer_coc_link_label}
 
-a(href="#")
+a(href="#" role="button" aria-label="back to top")
   .back-to-top(id="back_to_top").is-hidden
     .chevron
 script(type="text/javascript" src='/assets/js/back_to_top.js')

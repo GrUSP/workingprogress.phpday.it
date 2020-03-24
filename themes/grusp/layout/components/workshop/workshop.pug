@@ -7,7 +7,7 @@ section(id="workshop").section_nopadding
     if no_of_workshops > 1
       - suffix = "s"
     .inner
-      h2.title.is-2 !{no_of_workshops} workshop!{suffix}
+      h2(role="heading" aria-level="2").title.is-2 !{no_of_workshops} !{site.data.defaults.conference.workshops_title}!{suffix}
       .tabs.is-centered.is-toggle.is-centered.is-fullwidth
         ul
           - workshop_no = 0
@@ -28,7 +28,7 @@ section(id="workshop").section_nopadding
                 .card
                   .card-content
                     .card-image
-                      img(src=filename)
+                      img(src=filename role="figure" aria-label=workshop.teacher)
                     p.title !{workshop.teacher}
                     p.subtitle !{workshop.teacher_role}
                     p.subtitle @ !{workshop.teacher_org}
@@ -41,9 +41,9 @@ section(id="workshop").section_nopadding
                   .info-icon.padded
                     include ../../../source/assets/ico/ico-calendar.svg
                   .info__date !{workshop.date}
-                h5 !{workshop.title}
+                h5(role="heading" aria-level="5") !{workshop.title}
                 p !{workshop.description}
                 .row__more
-                  a.button.is-medium.is-rounded.is-primary BUY TICKETS NOW
-                  a.button.is-medium.is-rounded.is-primary READ MORE
+                  a(href=workshop.ticket_url role="button" rel="external").button.is-medium.is-rounded.is-primary !{site.data.defaults.conference.workshops_tickets_label}
+                  a(href=workshop.page_url role="button").button.is-medium.is-rounded.is-primary !{site.data.defaults.conference.workshops_readmore_label}
 script(type="text/javascript" src='/assets/js/layout/components/workshop/workshop.js')
