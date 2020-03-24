@@ -36,7 +36,7 @@ block content
               p !{level.available_slots} available slots
 
             if level.description_1
-              .triangle.triangle_description_1
+              .triangle
             else
               if level.description_2
                 .triangle.triangle_description_2
@@ -46,6 +46,12 @@ block content
                 else
                   if level.description_4
                     .triangle.triangle_description_4
+                  else
+                    if level.description_5
+                      .triangle.triangle_description_5
+                    else
+                      if level.description_6
+                        .triangle.triangle_description_6
 
             if level.description_1
               .level-block__description_1
@@ -66,6 +72,21 @@ block content
               .level-block__description_4
                 ul
                   each item in level.description_4
+                    li !{item}
+            if level.description_5
+              .level-block__description_5
+                ul
+                  each item in level.description_5
+                    li !{item}
+            if level.description_6
+              .level-block__description_6
+                ul
+                  each item in level.description_6
+                    li !{item}
+            if level.description_7
+              .level-block__description_7
+                ul
+                  each item in level.description_7
                     li !{item}
 
   include components/newsletter/newsletter

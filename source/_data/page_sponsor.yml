@@ -11,6 +11,16 @@ block_2:
   content_1: "During the conference there are various moments for social aggregation between participants: coffee breaks, lunch, social night, speaker's dinners and pre-dinner aperitifs. Please get in touch with us to arrange the options that best suits your needs, or to share a brilliant sponsoring idea."
   subtitle_2: "Full packages"
   content_2: "You can also choose between one of the following sponsorship packages. May you need any additional information just get in touch with an email to "
+# level description blocks:
+#   If the numbered description is not there, the relevant section will not be displayed
+#   Every block has its own background color based on the block number
+#   description_1: dedicated sessions
+#   description_2: normally, Access to opt-in attendees list
+#   description_3: logo & rollup
+#   description_4: stand
+#   description_5: gadgets
+#   description_6: free tickets
+#   description_7: discounted tickets
 levels:
   level_1:
     name: Main
@@ -22,16 +32,19 @@ levels:
       - "One direct email marketing campaign"
     description_2:
       - "Access to opt-in attendees list"
+    description_3:
       - "Your logo in pre-event communications"
       - "Your logo on conference website"
       - "Your logo on conference rollups"
       - "Your own rollup in the conference room"
-    description_3:
-      - "Main Stand (table 2m x 1m)"
-      - "Bring your own gadgets (flyers, stickers, t-shirts)"
     description_4:
-      - "5 free tickets"
-      - "5 tickets with 50% discount"
+      - "Main Stand (table 2m x 1m)"
+    description_5:
+      - "Bring your own gadgets (flyers, stickers, t-shirts)"
+    description_6:
+      - "<strong>5</strong> free tickets"
+    description_7:
+      - "<strong>5</strong> tickets with <strong>50%</strong> discount"
   level_2:
     name: Diamond
     amount: 5000
@@ -39,68 +52,75 @@ levels:
     available_slots: 2
     description_2:
       - "Access to opt-in attendees list"
+    description_3:
       - "Your logo in pre-event communications"
       - "Your logo on conference website"
       - "Your logo on conference rollups"
       - "Your own rollup in the conference room"
-    description_3:
-      - "Stand (table 2m x 1m)"
-      - "Bring your own gadgets (flyers, stickers, t-shirts)"
     description_4:
-      - "4 free tickets"
-      - "5 tickets with 20% discount"
+      - "Stand (table 2m x 1m)"
+    description_5:
+      - "Bring your own gadgets (flyers, stickers, t-shirts)"
+    description_6:
+      - "<strong>4</strong> free tickets"
+    description_7:
+      - "<strong>5</strong> tickets with <strong>20%</strong> discount"
   level_3:
     name: Platinum
     amount: 3000
     vat_label: "(+ VAT 22%)"
     available_slots: 4
-    description_2:
+    description_3:
       - "Your logo in pre-event communications"
       - "Your logo on conference website"
       - "Your logo on conference rollups"
       - "Your own rollup in the conference room"
-    description_3:
-      - "Stand (table 1m x 1m)"
-      - "Bring your own gadgets (flyers, stickers, t-shirts)"
     description_4:
-      - "3 free tickets"
-      - "5 tickets with 15% discount"
+      - "Stand (table 1m x 1m)"
+    description_5:
+      - "Bring your own gadgets (flyers, stickers, t-shirts)"
+    description_6:
+      - "<strong>3</strong> free tickets"
+    description_7:
+      - "<strong>5</strong> tickets with <strong>15%</strong> discount"
   level_4:
     name: Gold
     amount: 1500
     vat_label: "(+ VAT 22%)"
     available_slots: 8
-    description_2:
+    description_3:
       - "Your logo in pre-event communications"
       - "Your logo on conference website"
       - "Your logo on conference rollups"
       - "Your own rollup in the conference room"
-    description_3:
+    description_5:
       - "Bring your own gadgets (flyers, stickers, t-shirts)"
-    description_4:
-      - "2 free tickets"
-      - "3 tickets with 15% discount"
+    description_6:
+      - "<strong>2</strong> free tickets"
+    description_7:
+      - "<strong>3</strong> tickets with <strong>15%</strong> discount"
   level_5:
     name: Silver
     amount: 750
     vat_label: "(+ VAT 22%)"
     available_slots: 16
-    description_2:
+    description_3:
       - "Your logo in pre-event communications"
       - "Your logo on conference website"
       - "Your logo on conference rollups"
-    description_3:
+    description_5:
       - "Bring your own gadgets (flyers, stickers, t-shirts)"
-    description_4:
-      - "1 free ticket"
-      - "3 tickets with 10% discount"
+    description_6:
+      - "<strong>1</strong> free ticket"
+    description_7:
+      - "<strong>3</strong> tickets with <strong>10%</strong> discount"
   level_6:
     name: Bronze
     amount: 500
     vat_label: "(+ VAT 22%)"
     available_slots: 32
-    description_2:
+    description_3:
       - "Your logo in pre-event communications"
       - "Your logo on conference website"
-    description_4:
-      - "2 tickets with 10% discount"
+    description_7:
+      - "<strong>2</strong> tickets with <strong>10%</strong> discount"
