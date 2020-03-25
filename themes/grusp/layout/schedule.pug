@@ -1,0 +1,34 @@
+extends includes/layout.pug
+
+block content
+  - contact_url = "mailto:" + site.data.defaults.conference.contact_email
+  section(id="schedule")
+    include includes/_breadcrumbs.pug
+
+    .container
+      .inner
+        .title-container.title-container_schedule
+          h1(role="heading" aria-level="1").title-is-1 !{page.title}
+        .timeline
+          .info-bar
+            .row-info
+              .info-icon.padded
+                include ../source/assets/ico/ico-calendar.svg
+                - start_date = date(site.data.defaults.conference.date, config.date_format_hero)
+              .info__date
+                time(datetime=site.data.defaults.conference.date) !{start_date}
+          ul
+            each item in site.data.speakers.sort((a, b) => (a.start_datetime > b.start_datetime) ? 1 : -1)
+              - classes = ""
+              if(!item.is_service_item)
+                - classes += "has-background"
+              li(class=classes)
+                time(datetime=item.start_datetime) !{time(item.start_datetime, config.time_format_schedule)} - !{time(item.end_datetime, config.time_format_schedule)}
+                br
+                strong !{item.talk_title}
+                if(item.speaker_name)
+                  br
+                  span !{item.speaker_name}
+                if(item.service_icon)
+                  - filename = "/assets/ico/ico-"+item.service_icon+".png"
+                  img(src=filename width="100px" height="100px" alt=item.service_icon)

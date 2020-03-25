@@ -1,0 +1,49 @@
+@import "defaults"
+
+.title-container_schedule
+  text-align: center
+  h1
+    margin: 0 auto
+    text-transform: capitalize
+
+.timeline
+  .info-bar
+    background-color: $main-color
+    padding: 1em
+    .row-info
+      display: flex
+      align-items: center
+      .info__date
+        color: $main-text-color_inverted
+        text-transform: uppercase
+    svg path
+      fill: $main-text-color_inverted
+  ul
+    li
+      color: $main-color
+      font-weight: 600
+      padding: 0 0 1em 1.6em
+      border-left: 2px solid $main-color
+      &::before
+        content: "\2022"
+        color: $main-color
+        font-weight: 600
+        font-size: 2em
+        display: inline-block
+        width: 1em
+        margin-left: -1em
+      &:first-child
+      &.has-background
+        background-color: $main-text-color_hue-light
+      strong
+        color: $main-text-color
+      span
+        font-weight: 200
+        font-style: italic
+        color: $main-text-color
+      img
+        display: inline
+        margin-top: -30px
+        margin-bottom: -15px
+        max-width: 60px
+        margin-left: 60px

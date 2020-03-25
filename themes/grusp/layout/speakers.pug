@@ -21,29 +21,30 @@ block content
               .info__date
                 time(datetime=site.data.defaults.conference.date) !{start_date}
     each speaker in site.data.speakers
-      .container.has-dynamic-background
-        .inner
-          .block-speaker
-            .columns
-              .column.column_speaker
-                - filename = "/img/speakers/"+speaker.speaker_pic_filename
-                .card.speaker-card
-                  .card-image
-                    img(src=filename role="figure" aria-label=speaker.speaker_name)
-              .column
-                .columns.speaker-info
-                  .column
-                    h2(role="heading" aria-level="2" id=speaker.speaker_name).speaker-name !{speaker.speaker_name}
-                  .column
-                    p !{speaker.speaker_role}
-                .columns.columns_talk-title
-                  .column
-                    h2(role="heading" aria-level="2").talk-title !{speaker.talk_title}
-                    p !{speaker.talk_description}
-            .has-border
-              p
-                span.speaker-name !{speaker.speaker_name}
-                | !{speaker.speaker_bio}
+      if(!speaker.is_service_item)
+        .container.has-dynamic-background
+          .inner
+            .block-speaker
+              .columns
+                .column.column_speaker
+                  - filename = "/img/speakers/"+speaker.speaker_pic_filename
+                  .card.speaker-card
+                    .card-image
+                      img(src=filename role="figure" aria-label=speaker.speaker_name)
+                .column
+                  .columns.speaker-info
+                    .column
+                      h2(role="heading" aria-level="2" id=speaker.speaker_name).speaker-name !{speaker.speaker_name}
+                    .column
+                      p !{speaker.speaker_role}
+                  .columns.columns_talk-title
+                    .column
+                      h2(role="heading" aria-level="2").talk-title !{speaker.talk_title}
+                      p !{speaker.talk_description}
+              .has-border
+                p
+                  span.speaker-name !{speaker.speaker_name}
+                  | !{speaker.speaker_bio}
 
   script(type="text/javascript" src='/assets/js/speakers_menu.js')
   aside(id="secondary_menu").menu.secondary-menu
@@ -52,6 +53,7 @@ block content
         .chevron(id="speaker_menu_chevron")
     ul.menu-list
       each speaker in site.data.speakers
-        - target_href = "#" + speaker.speaker_name
-        li
-          a(href=target_href role="button" aria-label=speaker.speaker_name).secondary-menu-list-item !{speaker.speaker_name}
+        if(!speaker.is_service_item)
+          - target_href = "#" + speaker.speaker_name
+          li
+            a(href=target_href role="button" aria-label=speaker.speaker_name).secondary-menu-list-item !{speaker.speaker_name}
