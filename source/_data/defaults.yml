@@ -1,4 +1,7 @@
 conference:
+  # menu and general params
+  menu_buy_tickets_label: "Buy tickets"
+  buy_tickets_url: ""
   # these are for the hero section
   title_pre: "Welcome to"
   title: "Ruby Day"
@@ -8,7 +11,7 @@ conference:
   countdown_hours: "hours"
   countdown_minutes: "minutes"
   countdown_seconds: "seconds"
-  buy_tickets_label: "Buy tickets now"
+  hero_buy_tickets_label: "Buy tickets now"
   # set to false to make CFP section disappear from home page!
   cfp_open: true
   cfp_open_label: "Submissions accepted until"

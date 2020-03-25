@@ -36,7 +36,9 @@ section
   width: 100%
   margin: 0
   padding: 0
-  padding-top: 80px
+  padding-top: 50px
+  +desktop
+    padding-top: 80px
   &.section_nopadding
     padding-top: 0
 
@@ -235,6 +237,28 @@ header
   &:hover, &:active, &:focus
     color: $main-color
     background-color: $main-text-color_inverted
+  //- "buy tickets" button in main menu
+  &.in-menu
+    color: $main-text-color_inverted
+    background-color: $main-color
+    border-color: $main-color
+    font-size: 1em
+    margin: 0 1em
+    padding-left: .75rem
+    padding-right: .75rem
+    text-transform: lowercase
+    +desktop
+      color: $main-color
+      background-color: $main-text-color_inverted
+      border-width: 1px
+      margin-left: 3em
+      padding-left: 1em
+      padding-right: 1em
+      text-transform: uppercase
+      &:hover, &:active, &:focus
+        color: $main-text-color_inverted
+        background-color: $main-color
+        border-color: $main-text-color_inverted
 
 //- Footer
 

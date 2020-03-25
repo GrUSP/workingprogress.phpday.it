@@ -10,6 +10,8 @@ menu:
   # Schedule: schedule
   # Workshops: workshops
   Sponsor: sponsor
+  # suspended pending discussion
+  # Workshop: workshops
 
 # welcome submenu
 welcome_submenu:

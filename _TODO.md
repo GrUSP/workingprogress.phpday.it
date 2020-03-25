@@ -1,7 +1,12 @@
 # TODO
 
+## Page: workshop
+
+* ???
+
 ## Theme
 
+* "buy ticket" in main menu
 * OCIO aggiungere l'attributo aria-label negli SVG
 * a special `defaults.sass` file for each conference, with color palette
 * 404 page (https://blog.kiprosh.com/show-custom-404-error-page-for-netlify-applications/)
@@ -15,8 +20,6 @@
 	* newsletter
 		* embed mailchimp
 * dove ci andrebbero form: PULSANTI che vanno alle google form o quant'altro
-* breadcrumbs:
-	* disinstallare `hexo-breadcrumbs`
 * workshop page
 
 ## Assets
@@ -61,6 +64,7 @@
 	* installato `hexo-breadcrumbs`
 	* **non funziona**: `page.breadcrumb` == undefined, `page.breadcrumb.html` -> BOOOM
 	* fatti breadcrumb a manella
+	* disinstallato `hexo-breadcrumbs`
 * conference logo: in `source` invece che nel tema!
 * privacy policy
 * aria attributes in links
