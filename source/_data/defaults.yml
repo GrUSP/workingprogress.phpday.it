@@ -49,7 +49,10 @@ conference:
   social_twitter_url: "https://twitter.com/rubydayIT"
   social_vimeo_url: "https://vimeo.com/grusp"
   social_youtube_url: "https://www.youtube.com/channel/UCdWnwC8nz_CCFQrmLBrLCVw"
-  # this is for the "previous editions" links
+  # 404
+  back_to_home_label: "back to home page"
+  # footer
+  #   this is for the "previous editions" links
   base_url: "rubyday.it/"
   contact_email: "info@grusp.org"
   past_editions_pre: "Browse past editions:"
