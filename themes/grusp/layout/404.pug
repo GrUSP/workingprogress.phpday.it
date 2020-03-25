@@ -2,7 +2,7 @@ extends includes/layout.pug
 
 block content
   section(id="404")
-    .container
+    .container.container_404
       .inner
         .columns
           .column.centered
@@ -11,4 +11,4 @@ block content
             h1(role="heading" aria-level="1").is-title.is-1= page.title
             != page.content
             p
-              a(role="button" aria-label="back to home page").button.is-primary.is-large.is-rounded !{site.data.defaults.conference.back_to_home_label}
+              a(href="/" role="button" aria-label="back to home page").button.is-primary.is-large.is-rounded !{site.data.defaults.conference.back_to_home_label}

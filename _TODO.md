@@ -6,20 +6,20 @@
 
 ## Theme
 
-* "buy ticket" in main menu
-* OCIO aggiungere l'attributo aria-label negli SVG
 * a special `defaults.sass` file for each conference, with color palette
-* 404 page (https://blog.kiprosh.com/show-custom-404-error-page-for-netlify-applications/)
 * home
 	* hero: 
 		* background: ora il tema si aspetta `hero.jpg` (e `location.jpg`) -- rendere possibile usare altri tipi di immagine. 
 			* usare `defaults`?
 			* usare semplicemente qualsiasi cosa ci sia in `img/home/` indipendentemente dal filetype?
 	* workshop
-		* link a pagina workshop (`#anchor` se pagina unica)
+		* link a pagina workshop (`#anchor` se pagina unica) (vediamo prima come si fanno i workshop)
 	* newsletter
 		* embed mailchimp
 * dove ci andrebbero form: PULSANTI che vanno alle google form o quant'altro
+  * pulsanti fatti; farsi dare link
+* schedule page
+* about page
 * workshop page
 
 ## Assets
@@ -70,3 +70,5 @@
 * aria attributes in links
 * parameterized labels for language agnosticism
 * social links as component
+* 404 page (https://blog.kiprosh.com/show-custom-404-error-page-for-netlify-applications/)
+* "buy ticket" in main menu
