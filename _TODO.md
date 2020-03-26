@@ -6,6 +6,9 @@
 
 ## Theme
 
+* ICONE VIOLA AL POSTO DI QUELLE NERE IN SCHEDULE
+
+
 * a special `defaults.sass` file for each conference, with color palette
 * home
 	* hero: 
