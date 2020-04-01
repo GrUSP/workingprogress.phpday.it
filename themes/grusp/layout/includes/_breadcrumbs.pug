@@ -5,7 +5,7 @@ block content
         ul
           li
             a(href=url_for(site.url) role="button" aria-label="home page") home
-          //- this. is. horrible.
+          //- this. is. horrible. <- usare string interpolation come in header.pug
           if(is_current("welcome/coc") || is_current("welcome/scholarships"))
             li
               a(href=url_for("welcome") role="button" aria-label="welcome page") welcome

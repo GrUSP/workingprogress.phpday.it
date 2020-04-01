@@ -27,10 +27,10 @@ block content
             .block-speaker
               .columns
                 .column.column_speaker
-                  - filename = "/img/speakers/"+speaker.speaker_pic_filename
+                  - filename = `/img/speakers/${speaker.speaker_pic_filename}`
                   .card.speaker-card
                     .card-image
-                      img(src=filename role="figure" aria-label=speaker.speaker_name)
+                      img(src=filename role="figure" aria-label=speaker.speaker_name alt=speaker.speaker_name)
                 .column
                   .columns.speaker-info
                     .column

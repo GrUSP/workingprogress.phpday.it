@@ -14,15 +14,7 @@ const countDownClock = (dateEvent) => {
   difference = Math.abs(difference);
 
   // Calculate time unit
-  if (difference / (60 * 60 * 24 * 365) > 1) {
-    // Years
-    format = 'years';
-    number = Math.floor(difference / (60 * 60 * 24 * 365));
-  } else if (difference / (60 * 60 * 24 * 45) > 1) {
-    // Months
-    format = 'months';
-    number = Math.floor(difference / (60 * 60 * 24 * 45));
-  } else if (difference / (60 * 60 * 24) > 1) {
+  if (difference / (60 * 60 * 24) > 1) {
     // Days
     format = 'days';
     number = Math.floor(difference / (60 * 60 * 24));
@@ -55,10 +47,7 @@ const countDownClock = (dateEvent) => {
         return timer(number * 60 * 60);
       case 'days':
         return timer(number * 60 * 60 * 24);
-      case 'months':
-        // NOT NECESSARILY 30
-        return timer(number * 60 * 60 * 24 * 30);
-    }
+      }
   }
 
   function timer(seconds) {

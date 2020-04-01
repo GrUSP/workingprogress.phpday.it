@@ -17,18 +17,16 @@ header(class=classes id="header")
       .navbar-menu(id="main_menu")
         .navbar-start
         .navbar-end
-          each item in theme.menu
-            - aria_label = item + " page"
-            if(item == "welcome")
-              if(theme.welcome_submenu)
-                .navbar-item.has-dropdown.is-hoverable
-                  a(aria-label=aria_label).navbar-link !{item}
-                  .navbar-dropdown
-                    each subitem in theme.welcome_submenu
-                      //- this. is. horrible.
-                      - subpage_url = url_for(site.url) + 'welcome' + url_for(subitem) + '.html'
-                      - aria_label = subitem + " page"
-                      a(href=url_for(subpage_url) aria-label=aria_label).navbar-item !{subitem}
+          each page_label, page_key in theme.menu
+            - aria_label = page_label + " page"
+            if(theme[page_key + '_submenu'])
+              .navbar-item.has-dropdown.is-hoverable
+                a(aria-label=aria_label).navbar-link !{page_label}
+                .navbar-dropdown
+                  each sub_label, sub_key in theme[page_key + '_submenu']
+                    - subpage_url = `${url_for(site.url)}${page_key}/${sub_key}.html`
+                    - aria_label = sub_label + " page"
+                    a(href=url_for(subpage_url) aria-label=aria_label).navbar-item !{sub_label}
             else
-              a(href=url_for(item) aria-label=aria_label).navbar-item !{item}
-          a(href=site.data.defaults.conference.buy_tickets_url target="_blank" role="button" rel="external" aria-label=site.data.defaults.conference.buy_tickets_label).button.is-small.is-rounded.is-primary.in-menu !{site.data.defaults.conference.menu_buy_tickets_label}
+              a(href=url_for(page_key) aria-label=aria_label).navbar-item !{page_label}
+          a(href=site.data.defaults.conference.buy_tickets_url target="_blank" rel="noopener noreferrer external" role="button" aria-label=site.data.defaults.conference.buy_tickets_label).button.is-small.is-rounded.is-primary.in-menu !{site.data.defaults.conference.menu_buy_tickets_label}

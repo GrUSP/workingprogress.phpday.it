@@ -36,7 +36,7 @@ block content
           h2(role="heading" aria-level="2").title.is-2 !{site.data.page_scholarships.long_version.title}
         h3(role="heading" aria-level="3") !{site.data.page_scholarships.long_version.content_1}
         p !{site.data.page_scholarships.long_version.content_2_beginning}
-          a(href=site.data.page_scholarships.long_version.content_2_link_url target="_blank" role="button" rel="external" aria-label=content_2_link_label) !{site.data.page_scholarships.long_version.content_2_link_label}
+          a(href=site.data.page_scholarships.long_version.content_2_link_url target="_blank" rel="noopener noreferrer external" role="button" aria-label=content_2_link_label) !{site.data.page_scholarships.long_version.content_2_link_label}
           | !{site.data.page_scholarships.long_version.content_2_ending}
         h3(role="heading" aria-level="3") !{site.data.page_scholarships.long_version.content_3}
         p !{site.data.page_scholarships.long_version.content_4}
@@ -50,7 +50,7 @@ block content
         each sponsor in site.data.page_scholarships.diversity_sponsors
           .column
             - filename = "/img/logos/"+sponsor.logo_filename
-            a(href=sponsor.site_url target="_blank" rel="external" role="button" aria-label=sponsor.name)
+            a(href=sponsor.site_url target="_blank" rel="noopener noreferrer external" role="button" aria-label=sponsor.name)
               img(src=filename alt=sponsor.name)
     include components/newsletter/newsletter
     include components/sponsors/sponsors

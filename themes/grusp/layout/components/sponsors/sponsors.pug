@@ -11,8 +11,8 @@ section(id="sponsors").section_nopadding
         .columns
           each sponsor in site.data.sponsors.main
             .column.column__main
-              - filename = "/img/logos/"+sponsor.logo_filename
-              a(href=sponsor.site_url target="_blank" rel="external" role="button" aria-label=sponsor.name)
+              - filename = `/img/logos/${sponsor.logo_filename}`
+              a(href=sponsor.site_url target="_blank" rel="noopener noreferrer external" role="button" aria-label=sponsor.name)
                 img(src=filename alt=sponsor.name)
       if site.data.sponsors.diamond
         .row__underlined
@@ -20,8 +20,8 @@ section(id="sponsors").section_nopadding
         .columns
           each sponsor in site.data.sponsors.diamond
             .column.column__diamond
-              - filename = "/img/logos/"+sponsor.logo_filename
-              a(href=sponsor.site_url target="_blank" rel="external" role="button" aria-label=sponsor.name)
+              - filename = `/img/logos/${sponsor.logo_filename}`
+              a(href=sponsor.site_url target="_blank" rel="noopener noreferrer external" role="button" aria-label=sponsor.name)
                 img(src=filename alt=sponsor.name)
       if site.data.sponsors.platinum
         .row__underlined
@@ -29,8 +29,8 @@ section(id="sponsors").section_nopadding
         .columns
           each sponsor in site.data.sponsors.platinum
             .column.column__platinum
-              - filename = "/img/logos/"+sponsor.logo_filename
-              a(href=sponsor.site_url target="_blank" rel="external" role="button" aria-label=sponsor.name)
+              - filename = `/img/logos/${sponsor.logo_filename}`
+              a(href=sponsor.site_url target="_blank" rel="noopener noreferrer external" role="button" aria-label=sponsor.name)
                 img(src=filename alt=sponsor.name)
       if site.data.sponsors.gold
         .row__underlined
@@ -38,8 +38,8 @@ section(id="sponsors").section_nopadding
         .columns
           each sponsor in site.data.sponsors.gold
             .column.column__gold
-              - filename = "/img/logos/"+sponsor.logo_filename
-              a(href=sponsor.site_url target="_blank" rel="external" role="button" aria-label=sponsor.name)
+              - filename = `/img/logos/${sponsor.logo_filename}`
+              a(href=sponsor.site_url target="_blank" rel="noopener noreferrer external" role="button" aria-label=sponsor.name)
                 img(src=filename alt=sponsor.name)
       if site.data.sponsors.silver
         .row__underlined
@@ -47,8 +47,8 @@ section(id="sponsors").section_nopadding
         .columns
           each sponsor in site.data.sponsors.silver
             .column.column__silver
-              - filename = "/img/logos/"+sponsor.logo_filename
-              a(href=sponsor.site_url target="_blank" rel="external" role="button" aria-label=sponsor.name)
+              - filename = `/img/logos/${sponsor.logo_filename}`
+              a(href=sponsor.site_url target="_blank" rel="noopener noreferrer external" role="button" aria-label=sponsor.name)
                 img(src=filename alt=sponsor.name)
       if site.data.sponsors.bronze
         .row__underlined
@@ -56,8 +56,8 @@ section(id="sponsors").section_nopadding
         .columns
           each sponsor in site.data.sponsors.bronze
             .column.column__bronze
-              - filename = "/img/logos/"+sponsor.logo_filename
-              a(href=sponsor.site_url target="_blank" rel="external" role="button" aria-label=sponsor.name)
+              - filename = `/img/logos/${sponsor.logo_filename}`
+              a(href=sponsor.site_url target="_blank" rel="noopener noreferrer external" role="button" aria-label=sponsor.name)
                 img(src=filename alt=sponsor.name)
       if site.data.sponsors.media
         .row__underlined
@@ -65,6 +65,6 @@ section(id="sponsors").section_nopadding
         .columns
           each sponsor in site.data.sponsors.media
             .column.column__media
-              - filename = "/img/logos/"+sponsor.logo_filename
-              a(href=sponsor.site_url target="_blank" rel="external" role="button" aria-label=sponsor.name)
+              - filename = `/img/logos/${sponsor.logo_filename}`
+              a(href=sponsor.site_url target="_blank" rel="noopener noreferrer external" role="button" aria-label=sponsor.name)
                 img(src=filename alt=sponsor.name)

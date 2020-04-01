@@ -1,15 +1,53 @@
+# Note
+
+* produzione: github pages e usano la ci per generare
+	* (il sito è fatto con jekyll)
+	* usano travis per generare
+
 # TODO
 
-## Page: workshop
+* newsletter
+	* quale lista in file di configurazione
+	* nascondere tutto tranne i campi nome, cognome, email e "can you understand italian?"
 
-* ???
+* welcome:
+	* fare pagina intermedia (giulia ci dice quale delle due)
+
+* speaker:
+	* nel blocco del talk, dove c'è l'abstract, a volte si vuole poter caricare il video ex post (embed prima della bio)
+	* ci sono speaker con più talk, talk con più speaker
+	* quindi blocco descrizione talk e poi 1:n bio degli speaker
+	* nella bio: link github / linkedin / twitter nel riquadro bio
+
+	* (francesco) invertire la priorità? cioè dare priorità ai talk
+		* loro hanno due file YML uno con gli speaker e uno coi talk per poter gestire meglio i dati (ovvero per non dover copiare più volte i dati del talk o dello speaker)
+		* DIVIDERE e rifare la pagina speakers/talk e anche la schedule (e la sezione speaker in home, il link punta alla prima istanza dello speaker nella pagina dei talk)
+		* tanto nella schedule bisognava aggiungere day # e track
+
+
+* workshop: ok fare pagine con `hexo new page`
+	* generare sottomenu solo se ce ne sono due
+	* fare pagina intermedia (+- stesse info che in home)
+	* il pulsante registrati deve sempre essere visibile (metterlo sotto ogni sottosezione) o ripeterlo alla fine di ogni sezione
+	* in fondo inserire il link agli altri workshop (alla pagina intermedia!) prima della fascia newsletter
+	* CI POSSONO ESSERE PIÙ DOCENTI
+	* potrebbe esserci un trailer video (embed youtube nella parte bianca delle info generali (colonna sulla destra)) finora è successo solo con kerning ma esiste
+	* sopra il blocco nero a colonne, aggiungere fascetta viola con testo "compra i biglietti e fai presto perché i prezzi aumentano" col pulsante BUY gigante
+	* NO SPONSOR
+
+
+* dubbi
+	* sponsor:
+		* potrebbero esserci le supporting communities (che adesso sono tra i media partner)
+		* i media partner potrebbero anche non esserci
 
 ## Theme
 
-* ICONE VIOLA AL POSTO DI QUELLE NERE IN SCHEDULE
+* https://developer.mozilla.org/en-US/docs/Web/Performance/dns-prefetch
+  * (x es link google maps): `- url_to_prefetch = new URL(data.location_maps_url)`
 
+* a special `defaults.sass` file for each conference, with color palette (manu)
 
-* a special `defaults.sass` file for each conference, with color palette
 * home
 	* hero: 
 		* background: ora il tema si aspetta `hero.jpg` (e `location.jpg`) -- rendere possibile usare altri tipi di immagine. 
@@ -75,3 +113,9 @@
 * social links as component
 * 404 page (https://blog.kiprosh.com/show-custom-404-error-page-for-netlify-applications/)
 * "buy ticket" in main menu
+* ICONE VIOLA AL POSTO DI QUELLE NERE IN SCHEDULE
+* `speakers.pug`: non troncare il titolo, aggiungi classe al p.title! così il non vedente sente comunque il titolo intero (https://css-tricks.com/snippets/css/truncate-string-with-ellipsis/)
+* home
+	* workshop: versione 2
+* schedule
+	* aggiungere thanks to our sponsors prima del footer

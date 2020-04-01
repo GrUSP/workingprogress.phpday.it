@@ -18,8 +18,8 @@ section(id="hero__speakers").section_nopadding
         .inner_holder
           each speaker in site.data.speakers
             if(!speaker.is_service_item)
-              - filename = "/img/speakers/"+speaker.speaker_pic_filename
-              - target_href = "/speakers#" + speaker.speaker_name
+              - filename = `/img/speakers/${speaker.speaker_pic_filename}`
+              - target_href = `/speakers#${speaker.speaker_name}`
               a(href=target_href role="button" aria-label=speaker.speaker_name)
                 .card.speaker-card
                   .card-image
@@ -27,9 +27,15 @@ section(id="hero__speakers").section_nopadding
                   .card-content
                     - theTitle = speaker.talk_title
                     if (truncate)
-                      if(theTitle.length > 40)
-                        - theTitle = theTitle.substr(0,40) + "..."
-                    p.title !{theTitle}
+                      if (theTitle.length > 40)
+                        .module.overflow
+                          p.title !{theTitle}
+                      else
+                        .module
+                          p.title !{theTitle}
+                    else
+                      .module
+                        p.title !{theTitle}
                     p.subtitle !{speaker.speaker_name}
                     p
                       em !{speaker.speaker_role}

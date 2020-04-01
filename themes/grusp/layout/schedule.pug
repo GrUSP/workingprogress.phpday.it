@@ -30,7 +30,7 @@ block content
                   br
                   span !{item.speaker_name}
                 if(item.service_icon)
-                  - filename = "/assets/ico/ico-"+item.service_icon+".png"
-                  img(src=filename width="100px" height="100px" alt=item.service_icon)
+                  - filename = `/assets/ico/ico-${item.service_icon}.png`
+                  img(src=filename alt=item.service_icon)
     include components/sponsors/sponsors.pug
     include components/newsletter/newsletter.pug
