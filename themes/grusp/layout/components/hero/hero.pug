@@ -34,6 +34,7 @@ section(id="hero").section_nopadding
             script(type="text/javascript").
               document.addEventListener("DOMContentLoaded", function(event) {
                 var a = "#{site.data.defaults.conference.date}";
+                - console.log("before");
                 countDownClock(a);
               });
             .column

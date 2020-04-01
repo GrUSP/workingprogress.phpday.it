@@ -45,6 +45,7 @@ const countDownClock = (dateEvent) => {
   convertFormat(format);
 
   function convertFormat(format) {
+    console.log("step " + format);
     switch (format) {
       case 'seconds':
         return timer(number);
@@ -54,6 +55,9 @@ const countDownClock = (dateEvent) => {
         return timer(number * 60 * 60);
       case 'days':
         return timer(number * 60 * 60 * 24);
+      case 'months':
+        // NOT NECESSARILY 30
+        return timer(number * 60 * 60 * 24 * 30);
     }
   }
 

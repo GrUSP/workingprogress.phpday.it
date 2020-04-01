@@ -6,7 +6,7 @@ conference:
   title_pre: "Welcome to"
   title: "Ruby Day"
   city: "Verona"
-  date: 2020-04-11T09:00
+  date: 2020-09-16T09:00
   countdown_days: "days"
   countdown_hours: "hours"
   countdown_minutes: "minutes"
@@ -16,7 +16,7 @@ conference:
   cfp_open: true
   cfp_open_label: "Submissions accepted until"
   cfp_open_title: "Call For Papers Now Open!"
-  cfp_deadline: 2020-02-29T17:00
+  cfp_deadline: 2020-06-30T17:00
   cfp_register_label: "Apply now"
   cfp_register_aria_label: "Apply now for our Call for papers"
   geninfo_title: "What is it?"
@@ -30,8 +30,9 @@ conference:
   speakers_title: "speaker"
   # this is for the Workshops section in home page
   workshops_title: "workshop"
-  workshops_tickets_label: "Buy tickets now"
+  workshops_tickets_label: "Buy tickets"
   workshops_readmore_label: "Read more"
+  workshops_register_label: "Register"
   # this is for the Location section in home page
   location_name: "Hotel San Marco"
   location_address: "Via Longhena 42, 37138 Verona (VE) Italy"

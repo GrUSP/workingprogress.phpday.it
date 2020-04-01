@@ -8,6 +8,7 @@ workshop1:
   title: Create an application with Rails and Vue.js
   description: Lorem ipsum dolor sic amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
   page_url: ""
+  is_external: false
 workshop2:
   date: April 2, 2020
   location: Verona
@@ -19,3 +20,4 @@ workshop2:
   description: Lorem ipsum dolor sic amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
   ticket_url: ""
   page_url: ""
+  is_external: true

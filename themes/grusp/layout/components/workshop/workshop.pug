@@ -8,42 +8,38 @@ section(id="workshop").section_nopadding
       - suffix = "s"
     .inner
       h2(role="heading" aria-level="2").title.is-2 !{no_of_workshops} !{site.data.defaults.conference.workshops_title}!{suffix}
-      .tabs.is-centered.is-toggle.is-centered.is-fullwidth
-        ul
-          - workshop_no = 0
-          - active_class = ""
-          each workshop in site.data.workshop
-            - workshop_no++
-            if workshop_no ==1
-              - active_class = "is-active"
-            else
-              - active_class = ""
-            li(class=""+active_class)
-              a !{workshop.date}
-        .tab-content
-          each workshop in site.data.workshop
-            - filename = "/img/ws_teachers/"+workshop.pic_filename
-            .columns
-              .column.is-one-quarter
-                .card
-                  .card-content
+      each workshop in site.data.workshop
+        .workshop__container
+          - filename = "/img/ws_teachers/"+workshop.pic_filename
+          .columns
+            .column.is-half
+              .row-info
+                .info-icon
+                  include ../../../source/assets/ico/ico-where.svg
+                .info__location !{workshop.location}
+                | &nbsp;|&nbsp;
+                .info-icon.padded
+                  include ../../../source/assets/ico/ico-calendar.svg
+                .info__date !{workshop.date}
+              h5(role="heading" aria-level="5") !{workshop.title}
+              p !{workshop.description}
+              a(href=workshop.page_url role="button").button.is-small.is-rounded.is-primary !{site.data.defaults.conference.workshops_readmore_label}
+            .column
+              .columns.no-margin-top
+                .column.workshop-buttons
+                  .card.speaker-card
                     .card-image
                       img(src=filename role="figure" aria-label=workshop.teacher)
-                    p.title !{workshop.teacher}
-                    p.subtitle !{workshop.teacher_role}
-                    p.subtitle @ !{workshop.teacher_org}
-              .column.has-border
-                .row-info
-                  .info-icon
-                    include ../../../source/assets/ico/ico-where.svg
-                  .info__location !{workshop.location}
-                  | &nbsp;|&nbsp;
-                  .info-icon.padded
-                    include ../../../source/assets/ico/ico-calendar.svg
-                  .info__date !{workshop.date}
-                h5(role="heading" aria-level="5") !{workshop.title}
-                p !{workshop.description}
-                .row__more
-                  a(href=workshop.ticket_url role="button" rel="external").button.is-medium.is-rounded.is-primary !{site.data.defaults.conference.workshops_tickets_label}
-                  a(href=workshop.page_url role="button").button.is-medium.is-rounded.is-primary !{site.data.defaults.conference.workshops_readmore_label}
-script(type="text/javascript" src='/assets/js/layout/components/workshop/workshop.js')
+                .column.workshop-buttons
+                  if (!workshop.is_external)
+                    .workshop-buttons__button-container
+                      a(href=workshop.ticket_url role="button" rel="external" target="_blank")
+                        .workshop-buttons__button
+                          include ../../../source/assets/ico/ico-ticket.svg
+                      a(href=workshop.ticket_url role="button" rel="external" aria-label=site.data.defaults.conference.workshops_tickets_label target="_blank") !{site.data.defaults.conference.workshops_tickets_label}
+                  else
+                    .workshop-buttons__button-container
+                      a(href="#" role="button" rel="external" target="_blank")
+                        .workshop-buttons__button
+                          include ../../../source/assets/ico/ico-pencil.svg
+                      a(href="#" role="button" rel="external" aria-label=site.data.defaults.conference.workshops_register_label target="_blank") !{site.data.defaults.conference.workshops_register_label}
