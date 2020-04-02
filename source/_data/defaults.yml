@@ -43,6 +43,24 @@ conference:
   # this is for the Newsletter block
   newsletter_title: "Stay in the loop!"
   newsletter_subtitle: "Subscribe to our newsletter"
+  newsletter_lists:
+    php: false
+    javascript: false
+    design: false
+    devops: false
+    frontend: false
+    ruby: true
+    entrepreneurship: false
+    local_events: false
+    everything: false
+  newsletter_firstname_label: "Nome"
+  newsletter_lastname_label: "Cognome"
+  newsletter_email_label: "Email"
+  newsletter_lang_challenge: "Can you understand Italian?"
+  newsletter_lang_label: "Of course, certamente!"
+  newsletter_disclaimer: "Usiamo Mailchimp come piattaforma di email marketing. Iscrivendoti alla newsletter, accetti che i tuoi dati vegano trasmessi a Mailchimp per essere elaborati. "
+  newsletter_legal_url: "https://mailchimp.com/legal/"
+  newsletter_legal_label: "Informazioni sulla politica della privacy di Mailchimp"
   # this is for the Social links block
   social_follow_pre: "You can follow"
   social_follow_post: "on"

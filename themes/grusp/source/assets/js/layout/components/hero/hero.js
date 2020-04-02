@@ -37,7 +37,6 @@ const countDownClock = (dateEvent) => {
   convertFormat(format);
 
   function convertFormat(format) {
-    console.log("step " + format);
     switch (format) {
       case 'seconds':
         return timer(number);

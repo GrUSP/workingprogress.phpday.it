@@ -7,8 +7,7 @@
 # TODO
 
 * newsletter
-	* quale lista in file di configurazione
-	* nascondere tutto tranne i campi nome, cognome, email e "can you understand italian?"
+  * marketing permissions in file di configurazione (siamo sicuri?)
 
 * welcome:
 	* fare pagina intermedia (giulia ci dice quale delle due)
@@ -119,3 +118,7 @@
 	* workshop: versione 2
 * schedule
 	* aggiungere thanks to our sponsors prima del footer
+
+* newsletter
+	* quale lista in file di configurazione
+	* nascondere tutto tranne i campi nome, cognome, email e "can you understand italian?"
