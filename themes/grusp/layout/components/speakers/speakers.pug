@@ -25,17 +25,6 @@ section(id="hero__speakers").section_nopadding
                   .card-image
                     img(src=filename role="figure" aria-label=speaker.speaker_name)
                   .card-content
-                    - theTitle = speaker.talk_title
-                    if (truncate)
-                      if (theTitle.length > 40)
-                        .module.overflow
-                          p.title !{theTitle}
-                      else
-                        .module
-                          p.title !{theTitle}
-                    else
-                      .module
-                        p.title !{theTitle}
-                    p.subtitle !{speaker.speaker_name}
+                    p.title !{speaker.speaker_name}
                     p
                       em !{speaker.speaker_role}

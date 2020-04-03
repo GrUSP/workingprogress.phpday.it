@@ -13,7 +13,30 @@
 # TODO
 
 * home
-  * sotto ad ogni speaker in home, stili di titolo/nome/bio potrebbero essere migliorati (interlinea, stili...) <- si toglie il titolo e quindi si rivede formattazione
+	* subito sotto alla hero, una fascia "hidden" con testo arbitario (titolo, testo, link) che se si setta a visible:true compare (x es per avvisi o che)
+		* formattazione alternativa:
+			* avviso
+			* update
+	* sotto gli speaker una fascia argomenti
+		* mettere in config un parametro con un array di tag scelti dall'admin (e un paramento show/hide)
+
+* newsletter
+	* layout nuovo di manu OK
+	* aggiungi check privacy! (html da giulia con nuovo campo; link a privacy policy locale)
+	* la frase "Usiamo Mailchimp come piattaforma ..." va via
+	* quando si clicca in un campo la label ricompare in piccolo subito sopra il campo (cfr formidable)
+
+
+* ICEBOX
+	* in home con la nuova impostazione non c'è riferimento a nessun talk
+		* talk ha anche tag argomento
+		* in home page, si crea una fascia con i tag (unique)
+
+* talk
+  * layout: 4-talkNew.jpg
+
+* home
+  * speaker: 1-speakerHome.jpg
   * in home nei workshop, manca il nome del docente
 
 * newsletter
@@ -97,8 +120,17 @@
 		* prima titolo talk e poi nome e qualifica più piccoli
 		* eventualmente troncare se è lungo; magari se il n. di speaker è > 10
 		* .speaker-card {max-width: 250px}
+    * revisione per consistenza con workshop v2
 	* location
 		* link in "get directions"!
+	* geninfo
+		* i 4 pulsanti su mobile
+			min-width: 150px;
+			height: 150px;
+	* workshop:
+		* nome non in foto ma in info row!
+		* titolo cliccabile
+		* allineamento come geninfo (su mobile andare a capo un po' meno di merda)
 * date in CFP come hero
 * [Netlify] Alert: Insecure mixed content detected in compassionate-goldstine-1d9c01
   * (i namespace skiantati nei SVG hanno `http`)
@@ -115,6 +147,7 @@
 	* **non funziona**: `page.breadcrumb` == undefined, `page.breadcrumb.html` -> BOOOM
 	* fatti breadcrumb a manella
 	* disinstallato `hexo-breadcrumbs`
+  * migliorati breadcrumbs con gestione pagine intermedie in `front-matter`
 * conference logo: in `source` invece che nel tema!
 * privacy policy
 * aria attributes in links

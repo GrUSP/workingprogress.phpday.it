@@ -87,6 +87,6 @@ conference:
   footer_contact_text: "Contact us at "
   footer_links_pre: "You can read our "
   footer_links_privacy_link_label: "privacy policy"
-  footer_link_middle: "&nbsp; and our "
+  footer_link_middle: " and our "
   privacy_policy_url: "https://www.iubenda.com/privacy-policy/13404179"
   footer_coc_link_label: "code of conduct"

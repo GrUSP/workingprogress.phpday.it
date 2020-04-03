@@ -1,17 +1,19 @@
+#workshop
+  padding-top: 2em
+  h2
+  text-align: center
+  font-style: normal
+  color: $main-color
+
 .workshop__container
   padding: 1em 0
   margin: 0
-  background-color: $main-text-color_inverted
-  border-bottom: 1px solid $main-text-color_hue-medium
-  &:last-of-type
-    border-bottom: none
   .inner
     margin: 0 auto
     max-width: 1200px
-  h2
-    text-align: center
-    font-style: normal
-    color: $main-color
+    border-bottom: 1px solid $main-text-color_hue-medium
+  &:last-of-type .inner
+    border-bottom: none
   h5
     text-transform: none
     font-weight: 600
@@ -29,15 +31,29 @@
     flex-wrap: wrap
     &.no-margin-top
       margin-top: 0
+    &.workshop__info
+      display: flex
+      flex-direction: column
+      align-content: space-between
+      min-width: 240px
+    .workshop__info
+      max-width: 80%
+      margin: 0 auto
+      +tablet
+        min-width: 600px
   .card-image
-    width: 200px
-    height: 200px
+    width: 190px
+    height: 190px
     overflow: hidden
   .workshop-buttons
     display: flex
     flex-wrap: wrap
-    justify-content: flex-end
+    justify-content: center
     align-content: center
+    max-width: 80%
+    margin: 0 auto
+    +tablet
+      min-width: 450px
     .workshop-buttons__button-container
       min-width: 190px
       height: 190px
@@ -48,8 +64,8 @@
       align-content: center
       justify-content: center
       text-align: center
-      background-color: #5e4e9b
-      border: 1px solid #5e4e9b
+      background-color: $main-color
+      border: 1px solid $main-color
       &:hover, &:focus, &:active
         background-color: $main-text-color_inverted
         svg path, svg polygon
@@ -77,15 +93,17 @@
     font-size: .7em
     +tablet
       font-size: 1em
-  .info-icon
-    margin-top: 6px
-  .info-icon.padded
-    padding: 0 0 0 10px
-    +tablet
-      padding: 0 0 0 30px
-    svg
-      height: 30px
-      width: auto
+    .info__date
+      padding: 0 10px 0 10px
+    .info-icon
+      margin-top: 6px
+    .info-icon.padded
+      padding: 0 0 0 10px
+      +tablet
+        padding: 0 0 0 10px
+      svg
+        height: 30px
+        width: auto
   .row__more
     padding-top: 2em
     flex-wrap: wrap
