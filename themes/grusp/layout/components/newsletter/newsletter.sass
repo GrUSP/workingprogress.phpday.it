@@ -26,15 +26,16 @@
   .mc-field-group
     position: relative
     text-align: left
-    &.inset-label label
-      position: absolute
-      top: 18px
-      left: 18px
-      color: $main-text-color_hue-medium
-    input:focus ~ label
-      top: -10px
-      color: $main-text-color_inverted
-      font-size: .8em
+    &.inset-label 
+      label
+        position: absolute
+        top: 18px
+        left: 18px
+        color: $main-text-color_hue-medium
+      input:focus ~ label
+        top: -10px
+        color: $main-text-color_inverted
+        font-size: .8em
     input[type='text'], input[type='email']
       padding: .5em
       font-size: 1em
