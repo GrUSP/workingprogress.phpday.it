@@ -24,13 +24,26 @@
   a
     color: $main-text-color_inverted
   .mc-field-group
+    position: relative
     text-align: left
+    &.inset-label label
+      position: absolute
+      top: 18px
+      left: 18px
+      color: $main-text-color_hue-medium
+    input:focus ~ label
+      top: -10px
+      color: $main-text-color_inverted
+      font-size: .8em
     input[type='text'], input[type='email']
       padding: .5em
       font-size: 1em
-      min-width: 80%
+      min-width: 100%
     input[type='checkbox']
       margin: 0 1em
+      width: 20px
+      height: 20px
+      vertical-align: text-bottom
     ul
       display: inline-block
       li

@@ -20,12 +20,6 @@
 	* sotto gli speaker una fascia argomenti
 		* mettere in config un parametro con un array di tag scelti dall'admin (e un paramento show/hide)
 
-* newsletter
-	* layout nuovo di manu OK
-	* aggiungi check privacy! (html da giulia con nuovo campo; link a privacy policy locale)
-	* la frase "Usiamo Mailchimp come piattaforma ..." va via
-	* quando si clicca in un campo la label ricompare in piccolo subito sopra il campo (cfr formidable)
-
 
 * ICEBOX
 	* in home con la nuova impostazione non c'è riferimento a nessun talk
