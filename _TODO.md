@@ -4,7 +4,17 @@
 	* (il sito è fatto con jekyll)
 	* usano travis per generare
 
+* IMPORTANTE per le breadcrumbs
+  * il `front-matter` della pagina DEVE includere `parent`
+    * x es: le sottopagine di "welcome" devono avere `parent: welcome`
+    * le sottopagine di "workshop" (se ce ne sono) devono avere `parent: workshops`
+    * DOCUMENTARE nella guida alla creazione di workshop multipli
+
 # TODO
+
+* home
+  * sotto ad ogni speaker in home, stili di titolo/nome/bio potrebbero essere migliorati (interlinea, stili...) <- si toglie il titolo e quindi si rivede formattazione
+  * in home nei workshop, manca il nome del docente
 
 * newsletter
   * marketing permissions in file di configurazione (siamo sicuri?)

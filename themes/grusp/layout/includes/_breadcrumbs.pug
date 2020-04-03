@@ -5,9 +5,10 @@ block content
         ul
           li
             a(href=url_for(site.url) role="button" aria-label="home page") home
-          //- this. is. horrible. <- usare string interpolation come in header.pug
-          if(is_current("welcome/coc") || is_current("welcome/scholarships"))
+          if(page.parent)
+            - intermediate_url = `${url_for(site.url)}${page.parent}`
             li
-              a(href=url_for("welcome") role="button" aria-label="welcome page") welcome
+              a(href=url_for(intermediate_url)) !{page.parent}
           li.is-active
             a(href=url_for(page) role="button" aria-label=page.title) !{page.title}
+
