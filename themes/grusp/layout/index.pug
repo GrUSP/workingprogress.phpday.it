@@ -9,6 +9,8 @@ block content
   include components/generalinfo/generalinfo.pug
   if site.data.defaults.conference.speakers_visible
     include components/speakers/speakers.pug
+  if site.data.defaults.conference.topics_visible
+    include components/topics/topics.pug
   include components/workshop/workshop.pug
   include components/media/media.pug
   include components/location/location.pug

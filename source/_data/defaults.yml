@@ -15,7 +15,7 @@ conference:
   # "update" component. set the first parameter to true to make it appear in home page, false means hidden
   update_visible: true
   update_is_warning: true
-  update_warning_header: "Questo testo appare se l'update è impostato a *warning*. Potremmo sostituirlo con un'icona"
+  update_warning_header: "Questo testo appare se l'update è impostato a *warning*. Potremmo sostituirlo con un'icona o altro 'segnale'"
   update_title: "Important information"
   update_description: "This is the description of such important information"
   update_link_url: "https://google.com/"
@@ -37,6 +37,18 @@ conference:
   # "speakers" component. set the first parameter to false to make Speakers section disappear from home page!
   speakers_visible: true
   speakers_title: "speaker"
+  # "topics" component. set the first parameter to true to make it appear in home page, false means hidden
+  topics_visible: true
+  topics_title: "Topics and themes"
+  topics_description: "This is what we shall talk about..."
+  topics:
+    - "Ruby"
+    - "Ruby on Rails"
+    - "Web apps"
+    - "Backend"
+    - "Frontend"
+    - "Frameworks"
+  topics_payoff: "...and much more!"
   # this is for the Workshops section in home page
   workshops_title: "workshop"
   workshops_tickets_label: "Buy tickets"
