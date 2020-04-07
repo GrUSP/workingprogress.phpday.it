@@ -13,13 +13,13 @@
 # TODO
 
 * home
-	* subito sotto alla hero, una fascia "hidden" con testo arbitario (titolo, testo, link) che se si setta a visible:true compare (x es per avvisi o che)
-		* formattazione alternativa:
-			* avviso
-			* update
 	* sotto gli speaker una fascia argomenti
 		* mettere in config un parametro con un array di tag scelti dall'admin (e un paramento show/hide)
-
+* workshop
+  * single
+  * per se ce n'è più di uno:
+    * list
+    * due pagine "single"
 
 * ICEBOX
 	* in home con la nuova impostazione non c'è riferimento a nessun talk
@@ -125,6 +125,10 @@
 		* nome non in foto ma in info row!
 		* titolo cliccabile
 		* allineamento come geninfo (su mobile andare a capo un po' meno di merda)
+	* subito sotto alla hero, una fascia "hidden" con testo arbitario (titolo, testo, link) che se si setta a visible:true compare (x es per avvisi o che)
+		* formattazione alternativa:
+			* avviso
+			* update
 * date in CFP come hero
 * [Netlify] Alert: Insecure mixed content detected in compassionate-goldstine-1d9c01
   * (i namespace skiantati nei SVG hanno `http`)

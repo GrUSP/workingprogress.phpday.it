@@ -12,20 +12,29 @@ conference:
   countdown_minutes: "minutes"
   countdown_seconds: "seconds"
   hero_buy_tickets_label: "Buy tickets now"
-  # set to false to make CFP section disappear from home page!
+  # "update" component. set the first parameter to true to make it appear in home page, false means hidden
+  update_visible: true
+  update_is_warning: true
+  update_warning_header: "Questo testo appare se l'update è impostato a *warning*. Potremmo sostituirlo con un'icona"
+  update_title: "Important information"
+  update_description: "This is the description of such important information"
+  update_link_url: "https://google.com/"
+  update_link_label: "a link to google, just for the demo"
+  # "call for papers" component. set the first parameter to false to make CFP section disappear from home page!
   cfp_open: true
   cfp_open_label: "Submissions accepted until"
   cfp_open_title: "Call For Papers Now Open!"
   cfp_deadline: 2020-06-30T17:00
   cfp_register_label: "Apply now"
   cfp_register_aria_label: "Apply now for our Call for papers"
+  # "general information" ("what is it?") component
   geninfo_title: "What is it?"
   geninfo_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
   geninfo_about_label: "About"
   geninfo_coc_label: "Code of conduct"
   geninfo_scholarships_label: "Scholarships"
   geninfo_tickets_label: "Buy tickets"
-  # set to false to make Speakers section disappear from home page!
+  # "speakers" component. set the first parameter to false to make Speakers section disappear from home page!
   speakers_visible: true
   speakers_title: "speaker"
   # this is for the Workshops section in home page
