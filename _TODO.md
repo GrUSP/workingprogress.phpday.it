@@ -12,6 +12,8 @@
 
 # TODO
 
+* verificare CI
+
 * una volta estratte le palette di colori, mettere tutti i relativi file sass nel repo, aggiungere un parametro in defaults, e aggiungere dinamicamente il css della palette in header.pug così si evita di toccare il _config e si genera comunque il sito con la palette giusta
 
 * workshop
