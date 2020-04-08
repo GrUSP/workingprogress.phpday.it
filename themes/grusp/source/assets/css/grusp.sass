@@ -227,6 +227,8 @@ header
 @import "./page_speakers"
 //- Page: Schedule
 @import "./page_schedule"
+//- Page: Workshop (single)
+@import "./page_workshop_single"
 
 //-   Breadcrumbs
 @import "./breadcrumbs"
@@ -235,6 +237,7 @@ header
 
 .button.is-primary
   background-color: $main-color
+  border-color: $main-color
   font-weight: 700
   padding-left: 1em
   padding-right: 1em
@@ -245,6 +248,7 @@ header
   &:hover, &:active, &:focus
     color: $main-color
     background-color: $main-text-color_inverted
+    border-color: $main-text-color_inverted
   //- "buy tickets" button in main menu
   &.in-menu
     color: $main-text-color_inverted

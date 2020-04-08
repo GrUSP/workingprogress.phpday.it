@@ -18,7 +18,9 @@ section(id="workshop").section_nopadding
             | &nbsp;|&nbsp;
             .info-icon.padded
               include ../../../source/assets/ico/ico-calendar.svg
-            .info__date !{workshop.date}
+            .info__date
+              - start_date = date(workshop.date, config.date_format_hero)
+              time(datetime=workshop.date) !{start_date}
             | &nbsp;|&nbsp;
             .info-icon.padded
               include ../../../source/assets/ico/ico-teacher.svg
