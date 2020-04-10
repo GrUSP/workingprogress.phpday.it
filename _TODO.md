@@ -26,22 +26,11 @@
   	* generare sottomenu solo se ce ne sono due (vedi breadcrumbs)
 	* fare pagina intermedia (+- stesse info che in home)
 
-* ICEBOX
-	* in home con la nuova impostazione non c'è riferimento a nessun talk
-		* talk ha anche tag argomento
-		* in home page, si crea una fascia con i tag (unique)
+* talks
+  * loro hanno due file YML uno con gli speaker e uno coi talk per poter gestire meglio i dati (ovvero per non dover copiare più volte i dati del talk o dello speaker)
 
-* talk
-  * layout: 4-talkNew.jpg
-* speaker:
-	* nel blocco del talk, dove c'è l'abstract, a volte si vuole poter caricare il video ex post (embed prima della bio)
-	* ci sono speaker con più talk, talk con più speaker
-	* quindi blocco descrizione talk e poi 1:n bio degli speaker
-	* nella bio: link github / linkedin / twitter nel riquadro bio
-	* (francesco) invertire la priorità? cioè dare priorità ai talk
-		* loro hanno due file YML uno con gli speaker e uno coi talk per poter gestire meglio i dati (ovvero per non dover copiare più volte i dati del talk o dello speaker)
-		* DIVIDERE e rifare la pagina speakers/talk e anche la schedule (e la sezione speaker in home, il link punta alla prima istanza dello speaker nella pagina dei talk)
-		* tanto nella schedule bisognava aggiungere day # e track
+* schedule
+  * by track!
 
 * newsletter
   * marketing permissions in file di configurazione (siamo sicuri?)
@@ -53,6 +42,12 @@
 	* sponsor:
 		* potrebbero esserci le supporting communities (che adesso sono tra i media partner)
 		* i media partner potrebbero anche non esserci
+
+* ICEBOX
+	* in home con la nuova impostazione non c'è riferimento a nessun talk
+		* talk ha anche tag argomento
+		* in home page, si crea una fascia con i tag (unique)
+
 
 ## Theme
 
@@ -70,9 +65,8 @@
 		* link a pagina workshop (`#anchor` se pagina unica) (vediamo prima come si fanno i workshop)
 * dove ci andrebbero form: PULSANTI che vanno alle google form o quant'altro
   * pulsanti fatti; farsi dare link
-* schedule page
 * about page
-* workshop page
+* workshops (multiple) page
 
 ## Assets
 
@@ -168,6 +162,14 @@
   * sopra il blocco nero a colonne, aggiungere fascetta viola con testo "compra i biglietti e fai presto perché i prezzi aumentano" col pulsante BUY gigante
   * il pulsante registrati deve sempre essere visibile (metterlo sotto ogni sottosezione) o ripeterlo alla fine di ogni sezione
   * potrebbe esserci un trailer video (embed youtube nella parte bianca delle info generali (colonna sulla destra)) finora è successo solo con kerning ma esiste
+
+* talk / speaker
+  * layout: 4-talkNew.jpg
+	* nel blocco del talk, dove c'è l'abstract, a volte si vuole poter caricare il video ex post (embed prima della bio)
+	* ci sono speaker con più talk, talk con più speaker
+	* quindi blocco descrizione talk e poi 1:n bio degli speaker
+	* nella bio: link github / linkedin / twitter nel riquadro bio
+	* (francesco) invertire la priorità? cioè dare priorità ai talk
 
 * schedule
 	* aggiungere thanks to our sponsors prima del footer

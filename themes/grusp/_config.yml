@@ -6,7 +6,7 @@ language: "en"
 # main menu navigation
 menu:
   welcome: welcome
-  speakers: speakers
+  talks_speakers: talks
   # Workshops: workshops
   sponsor: sponsor
   schedule: schedule

@@ -30,13 +30,13 @@ workshop1:
     teacher_1:
       teacher_name: "Andrea Vassallo"
       teacher_bio: "This is the bio. Lorem ipsum dolor sic amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. And so on."
-      pic_filename: andreavassallo.png
+      pic_filename: "andreavassallo.png"
       teacher_role: "full stack developer"
       teacher_org: "Nebulab"
     teacher_2:
       teacher_name: "Another Teacher"
       teacher_bio: "This is the other speaker's bio. Lorem ipsum dolor sic amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. And so on."
-      pic_filename: andreavassallo.png
+      pic_filename: "fili1.jpg"
       teacher_role: "full stack developer"
       teacher_org: "Nebulab"
   topics_title: "Argomenti"
@@ -61,15 +61,3 @@ workshop1:
   ticket_url: ""
   ticket_label: "Register now"
   is_external: false
-workshop2:
-  date: April 2, 2020
-  location: Verona
-  teacher: Filippo Gangi Dino
-  pic_filename: fili1.jpg
-  teacher_role: team leader
-  teacher_org: "???"
-  title: Create an application with Rails, without Vue.js ;)
-  description: Lorem ipsum dolor sic amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-  ticket_url: ""
-  page_url: ""
-  is_external: true

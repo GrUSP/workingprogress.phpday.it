@@ -18,19 +18,24 @@ block content
               .info__date
                 time(datetime=site.data.defaults.conference.date) !{start_date}
           ul
-            each item in site.data.speakers.sort((a, b) => (a.start_datetime > b.start_datetime) ? 1 : -1)
+            each talk in site.data.talks_speakers.sort((a, b) => (a.start_datetime > b.start_datetime) ? 1 : -1)
               - classes = ""
-              if(!item.is_service_item)
-                - classes += "has-background"
+              if(!talk.is_service_item)
+                - classes += "has-background "
+              if(talk.service_icon)
+                - classes += "has-service-icon "
               li(class=classes)
-                time(datetime=item.start_datetime) !{time(item.start_datetime, config.time_format_schedule)} - !{time(item.end_datetime, config.time_format_schedule)}
+                time(datetime=talk.start_datetime) !{time(talk.start_datetime, config.time_format_schedule)} - !{time(talk.end_datetime, config.time_format_schedule)}
                 br
-                strong !{item.talk_title}
-                if(item.speaker_name)
-                  br
-                  span !{item.speaker_name}
-                if(item.service_icon)
-                  - filename = `/assets/ico/ico-${item.service_icon}.png`
-                  img(src=filename alt=item.service_icon)
+                strong !{talk.talk_title}
+                br
+                if(talk.host_name)
+                  span !{talk.host_name}
+                if(talk.speakers)
+                  each speaker in talk.speakers
+                    span !{speaker.speaker_name}
+                if(talk.service_icon)
+                  - filename = `/assets/ico/ico-${talk.service_icon}.png`
+                  img(src=filename alt=talk.service_icon)
     include components/sponsors/sponsors.pug
     include components/newsletter/newsletter.pug

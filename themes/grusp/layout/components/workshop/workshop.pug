@@ -1,14 +1,13 @@
 section(id="workshop").section_nopadding
   - no_of_workshops = 0
   - suffix = ""
-  each item in site.data.workshop
+  each workshop in site.data.workshop
     - no_of_workshops++
   if no_of_workshops > 1
     - suffix = "s"
   h2(role="heading" aria-level="2").title.is-2 !{no_of_workshops} !{site.data.defaults.conference.workshops_title}!{suffix}
   each workshop in site.data.workshop
     .workshop__container
-      - filename = "/img/ws_teachers/"+workshop.pic_filename
       .columns.inner
         .column.workshop__info
           .row-info
@@ -25,14 +24,19 @@ section(id="workshop").section_nopadding
             .info-icon.padded
               include ../../../source/assets/ico/ico-teacher.svg
             .info-teacher !{workshop.teacher}
-          h5(role="heading" aria-level="5") !{workshop.title}
+              each teacher in workshop.teachers
+                  span !{teacher.teacher_name}
+                  br
+          h5(role="heading" aria-level="5") !{workshop.workshop_title}
           p !{workshop.description}
           a(href=workshop.page_url role="button").button.is-small.is-rounded.is-primary !{site.data.defaults.conference.workshops_readmore_label}
         .column.workshop-buttons
-          .workshop-buttons__button-container
-            .card.speaker-card
-              .card-image
-                img(src=filename role="figure" aria-label=workshop.teacher alt=workshop.teacher)
+          each teacher in workshop.teachers
+            - filename = "/img/ws_teachers/"+teacher.pic_filename
+            .workshop-buttons__button-container
+              .card.speaker-card
+                .card-image
+                  img(src=filename role="figure" aria-label=teacher.teacher_name alt=teacher.teacher_name)
           .workshop-buttons__button-container
             if (!workshop.is_external)
               a(href=workshop.ticket_url role="button" target="_blank" rel="noopener noreferrer external")

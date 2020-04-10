@@ -148,10 +148,13 @@ block content
                   include ../source/assets/ico/ico-teacher.svg
                 .info__location
                   span !{ws.teacher_title}
-              strong !{ws.teacher}
-              p !{ws.teacher_role}
-                if(ws.teacher_org)
-                  span !{ws.teacher_org}
+              each teacher in ws.teachers
+                p
+                  strong !{teacher.teacher_name}
+                  br
+                  span !{teacher.teacher_role}
+                    if(teacher.teacher_org)
+                      span !{teacher.teacher_org}
         .button-container
           a(role="button" h ref=ws.ticket_url aria-label=site.data.workshop.workshop1.ticket_label target="_blank" rel="external noopener noreferrer").button.is-medium.is-rounded.is-primary !{ws.ticket_label}
   include components/newsletter/newsletter
