@@ -1,0 +1,14 @@
+intro:
+  main_title: "Welcome"
+  content_1: "RubyDay 2020 is the eighth edition of the Italian Ruby Conference, organised by GrUSP, organisers of events such as PHPDay and JSDay. Tehe event has an international audience and all session will be held in English."
+  content_2: "The event's goal is to allow all Rubyists to meet and share experiences while having fun and networking in an enjoyable context."
+info_about:
+  title: "About"
+  content: "Short intro to About page"
+info_coc:
+  title: "COC"
+  content: "Short intro to COC page"
+info_scholarships:
+  title: "Scholarships"
+  content: "Short intro to Scholarships page"
+readmore_label: "Read more"

@@ -20,7 +20,7 @@ block content
                 - start_date = date(site.data.defaults.conference.date, config.date_format_hero)
               .info__date
                 time(datetime=site.data.defaults.conference.date) !{start_date}
-    each talk in site.data.talks_speakers
+    each talk in site.data.talks_speakers.talks
       if(!talk.is_service_item)
         .container.has-dynamic-background
           .inner
@@ -62,10 +62,10 @@ block content
   script(type="text/javascript" src='/assets/js/speakers_menu.js')
   //- first we create a unique list of speaker names
   - const var_speakers = []
-  each talk in site.data.talks_speakers
-      if(!talk.is_service_item)
-        each speaker in talk.speakers
-          - var_speakers.push(speaker)
+  each talk in site.data.talks_speakers.talks
+    if(!talk.is_service_item)
+      each speaker in talk.speakers
+        - var_speakers.push(speaker)
   - const filtered_speaker_names = var_speakers.map(speaker => speaker.speaker_name).filter((value, index, self) => self.indexOf(value) === index).sort((a, b) => (a.speaker_name > b.speaker_name) ? 1 : -1)
   aside(id="secondary_menu").menu.secondary-menu
     .secondary-menu-button-container

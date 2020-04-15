@@ -1,0 +1,58 @@
+@import "defaults"
+@import "bulma/sass/utilities/initial-variables"
+@import "bulma/sass/utilities/derived-variables"
+@import "bulma/sass/utilities/mixins"
+
+.title-container
+  display: flex
+  align-items: center
+  svg
+    background-color: $main-color
+    fill: $main-text-color_inverted
+    margin-right: 1em
+  h1
+    color: $main-color
+    font-size: 2em
+    line-height: 1.2
+    +tablet
+      font-size: 3em
+      line-height: 1.5
+
+#welcome .columns.inner
+  margin: 0 auto
+  border-top: 1px solid $main-text-color_hue-medium
+  *
+  .footer__p_padded, .footer__a_padded
+    padding: 1em 0
+  a
+    font-weight: 600
+  a.past-edition
+    display: inline-block
+    margin-right: 8px
+    &:after
+      content: "|"
+      display: inline
+      padding-left: 8px
+  a.past-edition:last-of-type:after
+      content: ""
+  .row__social p
+    font-weight: 600
+
+.welcome__container_moreinfo
+  background-color: $main-text-color
+  color: $main-text-color_inverted
+  padding: 2em
+  .row-info
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    .info-icon svg
+      width: 3em
+      height: 3em
+      fill: $main-text-color_inverted
+    .info__location
+      font-size: 2em
+      text-transform: uppercase
+      color: $main-text-color_inverted
+  a
+    color: $main-text-color_inverted

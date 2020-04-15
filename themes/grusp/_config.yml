@@ -16,6 +16,7 @@ menu:
 
 # welcome submenu
 welcome_submenu:
+  about: about
   coc: code of conduct
   scholarships: scholarships
 

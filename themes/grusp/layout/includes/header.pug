@@ -21,7 +21,7 @@ header(class=classes id="header")
             - aria_label = page_label + " page"
             if(theme[page_key + '_submenu'])
               .navbar-item.has-dropdown.is-hoverable
-                a(aria-label=aria_label).navbar-link !{page_label}
+                a(href=url_for(page_key) aria-label=aria_label).navbar-link !{page_label}
                 .navbar-dropdown
                   each sub_label, sub_key in theme[page_key + '_submenu']
                     - subpage_url = `${url_for(site.url)}${page_key}/${sub_key}.html`

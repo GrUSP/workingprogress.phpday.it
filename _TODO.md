@@ -4,6 +4,10 @@
 	* (il sito è fatto con jekyll)
 	* usano travis per generare
 
+* caricare tutte le palette di colori del team e farli scegliere dinamicamente in header.pug da un parametro (conference tag)
+
+* ma: e fare la stessa cosa per logo e favicon?
+
 * IMPORTANTE per le breadcrumbs
   * il `front-matter` della pagina DEVE includere `parent`
     * x es: le sottopagine di "welcome" devono avere `parent: welcome`
@@ -12,13 +16,25 @@
 
 # TODO
 
-* verificare CI
-
 * una volta estratte le palette di colori, mettere tutti i relativi file sass nel repo, aggiungere un parametro in defaults, e aggiungere dinamicamente il css della palette in header.pug così si evita di toccare il _config e si genera comunque il sito con la palette giusta
+
+* home
+  * component: foto/video
+    * no carousel, solo 2-3 foto di pubblico
+    * e il video recap che di solito c'è
+    * aggiungere link "guarda tutti i video"
+  * NUOVO component: community partner
+    * ? fascia tipo topics colorata con riquadri bianchi che contengono i loghi ? fascia bianca coi loghi ma che si distingua da qualle degli sponsor ? 
+
+* welcome
+  * grafica confermata (7-welcomeOk.jpg)
+* welcome/about
+  * pagina about confermata (8-about)
+    * **ocio** bio team! (8-about-teamAperto)
 
 * workshop
   * single
-    * ...
+    * togliere nomi speaker da info row
   * per se ce n'è più di uno:
     * list
     * due pagine "single"
@@ -27,26 +43,25 @@
 	* fare pagina intermedia (+- stesse info che in home)
 
 * talks
+  * talk 
+    * subito prima del titolo aggiungere data e ora (SE SONO NOTI)
+    * titolo
+      * allineato a SX non centrato
+      * icona talk accanto al titolo
+  * CSS aggiungere:
+    .block-speaker
+      margin: 1em 5em
+  * dal menu laterale il link deve puntare al titolo del primo talk dove lui compare e non alla bio
   * loro hanno due file YML uno con gli speaker e uno coi talk per poter gestire meglio i dati (ovvero per non dover copiare più volte i dati del talk o dello speaker)
+  * TROVATA SOLUZIONE usare alias:
+    * `site.data.test.yml`
+    * `talks_speakers.pug` in fondo
+  * togli quel ciadello di mappe da `components/speakers/spekaers` e probabilmente da `talks_speakers`
 
 * schedule
+  * by day! 
+    * se ci sono più giorni, una tabella x giorno (e in cima il link al secondo, terzo giorno etc)
   * by track!
-
-* newsletter
-  * marketing permissions in file di configurazione (siamo sicuri?)
-
-* welcome:
-	* fare pagina intermedia (giulia ci dice quale delle due)
-
-* dubbi
-	* sponsor:
-		* potrebbero esserci le supporting communities (che adesso sono tra i media partner)
-		* i media partner potrebbero anche non esserci
-
-* ICEBOX
-	* in home con la nuova impostazione non c'è riferimento a nessun talk
-		* talk ha anche tag argomento
-		* in home page, si crea una fascia con i tag (unique)
 
 
 ## Theme

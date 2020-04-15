@@ -18,7 +18,8 @@ block content
               .info__date
                 time(datetime=site.data.defaults.conference.date) !{start_date}
           ul
-            each talk in site.data.talks_speakers.sort((a, b) => (a.start_datetime > b.start_datetime) ? 1 : -1)
+            //-each talk in site.data.talks_speakers.talks.sort((a, b) => (a.start_datetime > b.start_datetime) ? 1 : -1)
+            each talk in site.data.talks_speakers.talks
               - classes = ""
               if(!talk.is_service_item)
                 - classes += "has-background "
