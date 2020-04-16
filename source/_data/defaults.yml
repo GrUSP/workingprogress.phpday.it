@@ -54,6 +54,12 @@ conference:
   workshops_tickets_label: "Buy tickets"
   workshops_readmore_label: "Read more"
   workshops_register_label: "Register"
+  # Media section in home page
+  media_pic_1: "sample_pic_1.jpg"
+  media_pic_2: "sample_pic_2.jpeg"
+  media_pic_3: "sample_pic_3.jpeg"
+  media_pic_4: "sample_pic_4.jpg"
+  media_video_url: "https://www.youtube.com/embed/kgA2V85dPEg"
   # this is for the Location section in home page
   location_name: "Hotel San Marco"
   location_address: "Via Longhena 42, 37138 Verona (VE) Italy"

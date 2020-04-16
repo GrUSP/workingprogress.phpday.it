@@ -19,22 +19,10 @@
 * una volta estratte le palette di colori, mettere tutti i relativi file sass nel repo, aggiungere un parametro in defaults, e aggiungere dinamicamente il css della palette in header.pug così si evita di toccare il _config e si genera comunque il sito con la palette giusta
 
 * home
-  * component: foto/video
-    * no carousel, solo 2-3 foto di pubblico
-    * e il video recap che di solito c'è
-    * aggiungere link "guarda tutti i video"
   * NUOVO component: community partner
     * ? fascia tipo topics colorata con riquadri bianchi che contengono i loghi ? fascia bianca coi loghi ma che si distingua da qualle degli sponsor ? 
 
-* welcome
-  * grafica confermata (7-welcomeOk.jpg)
-* welcome/about
-  * pagina about confermata (8-about)
-    * **ocio** bio team! (8-about-teamAperto)
-
 * workshop
-  * single
-    * togliere nomi speaker da info row
   * per se ce n'è più di uno:
     * list
     * due pagine "single"
@@ -44,19 +32,7 @@
 
 * talks
   * talk 
-    * subito prima del titolo aggiungere data e ora (SE SONO NOTI)
-    * titolo
-      * allineato a SX non centrato
-      * icona talk accanto al titolo
-  * CSS aggiungere:
-    .block-speaker
-      margin: 1em 5em
-  * dal menu laterale il link deve puntare al titolo del primo talk dove lui compare e non alla bio
-  * loro hanno due file YML uno con gli speaker e uno coi talk per poter gestire meglio i dati (ovvero per non dover copiare più volte i dati del talk o dello speaker)
-  * TROVATA SOLUZIONE usare alias:
-    * `site.data.test.yml`
-    * `talks_speakers.pug` in fondo
-  * togli quel ciadello di mappe da `components/speakers/spekaers` e probabilmente da `talks_speakers`
+      * icona talk accanto al titolo -> no; c'è l'icona calendario subito sopra, sta male...
 
 * schedule
   * by day! 
@@ -80,7 +56,6 @@
 		* link a pagina workshop (`#anchor` se pagina unica) (vediamo prima come si fanno i workshop)
 * dove ci andrebbero form: PULSANTI che vanno alle google form o quant'altro
   * pulsanti fatti; farsi dare link
-* about page
 * workshops (multiple) page
 
 ## Assets
@@ -93,6 +68,7 @@
 * links & info: opengraph
 * date in speakers come hero
 * schema.org: in JSON-LD! specie per schema.org/Event
+
 
 # DONE
 
@@ -120,6 +96,7 @@
 		* titolo cliccabile
 		* allineamento come geninfo (su mobile andare a capo un po' meno di merda)
   	* workshop: versione 2
+    * workshop: versione 3
 	* subito sotto alla hero, una fascia "hidden" con testo arbitario (titolo, testo, link) che se si setta a visible:true compare (x es per avvisi o che)
 		* formattazione alternativa:
 			* avviso
@@ -128,6 +105,16 @@
 		* mettere in config un parametro con un array di tag scelti dall'admin (e un paramento show/hide)
   * speaker: 1-speakerHome.jpg
   * in home nei workshop, manca il nome del docente
+  * component: media
+    * no carousel, solo 2-3 foto di pubblico
+    * e il video recap che di solito c'è
+    * aggiungere link "guarda tutti i video"
+
+* welcome
+  * grafica confermata (7-welcomeOk.jpg)
+
+* welcome/about
+  * pagina about confermata (8-about)
 
 * date in CFP come hero
 * [Netlify] Alert: Insecure mixed content detected in compassionate-goldstine-1d9c01
@@ -177,14 +164,28 @@
   * sopra il blocco nero a colonne, aggiungere fascetta viola con testo "compra i biglietti e fai presto perché i prezzi aumentano" col pulsante BUY gigante
   * il pulsante registrati deve sempre essere visibile (metterlo sotto ogni sottosezione) o ripeterlo alla fine di ogni sezione
   * potrebbe esserci un trailer video (embed youtube nella parte bianca delle info generali (colonna sulla destra)) finora è successo solo con kerning ma esiste
+  * single
+    * togliere nomi speaker da info row
 
-* talk / speaker
+* talks
   * layout: 4-talkNew.jpg
 	* nel blocco del talk, dove c'è l'abstract, a volte si vuole poter caricare il video ex post (embed prima della bio)
 	* ci sono speaker con più talk, talk con più speaker
 	* quindi blocco descrizione talk e poi 1:n bio degli speaker
 	* nella bio: link github / linkedin / twitter nel riquadro bio
 	* (francesco) invertire la priorità? cioè dare priorità ai talk
+  * talk 
+    * subito prima del titolo aggiungere data e ora (SE SONO NOTI)
+    * titolo
+      * allineato a SX non centrato
+  * CSS aggiungere:
+    .block-speaker
+      margin: 1em 5em
+  * dal menu laterale il link deve puntare al titolo del primo talk dove lui compare e non alla bio
+  * loro hanno due file YML uno con gli speaker e uno coi talk per poter gestire meglio i dati (ovvero per non dover copiare più volte i dati del talk o dello speaker)
+  * TROVATA SOLUZIONE usare alias:
+    * `site.data.test.yml`
+    * `talks_speakers.pug` in fondo
 
 * schedule
 	* aggiungere thanks to our sponsors prima del footer

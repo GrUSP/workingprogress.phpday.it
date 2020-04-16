@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
       theMenu.setAttribute("style", "right: 0");
     }
     else {
-      theMenu.setAttribute("style", "right: -220px");
+      theMenu.setAttribute("style", "right: -14em");
     }
     secondaryMenuButton.classList.toggle('is-active');
   });
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     $secondaryMenuItems.forEach(el => {
       el.addEventListener('click', () => {
         var theMenu = document.getElementById('secondary_menu');
-        theMenu.setAttribute("style", "right: -220px");
+        theMenu.setAttribute("style", "right: -14em");
         secondaryMenuButton.classList.toggle('is-active');
       });
     });

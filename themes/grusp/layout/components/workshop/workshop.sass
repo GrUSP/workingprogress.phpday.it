@@ -6,12 +6,14 @@
   color: $main-color
 
 .workshop__container
-  padding: 1em 0
+  padding: 1em 0 2em
   margin: 0
   .inner
     margin: 0 auto
     max-width: 1200px
     border-bottom: 1px solid $main-text-color_hue-medium
+    .workshop__info
+      text-align: left
   &:last-of-type .inner
     border-bottom: none
   h5
@@ -19,7 +21,7 @@
     font-weight: 600
     color: $main-color
   p
-    font-size: .9em
+    color: $main-text-color
   a
     color: $main-text-color_inverted
     text-transform: uppercase

@@ -28,13 +28,6 @@ block content
               .info-icon
                 include ../source/assets/ico/ico-world.svg
               .info__language !{ws.language}
-            .column
-              .info-icon
-                include ../source/assets/ico/ico-teacher.svg
-              .info__teacher
-                each teacher in ws.teachers
-                  span !{teacher.teacher_name}
-                  br
           h1(role="header" aria-level="1").is-title.is-1 !{ws.workshop_title}
           .columns
             .column

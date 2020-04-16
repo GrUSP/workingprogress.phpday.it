@@ -4,6 +4,15 @@ block content
   section(id="speakers")
     include includes/_breadcrumbs.pug
 
+    //- first we create a unique list of speaker names. it will be used for both assigning the right anchor (see right below) for the seconday menu, and for tcreating the secondary menu itself.
+    //- EXPLANATION: the items in the secondary menu must point to the title of the talk where the first occurrence of the speaker is found.
+    - const var_speakers = []
+    each talk in site.data.talks_speakers.talks
+      if(!talk.is_service_item)
+        each speaker in talk.speakers
+          - var_speakers.push(speaker)
+    - const filtered_speaker_names = var_speakers.map(speaker => speaker.speaker_name).filter((value, index, self) => self.indexOf(value) === index).sort((a, b) => (a.speaker_name > b.speaker_name) ? 1 : -1)
+
     .container
       .inner
         .columns
@@ -24,7 +33,24 @@ block content
       if(!talk.is_service_item)
         .container.has-dynamic-background
           .inner
-            h2(role="heading" aria-level="2").is-title.is-2 !{talk.talk_title}
+            if(talk.start_datetime && talk.end_datetime)
+              .row-info
+                .info-icon
+                  include ../source/assets/ico/ico-calendar.svg
+                - start_time = date(talk.start_datetime, config.time_format_schedule)
+                - end_time = date(talk.end_datetime, config.time_format_schedule)
+                .info__date
+                  time(datetime=talk.start_datetime, config.time_format_schedule) !{start_time}
+                  | &nbsp;-&nbsp;
+                  time(talk.end_datetime, config.time_format_schedule) !{end_time}
+            //- here we define which "id" to assign
+            each speaker in talk.speakers
+              - the_id = ""
+              each name in filtered_speaker_names
+                if(speaker.speaker_name === name)
+                  - the_id = speaker.speaker_name
+                  break
+            h2(role="heading" aria-level="2" id=the_id).is-title.is-2 !{talk.talk_title}
             p !{talk.talk_description}
             if(talk.talk_video_url)
               .video-container
@@ -60,13 +86,6 @@ block content
                             | !{speaker.speaker_bio}
 
   script(type="text/javascript" src='/assets/js/speakers_menu.js')
-  //- first we create a unique list of speaker names
-  - const var_speakers = []
-  each talk in site.data.talks_speakers.talks
-    if(!talk.is_service_item)
-      each speaker in talk.speakers
-        - var_speakers.push(speaker)
-  - const filtered_speaker_names = var_speakers.map(speaker => speaker.speaker_name).filter((value, index, self) => self.indexOf(value) === index).sort((a, b) => (a.speaker_name > b.speaker_name) ? 1 : -1)
   aside(id="secondary_menu").menu.secondary-menu
     .secondary-menu-button-container
       a(href="#menu" id="secondary_menu_button" role="navigation" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement" aria-label="Speakers menu").secondary-menu-button.is-active

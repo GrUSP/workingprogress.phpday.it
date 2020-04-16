@@ -1,4 +1,6 @@
 workshop1:
+  page_uri: "workshop"
+  read_more_label: "read more"
   page_title: "Workshop on Rails and Vue"
   workshop_title: "Create an application with Rails and Vue.js"
   location: "Verona"

@@ -20,23 +20,24 @@ section(id="workshop").section_nopadding
             .info__date
               - start_date = date(workshop.date, config.date_format_hero)
               time(datetime=workshop.date) !{start_date}
-            | &nbsp;|&nbsp;
-            .info-icon.padded
-              include ../../../source/assets/ico/ico-teacher.svg
-            .info-teacher !{workshop.teacher}
-              each teacher in workshop.teachers
-                  span !{teacher.teacher_name}
-                  br
           h5(role="heading" aria-level="5") !{workshop.workshop_title}
           p !{workshop.description}
-          a(href=workshop.page_url role="button").button.is-small.is-rounded.is-primary !{site.data.defaults.conference.workshops_readmore_label}
+          p
+            each teacher in workshop.teachers
+              strong !{teacher.teacher_name}
+              | &nbsp;
+              span !{teacher.teacher_role}
+              | &nbsp;@&nbsp;
+              span !{teacher.teacher_org}
+              br
         .column.workshop-buttons
-          each teacher in workshop.teachers
-            - filename = "/img/ws_teachers/"+teacher.pic_filename
-            .workshop-buttons__button-container
-              .card.speaker-card
-                .card-image
-                  img(src=filename role="figure" aria-label=teacher.teacher_name alt=teacher.teacher_name)
+          .workshop-buttons__button-container
+            - read_more_url = workshop.page_uri
+            - aria_label = workshop.read_more_label
+            a(href=url_for(read_more_url) role="button" aria-label=read_more_label)
+              .workshop-buttons__button
+                include ../../../source/assets/ico/ico-readmore.svg
+            a(href=url_for(read_more_url) role="button" aria-label=read_more_label) !{workshop.read_more_label}
           .workshop-buttons__button-container
             if (!workshop.is_external)
               a(href=workshop.ticket_url role="button" target="_blank" rel="noopener noreferrer external")
