@@ -40,7 +40,7 @@ workshop1:
       teacher_bio: "This is the other speaker's bio. Lorem ipsum dolor sic amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. And so on."
       pic_filename: "fili1.jpg"
       teacher_role: "full stack developer"
-      teacher_org: "Nebulab"
+      teacher_org: "AnotherAgency"
   topics_title: "Argomenti"
   topics:
     - "Topic 1"

@@ -26,6 +26,9 @@
   h3
     font-size: 1.5em
     color: $main-color
+    //- this is to avoid hiding the title under the top header on scroll
+    padding-top: 5em
+    margin-top: -5em
     +tablet
       font-size: 1.8em
     &.speaker-name
@@ -50,6 +53,21 @@
   .video-container
     margin: 2em auto 0
     text-align: center
+  .date-menu
+    padding: 0
+    text-align: center
+    a
+      margin: 0 1em
+      +tablet
+        margin: 0 2em
+      &:hover, &:active, &:focus
+        border: 1px solid $main-color
+
+.date-holder
+  background-color: $main-color_hue-medium
+  color: $main-text-color_inverted
+  h3
+    color: $main-text-color_inverted !important
 
 .has-dynamic-background
   .row-info

@@ -7,10 +7,14 @@ block content
     //- first we create a unique list of speaker names. it will be used for both assigning the right anchor (see right below) for the seconday menu, and for tcreating the secondary menu itself.
     //- EXPLANATION: the items in the secondary menu must point to the title of the talk where the first occurrence of the speaker is found.
     - const var_speakers = []
-    each talk in site.data.talks_speakers.talks
-      if(!talk.is_service_item)
-        each speaker in talk.speakers
-          - var_speakers.push(speaker)
+    //- also, we count the days - useful for the page layout
+    - var no_days = 0
+    each day in site.data.talks_speakers.days
+      - no_days++
+      each talk in day.talks
+        if(!talk.is_service_item)
+          each speaker in talk.speakers
+            - var_speakers.push(speaker)
     - const filtered_speaker_names = var_speakers.map(speaker => speaker.speaker_name).filter((value, index, self) => self.indexOf(value) === index).sort((a, b) => (a.speaker_name > b.speaker_name) ? 1 : -1)
 
     .container
@@ -29,61 +33,77 @@ block content
                 - start_date = date(site.data.defaults.conference.date, config.date_format_hero)
               .info__date
                 time(datetime=site.data.defaults.conference.date) !{start_date}
-    each talk in site.data.talks_speakers.talks
-      if(!talk.is_service_item)
-        .container.has-dynamic-background
+    //- links to every day in page if there is more than 1 day
+    if(no_days > 1)
+      .container.date-menu
+        .inner
+          each day in site.data.talks_speakers.days
+                - anchor = `#${day.title}`
+                a(role="button" href=anchor).button.is-rounded.is-primary.is-medium !{day.title}
+    //- day title band if there is more than 1 day
+    each day in site.data.talks_speakers.days
+      if(no_days > 1)
+        .container.date-holder
           .inner
-            if(talk.start_datetime && talk.end_datetime)
-              .row-info
-                .info-icon
-                  include ../source/assets/ico/ico-calendar.svg
-                - start_time = date(talk.start_datetime, config.time_format_schedule)
-                - end_time = date(talk.end_datetime, config.time_format_schedule)
-                .info__date
-                  time(datetime=talk.start_datetime, config.time_format_schedule) !{start_time}
-                  | &nbsp;-&nbsp;
-                  time(talk.end_datetime, config.time_format_schedule) !{end_time}
-            //- here we define which "id" to assign
-            each speaker in talk.speakers
-              - the_id = ""
-              each name in filtered_speaker_names
-                if(speaker.speaker_name === name)
-                  - the_id = speaker.speaker_name
-                  break
-            h2(role="heading" aria-level="2" id=the_id).is-title.is-2 !{talk.talk_title}
-            p !{talk.talk_description}
-            if(talk.talk_video_url)
-              .video-container
-                iframe(type="text/html" src=talk.talk_video_url frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen width="400px" height="225px")
-            each speaker in talk.speakers
-              .block-speaker
-                .has-border
-                  .columns
-                    .column.column_speaker
-                      - filename = `/img/speakers/${speaker.speaker_pic_filename}`
-                      .card.speaker-card
-                        .card-image
-                          img(src=filename role="figure" aria-label=speaker.speaker_name alt=speaker.speaker_name)
-                      .row__social
-                        if(speaker.speaker_github_url)
-                          a(role="button" href=speaker.speaker_github_url rel="external noopener noreferrer" aria-label="github profile")
-                            .social-icon
-                              include ../source/assets/ico/ico-social-github.svg
-                        if(speaker.speaker_twitter_url)
-                          a(role="button" href=speaker.speaker_twitter_url rel="external noopener noreferrer" aria-label="twitter profile")
-                            .social-icon
-                              include ../source/assets/ico/ico-social-twitter.svg
-                    .column
-                      .columns.speaker-info
-                        .column
-                          h3(role="heading" aria-level="3" id=speaker.speaker_name).speaker-name !{speaker.speaker_name}
-                        .column
-                          p !{speaker.speaker_role}
-                      .columns.speaker-bio
-                        .column
-                          p 
-                            strong !{speaker.speaker_name}
-                            | !{speaker.speaker_bio}
+            - the_date = date(day.date, config.date_format_hero)
+            - the_id = day.title
+            h3(role="heading" aria-level="2" id=the_id).is-title.is-3
+              time(datetime=day.date, config.date_format_hero) !{the_date}
+      each talk in day.talks
+        if(!talk.is_service_item)
+          .container.has-dynamic-background
+            .inner
+              if(talk.start_datetime && talk.end_datetime)
+                .row-info
+                  .info-icon
+                    include ../source/assets/ico/ico-calendar.svg
+                  - start_time = date(talk.start_datetime, config.time_format_schedule)
+                  - end_time = date(talk.end_datetime, config.time_format_schedule)
+                  .info__date
+                    time(datetime=talk.start_datetime, config.time_format_schedule) !{start_time}
+                    | &nbsp;-&nbsp;
+                    time(talk.end_datetime, config.time_format_schedule) !{end_time}
+              //- here we define which "id" to assign
+              each speaker in talk.speakers
+                - the_id = ""
+                each name in filtered_speaker_names
+                  if(speaker.speaker_name === name)
+                    - the_id = speaker.speaker_name
+                    break
+              h2(role="heading" aria-level="2" id=the_id).is-title.is-2 !{talk.talk_title}
+              p !{talk.talk_description}
+              if(talk.talk_video_url)
+                .video-container
+                  iframe(type="text/html" src=talk.talk_video_url frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen width="400px" height="225px")
+              each speaker in talk.speakers
+                .block-speaker
+                  .has-border
+                    .columns
+                      .column.column_speaker
+                        - filename = `/img/speakers/${speaker.speaker_pic_filename}`
+                        .card.speaker-card
+                          .card-image
+                            img(src=filename role="figure" aria-label=speaker.speaker_name alt=speaker.speaker_name)
+                        .row__social
+                          if(speaker.speaker_github_url)
+                            a(role="button" href=speaker.speaker_github_url rel="external noopener noreferrer" aria-label="github profile")
+                              .social-icon
+                                include ../source/assets/ico/ico-social-github.svg
+                          if(speaker.speaker_twitter_url)
+                            a(role="button" href=speaker.speaker_twitter_url rel="external noopener noreferrer" aria-label="twitter profile")
+                              .social-icon
+                                include ../source/assets/ico/ico-social-twitter.svg
+                      .column
+                        .columns.speaker-info
+                          .column
+                            h3(role="heading" aria-level="3" id=speaker.speaker_name).speaker-name !{speaker.speaker_name}
+                          .column
+                            p !{speaker.speaker_role}
+                        .columns.speaker-bio
+                          .column
+                            p 
+                              strong !{speaker.speaker_name}
+                              | !{speaker.speaker_bio}
 
   script(type="text/javascript" src='/assets/js/speakers_menu.js')
   aside(id="secondary_menu").menu.secondary-menu

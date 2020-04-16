@@ -3,10 +3,11 @@ section(id="hero__speakers").section_nopadding
     - no_of_speakers = 0
     - suffix = ""
     - const var_speakers = []
-    each talk in site.data.talks_speakers.talks
-      if(!talk.is_service_item)
-        each speaker in talk.speakers
-          - var_speakers.push(speaker)
+    each day in site.data.talks_speakers.days
+      each talk in day.talks
+        if(!talk.is_service_item)
+          each speaker in talk.speakers
+            - var_speakers.push(speaker)
     each speaker in var_speakers.map(speaker => speaker.speaker_name).filter((value, index, self) => self.indexOf(value) === index)
       - no_of_speakers++
     if no_of_speakers > 1

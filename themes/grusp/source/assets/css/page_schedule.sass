@@ -1,4 +1,7 @@
 @import "defaults"
+@import "bulma/sass/utilities/initial-variables"
+@import "bulma/sass/utilities/derived-variables"
+@import "bulma/sass/utilities/mixins"
 
 .title-container_schedule
   text-align: center
@@ -6,7 +9,21 @@
     margin: 0 auto
     text-transform: capitalize
 
+.date-menu
+  padding: 0
+  text-align: center
+  a
+    margin: 0 1em
+    +tablet
+      margin: 0 2em
+    &:hover, &:active, &:focus
+      border: 1px solid $main-color
+
 .timeline
+  padding-top: 1em
+  padding-bottom: 3em
+  &:last-of-type
+    padding-bottom: 0
   .info-bar
     background-color: $main-color
     padding: 1em
@@ -16,6 +33,10 @@
       .info__date
         color: $main-text-color_inverted
         text-transform: uppercase
+        //- this is to avoid hiding the title under the top header on scroll
+        padding-top: 8em
+        margin-top: -8em
+
     svg path
       fill: $main-text-color_inverted
   ul

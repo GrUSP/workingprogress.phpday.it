@@ -9,34 +9,47 @@ block content
       .inner
         .title-container.title-container_schedule
           h1(role="heading" aria-level="1").title-is-1 !{page.title}
-        .timeline
-          .info-bar
-            .row-info
-              .info-icon.padded
-                include ../source/assets/ico/ico-calendar.svg
-                - start_date = date(site.data.defaults.conference.date, config.date_format_hero)
-              .info__date
-                time(datetime=site.data.defaults.conference.date) !{start_date}
-          ul
-            //-each talk in site.data.talks_speakers.talks.sort((a, b) => (a.start_datetime > b.start_datetime) ? 1 : -1)
-            each talk in site.data.talks_speakers.talks
-              - classes = ""
-              if(!talk.is_service_item)
-                - classes += "has-background "
-              if(talk.service_icon)
-                - classes += "has-service-icon "
-              li(class=classes)
-                time(datetime=talk.start_datetime) !{time(talk.start_datetime, config.time_format_schedule)} - !{time(talk.end_datetime, config.time_format_schedule)}
-                br
-                strong !{talk.talk_title}
-                br
-                if(talk.host_name)
-                  span !{talk.host_name}
-                if(talk.speakers)
-                  each speaker in talk.speakers
-                    span !{speaker.speaker_name}
+        //- we count the days - useful for the page layout
+        - var no_days = 0
+        each day in site.data.talks_speakers.days
+          - no_days++
+        //- links to every day in page if there is more than 1 day
+        if(no_days > 1)
+          .container.date-menu
+            .inner
+              each day in site.data.talks_speakers.days
+                - anchor = `#${day.title}`
+                a(role="button" href=anchor).button.is-rounded.is-primary.is-medium !{day.title}
+        each day in site.data.talks_speakers.days
+          - the_id = day.title
+          .timeline
+            .info-bar
+              .row-info
+                .info-icon.padded
+                  include ../source/assets/ico/ico-calendar.svg
+                  - start_date = date(day.date, config.date_format_hero)
+                .info__date(id=the_id)
+                  time(datetime=day_date) !{start_date}
+            ul
+              each talk in day.talks
+                - classes = ""
+                if(!talk.is_service_item)
+                  - classes += "has-background "
                 if(talk.service_icon)
-                  - filename = `/assets/ico/ico-${talk.service_icon}.png`
-                  img(src=filename alt=talk.service_icon)
+                  - classes += "has-service-icon "
+                li(class=classes)
+                  time(datetime=talk.start_datetime) !{time(talk.start_datetime, config.time_format_schedule)} - !{time(talk.end_datetime, config.time_format_schedule)}
+                  br
+                  strong !{talk.talk_title}
+                  br
+                  if(talk.host_name)
+                    span !{talk.host_name}
+                  if(talk.speakers)
+                    each speaker in talk.speakers
+                      span !{speaker.speaker_name}
+                  if(talk.service_icon)
+                    - filename = `/assets/ico/ico-${talk.service_icon}.png`
+                    img(src=filename alt=talk.service_icon)
+
     include components/sponsors/sponsors.pug
     include components/newsletter/newsletter.pug

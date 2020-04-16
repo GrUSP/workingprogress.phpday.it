@@ -19,56 +19,80 @@ speaker_3: &filippo_gangidino
   speaker_bio: "really is someone. Also, he is an open source contributor. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. And however, enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   speaker_github_url: "https://github.com/mukkoo"
   speaker_twitter_url:
+speaker_4: &andrea_sartori
+  speaker_name: Andrea Sartori
+  speaker_pic_filename: profile-andre.png
+  speaker_role: CEO at weLaika
+  speaker_bio: "is an impostor. And however, lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. And however, enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  speaker_github_url: "https://github.com/dew-frost"
+  speaker_twitter_url:
 
-talks:
-  talk_1:
-    is_service_item: true
-    start_datetime: 2020-09-16T09:00
-    end_datetime: 2020-09-16T09:30
-    talk_title: "Check-in"
-  talk_2:
-    is_service_item: true
-    start_datetime: 2020-09-16T09:30
-    end_datetime: 2020-09-16T09:45
-    talk_title: "GrUSP presentation"
-    host_name: "Francesco Fullone"
-  talk_3:
-    is_service_item: true
-    start_datetime: 2020-09-16T09:45
-    end_datetime: 2020-09-16T10:00
-    talk_title: "Conference presentation"
-    host_name: "Giulia Tosato"
-  talk_4:
-    is_service_item: false
-    start_datetime: 2020-09-16T10:00
-    end_datetime: 2020-09-16T10:45
-    talk_title: Building modern web applications without even writing a line of code
-    talk_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    talk_video_url:
-    speakers:
-      speaker_1: *luca_guidi
-  talk_5:
-    is_service_item: true
-    start_datetime: 2020-09-16T10:45
-    end_datetime: 2020-09-16T11:00
-    talk_title: "Coffee break"
-    service_icon: "coffee"
-  talk_6:
-    is_service_item: false
-    start_datetime: 2020-09-16T11:00
-    end_datetime: 2020-09-16T12:00
-    talk_title: "Lucy in the sky with rubies (and video)"
-    talk_description: "After the coffee we resume with an interesting talk by a special guest. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    talk_video_url: "https://www.youtube.com/embed/hcQyFtHMfbs"
-    speakers:
-       speaker_1: *filippo_gangidino
-  talk_7:
-    is_service_item: false
-    start_datetime: 2020-09-16T12:00
-    end_datetime: 2020-09-16T13:00
-    talk_title: "This is another talk by the first speaker of the first talk and a second speaker"
-    talk_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    talk_video_url:
-    speakers:
-      speaker_1: *luca_guidi
-      speaker_2: *nick_sutterer
+days:
+  day_1:
+    date: 2020-09-16T09:00
+    title: "Day 1"
+    talks:
+      talk_1:
+        is_service_item: true
+        start_datetime: 2020-09-16T09:00
+        end_datetime: 2020-09-16T09:30
+        talk_title: "Check-in"
+      talk_2:
+        is_service_item: true
+        start_datetime: 2020-09-16T09:30
+        end_datetime: 2020-09-16T09:45
+        talk_title: "GrUSP presentation"
+        host_name: "Francesco Fullone"
+      talk_3:
+        is_service_item: true
+        start_datetime: 2020-09-16T09:45
+        end_datetime: 2020-09-16T10:00
+        talk_title: "Conference presentation"
+        host_name: "Giulia Tosato"
+      talk_4:
+        is_service_item: false
+        start_datetime: 2020-09-16T10:00
+        end_datetime: 2020-09-16T10:45
+        talk_title: Building modern web applications without even writing a line of code
+        talk_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        talk_video_url:
+        speakers:
+          speaker_1: *luca_guidi
+      talk_5:
+        is_service_item: true
+        start_datetime: 2020-09-16T10:45
+        end_datetime: 2020-09-16T11:00
+        talk_title: "Coffee break"
+        service_icon: "coffee"
+      talk_6:
+        is_service_item: false
+        start_datetime: 2020-09-16T11:00
+        end_datetime: 2020-09-16T12:00
+        talk_title: "Lucy in the sky with rubies (and video)"
+        talk_description: "After the coffee we resume with an interesting talk by a special guest. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        talk_video_url: "https://www.youtube.com/embed/hcQyFtHMfbs"
+        speakers:
+          speaker_1: *filippo_gangidino
+      talk_7:
+        is_service_item: false
+        start_datetime: 2020-09-16T12:00
+        end_datetime: 2020-09-16T13:00
+        talk_title: "This is another talk by the first speaker of the first talk and a second speaker"
+        talk_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        talk_video_url:
+        speakers:
+          speaker_1: *luca_guidi
+          speaker_2: *nick_sutterer
+  day_2:
+    date: 2020-09-17T09:00
+    title: "Day 2"
+    talks:
+      talk_1:
+        is_service_item: false
+        start_datetime: 2020-09-17T09:00
+        end_datetime: 2020-09-17T10:00
+        talk_title: "This is a talk at the beginning of the second day"
+        talk_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        talk_video_url:
+        speakers:
+          speaker_1: *andrea_sartori
