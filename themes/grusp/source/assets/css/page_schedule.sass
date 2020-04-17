@@ -1,7 +1,8 @@
 @import "defaults"
-@import "bulma/sass/utilities/initial-variables"
-@import "bulma/sass/utilities/derived-variables"
+@import "bulma/sass/utilities/_all"
 @import "bulma/sass/utilities/mixins"
+@import "bulma/sass/base/helpers"
+@import "bulma/sass/elements/table"
 
 .title-container_schedule
   text-align: center
@@ -17,11 +18,11 @@
     +tablet
       margin: 0 2em
     &:hover, &:active, &:focus
-      border: 1px solid $main-color
+      border-color: $main-color !important
 
 .timeline
-  padding-top: 1em
-  padding-bottom: 3em
+  margin-bottom: 3em
+  border: 1px solid $main-color
   &:last-of-type
     padding-bottom: 0
   .info-bar
@@ -36,41 +37,46 @@
         //- this is to avoid hiding the title under the top header on scroll
         padding-top: 8em
         margin-top: -8em
-
     svg path
       fill: $main-text-color_inverted
-  ul
-    li
-      color: $main-color
-      font-weight: 600
-      padding: 0 0 1em 1.6em
-      border-left: 2px solid $main-color
-      &::before
-        content: "\2022"
-        color: $main-color
-        font-weight: 600
-        font-size: 2em
-        display: inline-block
-        width: 1em
-        margin-left: -1em
-      &:first-child
-      &.has-background
-        background-color: $main-text-color_hue-lighter
-      &.has-service-icon
-        padding-bottom: 0
-      strong
-        color: $main-text-color
-      span
-        font-weight: 200
-        font-style: italic
-        color: $main-text-color
-        &::after
-          content: ", "
-        &:last-of-type::after
+  table
+    tr
+      td
+        padding: .5em 1em
+        border-left: 1px solid $main-color
+        &.has-background
+          background-color: $main-text-color_hue-lighter
+        &::before
+          content: "\2022"
+          color: $main-color
+          font-weight: 600
+          font-size: 2em
+          display: inline-block
+          width: 1em
+          margin-left: -.7em
+        &.has-service-icon
+          padding-bottom: 0
+        time
+          font-weight: 600
+          color: $main-color
+          margin-left: -.7em
+        span
+          font-weight: 200
+          font-style: italic
+          color: $main-text-color
+          &::after
+            content: ", "
+          &:last-of-type::after
+            content: ""
+        .track-title
+          font-weight: 600
+          font-style: normal
+          color: $main-color
+          &::after
           content: ""
-      img
-        display: inline
-        margin-top: -50px
-        margin-bottom: 5px
-        max-width: 60px
-        margin-left: 180px
+        img
+          display: inline
+          margin-top: -50px
+          margin-bottom: 5px
+          max-width: 60px
+          margin-left: 180px

@@ -16,28 +16,40 @@
 
 # TODO
 
-* una volta estratte le palette di colori, mettere tutti i relativi file sass nel repo, aggiungere un parametro in defaults, e aggiungere dinamicamente il css della palette in header.pug così si evita di toccare il _config e si genera comunque il sito con la palette giusta
+* a special `defaults.sass` file for each conference, with color palette (manu)
+  * una volta estratte le palette di colori, mettere tutti i relativi file sass nel repo, aggiungere un parametro in defaults, e aggiungere dinamicamente il css della palette in header.pug così si evita di toccare il _config e si genera comunque il sito con la palette giusta
 
 * home
   * NUOVO component: community partner
     * ? fascia tipo topics colorata con riquadri bianchi che contengono i loghi ? fascia bianca coi loghi ma che si distingua da qualle degli sponsor ? 
-
-* workshop
-  * per se ce n'è più di uno:
-    * list
-    * due pagine "single"
-    * in fondo alla single inserire il link agli altri workshop (alla pagina intermedia!) prima della fascia newsletter
-  	* generare sottomenu solo se ce ne sono due (vedi breadcrumbs)
-	* fare pagina intermedia (+- stesse info che in home)
 
 * talks
   * talk 
       * icona talk accanto al titolo -> no; c'è l'icona calendario subito sopra, sta male...
 
 * schedule
-  * by day! 
-    * se ci sono più giorni, una tabella x giorno (e in cima il link al secondo, terzo giorno etc)
   * by track!
+    * non si può più usare `ul`
+    * per ogni talk nel day:
+      * se `service_item` una colonna sola
+      * se no, due colonne, una per track
+      * il fottuto pallino va inserito con un `:before`
+      * e se gli orari sono sfasati?
+    * usare una track 0 per i service item? no, perché se no è come se ne avessi una in più e non riesci a distinguere in un loop
+  * mettere track prima del day?
+    * allora il service item dovrebbe avere comunque larghezza doppia
+    * il day andrebbe "ricomposto"
+  * talks: indicare numero o titolo track prima di ogni talk?
+
+* workshop
+  * per se ce n'è più di uno:
+    * list
+    * due pagine "single"
+    * ogni "single" in quel caso deve essere messa sotto `source/_data/workshop` e **deve avere `parent`, `path` e `permalink`**
+      * **DOCUMENTARE** l'utilizzo
+    * in fondo alla single inserire il link agli altri workshop (alla pagina intermedia!) prima della fascia newsletter
+  	* generare sottomenu solo se ce ne sono due (vedi breadcrumbs)
+	* fare pagina intermedia (+- stesse info che in home)
 
 
 ## Theme
@@ -45,18 +57,15 @@
 * https://developer.mozilla.org/en-US/docs/Web/Performance/dns-prefetch
   * (x es link google maps): `- url_to_prefetch = new URL(data.location_maps_url)`
 
-* a special `defaults.sass` file for each conference, with color palette (manu)
 
 * home
 	* hero: 
 		* background: ora il tema si aspetta `hero.jpg` (e `location.jpg`) -- rendere possibile usare altri tipi di immagine. 
-			* usare `defaults`?
+			* usare `defaults`
 			* usare semplicemente qualsiasi cosa ci sia in `img/home/` indipendentemente dal filetype?
 	* workshop
-		* link a pagina workshop (`#anchor` se pagina unica) (vediamo prima come si fanno i workshop)
-* dove ci andrebbero form: PULSANTI che vanno alle google form o quant'altro
-  * pulsanti fatti; farsi dare link
-* workshops (multiple) page
+		* link a singola pagina workshop se ce ne sono > 1
+* LINK a tutti i pulsanti che vanno alle google form o all'acquisto biglietti
 
 ## Assets
 
@@ -189,6 +198,8 @@
 
 * schedule
 	* aggiungere thanks to our sponsors prima del footer
+  * by day! 
+    * se ci sono più giorni, una tabella x giorno (e in cima il link al secondo, terzo giorno etc)
 
 * newsletter
   * embed mailchimp

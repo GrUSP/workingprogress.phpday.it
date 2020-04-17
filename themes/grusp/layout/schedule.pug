@@ -5,6 +5,11 @@ block content
   section(id="schedule")
     include includes/_breadcrumbs.pug
 
+    //- we count the number of tracks in order to know if the table must have more than one column
+    - no_tracks = 0
+    each track in site.data.talks_speakers.tracks
+      - no_tracks++
+
     .container
       .inner
         .title-container.title-container_schedule
@@ -30,26 +35,43 @@ block content
                   - start_date = date(day.date, config.date_format_hero)
                 .info__date(id=the_id)
                   time(datetime=day_date) !{start_date}
-            ul
-              each talk in day.talks
-                - classes = ""
-                if(!talk.is_service_item)
-                  - classes += "has-background "
-                if(talk.service_icon)
-                  - classes += "has-service-icon "
-                li(class=classes)
-                  time(datetime=talk.start_datetime) !{time(talk.start_datetime, config.time_format_schedule)} - !{time(talk.end_datetime, config.time_format_schedule)}
-                  br
-                  strong !{talk.talk_title}
-                  br
-                  if(talk.host_name)
-                    span !{talk.host_name}
-                  if(talk.speakers)
-                    each speaker in talk.speakers
-                      span !{speaker.speaker_name}
+            table.table.is-fullwidth.is-hoverable
+              if(no_tracks > 1)
+                - service_td_colspan = no_tracks
+              tbody
+                each talk in day.talks
+                  - tr_classes = ""
+                  - td_classes = ""
+                  if(!talk.is_service_item)
+                    - tr_classes += "has-background "
                   if(talk.service_icon)
-                    - filename = `/assets/ico/ico-${talk.service_icon}.png`
-                    img(src=filename alt=talk.service_icon)
+                    - td_classes += "has-service-icon "
+                  if(talk.is_service_item)
+                    tr(class=tr_classes)
+                      td(class=td_classes colspan=no_tracks)
+                        time(datetime=talk.start_datetime) !{time(talk.start_datetime, config.time_format_schedule)} - !{time(talk.end_datetime, config.time_format_schedule)}
+                        br
+                        strong !{talk.talk_title}
+                        br
+                        if(talk.host_name)
+                          span !{talk.host_name}
+                        if(talk.service_icon)
+                          - filename = `/assets/ico/ico-${talk.service_icon}.png`
+                          img(src=filename alt=talk.service_icon)
+                  else
+                    td(style=`width: calc(100% / ${no_tracks})`).has-background
+                      time(datetime=talk.start_datetime) !{time(talk.start_datetime, config.time_format_schedule)} - !{time(talk.end_datetime, config.time_format_schedule)}
+                      br
+                      if(talk.track)
+                        span.track-title !{talk.track.title}
+                      br
+                      strong !{talk.talk_title}
+                      br
+                      if(talk.host_name)
+                        span !{talk.host_name}
+                      if(talk.speakers)
+                        each speaker in talk.speakers
+                          span !{speaker.speaker_name}
 
     include components/sponsors/sponsors.pug
     include components/newsletter/newsletter.pug

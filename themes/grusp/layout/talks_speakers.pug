@@ -63,6 +63,9 @@ block content
                     time(datetime=talk.start_datetime, config.time_format_schedule) !{start_time}
                     | &nbsp;-&nbsp;
                     time(talk.end_datetime, config.time_format_schedule) !{end_time}
+              if(talk.track)
+                strong !{talk.track.title}
+
               //- here we define which "id" to assign
               each speaker in talk.speakers
                 - the_id = ""

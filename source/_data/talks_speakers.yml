@@ -27,6 +27,12 @@ speaker_4: &andrea_sartori
   speaker_github_url: "https://github.com/dew-frost"
   speaker_twitter_url:
 
+tracks:
+  track_1: &track_1
+    title: "Track 1"
+  track_2: &track_2
+    title: "Track 2"
+
 days:
   day_1:
     date: 2020-09-16T09:00
@@ -51,6 +57,7 @@ days:
         host_name: "Giulia Tosato"
       talk_4:
         is_service_item: false
+        track: *track_1
         start_datetime: 2020-09-16T10:00
         end_datetime: 2020-09-16T10:45
         talk_title: Building modern web applications without even writing a line of code
@@ -59,22 +66,24 @@ days:
         speakers:
           speaker_1: *luca_guidi
       talk_5:
-        is_service_item: true
-        start_datetime: 2020-09-16T10:45
-        end_datetime: 2020-09-16T11:00
-        talk_title: "Coffee break"
-        service_icon: "coffee"
-      talk_6:
         is_service_item: false
-        start_datetime: 2020-09-16T11:00
-        end_datetime: 2020-09-16T12:00
+        track: *track_2
+        start_datetime: 2020-09-16T10:00
+        end_datetime: 2020-09-16T10:45
         talk_title: "Lucy in the sky with rubies (and video)"
         talk_description: "After the coffee we resume with an interesting talk by a special guest. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         talk_video_url: "https://www.youtube.com/embed/hcQyFtHMfbs"
         speakers:
           speaker_1: *filippo_gangidino
+      talk_6:
+        is_service_item: true
+        start_datetime: 2020-09-16T10:45
+        end_datetime: 2020-09-16T11:00
+        talk_title: "Coffee break"
+        service_icon: "coffee"
       talk_7:
         is_service_item: false
+        track: *track_1
         start_datetime: 2020-09-16T12:00
         end_datetime: 2020-09-16T13:00
         talk_title: "This is another talk by the first speaker of the first talk and a second speaker"
@@ -83,16 +92,43 @@ days:
         speakers:
           speaker_1: *luca_guidi
           speaker_2: *nick_sutterer
+      talk_8:
+        is_service_item: false
+        track: *track_2
+        start_datetime: 2020-09-16T12:00
+        end_datetime: 2020-09-16T13:00
+        talk_title: "This is a talk in track 2"
+        talk_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        talk_video_url:
+        speakers:
+          speaker_1: *andrea_sartori
   day_2:
     date: 2020-09-17T09:00
     title: "Day 2"
     talks:
       talk_1:
+        is_service_item: true
+        start_datetime: 2020-09-16T09:00
+        end_datetime: 2020-09-16T09:30
+        talk_title: "Welcome Coffee"
+        service_icon: "coffee"
+      talk_2:
+        track: *track_1
         is_service_item: false
-        start_datetime: 2020-09-17T09:00
-        end_datetime: 2020-09-17T10:00
+        start_datetime: 2020-09-17T09:30
+        end_datetime: 2020-09-17T10:45
         talk_title: "This is a talk at the beginning of the second day"
         talk_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         talk_video_url:
         speakers:
           speaker_1: *andrea_sartori
+      talk_3:
+        track: *track_2
+        is_service_item: false
+        start_datetime: 2020-09-17T09:30
+        end_datetime: 2020-09-17T10:45
+        talk_title: "This is a talk in the second day, track 2"
+        talk_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        talk_video_url:
+        speakers:
+          speaker_1: *filippo_gangidino
