@@ -5,8 +5,8 @@
 	* usano travis per generare
 
 * caricare tutte le palette di colori del team e farli scegliere dinamicamente in header.pug da un parametro (conference tag)
-
 * ma: e fare la stessa cosa per logo e favicon?
+  * favicon + tiles: (by site) favicon + tiles with conference logos!
 
 * IMPORTANTE per le breadcrumbs
   * il `front-matter` della pagina DEVE includere `parent`
@@ -14,32 +14,18 @@
     * le sottopagine di "workshop" (se ce ne sono) devono avere `parent: workshops`
     * DOCUMENTARE nella guida alla creazione di workshop multipli
 
+* PROTIP: added `width` and `height` attributes to icon SVGs to prevent FOUSVG on Firefox B-)
+
 # TODO
 
 * a special `defaults.sass` file for each conference, with color palette (manu)
   * una volta estratte le palette di colori, mettere tutti i relativi file sass nel repo, aggiungere un parametro in defaults, e aggiungere dinamicamente il css della palette in header.pug così si evita di toccare il _config e si genera comunque il sito con la palette giusta
-
-* home
-  * NUOVO component: community partner
-    * ? fascia tipo topics colorata con riquadri bianchi che contengono i loghi ? fascia bianca coi loghi ma che si distingua da qualle degli sponsor ? 
+  * ma: e fare la stessa cosa per logo e favicon?
+  * favicon + tiles: (by site) favicon + tiles with conference logos!
 
 * talks
   * talk 
       * icona talk accanto al titolo -> no; c'è l'icona calendario subito sopra, sta male...
-
-* schedule
-  * by track!
-    * non si può più usare `ul`
-    * per ogni talk nel day:
-      * se `service_item` una colonna sola
-      * se no, due colonne, una per track
-      * il fottuto pallino va inserito con un `:before`
-      * e se gli orari sono sfasati?
-    * usare una track 0 per i service item? no, perché se no è come se ne avessi una in più e non riesci a distinguere in un loop
-  * mettere track prima del day?
-    * allora il service item dovrebbe avere comunque larghezza doppia
-    * il day andrebbe "ricomposto"
-  * talks: indicare numero o titolo track prima di ogni talk?
 
 * workshop
   * per se ce n'è più di uno:
@@ -51,12 +37,11 @@
   	* generare sottomenu solo se ce ne sono due (vedi breadcrumbs)
 	* fare pagina intermedia (+- stesse info che in home)
 
-
-## Theme
+* links & info: opengraph
+* schema.org: in JSON-LD! specie per schema.org/Event
 
 * https://developer.mozilla.org/en-US/docs/Web/Performance/dns-prefetch
   * (x es link google maps): `- url_to_prefetch = new URL(data.location_maps_url)`
-
 
 * home
 	* hero: 
@@ -66,17 +51,6 @@
 	* workshop
 		* link a singola pagina workshop se ce ne sono > 1
 * LINK a tutti i pulsanti che vanno alle google form o all'acquisto biglietti
-
-## Assets
-
-* favicon + tiles: (by site) favicon + tiles with conference logos!
-* PROTIP: added `width` and `height` attributes to icon SVGs to prevent FOUSVG on Firefox B-)
-
-## Content
-
-* links & info: opengraph
-* date in speakers come hero
-* schema.org: in JSON-LD! specie per schema.org/Event
 
 
 # DONE
@@ -118,6 +92,8 @@
     * no carousel, solo 2-3 foto di pubblico
     * e il video recap che di solito c'è
     * aggiungere link "guarda tutti i video"
+  * NUOVO component: community partner
+    * fascia bordata tipo speaker in talks
 
 * welcome
   * grafica confermata (7-welcomeOk.jpg)
@@ -195,6 +171,21 @@
   * TROVATA SOLUZIONE usare alias:
     * `site.data.test.yml`
     * `talks_speakers.pug` in fondo
+  * date in talks come hero
+
+* schedule
+  * by track!
+    * non si può più usare `ul`
+    * per ogni talk nel day:
+      * se `service_item` una colonna sola
+      * se no, due colonne, una per track
+      * il fottuto pallino va inserito con un `:before`
+      * e se gli orari sono sfasati?
+    * usare una track 0 per i service item? no, perché se no è come se ne avessi una in più e non riesci a distinguere in un loop
+  * mettere track prima del day?
+    * allora il service item dovrebbe avere comunque larghezza doppia
+    * il day andrebbe "ricomposto"
+  * talks: indicare numero o titolo track prima di ogni talk?
 
 * schedule
 	* aggiungere thanks to our sponsors prima del footer

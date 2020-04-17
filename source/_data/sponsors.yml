@@ -46,3 +46,17 @@ media:
     name: "weLaika"
     logo_filename: "logo-welaika.png"
     site_url: "https://welaika.com/"
+
+community_partners:
+  cp_1:
+    name: "React Alicante"
+    website_url: "http://reactalicante.es/"
+    logo_filename: "react-alicante.png"
+  cp_2:
+    name: "React Amsterdam"
+    website_url: "https://react.amsterdam/"
+    logo_filename: "react-amsterdam.png"
+  cp_3:
+    name: "React Scotland"
+    website_url: "https://www.meetup.com/React-Scotland/"
+    logo_filename: "react-scotland.png"

@@ -67,6 +67,9 @@ conference:
   location_maps_label: "Get directions"
   # this is for the Sponsors section in home page
   sponsor_title_home: "Sponsors"
+  # this is for the Community partners section in home page
+  community_partners: true
+  community_partners_title: "Community Partners"
   # this is for the Newsletter block
   newsletter_title: "Stay in the loop!"
   newsletter_subtitle: "Subscribe to our newsletter"

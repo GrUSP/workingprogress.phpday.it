@@ -15,4 +15,6 @@ block content
   include components/media/media.pug
   include components/location/location.pug
   include components/sponsors/sponsors.pug
+  if site.data.defaults.conference.community_partners
+    include components/community_partners/community_partners.pug
   include components/newsletter/newsletter.pug
