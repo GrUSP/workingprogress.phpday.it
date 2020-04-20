@@ -54,5 +54,12 @@
       font-size: 2em
       text-transform: uppercase
       color: $main-text-color_inverted
-  a
-    color: $main-text-color_inverted
+    a
+      color: $main-text-color_inverted
+      font-size: .6em
+      +widescreen
+        font-size: .8em
+      +fullhd
+        font-size: 1em
+  .is-centered
+    padding-top: 2em

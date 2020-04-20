@@ -73,5 +73,9 @@ block content
                         each speaker in talk.speakers
                           span !{speaker.speaker_name}
 
-    include components/sponsors/sponsors.pug
-    include components/newsletter/newsletter.pug
+    //- imported components
+    include components/newsletter/newsletter
+    if(site.data.defaults.conference.sponsors_visible)
+      include components/sponsors/sponsors
+    if site.data.defaults.conference.community_partners
+      include components/community_partners/community_partners

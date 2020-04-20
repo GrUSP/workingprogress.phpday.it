@@ -21,8 +21,13 @@ section(id="media").section_nopadding
         .column
           .pic-holder
             img(src=pic_4_filename alt="")
-    if(site.data.defaults.conference.media_video_url)
+    if(site.data.defaults.conference.media_video_playlist)
+      - playlist_full_url= ""
+      if(site.data.defaults.conference.media_video_is_youtube)
+        - playlist_full_url = site.data.defaults.conference.youtube_base_url + site.data.defaults.conference.youtube_playlist_id
+      else
+        - playlist_full_url = site.data.defaults.conference.vimeo_base_url + site.data.defaults.conference.vimeo_showcase_id + site.data.defaults.conference.vimeo_url_suffix
       .inner
         .iframe-container
           .iframe-holder
-            iframe(type="text/html" src=site.data.defaults.conference.media_video_url frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen width="800px" height="450px")
+            iframe(type="text/html" src=playlist_full_url frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen width="800px" height="450px")

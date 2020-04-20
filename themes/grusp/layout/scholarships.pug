@@ -52,5 +52,10 @@ block content
             - filename = "/img/logos/"+sponsor.logo_filename
             a(href=sponsor.site_url target="_blank" rel="noopener noreferrer external" role="button" aria-label=sponsor.name)
               img(src=filename alt=sponsor.name)
+
+    //- imported components
     include components/newsletter/newsletter
-    include components/sponsors/sponsors
+    if(site.data.defaults.conference.sponsors_visible)
+      include components/sponsors/sponsors
+    if site.data.defaults.conference.community_partners
+      include components/community_partners/community_partners

@@ -24,8 +24,20 @@
   * favicon + tiles: (by site) favicon + tiles with conference logos!
 
 * talks
-  * talk 
-      * icona talk accanto al titolo -> no; c'è l'icona calendario subito sopra, sta male...
+  * si vorrebbe poter scegliere l'ordine (possibilmente l'ordine in cui sono scritti nel file)
+  * track title nello stesso rigo dell'orario (con icona apposta)
+  * aggiungere un parametro facoltativo per il tipo di talk (keynote, workshop...) da mettere tra titolo e descrizione
+  * titolo cliccabile = link al talk nello schedule
+* schedule
+  * ordinare i dati per ora inizio invece che per ordine del file
+  * titolo talk cliccabile = link al talk nei talk
+  * possono esserci talk di lunghezza maggiore (doppia)
+  * nella stessa track ci possono essere slot vuoti
+  * aggiungere un parametro facoltativo per il tipo di talk (keynote by, workshop by...) da prependere al/ai nome/i speaker(s)
+  * in una track ci possono essere "eventi" che non sono né talk né service e insomma si mette solo:
+    * ora (of course)
+    * titolo (non cliccabile)
+    * descrizione facoltativa
 
 * workshop
   * per se ce n'è più di uno:
@@ -36,6 +48,18 @@
     * in fondo alla single inserire il link agli altri workshop (alla pagina intermedia!) prima della fascia newsletter
   	* generare sottomenu solo se ce ne sono due (vedi breadcrumbs)
 	* fare pagina intermedia (+- stesse info che in home)
+
+* NUOVE PAGINE
+  * CFP
+    * intro
+    * un po' di info
+    * link alla form
+  * Venue
+    * figlia di About, stesso schema delle pagine di About e famiglia
+    * un po' di info
+    * dove ci sarebbe il video in About, mettere la mappa
+    * dove in About ci sarebbe il team, hotel agreements
+    * un po' di info sulla città
 
 * links & info: opengraph
 * schema.org: in JSON-LD! specie per schema.org/Event
@@ -94,9 +118,17 @@
     * aggiungere link "guarda tutti i video"
   * NUOVO component: community partner
     * fascia bordata tipo speaker in talks
+  * **TUTTI** i componenti facoltativi
+  * media
+    * icona vimeo al canale della conf
+    * icone youtube alla playlist
 
 * welcome
   * grafica confermata (7-welcomeOk.jpg)
+  * info blocks
+    * titolo sia link
+    * "read more" allineato a SX
+    * più respiro prima del pulsantone
 
 * welcome/about
   * pagina about confermata (8-about)
@@ -196,3 +228,5 @@
   * embed mailchimp
 	* quale lista in file di configurazione
 	* nascondere tutto tranne i campi nome, cognome, email e "can you understand italian?"
+
+* componente community OVUNQUE ci siano gli sponsor

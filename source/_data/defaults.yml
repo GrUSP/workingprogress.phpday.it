@@ -7,10 +7,12 @@ conference:
   title: "Ruby Day"
   city: "Verona"
   date: 2020-09-16T09:00
+  countdown_visible: true
   countdown_days: "days"
   countdown_hours: "hours"
   countdown_minutes: "minutes"
   countdown_seconds: "seconds"
+  ticket_button_visible: true
   hero_buy_tickets_label: "Buy tickets now"
   # "update" component. set the first parameter to true to make it appear in home page, false means hidden
   update_visible: true
@@ -20,7 +22,7 @@ conference:
   update_description: "This is the description of such important information"
   update_link_url: "https://google.com/"
   update_link_label: "a link to google, just for the demo"
-  # "call for papers" component. set the first parameter to false to make CFP section disappear from home page!
+  # "call for papers" component. set the first parameter to true to make it appear in home page, false means hidden
   cfp_open: true
   cfp_open_label: "Submissions accepted until"
   cfp_open_title: "Call For Papers Now Open!"
@@ -28,13 +30,14 @@ conference:
   cfp_register_label: "Apply now"
   cfp_register_aria_label: "Apply now for our Call for papers"
   # "general information" ("what is it?") component
+  geninfo_visible: true
   geninfo_title: "What is it?"
   geninfo_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
   geninfo_about_label: "About"
   geninfo_coc_label: "Code of conduct"
   geninfo_scholarships_label: "Scholarships"
   geninfo_tickets_label: "Buy tickets"
-  # "speakers" component. set the first parameter to false to make Speakers section disappear from home page!
+  # "speakers" component. set the first parameter to true to make it appear in home page, false means hidden
   speakers_visible: true
   speakers_title: "speaker"
   # "topics" component. set the first parameter to true to make it appear in home page, false means hidden
@@ -49,23 +52,37 @@ conference:
     - "Frontend"
     - "Frameworks"
   topics_payoff: "...and much more!"
-  # this is for the Workshops section in home page
+  # "workshop" component. set the first parameter to true to make it appear in home page, false means hidden
+  workshop_visible: true
   workshops_title: "workshop"
   workshops_tickets_label: "Buy tickets"
   workshops_readmore_label: "Read more"
   workshops_register_label: "Register"
-  # Media section in home page
+  # Media section in home page. set the first parameter to true to make it appear in home page, false means hidden
+  media_visible: true
   media_pic_1: "sample_pic_1.jpg"
   media_pic_2: "sample_pic_2.jpeg"
   media_pic_3: "sample_pic_3.jpeg"
   media_pic_4: "sample_pic_4.jpg"
-  media_video_url: "https://www.youtube.com/embed/kgA2V85dPEg"
-  # this is for the Location section in home page
+  #   playlist: if true, the iframe will be created. if false, it will not
+  media_video_playlist: true
+  # if `media_video_is_youtube` is `true`, the relevant playlist will be embedded via "media_video_playlist". If it is `false`, the relevant Vimeo channel will be embedded via "media_vimeo_channel"
+  media_video_is_youtube: false
+  youtube_base_url: "https://www.youtube.com/embed/videoseries?list="
+  vimeo_base_url: "https://vimeo.com/album/"
+  vimeo_url_suffix: "/embed"
+  #   (embed YouTube playlist: prendere l'ID della lista dall'URL, la parte dopo '&list=', e metterla qui sotto)
+  youtube_playlist_id: "PLWK9j6ps_unmgzGOw3cbjS8ID-b-cF1d9"
+  #   (embed Vimeo showcase: prendere l'ID dello showcase e metterla qui sotto)
+  vimeo_showcase_id: "6048109"
+  # Location section in home page. set the first parameter to true to make it appear in home page, false means hidden
+  location_visible: true
   location_name: "Hotel San Marco"
   location_address: "Via Longhena 42, 37138 Verona (VE) Italy"
   location_maps_url: "https://www.google.com/maps/place/Hotel+San+Marco+Fitness+Pool+%26+SPA/@45.4399961,10.9697441,17z/data=!3m1!4b1!4m8!3m7!1s0x4781e1e30a8be6af:0x8091b108e1d130c6!5m2!4m1!1i2!8m2!3d45.4399961!4d10.9719328"
   location_maps_label: "Get directions"
-  # this is for the Sponsors section in home page
+  # Sponsors section in home page. set the first parameter to true to make it appear in home page, false means hidden
+  sponsors_visible: true
   sponsor_title_home: "Sponsors"
   # this is for the Community partners section in home page
   community_partners: true
