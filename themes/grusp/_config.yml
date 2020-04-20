@@ -19,6 +19,7 @@ welcome_submenu:
   about: about
   coc: code of conduct
   scholarships: scholarships
+  venue: venue
 
 # footer menu navigation
 # footer_menu:
