@@ -20,6 +20,8 @@ welcome_submenu:
   coc: code of conduct
   scholarships: scholarships
   venue: venue
+  # delete this row to take out of the menu
+  cfp: call for papers
 
 # footer menu navigation
 # footer_menu:

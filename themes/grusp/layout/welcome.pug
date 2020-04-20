@@ -28,30 +28,32 @@ block content
         - page_key = "welcome"
         if(theme[page_key + '_submenu'])
           each sub_label, sub_key in theme[page_key + '_submenu']
-            - subpage_url = `${url_for(site.url)}${page_key}/${sub_key}.html`
-            - aria_label = sub_label + " page"
-            - ico_uri = `../source/assets/ico/ico-${sub_key}.svg`
-            .column
-              .row-info
-                .info-icon
-                  if(sub_key === "about")
-                    include ../source/assets/ico/ico-about.svg
-                    - the_title = site.data.page_welcome.info_about.title
-                    - the_content = site.data.page_welcome.info_about.content
-                  if(sub_key === "coc")
-                    include ../source/assets/ico/ico-coc.svg
-                    - the_title = site.data.page_welcome.info_coc.title
-                    - the_content = site.data.page_welcome.info_coc.content
-                  if(sub_key === "scholarships")
-                    include ../source/assets/ico/ico-scholarship.svg
-                    - the_title = site.data.page_welcome.info_scholarships.title
-                    - the_content = site.data.page_welcome.info_scholarships.content
-                .info__location
-                  a(href=url_for(subpage_url) aria-label=aria_label)
-                    span !{the_title}
-              p !{the_content}
-              p
-                a(href=url_for(subpage_url) aria-label=aria_label) !{site.data.page_welcome.readmore_label}
+            //- DOMANDA: ma in welcome.html non ci dovrebbe essere un quarto info block per la **venue**? se sì, togliere la seconda condizione
+            if(sub_key != "cfp" && sub_key != "venue")
+              - subpage_url = `${url_for(site.url)}${page_key}/${sub_key}.html`
+              - aria_label = sub_label + " page"
+              - ico_uri = `../source/assets/ico/ico-${sub_key}.svg`
+              .column
+                .row-info
+                  .info-icon
+                    if(sub_key === "about")
+                      include ../source/assets/ico/ico-about.svg
+                      - the_title = site.data.page_welcome.info_about.title
+                      - the_content = site.data.page_welcome.info_about.content
+                    if(sub_key === "coc")
+                      include ../source/assets/ico/ico-coc.svg
+                      - the_title = site.data.page_welcome.info_coc.title
+                      - the_content = site.data.page_welcome.info_coc.content
+                    if(sub_key === "scholarships")
+                      include ../source/assets/ico/ico-scholarship.svg
+                      - the_title = site.data.page_welcome.info_scholarships.title
+                      - the_content = site.data.page_welcome.info_scholarships.content
+                  .info__location
+                    a(href=url_for(subpage_url) aria-label=aria_label)
+                      span !{the_title}
+                p !{the_content}
+                p
+                  a(href=url_for(subpage_url) aria-label=aria_label) !{site.data.page_welcome.readmore_label}
       .columns.is-centered
         p
           a(href=site.data.defaults.conference.buy_tickets_url target="_blank" rel="noopener noreferrer external" role="button" aria-label=site.data.defaults.conference.hero_buy_tickets_label).button.is-large.is-rounded.is-primary !{site.data.defaults.conference.hero_buy_tickets_label}

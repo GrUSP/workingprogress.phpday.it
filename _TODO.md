@@ -18,6 +18,8 @@
 
 # TODO
 
+* **DOMANDA**: ma in welcome.html non ci dovrebbe essere un quarto info block per la **venue**?
+
 * a special `defaults.sass` file for each conference, with color palette (manu)
   * una volta estratte le palette di colori, mettere tutti i relativi file sass nel repo, aggiungere un parametro in defaults, e aggiungere dinamicamente il css della palette in header.pug così si evita di toccare il _config e si genera comunque il sito con la palette giusta
   * ma: e fare la stessa cosa per logo e favicon?
@@ -48,18 +50,6 @@
     * in fondo alla single inserire il link agli altri workshop (alla pagina intermedia!) prima della fascia newsletter
   	* generare sottomenu solo se ce ne sono due (vedi breadcrumbs)
 	* fare pagina intermedia (+- stesse info che in home)
-
-* NUOVE PAGINE
-  * CFP
-    * intro
-    * un po' di info
-    * link alla form
-  * Venue
-    * figlia di About, stesso schema delle pagine di About e famiglia
-    * un po' di info
-    * dove ci sarebbe il video in About, mettere la mappa
-    * dove in About ci sarebbe il team, hotel agreements
-    * un po' di info sulla città
 
 * links & info: opengraph
 * schema.org: in JSON-LD! specie per schema.org/Event
@@ -230,3 +220,15 @@
 	* nascondere tutto tranne i campi nome, cognome, email e "can you understand italian?"
 
 * componente community OVUNQUE ci siano gli sponsor
+
+* Venue
+  * figlia di Welcome, stesso schema delle pagine di About e famiglia
+  * un po' di info
+  * dove ci sarebbe il video in About, mettere la mappa
+  * dove in About ci sarebbe il team, hotel agreements
+  * un po' di info sulla città
+
+* CFP
+  * intro
+  * un po' di info
+  * link alla form
