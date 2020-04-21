@@ -1,0 +1,17 @@
+extends includes/layout.pug
+
+block content
+  - contact_url = "mailto:" + site.data.defaults.conference.contact_email
+
+    //- se non esiste `workshop_submenu` nel _config del tema, questa pagina ha il layout del singolo workshop...
+    if(!theme.workshop_submenu)
+      include workshop_single.pug
+    else
+      include components/workshop/workshop
+
+    //- imported components
+    include components/newsletter/newsletter
+    if(site.data.defaults.conference.sponsors_visible)
+      include components/sponsors/sponsors
+    if site.data.defaults.conference.community_partners
+      include components/community_partners/community_partners

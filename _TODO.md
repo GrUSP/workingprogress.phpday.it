@@ -42,14 +42,8 @@
     * descrizione facoltativa
 
 * workshop
-  * per se ce n'è più di uno:
-    * list
-    * due pagine "single"
-    * ogni "single" in quel caso deve essere messa sotto `source/_data/workshop` e **deve avere `parent`, `path` e `permalink`**
-      * **DOCUMENTARE** l'utilizzo
-    * in fondo alla single inserire il link agli altri workshop (alla pagina intermedia!) prima della fascia newsletter
-  	* generare sottomenu solo se ce ne sono due (vedi breadcrumbs)
-	* fare pagina intermedia (+- stesse info che in home)
+  * ottimizzare logica
+    * **DOCUMENTARE** l'utilizzo
 
 * links & info: opengraph
 * schema.org: in JSON-LD! specie per schema.org/Event
@@ -173,6 +167,13 @@
   * potrebbe esserci un trailer video (embed youtube nella parte bianca delle info generali (colonna sulla destra)) finora è successo solo con kerning ma esiste
   * single
     * togliere nomi speaker da info row
+  * per se ce n'è più di uno:
+    * list
+    * due pagine "single"
+    * ogni "single" in quel caso deve essere messa sotto `source/_data/workshop` e **deve avere `parent`, `path` e `permalink`**
+    * in fondo alla single inserire il link agli altri workshop (alla pagina intermedia!) prima della fascia newsletter
+  	* generare sottomenu solo se ce ne sono due (vedi breadcrumbs)
+	* fare pagina intermedia (+- stesse info che in home)
 
 * talks
   * layout: 4-talkNew.jpg

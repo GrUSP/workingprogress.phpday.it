@@ -1,12 +1,19 @@
 section(id="workshop").section_nopadding
   - no_of_workshops = 0
   - suffix = ""
-  each workshop in site.data.workshop
+  each workshop in site.data.workshop.workshops
     - no_of_workshops++
   if no_of_workshops > 1
     - suffix = "s"
-  h2(role="heading" aria-level="2").title.is-2 !{no_of_workshops} !{site.data.defaults.conference.workshops_title}!{suffix}
-  each workshop in site.data.workshop
+
+  .container
+    .inner
+      if(page.layout != "page_workshops")
+        h2(role="heading" aria-level="2").title.is-2 !{no_of_workshops} !{site.data.defaults.conference.workshops_title}!{suffix}
+      else
+        h1(role="heading" aria-level="1").title.is-1 !{no_of_workshops} !{site.data.defaults.conference.workshops_title}!{suffix}
+
+  each workshop in site.data.workshop.workshops
     .workshop__container
       .columns.inner
         .column.workshop__info
@@ -33,11 +40,11 @@ section(id="workshop").section_nopadding
         .column.workshop-buttons
           .workshop-buttons__button-container
             - read_more_url = workshop.page_uri
-            - aria_label = workshop.read_more_label
-            a(href=url_for(read_more_url) role="button" aria-label=read_more_label)
+            - aria_label = site.data.workshop.read_more_label
+            a(href=url_for(read_more_url) role="button" aria-label=aria_label)
               .workshop-buttons__button
                 include ../../../source/assets/ico/ico-readmore.svg
-            a(href=url_for(read_more_url) role="button" aria-label=read_more_label) !{workshop.read_more_label}
+            a(href=url_for(read_more_url) role="button" aria-label=aria_label) !{aria_label}
           .workshop-buttons__button-container
             if (!workshop.is_external)
               a(href=workshop.ticket_url role="button" target="_blank" rel="noopener noreferrer external")

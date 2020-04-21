@@ -10,9 +10,15 @@ menu:
   # Workshops: workshops
   sponsor: sponsor
   schedule: schedule
+  # menu item for *single* workshop
   workshop: workshop
   # suspended pending discussion
   # Workshop: workshops
+
+# workshops submenu (comment if only one workshop: add items for multiple workshops)
+workshop_submenu:
+  workshop_1: rails and vue
+  workshop_2: sample second workshop
 
 # welcome submenu
 welcome_submenu:
@@ -22,15 +28,6 @@ welcome_submenu:
   venue: venue
   # delete this row to take out of the menu
   cfp: call for papers
-
-# footer menu navigation
-# footer_menu:
-#   Top: top
-#   Tickets: schedule
-#   Sponsor: sponsor
-#   Scholarships: scholarships
-#   Talks: talks
-#   Newsletter: newsletter
 
 # stylesheets loaded in the <head>
 stylesheets:

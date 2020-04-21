@@ -4,6 +4,19 @@
 @import "bulma/sass/utilities/mixins"
 @import "_mixins"
 
+#workshop
+  h1
+    text-align: left
+#page-workshop
+  h1
+    font-size: 3em
+    line-height: 1.5em
+    text-align: left
+  .button:hover, .button:active, .button:focus
+    border-color: $main-color
+  span.teacher-org::before
+    content: ' @ '
+
 .workshop-single__header
   background: url("/img/workshop/worskhop_header.jpg") no-repeat top center
   width: 100vw
@@ -65,8 +78,6 @@
       text-align: center
     .inner
       padding: 2em 0
-    p span::before
-      content: ' @ '
   .workshop-single__moreinfo
     h3
       color: $main-color
@@ -89,6 +100,7 @@
         &:hover, &:active, &:focus
           background-color: $main-color
           color: $main-text-color_inverted
+          border-color: $main-text-color_inverted !important
   .workshop-single__summary
     background-color: $main-text-color
     color: $main-text-color_inverted
@@ -118,8 +130,6 @@
             text-transform: uppercase
         strong, a
           color: $main-text-color_inverted
-        p span::before
-          content: ' @ '
     .button-container
-      padding: 1em 0
+      padding: 2em 0
       text-align: center

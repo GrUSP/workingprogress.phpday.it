@@ -28,7 +28,7 @@ block content
         - page_key = "welcome"
         if(theme[page_key + '_submenu'])
           each sub_label, sub_key in theme[page_key + '_submenu']
-            //- DOMANDA: ma in welcome.html non ci dovrebbe essere un quarto info block per la **venue**? se sì, togliere la seconda condizione
+            //- DOMANDA: ma in welcome.html non ci dovrebbe essere un quarto info block per la **venue**? se sì, togliere la seconda condizione (ma aggiungere dati in `page_welcome.yml`)
             if(sub_key != "cfp" && sub_key != "venue")
               - subpage_url = `${url_for(site.url)}${page_key}/${sub_key}.html`
               - aria_label = sub_label + " page"
