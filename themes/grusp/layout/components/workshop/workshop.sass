@@ -1,9 +1,8 @@
 #workshop
-  padding-top: 2em
   h2
-  text-align: center
-  font-style: normal
-  color: $main-color
+    text-align: center
+    font-style: normal
+    color: $main-color
 
 .workshop__container
   padding: 1em 0 2em
@@ -14,6 +13,8 @@
     border-bottom: 1px solid $main-text-color_hue-medium
     .workshop__info
       text-align: left
+      strong
+        color: $main-color
   &:last-of-type .inner
     border-bottom: none
   h5
@@ -43,10 +44,6 @@
       margin: 0 auto
       +tablet
         min-width: 600px
-  .card-image
-    width: 190px
-    height: 190px
-    overflow: hidden
   .workshop-buttons
     display: flex
     flex-wrap: wrap
