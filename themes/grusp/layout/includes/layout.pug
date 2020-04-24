@@ -39,11 +39,7 @@ html(lang=config.language)
         script(src=url)
 
     //- schema.org microdata
-    - md_city = site.data.defaults.conference.md_city
-    - md_province = site.data.defaults.conference.md_province
-    - md_postal_code = site.data.defaults.conference.md_postal_code
-    - md_address = site.data.defaults.conference.md_address
-    - location_name = site.data.defaults.conference.location_name
+    - logo_url = url_for(config.image)
     script(type="application/ld+json").
       {
         "@context": "https://schema.org",
@@ -68,12 +64,20 @@ html(lang=config.language)
         {
           "@type": "Organization",
           "name": "#{config.author}",
-          "url": "#{site.data.defaults.conference.organizer_url}"
+          "url": "#{site.data.defaults.conference.organizer_url}",
+          "logo": "#{logo_url}"
           "contactPoint": [
           {
             "@type": "contactPoint",
             "email": "mailto:#{site.data.defaults.conference.contact_email}"
           }]
+          "sameAs": 
+          [
+            "#{site.data.defaults.conference.social_fb_url}",
+            "#{site.data.defaults.conference.social_twitter_url}",
+            "#{site.data.defaults.conference.social_vimeo_url}",
+            "#{site.data.defaults.conference.social_youtube_url}"
+          ]
         }
       }
 
