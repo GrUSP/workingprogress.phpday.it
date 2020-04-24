@@ -2,6 +2,12 @@ conference:
   # menu and general params
   menu_buy_tickets_label: "Buy tickets"
   buy_tickets_url: ""
+  # additional info for microdata / schema.org
+  md_city: "Verona"
+  md_province: "VR"
+  md_postal_code: "37138"
+  md_address: "Via Longhena 42"
+  organizer_url: "http://grusp.org/"
   # these are for the hero section
   title_pre: "Welcome to"
   title: "Ruby Day"
