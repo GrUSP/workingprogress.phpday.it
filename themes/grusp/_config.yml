@@ -39,12 +39,3 @@ favicon: /assets/ico/favicon.ico
 # scripts loaded in the end of the body / commented out to prevent errors in compiling layout.pug
 scripts:
 - /assets/js/menu.js
-
-open_graph:
-  type: website
-  title: page.title
-  name: config.title
-  url: config.url
-  description: config.description
-  locale: config.language
-  image: 'themes/grusp/source/assets/img/grusp-logo-full.svg'

@@ -4,9 +4,9 @@
 	* (il sito è fatto con jekyll)
 	* usano travis per generare
 
-* caricare tutte le palette di colori del team e farli scegliere dinamicamente in header.pug da un parametro (conference tag)
-* ma: e fare la stessa cosa per logo e favicon?
-  * favicon + tiles: (by site) favicon + tiles with conference logos!
+* OPEN GRAPH
+  * le proprietà vanno definite nel `_config` del SITO (non del tema!)
+  * documentare
 
 * IMPORTANTE per le breadcrumbs
   * il `front-matter` della pagina DEVE includere `parent`
