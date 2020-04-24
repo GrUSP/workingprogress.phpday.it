@@ -54,25 +54,25 @@ html(lang=config.language)
           "address": 
           {
             "@type": "PostalAddress",
-            "addressLocality": #{site.data.defaults.conference.md_city},
-            "addressRegion": #{site.data.defaults.conference.md_province},
-            "postalCode": #{site.data.defaults.conference.md_postal_code},
-            "streetAddress": #{site.data.defaults.conference.md_address}
+            "addressLocality": "#{site.data.defaults.conference.md_city}",
+            "addressRegion": "#{site.data.defaults.conference.md_province}",
+            "postalCode": "#{site.data.defaults.conference.md_postal_code}",
+            "streetAddress": "#{site.data.defaults.conference.md_address}"
           },
-          "name": #{site.data.defaults.conference.location_name}
+          "name": "#{site.data.defaults.conference.location_name}"
         },
-        "name": #{site.data.defaults.conference.title},
-        "startDate": #{site.data.defaults.conference.date},
-        "description": #{config.description},
+        "name": "#{site.data.defaults.conference.title}",
+        "startDate": "#{site.data.defaults.conference.date}",
+        "description": "#{config.description}",
         "organizer":
         {
           "@type": "Organization",
-          "name": #{config.author},
-          "url": #{site.data.defaults.conference.organizer_url}
+          "name": "#{config.author}",
+          "url": "#{site.data.defaults.conference.organizer_url}"
           "contactPoint": [
           {
             "@type": "contactPoint",
-            "email": `mailto:#{site.data.defaults.conference.contact_email}`
+            "email": "mailto:#{site.data.defaults.conference.contact_email}"
           }]
         }
       }
