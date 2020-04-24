@@ -11,9 +11,9 @@ keywords: conference,software conference,ruby,ruby on rails
 author: GrUSP
 language: en
 timezone: 'Europe/Rome'
-image: 'source/img/grusp-logo-full.svg'
+image: 'img/grusp-logo-full.svg'
 open_graph:
-  image: 'source/img/grusp-logo-full.svg'
+  image: 'img/grusp-logo-full.svg'
 twitter:
   twitter_id: rubydayIT
 fb:
@@ -26,7 +26,7 @@ breadcrumb:
 # URL
 ## If your site is put in a subdirectory, set url as 'yoursite.com/child' and root as '/child/'
 # TODO actual URL (per site)
-url: https://localhost:4000/
+url: http://localhost:4000/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:

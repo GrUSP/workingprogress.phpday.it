@@ -39,11 +39,11 @@ html(lang=config.language)
         script(src=url)
 
     //- schema.org microdata
-    - logo_url = url_for(config.image)
     script(type="application/ld+json").
       {
         "@context": "https://schema.org",
         "@type": "Event",
+        "@id": "#{full_url_for(site.root)}",
         "location": 
         {
           "@type": "Place",
@@ -65,7 +65,7 @@ html(lang=config.language)
           "@type": "Organization",
           "name": "#{config.author}",
           "url": "#{site.data.defaults.conference.organizer_url}",
-          "logo": "#{logo_url}"
+          "logo": "#{full_url_for(config.image)}",
           "contactPoint": [
           {
             "@type": "contactPoint",

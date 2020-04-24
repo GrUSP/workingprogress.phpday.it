@@ -45,8 +45,13 @@
   * ottimizzare logica
     * **DOCUMENTARE** l'utilizzo
 
-* links & info: opengraph
-* schema.org: in JSON-LD! specie per schema.org/Event
+* schema.org:
+  * home: finire componenti
+  * welcome e figlie
+  * talks
+  * sponsor
+  * schedule
+  * workshop_single
 
 * https://developer.mozilla.org/en-US/docs/Web/Performance/dns-prefetch
   * (x es link google maps): `- url_to_prefetch = new URL(data.location_maps_url)`
@@ -63,6 +68,9 @@
 
 # DONE
 
+* schema.org:
+  * general (header)
+  * home (speakers, workshop; location coperat da general)
 * favicon + tiles (grusp logo); done quickly with sample logo
 * colored header on scroll
 

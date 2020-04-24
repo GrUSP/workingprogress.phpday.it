@@ -56,3 +56,36 @@ section(id="workshop").section_nopadding
                 .workshop-buttons__button
                   include ../../../source/assets/ico/ico-pencil.svg
               a(href="#" role="button" aria-label=site.data.defaults.conference.workshops_register_label target="_blank" rel="noopener noreferrer external") !{site.data.defaults.conference.workshops_register_label}
+    //- (sub)event microdata
+    script(type="application/ld+json").
+      {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "@id": "#{read_more_url}",
+        "superEvent": { "@id": "#{full_url_for(site.root)}" },
+        "location": 
+        {
+          "@type": "Place",
+          "address": 
+          {
+            "@type": "PostalAddress",
+            "addressLocality": "#{workshop.location}",
+            "streetAddress": "#{workshop.location_address}"
+          },
+          "name": "#{workshop.location_name}"
+        },
+        "name": "#{workshop.workshop_title}",
+        "startDate": "#{workshop.date}",
+        "endDate": "#{workshop.end_date}",
+        "description": "#{workshop.description}"
+      }
+    //- schema.org microdata for speaker
+    each teacher in workshop.teachers
+      - desc = teacher.teacher_role + " at " + teacher.teacher_org
+      script(type="application/ld+json").
+        {
+          "@type": "Person",
+          "name": "#{teacher.teacher_name}",
+          "disambiguatingDescription": "#{desc}",
+          "performerIn": { "@id": "#{full_url_for(workshop.page_uri)}" }
+        }
