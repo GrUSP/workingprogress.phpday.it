@@ -30,8 +30,9 @@ block content
         if(site.data.page_cfp.contact.help_url)
           p !{site.data.page_cfp.contact.help_intro}
             a(href=site.data.page_cfp.contact.help_url) !{href=site.data.page_cfp.contact.help_url}
-        .is-centered
-          a(aria-label=site.data.defaults.conference.cfp_register_aria_label).button.is-medium.is-rounded.is-primary !{site.data.defaults.conference.cfp_register_label}
+        if(site.data.defaults.conference.cfp_open)
+          .is-centered
+            a(aria-label=site.data.defaults.conference.cfp_register_aria_label).button.is-medium.is-rounded.is-primary !{site.data.defaults.conference.cfp_register_label}
 
     //- imported components
     include components/newsletter/newsletter

@@ -11,4 +11,15 @@ info_coc:
 info_scholarships:
   title: "Scholarships"
   content: "Short intro to Scholarships page"
+info_cfp:
+  title: "Call for papers"
+  content: "Short intro to CFP page"
+info_venue:
+  title: "Venue"
+  content: "Short intro to Venue page"
+info_ticket:
+  title: "Tickets"
+  content: "The tickets are available on Eventbrite"
+  readmore_label: "GO"
+# this is the global "read more" label
 readmore_label: "Read more"

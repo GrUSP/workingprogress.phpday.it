@@ -30,6 +30,7 @@ conference:
   update_link_label: "a link to google, just for the demo"
   # "call for papers" component. set the first parameter to true to make it appear in home page, false means hidden
   cfp_open: true
+  cfp_readmore_label: "Read more"
   cfp_open_label: "Submissions accepted until"
   cfp_open_title: "Call For Papers Now Open!"
   cfp_deadline: 2020-06-30T17:00
@@ -87,6 +88,7 @@ conference:
   location_address: "Via Longhena 42, 37138 Verona (VE) Italy"
   location_maps_url: "https://www.google.com/maps/place/Hotel+San+Marco+Fitness+Pool+%26+SPA/@45.4399961,10.9697441,17z/data=!3m1!4b1!4m8!3m7!1s0x4781e1e30a8be6af:0x8091b108e1d130c6!5m2!4m1!1i2!8m2!3d45.4399961!4d10.9719328"
   location_maps_label: "Get directions"
+  location_readmore_label: "Read more"
   # Sponsors section in home page. set the first parameter to true to make it appear in home page, false means hidden
   sponsors_visible: true
   sponsor_title_home: "Sponsors"
@@ -118,9 +120,9 @@ conference:
   newsletter_legal_url: "https://mailchimp.com/legal/"
   newsletter_legal_label: "Informazioni sulla politica della privacy di Mailchimp"
   # this is for the Social links block
-  social_follow_pre: "You can follow"
-  social_follow_post: "on"
+  social_follow: "Follow us on"
   social_fb_url: "https://www.facebook.com/RubyDayIT/"
+  social_linkedin_url: "https://www.linkedin.com/company/grusp/"
   social_twitter_url: "https://twitter.com/rubydayIT"
   social_vimeo_url: "https://vimeo.com/grusp"
   social_youtube_url: "https://www.youtube.com/channel/UCdWnwC8nz_CCFQrmLBrLCVw"
@@ -139,6 +141,11 @@ conference:
     2015: "2015"
     2016: "2016"
     2019: "2019"
+  past_editions_videos_pre: "All videos from the past editions are available on "
+  past_editions_videos_vimeo_label: "Vimeo"
+  past_editions_videos_mid: " and "
+  past_editions_videos_youtube_label: "YouTube"
+  past_editions_videos_post: "."
   footer_copy_text: "is &copy; by Grusp and its awesome staff"
   footer_contact_text: "Contact us at "
   footer_links_pre: "You can read our "

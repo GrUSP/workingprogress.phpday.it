@@ -326,10 +326,11 @@ footer .columns.inner
       border: 1px solid $main-text-color_inverted
       &:hover, &:active, &:focus
         background-color: $main-color
-        svg path, svg path, svg path
-          fill: $main-text-color_inverted
+        svg 
+          path, rect, ellipse
+            fill: $main-text-color_inverted
     svg
-      path
+      path, rect, ellipse
         fill: $main-color
   nav
     text-align: left

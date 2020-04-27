@@ -8,4 +8,5 @@ section(id="location").section_nopadding
       h2(role="heading" aria-level="2").title.is-2 !{site.data.defaults.conference.location_name}
       p
         strong !{site.data.defaults.conference.location_address}
+      a(href=url_for("welcome/venue.html")).button.is-medium.is-rounded.is-primary !{site.data.defaults.conference.location_readmore_label}
       a(href=site.data.defaults.conference.location_maps_url target="_blank" rel="noopener noreferrer").button.is-medium.is-rounded.is-primary !{site.data.defaults.conference.location_maps_label}

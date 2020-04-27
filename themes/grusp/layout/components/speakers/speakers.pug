@@ -40,11 +40,11 @@ section(id="hero__speakers").section_nopadding
               - same_as.push(speaker.speaker_github_url)
             if(speaker.speaker_twitter_url)
               - same_as.push(speaker.speaker_twitter_url)
+            //- TODO add same_as as array
             script(type="application/ld+json").
               {
                 "@type": "Person",
                 "name": "#{speaker.speaker_name}",
-                "sameAs": #{same_as},
                 "disambiguatingDescription": "#{speaker.speaker_role}",
                 "performerIn": { "@id": "#{full_url_for(site.url)}" }
               }

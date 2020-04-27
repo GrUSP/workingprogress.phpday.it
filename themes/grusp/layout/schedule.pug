@@ -12,12 +12,18 @@ block content
 
     .container
       .inner
-        .title-container.title-container_schedule
-          h1(role="heading" aria-level="1").title-is-1 !{page.title}
         //- we count the days - useful for the page layout
         - var no_days = 0
         each day in site.data.talks_speakers.days
           - no_days++
+        //- if there is only one day, the title must be aligned to the left
+        - title_classes = ""
+        if(no_days > 1)
+          - title_classes += "is-centered"
+        else
+          - title_classes += "has-text-left"
+        .title-container.title-container_schedule
+          h1(class=title_classes role="heading" aria-level="1").title-is-1 !{page.title}
         //- links to every day in page if there is more than 1 day
         if(no_days > 1)
           .container.date-menu

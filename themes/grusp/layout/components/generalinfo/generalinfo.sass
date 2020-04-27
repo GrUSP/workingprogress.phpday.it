@@ -30,12 +30,14 @@
   border-radius: 20px
   margin: 0 8px
   border: 1px solid $main-color
-  svg path
-    fill: $main-text-color_inverted
+  svg 
+    path, rect, ellipse
+      fill: $main-text-color_inverted
   &:hover, &:active, &:focus
     background-color: $main-text-color_inverted
-    svg path, svg path, svg path
-      fill: $main-color
+    svg 
+      path, rect, ellipse
+        fill: $main-color
 
 .geninfo-buttons
   display: flex

@@ -18,9 +18,32 @@
 
 # TODO
 
-* **DOMANDA**: ma in welcome.html non ci dovrebbe essere un quarto info block per la **venue**?
+* **DOMANDA**: il logo in footer è quello giusto? (boh)
+
+* **DOMANDA**: ma fare venue con un header tipo lovely verona? (dubbio: è un po' inconsistente con le altre pagine di info?)
+  * rivedere riquadro mappa (manu)
+
+
+* talks:
+  * header come schedule
+  * titolo al centro solo se ci sono i due bottoni, se no a sinistra
+  * fascia data viola scuro, più sottile, con dentro la info row che togliamo da dove c'è il titolo
+  * info row singolo talk: track | [icona] orario
+  * l'icona dell'orario deve essere orologio (manu)
+
+
+* schema.org:
+  * PRIMO workshop_single per risolvere errori in validazione cfr https://search.google.com/structured-data/testing-tool/
+  * home: finire componenti
+  * welcome e figlie
+  * talks
+  * sponsor
+  * schedule
 
 * a special `defaults.sass` file for each conference, with color palette (manu)
+  * **NB** dynamic import: https://sass-lang.com/documentation/at-rules/import
+  * **NB** sostituire `@import` con `@use` (cfr stessa URL) 
+    * vedi anche https://css-tricks.com/introducing-sass-modules/ ma forse per questo bisogna installare sass oltre a node-sass
   * una volta estratte le palette di colori, mettere tutti i relativi file sass nel repo, aggiungere un parametro in defaults, e aggiungere dinamicamente il css della palette in header.pug così si evita di toccare il _config e si genera comunque il sito con la palette giusta
   * ma: e fare la stessa cosa per logo e favicon?
   * favicon + tiles: (by site) favicon + tiles with conference logos!
@@ -45,14 +68,6 @@
   * ottimizzare logica
     * **DOCUMENTARE** l'utilizzo
 
-* schema.org:
-  * home: finire componenti
-  * welcome e figlie
-  * talks
-  * sponsor
-  * schedule
-  * workshop_single
-
 * https://developer.mozilla.org/en-US/docs/Web/Performance/dns-prefetch
   * (x es link google maps): `- url_to_prefetch = new URL(data.location_maps_url)`
 
@@ -67,6 +82,35 @@
 
 
 # DONE
+
+* 20200426
+  * components
+    * _social
+      * label "follow us" invece di "follow the conf"
+      * manca linkedin
+    * cfp
+      * il pulsante deve puntare alla pagina call for papers!
+      * nella pagina cfp, se la CFP è chiusa deve sparire il pulsante APPLY NOW
+    * location
+      * DUE pulsanti: uno "read more" (a pagina location), l'altro quello che c'è già. uno di fianco all'altro 
+    * newsletter:
+      * più padding sopra e sotto
+  * pages
+    * workshop single:
+      * fascia teacher: togli "register"
+      * "see all workshops" va nella fascia nera subito sopra al posto di "register"
+    * schedule:
+      * titolo al centro solo se ci sono i due bottoni, se no a sinistra
+    * welcome
+      * le celle degli info blocks diventano 6
+        * la quinta è venue
+        * la sesta è TICKETS:
+          * icona (da home) e titolo
+          * l'intro dice "i biglietti di trovano su eventbrite"
+          * il link invece di read more dice GO (e va su eventbrite!)
+  * footer
+    * sotto le edizioni precedenti aggiungere riga
+    * "tutti i video delle edizioni precedenti sono disponibili su [vimeo](link) e [youtube](link)
 
 * schema.org:
   * general (header)

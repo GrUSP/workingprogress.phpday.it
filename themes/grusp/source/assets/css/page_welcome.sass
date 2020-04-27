@@ -44,24 +44,42 @@
   padding: 2em
   a
     color: $main-color_hue-medium
-  .row-info
-    display: flex
-    flex-direction: row
-    flex-wrap: wrap
-    .info-icon svg
-      width: 3em
-      height: 3em
-      fill: $main-text-color_inverted
-    a
-      color: $main-text-color_inverted
-      font-size: .6em
-      font-weight: 300 !important
-      +widescreen
-        font-size: .8em
-      +fullhd
-        font-size: 1em
-    .info__location
-      font-size: 2em
-      text-transform: uppercase
   .is-centered
     padding-top: 2em
+  .summary-blocks
+    display: flex
+    flex: 1
+    flex-wrap: wrap
+    justify-content: space-between
+    .block
+      display: flex
+      flex-direction: column
+      flex-grow: 1
+      padding: 2em
+      min-width: 90%
+      max-width: 90%
+      +tablet
+        min-width: 40%
+        max-width: 40%
+      +desktop
+        min-width: 25%
+        max-width: 25%
+      .row-info
+        display: flex
+        flex-direction: row
+        flex-wrap: wrap
+        .info-icon svg
+          width: 3em
+          height: 3em
+          fill: $main-text-color_inverted
+        a
+          color: $main-text-color_inverted
+          font-size: .6em
+          font-weight: 300 !important
+          +widescreen
+            font-size: .7em
+        .info__location
+          font-size: 2em
+          text-transform: uppercase
+      p:last-of-type
+        margin-top: auto
