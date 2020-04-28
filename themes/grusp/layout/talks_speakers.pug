@@ -19,10 +19,28 @@ block content
 
     .container
       .inner
-        .columns
-          .column
-            h1(role="heading" aria-level="1").title-is-1= page.title
-          .column
+        .title-container
+          - title_classes = ""
+          if(no_days > 1)
+            - title_classes += "is-centered"
+          else
+            - title_classes += "has-text-left"
+          h1(class=title_classes role="heading" aria-level="1").title-is-1= page.title
+            
+      //- links to every day in page if there is more than 1 day
+      if(no_days > 1)
+        .container.date-menu
+          .inner
+            each day in site.data.talks_speakers.days
+              - anchor = `#${day.title}`
+              a(role="button" href=anchor).button.is-rounded.is-primary.is-medium !{day.title}
+    //- day title band if there is more than 1 day
+    each day in site.data.talks_speakers.days
+      if(no_days > 1)
+        .container.date-holder
+          .inner
+            - the_date = date(day.date, config.date_format_hero)
+            - the_id = day.title
             .row-info
               .info-icon
                 include ../source/assets/ico/ico-where.svg
@@ -33,38 +51,25 @@ block content
                 - start_date = date(site.data.defaults.conference.date, config.date_format_hero)
               .info__date
                 time(datetime=site.data.defaults.conference.date) !{start_date}
-    //- links to every day in page if there is more than 1 day
-    if(no_days > 1)
-      .container.date-menu
-        .inner
-          each day in site.data.talks_speakers.days
-                - anchor = `#${day.title}`
-                a(role="button" href=anchor).button.is-rounded.is-primary.is-medium !{day.title}
-    //- day title band if there is more than 1 day
-    each day in site.data.talks_speakers.days
-      if(no_days > 1)
-        .container.date-holder
-          .inner
-            - the_date = date(day.date, config.date_format_hero)
-            - the_id = day.title
-            h3(role="heading" aria-level="2" id=the_id).is-title.is-3
-              time(datetime=day.date, config.date_format_hero) !{the_date}
       each talk in day.talks
         if(!talk.is_service_item)
           .container.has-dynamic-background
             .inner
               if(talk.start_datetime && talk.end_datetime)
                 .row-info
-                  .info-icon
-                    include ../source/assets/ico/ico-calendar.svg
+                  if(talk.track)
+                    strong !{talk.track.title}
+                    .info-icon.padded
+                  else
+                    .info-icon
+                  include ../source/assets/ico/ico-clock.svg
                   - start_time = date(talk.start_datetime, config.time_format_schedule)
                   - end_time = date(talk.end_datetime, config.time_format_schedule)
                   .info__date
                     time(datetime=talk.start_datetime, config.time_format_schedule) !{start_time}
                     | &nbsp;-&nbsp;
                     time(talk.end_datetime, config.time_format_schedule) !{end_time}
-              if(talk.track)
-                strong !{talk.track.title}
+              
 
               //- here we define which "id" to assign
               each speaker in talk.speakers

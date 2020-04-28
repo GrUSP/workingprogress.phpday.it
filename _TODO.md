@@ -24,14 +24,6 @@
   * rivedere riquadro mappa (manu)
 
 
-* talks:
-  * header come schedule
-  * titolo al centro solo se ci sono i due bottoni, se no a sinistra
-  * fascia data viola scuro, più sottile, con dentro la info row che togliamo da dove c'è il titolo
-  * info row singolo talk: track | [icona] orario
-  * l'icona dell'orario deve essere orologio (manu)
-
-
 * schema.org:
   * PRIMO workshop_single per risolvere errori in validazione cfr https://search.google.com/structured-data/testing-tool/
   * home: finire componenti
@@ -108,6 +100,12 @@
           * icona (da home) e titolo
           * l'intro dice "i biglietti di trovano su eventbrite"
           * il link invece di read more dice GO (e va su eventbrite!)
+    * talks:
+      * header come schedule
+      * titolo al centro solo se ci sono i due bottoni, se no a sinistra
+      * fascia data viola scuro, più sottile, con dentro la info row che togliamo da dove c'è il titolo
+      * info row singolo talk: track | [icona] orario
+      * l'icona dell'orario deve essere orologio (manu)
   * footer
     * sotto le edizioni precedenti aggiungere riga
     * "tutti i video delle edizioni precedenti sono disponibili su [vimeo](link) e [youtube](link)
