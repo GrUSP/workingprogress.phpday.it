@@ -25,11 +25,8 @@
 
 
 * schema.org:
-  * PRIMO workshop_single per risolvere errori in validazione cfr https://search.google.com/structured-data/testing-tool/
-  * home: finire componenti
   * welcome e figlie
   * talks
-  * sponsor
   * schedule
 
 * a special `defaults.sass` file for each conference, with color palette (manu)
@@ -112,7 +109,10 @@
 
 * schema.org:
   * general (header)
-  * home (speakers, workshop; location coperat da general)
+  * home (speakers, workshop; location coperta da general)
+  * PRIMO workshop_single per risolvere errori in validazione cfr https://search.google.com/structured-data/testing-tool/
+  * home: finire componenti
+  * sponsor
 * favicon + tiles (grusp logo); done quickly with sample logo
 * colored header on scroll
 
