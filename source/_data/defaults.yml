@@ -1,3 +1,8 @@
+# conference tag: used to load theme stylesheet. uncomment out the right one and generate!
+conference_tag: "rubyday"
+# conference_tag: "cssday"
+
+# conference config
 conference:
   # menu and general params
   menu_buy_tickets_label: "Buy tickets"

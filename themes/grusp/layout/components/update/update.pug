@@ -2,8 +2,7 @@ section(id="updates").section_nopadding
   .update__container
     .inner
       if(site.data.defaults.conference.update_is_warning)
-        p
-          em !{site.data.defaults.conference.update_warning_header}
+        include ../../../source/assets/ico/ico-warning.svg
       h2(role="heading" aria-level="2").is-title.is-2 !{site.data.defaults.conference.update_title}
       p !{site.data.defaults.conference.update_description}
       p

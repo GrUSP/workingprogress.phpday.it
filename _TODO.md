@@ -20,8 +20,7 @@
 
 * **DOMANDA**: il logo in footer è quello giusto? (boh)
 
-* **DOMANDA**: ma fare venue con un header tipo lovely verona? (dubbio: è un po' inconsistente con le altre pagine di info?)
-  * rivedere riquadro mappa (manu)
+* **DOMANDA**: fare venue con il nuovo layout che ha fatto manu?
 
 
 * schema.org:

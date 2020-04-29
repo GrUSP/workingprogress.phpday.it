@@ -58,12 +58,16 @@ block content
                         time(datetime=talk.start_datetime) !{time(talk.start_datetime, config.time_format_schedule)} - !{time(talk.end_datetime, config.time_format_schedule)}
                         br
                         strong !{talk.talk_title}
+                        if(talk.service_icon)
+                          if(talk.service_icon == "coffee")
+                            include ../source/assets/ico/ico-coffee.svg
+                          if(talk.service_icon == "cutlery")
+                            include ../source/assets/ico/ico-cutlery.svg
+                          if(talk.service_icon == "glass")
+                            include ../source/assets/ico/ico-glass.svg
                         br
                         if(talk.host_name)
                           span !{talk.host_name}
-                        if(talk.service_icon)
-                          - filename = `/assets/ico/ico-${talk.service_icon}.png`
-                          img(src=filename alt=talk.service_icon)
                   else
                     td(style=`width: calc(100% / ${no_tracks})`).has-background
                       time(datetime=talk.start_datetime) !{time(talk.start_datetime, config.time_format_schedule)} - !{time(talk.end_datetime, config.time_format_schedule)}

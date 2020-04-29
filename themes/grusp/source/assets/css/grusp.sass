@@ -1,7 +1,7 @@
 @charset "utf-8"
 
 //- Fonts
-@import "./fonts"
+@import "fonts"
 
 //- Defaults: colors, etc
 @import "defaults"
@@ -48,6 +48,7 @@ h1
   font-size: 3em
   font-weight: 700
   text-transform: capitalize
+  color: $main-color
 
 h2
   font-size: 2.4em
@@ -92,6 +93,46 @@ a.button:hover, a.button:active, a.button:focus
 
 .is-centered
   text-align: center
+
+
+//- Overrides
+
+.button.is-primary
+  background-color: $main-color !important
+  border-color: $main-color !important
+  font-weight: 700
+  padding-left: 1em
+  padding-right: 1em
+  text-transform: uppercase
+  +tablet
+    padding-left: 2em
+    padding-right: 2em
+  &:hover, &:active, &:focus
+    color: $main-color !important
+    background-color: $main-text-color_inverted !important
+    border-color: $main-text-color_inverted !important
+  //- "buy tickets" button in main menu
+  &.in-menu
+    color: $main-text-color_inverted !important
+    background-color: $main-color
+    border-color: $main-text-color_inverted !important
+    font-size: 1em
+    margin: 0 1em
+    padding-left: .75rem
+    padding-right: .75rem
+    text-transform: lowercase
+    +desktop
+      color: $main-color
+      background-color: $main-text-color_inverted
+      border-width: 1px
+      margin-left: 3em
+      padding-left: 1em
+      padding-right: 1em
+      text-transform: uppercase
+    &:hover, &:active, &:focus
+      color: $main-color !important
+      background-color: $main-text-color_inverted !important
+      border-color: $main-text-color_inverted !important
 
 //- Header
 
@@ -245,45 +286,6 @@ header
 
 //-   Breadcrumbs
 @import "./breadcrumbs"
-
-//- Overrides
-
-.button.is-primary
-  background-color: $main-color
-  border-color: $main-color
-  font-weight: 700
-  padding-left: 1em
-  padding-right: 1em
-  text-transform: uppercase
-  +tablet
-    padding-left: 2em
-    padding-right: 2em
-  &:hover, &:active, &:focus
-    color: $main-color
-    background-color: $main-text-color_inverted
-    border-color: $main-text-color_inverted
-  //- "buy tickets" button in main menu
-  &.in-menu
-    color: $main-text-color_inverted
-    background-color: $main-color
-    border-color: $main-color
-    font-size: 1em
-    margin: 0 1em
-    padding-left: .75rem
-    padding-right: .75rem
-    text-transform: lowercase
-    +desktop
-      color: $main-color
-      background-color: $main-text-color_inverted
-      border-width: 1px
-      margin-left: 3em
-      padding-left: 1em
-      padding-right: 1em
-      text-transform: uppercase
-      &:hover, &:active, &:focus
-        color: $main-text-color_inverted
-        background-color: $main-color
-        border-color: $main-text-color_inverted
 
 //- 404 page
 
