@@ -2,6 +2,30 @@
 @import "bulma/sass/utilities/initial-variables"
 @import "bulma/sass/utilities/derived-variables"
 @import "bulma/sass/utilities/mixins"
+@import "_mixins"
+
+.venue__header
+  width: 100vw
+  padding: 8em 0
+  background-image: url("/img/home/venue.jpg")
+  +tablet
+    background-image: url("/img/home/tablet_venue.jpg")
+  +desktop
+    background-image: url("/img/home/desktop_venue.jpg")
+  +widescreen
+    background-image: url("/img/home/widescreen_venue.jpg")
+  +fullhd
+    background-image: url("/img/home/venue.jpg")
+  +tablet-vertical
+    background-image: url("/img/home/tablet_vertical_venue.jpg")
+  +medium-phone
+    background-image: url("/img/home/mobile_medium_venue.jpg")
+  +small-phone
+    background-image: url("/img/home/mobile_small_venue.jpg")
+  h2
+    color: $main-text-color_inverted
+    font-style: normal
+    font-size: 3em
 
 .title-container
   display: flex
@@ -17,14 +41,35 @@
       font-size: 3em
       line-height: 1.5
 
+.venue-container__more
+  background-color: $main-color_hue-medium
+  padding: 2em 0
+  h2
+    font-size: 2.4em
+    font-style: normal
+    text-align: center
+    color: $main-text-color_inverted
+  h3
+    color: $main-text-color
+    font-style: normal
+    text-transform: capitalize
+    font-weight: 600
+    text-align: left
+    font-size: 1.8em
+    line-height: 1.2
+    +tablet
+      font-size: 2em
+      line-height: 1.5
+
 .container__map
-  background-color: $main-text-color
-  color: $main-text-color_inverted
+  background-color: $main-text-color_inverted
+  color: $main-color
   text-align: center
   padding: 2em
+  h2
+    font-size: 2.4em
   .inner
     margin: 0 auto
-    border-top: 1px solid $main-text-color_hue-medium
     *
     .footer__p_padded, .footer__a_padded
       padding: 1em 0
@@ -32,22 +77,11 @@
       font-weight: 600
       font-size: 2em
       color: $main-text-color_inverted
-    a.past-edition
-      display: inline-block
-      margin-right: 8px
-      &:after
-        content: "|"
-        display: inline
-        padding-left: 8px
-    a.past-edition:last-of-type:after
-        content: ""
-    .row__social p
-      font-weight: 600
     h3
       margin: 1em auto
     .iframe-container
       max-width: 800px
-      margin: 0 auto
+      margin: 0 auto 2em
       .iframe-holder
         overflow: hidden
         height: 0
@@ -61,28 +95,28 @@
           height: 100%
 
 .container__hotels
+  background-color: $main-text-color
+  color: $main-text-color_inverted
   padding: 2em 0
+  .row-info
+    display: flex
+    flex-direction: row
+    svg
+      width: 4em
+      height: 4em
+      path
+        fill: $main-text-color_inverted
+  .column
+    margin-top: 2em
   h3
-    text-align: center
-  .card
-    max-width: 200px
-    text-align: center
-    margin: 0 auto
-    .title
-      font-weight: 600
-      margin: 1em auto 0
-    .subtitle
-      margin: 0 auto
-
-.container__more
-  padding: 2em 0
-  background-color: $main-color_hue-medium
-  h3
+    text-align: left
+    text-transform: uppercase
+    font-weight: 200
+    margin-top: .25em
+  h4
+    color: $main-color_hue-medium
     font-style: normal
-    text-align: center
+    font-weight: 600
+    text-transform: none
+  a
     color: $main-text-color_inverted
-    font-size: 1.8em
-    line-height: 1.2
-    +tablet
-      font-size: 2em
-      line-height: 1.5

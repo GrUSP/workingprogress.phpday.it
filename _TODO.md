@@ -20,17 +20,16 @@
 
 * **DOMANDA**: il logo in footer è quello giusto? (boh)
 
-* venue con il nuovo layout che ha fatto manu?
+* venue con il nuovo layout che ha fatto manu
 
 * schema.org:
   * welcome e figlie
   * talks
   * schedule
 
-* a special `defaults.sass` file for each conference, with color palette (manu)
-  * una volta estratte le palette di colori, mettere tutti i relativi file sass nel repo, poi estrarre temi singoli (branches?)
-  * fare la stessa cosa per logo e favicon
-  * favicon + tiles: (by site) favicon + tiles with conference logos!
+* **assets**
+  * per le palette di colori, mettere tutti i relativi file sass nel repo base (fatto), poi estrarre temi singoli (branches?)
+  * fare la stessa cosa per logo, favicon, tiles
 
 * talks
   * si vorrebbe poter scegliere l'ordine (possibilmente l'ordine in cui sono scritti nel file)
@@ -57,6 +56,10 @@
 
 
 # DONE
+
+* 20200430
+  * **assets**
+    * a special `defaults.sass` file for each conference, with color palette -> commit 0368dc88 - 30/04
 
 * 20200426
   * components
