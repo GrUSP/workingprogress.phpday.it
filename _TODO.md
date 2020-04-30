@@ -20,8 +20,7 @@
 
 * **DOMANDA**: il logo in footer è quello giusto? (boh)
 
-* **DOMANDA**: fare venue con il nuovo layout che ha fatto manu?
-
+* venue con il nuovo layout che ha fatto manu?
 
 * schema.org:
   * welcome e figlie
@@ -29,11 +28,8 @@
   * schedule
 
 * a special `defaults.sass` file for each conference, with color palette (manu)
-  * **NB** dynamic import: https://sass-lang.com/documentation/at-rules/import
-  * **NB** sostituire `@import` con `@use` (cfr stessa URL) 
-    * vedi anche https://css-tricks.com/introducing-sass-modules/ ma forse per questo bisogna installare sass oltre a node-sass
-  * una volta estratte le palette di colori, mettere tutti i relativi file sass nel repo, aggiungere un parametro in defaults, e aggiungere dinamicamente il css della palette in header.pug così si evita di toccare il _config e si genera comunque il sito con la palette giusta
-  * ma: e fare la stessa cosa per logo e favicon?
+  * una volta estratte le palette di colori, mettere tutti i relativi file sass nel repo, poi estrarre temi singoli (branches?)
+  * fare la stessa cosa per logo e favicon
   * favicon + tiles: (by site) favicon + tiles with conference logos!
 
 * talks
@@ -58,15 +54,6 @@
 
 * https://developer.mozilla.org/en-US/docs/Web/Performance/dns-prefetch
   * (x es link google maps): `- url_to_prefetch = new URL(data.location_maps_url)`
-
-* home
-	* hero: 
-		* background: ora il tema si aspetta `hero.jpg` (e `location.jpg`) -- rendere possibile usare altri tipi di immagine. 
-			* usare `defaults`
-			* usare semplicemente qualsiasi cosa ci sia in `img/home/` indipendentemente dal filetype?
-	* workshop
-		* link a singola pagina workshop se ce ne sono > 1
-* LINK a tutti i pulsanti che vanno alle google form o all'acquisto biglietti
 
 
 # DONE
