@@ -10,6 +10,8 @@ section(id="location").section_nopadding
         strong !{site.data.defaults.conference.location_address}
       a(href=url_for("welcome/venue.html")).button.is-medium.is-rounded.is-primary !{site.data.defaults.conference.location_readmore_label}
       a(href=site.data.defaults.conference.location_maps_url target="_blank" rel="noopener noreferrer").button.is-medium.is-rounded.is-primary !{site.data.defaults.conference.location_maps_label}
+  if(site.data.defaults.conference.venue_img_credits)
+    .image-credits !{site.data.defaults.conference.venue_img_credits}
 
   //- schema.org microdata
   script(type="application/ld+json").

@@ -1,6 +1,8 @@
 read_more_label: "read more"
 summary_page_aria_label: "workshops page"
 summary_page_button_label: "See all workshops"
+# image credits (l'esempio è per la hero del CSS Day!)
+# workshop_img_credits: "Image by Gianni Careddu - Own work, <a href='https://commons.wikimedia.org/w/index.php?curid=74821344ì target='_blank' rel='noopener noreferrer'>CC BY-SA 4.0</a>"
 
 workshops:
   workshop_1:

@@ -1,6 +1,31 @@
 # conference tag: used to load theme stylesheet. uncomment out the right one and generate!
-conference_tag: "rubyday"
+# conference_tag: "angularday"
+# conference_tag: "containerday"
 # conference_tag: "cssday"
+# conference_tag: "devopsitalia"
+# conference_tag: "jsday"
+# conference_tag: "laravelday"
+# conference_tag: "nodejsday"
+# conference_tag: "phpday"
+# conference_tag: "reactjsday"
+conference_tag: "rubyday"
+# conference_tag: "sfday"
+# conference_tag: "vueday"
+
+# Default colors for Safari pinned tabs and MS application tiles
+meta_colors:
+  angularday: "#dd0031"
+  containerday: "#f7941e"
+  cssday: "#5ab5c9"
+  devopsitalia: "#267e3e"
+  jsday: "#5e4e9b"
+  laravelday: "#fc372a"
+  nodejsday: "#8cc34b"
+  phpday: "#dd0031"
+  reactjsday: "#30aade"
+  rubyday: "#5e4e9b"
+  sfday: "#ae9440"
+  vueday: "#35495e"
 
 # conference config
 conference:
@@ -25,6 +50,8 @@ conference:
   countdown_seconds: "seconds"
   ticket_button_visible: true
   hero_buy_tickets_label: "Buy tickets now"
+  # image credits (l'esempio è per la hero del CSS Day!)
+  # hero_img_credits: "Image by Gianni Careddu - Own work, <a href='https://commons.wikimedia.org/w/index.php?curid=74821344ì target='_blank' rel='noopener noreferrer'>CC BY-SA 4.0</a>"
   # "update" component. set the first parameter to true to make it appear in home page, false means hidden
   update_visible: true
   update_is_warning: true
@@ -94,6 +121,8 @@ conference:
   location_maps_url: "https://www.google.com/maps/place/Hotel+San+Marco+Fitness+Pool+%26+SPA/@45.4399961,10.9697441,17z/data=!3m1!4b1!4m8!3m7!1s0x4781e1e30a8be6af:0x8091b108e1d130c6!5m2!4m1!1i2!8m2!3d45.4399961!4d10.9719328"
   location_maps_label: "Get directions"
   location_readmore_label: "Read more"
+  # image credits (l'esempio è per la hero del CSS Day!)
+  venue_img_credits: "Image by Gianni Careddu - Own work, <a href='https://commons.wikimedia.org/w/index.php?curid=74821344ì target='_blank' rel='noopener noreferrer'>CC BY-SA 4.0</a>"
   # Sponsors section in home page. set the first parameter to true to make it appear in home page, false means hidden
   sponsors_visible: true
   sponsor_title_home: "Sponsors"

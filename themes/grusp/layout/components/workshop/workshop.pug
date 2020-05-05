@@ -17,6 +17,8 @@ section(id="workshop").section_nopadding
     .workshop__container
       .columns.inner
         .column.workshop__info
+          - read_more_url = workshop.page_uri
+          - aria_label = site.data.workshop.read_more_label
           .row-info
             .info-icon
               include ../../../source/assets/ico/ico-where.svg
@@ -27,7 +29,8 @@ section(id="workshop").section_nopadding
             .info__date
               - start_date = date(workshop.date, config.date_format_hero)
               time(datetime=workshop.date) !{start_date}
-          h5(role="heading" aria-level="5") !{workshop.workshop_title}
+          a(href=url_for(read_more_url) role="button" aria-label=aria_label)
+            h5(role="heading" aria-level="5") !{workshop.workshop_title}
           p !{workshop.description}
           p
             each teacher in workshop.teachers
@@ -39,8 +42,6 @@ section(id="workshop").section_nopadding
               br
         .column.workshop-buttons
           .workshop-buttons__button-container
-            - read_more_url = workshop.page_uri
-            - aria_label = site.data.workshop.read_more_label
             a(href=url_for(read_more_url) role="button" aria-label=aria_label)
               .workshop-buttons__button
                 include ../../../source/assets/ico/ico-readmore.svg

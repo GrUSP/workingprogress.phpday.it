@@ -9,7 +9,31 @@ header(class=classes id="header")
       .navbar-brand
         a(href="/" aria-label="home page").navbar-item
           .header-logo
-            include ../../../../source/img/conference-logo.svg
+            if(site.data.defaults.conference_tag=="angularday")
+              include ../../source/assets/img/conference-logo_angularday.svg
+            else if(site.data.defaults.conference_tag=="containerday")
+              include ../../source/assets/img/conference-logo_containerday.svg
+            else if(site.data.defaults.conference_tag=="cssday")
+              include ../../source/assets/img/conference-logo_cssday.svg
+            else if(site.data.defaults.conference_tag=="devopsitalia")
+              include ../../source/assets/img/conference-logo_devopsitalia.svg
+            else if(site.data.defaults.conference_tag=="jsday")
+              include ../../source/assets/img/conference-logo_jsday.svg
+            else if(site.data.defaults.conference_tag=="laravelday")
+              include ../../source/assets/img/conference-logo_laravelday.svg
+            else if(site.data.defaults.conference_tag=="nodejsday")
+              include ../../source/assets/img/conference-logo_nodejsday.svg
+            else if(site.data.defaults.conference_tag=="reactjsday")
+              include ../../source/assets/img/conference-logo_reactjsday.svg
+            else if(site.data.defaults.conference_tag=="rubyday")
+              include ../../source/assets/img/conference-logo_rubyday.svg
+            else if(site.data.defaults.conference_tag=="sfday")
+              include ../../source/assets/img/conference-logo_sfday.svg
+            else if(site.data.defaults.conference_tag=="vueday")
+              include ../../source/assets/img/conference-logo_vueday.svg
+            //- escape clause: at the moment it is rubyday
+            else
+              include ../../source/assets/img/conference-logo.svg
         a.navbar-burger(role="button" aria-label="menu" aria-expanded="false" data-target="main_menu")
           span(aria-hidden="true")
           span(aria-hidden="true")

@@ -18,18 +18,25 @@
 
 # TODO
 
-* **DOMANDA**: il logo in footer è quello giusto? (boh)
+* **DOMANDA**: il logo in footer è quello giusto? (è una lunga storia)
 
-* venue con il nuovo layout che ha fatto manu
+## assets
+  * per le palette di colori, mettere tutti i relativi file sass nel repo base (fatto), poi estrarre temi singoli (branches?)
+  * fare la stessa cosa per logo, favicon, tiles (fatto file, mettere nel tema)
+  * **OCIO** safari-pinned-tab[_conf] <- SVG da manu
+  * background x hero, venue, workshop:
+    * fatti tutti in tema base, [filename]_[conftag]
+    * nei singoli temi rinominare a solo [filename]
+    * ....oppure aggiungerlo a `defaults.sass`?
+
+
+## features
 
 * schema.org:
   * welcome e figlie
   * talks
   * schedule
 
-* **assets**
-  * per le palette di colori, mettere tutti i relativi file sass nel repo base (fatto), poi estrarre temi singoli (branches?)
-  * fare la stessa cosa per logo, favicon, tiles
 
 * talks
   * si vorrebbe poter scegliere l'ordine (possibilmente l'ordine in cui sono scritti nel file)
@@ -37,6 +44,10 @@
   * aggiungere un parametro facoltativo per il tipo di talk (keynote, workshop...) da mettere tra titolo e descrizione
   * titolo cliccabile = link al talk nello schedule
 * schedule
+  **da giulia**
+    [ ] schedule: prevedere eventi tipo “PUG MEETING” che vanno in schedule ma non in pagina talk
+    [ ] schedule: prevedere keynote e workshop
+    [ ] speaker - schedule: link reciproci tra talk e schedule
   * ordinare i dati per ora inizio invece che per ordine del file
   * titolo talk cliccabile = link al talk nei talk
   * possono esserci talk di lunghezza maggiore (doppia)
@@ -56,6 +67,18 @@
 
 
 # DONE
+
+* 20200505
+  * fixes
+    [*] home - header: il bottone “buy tickets now” non è allineato a titolo/countdown
+    [*] home - ws: link anche dal titolo del ws
+    [*] home - form newsletter: solo in home, forse ha senso mettere questo componente più in alto (per es. subito dopo i ws)?
+    [*] workshop - pagina sommario: togliere gli sponsor
+  * assets
+    * logo conference x tema
+    * immagini: hero, location, workshop x tema (NB workshop c'è solo rubyday) (la maggior parte sono in "varianti")
+    * **css**: page header nel tema (hero, venue, workshop_single)
+  * conditional image credits (hero background, venue header, workshop page header)
 
 * 20200430
   * **assets**

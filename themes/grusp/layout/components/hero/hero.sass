@@ -9,26 +9,26 @@
   width: 100vw
   //- this is to avoid having `hero-head` and `hero-foot` (see bulma docs)
   height: 100vh
-  background-image: url("/img/home/hero.jpg")
+  background-image: url("/assets/img/hero/hero.jpg")
   background-size: cover
   background-repeat: no-repeat
   background-position: center center
   background-attachment: fixed
   position: relative
   +tablet
-    background-image: url("/img/home/tablet_hero.jpg")
+    background-image: url("/assets/img/hero/tablet_hero.jpg")
   +desktop
-    background-image: url("/img/home/desktop_hero.jpg")
+    background-image: url("/assets/img/hero/desktop_hero.jpg")
   +widescreen
-    background-image: url("/img/home/widescreen_hero.jpg")
+    background-image: url("/assets/img/hero/widescreen_hero.jpg")
   +fullhd
-    background-image: url("/img/home/hero.jpg")
+    background-image: url("/assets/img/hero/hero.jpg")
   +tablet-vertical
-    background-image: url("/img/home/tablet_vertical_hero.jpg")
+    background-image: url("/assets/img/hero/tablet_vertical_hero.jpg")
   +medium-phone
-    background-image: url("/img/home/mobile_medium_hero.jpg")
+    background-image: url("/assets/img/hero/mobile_medium_hero.jpg")
   +small-phone
-    background-image: url("/img/home/mobile_small_hero.jpg")
+    background-image: url("/assets/img/hero/mobile_small_hero.jpg")
   .inner
     align-items: center
   .row-info
@@ -52,7 +52,9 @@
     path
       fill: $main-text-color_inverted
   .row__title
-    padding: 1em 0
+    padding: 8em 0 4em
+    +tablet
+      padding: 1em 0
   .row__title h1
     font-weight: 700
     color: $main-text-color_inverted
@@ -63,7 +65,7 @@
       line-height: 1.5
     +widescreen
       font-size: 4em
-    
+
 .info__location
   padding: 0 30px 0 10px
 
@@ -74,7 +76,6 @@
   display: flex
   justify-content: flex-start
   .columns
-    align-items: baseline
     width: 100%
     flex-wrap: wrap
 
@@ -96,5 +97,14 @@
   color: $main-color_hue-medium
 
 .days-label, .hours-label, .minutes-label, .seconds-label
+  font-size: .9em
+  color: $main-text-color_inverted
+
+.image-credits
+  position: relative
+  margin: -2em auto 0
+  text-align: center
   font-size: .8em
   color: $main-text-color_inverted
+  a
+    color: $main-text-color_inverted

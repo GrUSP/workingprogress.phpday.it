@@ -34,7 +34,7 @@ stylesheets:
 - /assets/css/grusp.css
 
 # favicon
-favicon: /assets/ico/favicon.ico
+# favicon: /assets/favicons/favicon.ico
 
 # scripts loaded in the end of the body / commented out to prevent errors in compiling layout.pug
 scripts:

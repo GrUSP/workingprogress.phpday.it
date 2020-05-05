@@ -14,6 +14,8 @@ block content
     include components/topics/topics.pug
   if(site.data.defaults.conference.workshop_visible)
     include components/workshop/workshop.pug
+  //- newsletter form: always visible
+  include components/newsletter/newsletter.pug
   if(site.data.defaults.conference.media_visible)
     include components/media/media.pug
   if(site.data.defaults.conference.location_visible)
@@ -22,5 +24,3 @@ block content
   include components/sponsors/sponsors.pug
   if site.data.defaults.conference.community_partners
     include components/community_partners/community_partners.pug
-  //- newsletter form: always visible
-  include components/newsletter/newsletter.pug

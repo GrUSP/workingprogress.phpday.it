@@ -9,6 +9,8 @@ block content
           .inner
             h2(role="header" aria-level="2").is-title.is-2 !{ws.page_title}
             a(role="button" href=ws.ticket_url aria-label=ws.ticket_label target="_blank" rel="external noopener noreferrer").button.is-medium.is-rounded.is-primary !{ws.ticket_label}
+        if(site.data.defaults.conference.venue_img_credits)
+          .image-credits !{site.data.defaults.conference.venue_img_credits}
         include includes/_breadcrumbs.pug
         .workshop-single__container
           section(id="workshop-single__intro").section_nopadding.workshop-single__intro

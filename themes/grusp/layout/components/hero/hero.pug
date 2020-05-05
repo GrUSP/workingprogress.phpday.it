@@ -40,3 +40,5 @@ section(id="hero").section_nopadding
             .column
               if(site.data.defaults.conference.ticket_button_visible)
                 a(href=site.data.defaults.conference.buy_tickets_url target="_blank" rel="noopener noreferrer external" role="button" aria-label=site.data.defaults.conference.hero_buy_tickets_label).button.is-large.is-rounded.is-primary !{site.data.defaults.conference.hero_buy_tickets_label}
+  if(site.data.defaults.conference.hero_img_credits)
+    .image-credits !{site.data.defaults.conference.hero_img_credits}

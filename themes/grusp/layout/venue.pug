@@ -6,6 +6,8 @@ block content
     .venue__header
       .inner
         h2(role="header" aria-level="2").is-title.is-2 !{site.data.page_venue.header.title_pre} !{site.data.defaults.conference.city}
+    if(site.data.defaults.conference.venue_img_credits)
+      .image-credits !{site.data.defaults.conference.venue_img_credits}
 
     include includes/_breadcrumbs.pug
 

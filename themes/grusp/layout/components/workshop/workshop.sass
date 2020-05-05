@@ -23,11 +23,6 @@
     color: $main-color !important
   p
     color: $main-text-color
-  a
-    color: $main-text-color_inverted
-    text-transform: uppercase
-    &:hover, &:active, &:focus
-      text-decoration: none
   .columns
     margin-top: 1em
     margin-bottom: 0
@@ -74,9 +69,9 @@
         text-transform: uppercase
         font-size: .8em
         font-weight: 600
-      &:hover > a, &:focus > a, &:active > a
-        color: $main-color !important
-        text-decoration: none
+        &:hover > a, &:focus > a, &:active > a
+          color: $main-color !important
+          text-decoration: none
   .workshop-buttons__button
     width: 120px
     height: 120px

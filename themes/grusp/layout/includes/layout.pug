@@ -16,14 +16,24 @@ html(lang=config.language)
     else
       meta(name='description', content=page.description)
     //- Favicons
-    link(rel="apple-touch-icon" sizes="180x180" href="/assets/ico/apple-touch-icon.png")
-    link(rel="icon" type="image/png" sizes="32x32" href="/assets/ico/favicon-32x32.png")
-    link(rel="icon" type="image/png" sizes="16x16" href="/assets/ico/favicon-16x16.png")
-    link(rel="manifest" href="/assets/ico/site.webmanifest")
-    link(rel="mask-icon" href="/assets/ico/safari-pinned-tab.svg" color="#5bbad5")
-    link(rel="shortcut icon" href="/assets/ico/favicon.ico")
-    meta(name="msapplication-TileColor" content="#ffc40d")
-    meta(name="msapplication-config" content="/assets/ico/browserconfig.xml")
+    link(rel="apple-touch-icon" sizes="180x180" href=`/assets/favicons/apple-touch-icon_${site.data.defaults.conference_tag}.png`)
+    link(rel="icon" type="image/png" sizes="32x32" href=`/assets/favicons/favicon-32x32_${site.data.defaults.conference_tag}.png`)
+    link(rel="icon" type="image/png" sizes="16x16" href=`/assets/favicons/favicon-16x16_${site.data.defaults.conference_tag}.png`)
+    
+    //- TODO this: revert to `site.webmanifest` in theme
+    link(rel="manifest" href=`/assets/favicons/site_${site.data.defaults.conference_tag}.webmanifest`)
+    
+    each value, key in site.data.defaults.meta_colors
+      if(key === site.data.defaults.conference_tag)
+        link(rel="mask-icon" href="/assets/favicons/safari-pinned-tab.svg" color=value)
+
+    link(rel="shortcut icon" href=`/assets/favicons/favicon_${site.data.defaults.conference_tag}.ico`)
+
+    each value, key in site.data.defaults.meta_colors
+      if(key === site.data.defaults.conference_tag)
+        meta(name="msapplication-TileColor" content=value)
+
+    meta(name="msapplication-config" content=`/assets/favicons/browserconfig_${site.data.defaults.conference_tag}.xml`)
     meta(name="theme-color" content="#ffffff")
 
     != open_graph()
