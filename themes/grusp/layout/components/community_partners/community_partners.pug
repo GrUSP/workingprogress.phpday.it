@@ -8,3 +8,13 @@ section(id="hero__community_partners")
             - filename = `/img/community/${partner.logo_filename}`
             a(role="button" rel="external noopener noreferrer" target="_blank" href=partner.website_url)
               img(src=filename alt=partner.name)
+  each partner in site.data.sponsors.community_partners
+    script(type="application/ld+json").
+      {
+        "sponsor":
+        {
+          "type": "Organization",
+          "name": "#{partner.name}",
+          "url": "#{partner.website_url}"
+        }
+      }

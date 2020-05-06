@@ -31,7 +31,7 @@ meta_colors:
 conference:
   # menu and general params
   menu_buy_tickets_label: "Buy tickets"
-  buy_tickets_url: ""
+  buy_tickets_url: "https://rubyday-2020.eventbrite.com/"
   # additional info for microdata / schema.org
   md_city: "Verona"
   md_province: "VR"

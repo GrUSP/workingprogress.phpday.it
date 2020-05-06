@@ -52,6 +52,15 @@ block content
             - filename = "/img/logos/"+sponsor.logo_filename
             a(href=sponsor.site_url target="_blank" rel="noopener noreferrer external" role="button" aria-label=sponsor.name)
               img(src=filename alt=sponsor.name)
+          script(type="application/ld+json").
+            {
+              "sponsor":
+              {
+                "type": "Organization",
+                "name": "#{sponsor.name}",
+                "url": "#{sponsor.site_url}"
+              }
+            }
 
     //- imported components
     include components/newsletter/newsletter

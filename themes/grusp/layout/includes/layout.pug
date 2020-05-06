@@ -71,6 +71,19 @@ html(lang=config.language)
         "image": "#{config.image}",
         "startDate": "#{site.data.defaults.conference.date}",
         "description": "#{config.description}",
+        "offers": 
+        {
+          "@type": "Offer",
+          "description": "Tickets",
+          "availability": "https://schema.org/LimitedAvailability",
+          "url": "#{site.data.defaults.conference.buy_tickets_url}"
+        },
+        {
+          "@type": "Offer",
+          "description": "Scholarships",
+          "availability": "https://schema.org/LimitedAvailability",
+          "url": "#{site.data.page_scholarships.long_version.content_2_link_url}"
+        },
         "organizer":
         {
           "@type": "Organization",
@@ -87,7 +100,8 @@ html(lang=config.language)
             "#{site.data.defaults.conference.social_fb_url}",
             "#{site.data.defaults.conference.social_twitter_url}",
             "#{site.data.defaults.conference.social_vimeo_url}",
-            "#{site.data.defaults.conference.social_youtube_url}"
+            "#{site.data.defaults.conference.social_youtube_url}",
+            "#{site.data.defaults.conference.social_linkedin_url}"
           ]
         }
       }

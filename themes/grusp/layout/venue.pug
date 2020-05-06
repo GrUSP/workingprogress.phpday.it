@@ -59,7 +59,34 @@ block content
                 - email_url = "mailto:" + hotel.email
                 p
                   a(href=email_url role="button" target="_blank" rel="external noopener noreferrer" aria-label=site.data.page_venue.email_aria_label) !{hotel.email}
-
+            script(type="application/ld+json").
+              {
+              "offers": 
+                {
+                  "@type": "Offer",
+                  "description": "Hotel agreement: we have conventions with hotels in the area",
+                  "availability": "https://schema.org/LimitedAvailability",
+                  "location": 
+                    {
+                      "@type": "Place",
+                      "address": 
+                      {
+                        "@type": "PostalAddress",
+                        "addressLocality": "#{site.data.defaults.conference.md_city}",
+                        "addressRegion": "#{site.data.defaults.conference.md_province}",
+                        "postalCode": "#{site.data.defaults.conference.md_postal_code}",
+                        "streetAddress": "#{hotel.address}"
+                      },
+                      "name": "#{site.data.defaults.conference.location_name}",
+                      "contactPoint": [
+                        {
+                          "@type": "contactPoint",
+                          "email": "mailto:#{hotel.email}"
+                        }]
+                    }
+                  "url": "#{hotel.website}"
+                }
+              }
     //- imported components
     include components/newsletter/newsletter
     if(site.data.defaults.conference.sponsors_visible)
