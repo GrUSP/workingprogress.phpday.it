@@ -69,6 +69,8 @@ block content
                   "location": 
                     {
                       "@type": "Place",
+                      "name": "#{hotel.name}",
+                      "url": "#{hotel.website}",
                       "address": 
                       {
                         "@type": "PostalAddress",
@@ -77,14 +79,12 @@ block content
                         "postalCode": "#{site.data.defaults.conference.md_postal_code}",
                         "streetAddress": "#{hotel.address}"
                       },
-                      "name": "#{site.data.defaults.conference.location_name}",
                       "contactPoint": [
                         {
                           "@type": "contactPoint",
                           "email": "mailto:#{hotel.email}"
-                        }],
+                        }]
                     }
-                  "url": "#{hotel.website}"
                 }
               }
     //- imported components
