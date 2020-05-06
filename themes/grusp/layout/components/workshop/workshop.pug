@@ -63,7 +63,11 @@ section(id="workshop").section_nopadding
         "@context": "https://schema.org",
         "@type": "Event",
         "@id": "#{read_more_url}",
-        "superEvent": { "@id": "#{full_url_for(site.root)}" },
+        "superEvent": 
+        {
+          "@type": "Event",
+          "@id": "#{full_url_for(site.root)}" 
+        },
         "location": 
         {
           "@type": "Place",
