@@ -42,17 +42,16 @@ block content
                 .info__date(id=the_id)
                   time(datetime=day_date) !{start_date}
             table.table.is-fullwidth.is-hoverable
-              if(no_tracks > 1)
-                - service_td_colspan = no_tracks
               tbody
-                each talk in day.talks
+                - colcount = 0
+                each talk, key in day.talks
                   - tr_classes = ""
                   - td_classes = ""
-                  if(!talk.is_service_item)
+                  if(talk.item_type !== 'service')
                     - tr_classes += "has-background "
                   if(talk.service_icon)
                     - td_classes += "has-service-icon "
-                  if(talk.is_service_item)
+                  if(talk.item_type == 'service')
                     tr(class=tr_classes)
                       td(class=td_classes colspan=no_tracks)
                         time(datetime=talk.start_datetime) !{time(talk.start_datetime, config.time_format_schedule)} - !{time(talk.end_datetime, config.time_format_schedule)}
@@ -68,20 +67,75 @@ block content
                         br
                         if(talk.host_name)
                           span !{talk.host_name}
+                  else if(talk.item_type == 'keynote')
+                    tr(class=tr_classes)
+                      td(class=td_classes colspan=no_tracks)
+                        time(datetime=talk.start_datetime) !{time(talk.start_datetime, config.time_format_schedule)} - !{time(talk.end_datetime, config.time_format_schedule)}
+                        br
+                        strong Keynote
+                          if(talk.talk_title)
+                            | :&nbsp!{talk.talk_title}
+                        br
+                        if(talk.host_name)
+                          span !{talk.host_name}
+                        if(talk.speakers)
+                          each speaker in talk.speakers
+                            span !{speaker.speaker_name}
+                            if(speaker.speaker_role)
+                              span !{speaker.speaker_role}
+                        if(talk.talk_description)
+                          br
+                          | !{talk.talk_description}
                   else
-                    td(style=`width: calc(100% / ${no_tracks})`).has-background
-                      time(datetime=talk.start_datetime) !{time(talk.start_datetime, config.time_format_schedule)} - !{time(talk.end_datetime, config.time_format_schedule)}
-                      br
-                      if(talk.track)
-                        span.track-title !{talk.track.title}
-                      br
-                      strong !{talk.talk_title}
-                      br
-                      if(talk.host_name)
-                        span !{talk.host_name}
-                      if(talk.speakers)
-                        each speaker in talk.speakers
-                          span !{speaker.speaker_name}
+                    if(colcount == no_tracks)
+                      tr(class=tr_classes)
+                      - colcount = 0
+                    if(talk.item_type == 'talk')
+                      - colcount++
+                      td(style=`width: calc(100% / ${no_tracks})`).has-background
+                        time(datetime=talk.start_datetime) !{time(talk.start_datetime, config.time_format_schedule)} - !{time(talk.end_datetime, config.time_format_schedule)}
+                        br
+                        if(talk.track)
+                          span.track-title !{talk.track.title}
+                        br
+                        - talk_url = url_for("talks_speakers") + "#" + key
+                        strong(id=key).talk-anchor
+                          a(href=talk_url) !{talk.talk_title}
+                        br
+                        if(talk.host_name)
+                          span !{talk.host_name}
+                        if(talk.speakers)
+                          each speaker in talk.speakers
+                            span !{speaker.speaker_name}
+                    else if(talk.item_type == 'workshop')
+                      - colcount++
+                      td(style=`width: calc(100% / ${no_tracks})`).has-background
+                        time(datetime=talk.start_datetime) !{time(talk.start_datetime, config.time_format_schedule)} - !{time(talk.end_datetime, config.time_format_schedule)}
+                        br
+                        strong Workshop
+                          if(talk.talk_title)
+                            | :&nbsp!{talk.talk_title}
+                        br
+                        if(talk.host_name)
+                          span !{talk.host_name}
+                        if(talk.speakers)
+                          each speaker in talk.speakers
+                            span !{speaker.speaker_name}
+                            if(speaker.speaker_role)
+                              span !{speaker.speaker_role}
+                        if(talk.talk_description)
+                          br
+                          | !{talk.talk_description}
+                    else if(talk.item_type == 'other')
+                      - colcount++
+                      td(style=`width: calc(100% / ${no_tracks})`).has-background
+                        time(datetime=talk.start_datetime) !{time(talk.start_datetime, config.time_format_schedule)} - !{time(talk.end_datetime, config.time_format_schedule)}
+                        br
+                        if(talk.talk_title)
+                          strong !{talk.talk_title}
+                        if(talk.talk_description)
+                          br
+                          | !{talk.talk_description}
 
     //- imported components
     include components/newsletter/newsletter

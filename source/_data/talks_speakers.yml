@@ -1,3 +1,4 @@
+# Speakers. I mixin "&nome" servono per indicare quali speaker partecipano a ogni talk, sotto
 speaker_1: &luca_guidi
   speaker_name: Luca Guidi
   speaker_pic_filename: lucaguidi.png
@@ -26,6 +27,14 @@ speaker_4: &andrea_sartori
   speaker_bio: "is an impostor. And however, lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. And however, enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   speaker_github_url: "https://github.com/dew-frost"
   speaker_twitter_url:
+speaker_5: &keynote_speaker
+  speaker_name: Keynote Speaker
+  speaker_role: "speaker role (optional)"
+speaker_6: &giulia_tosato
+  speaker_name: Giulia Tosato
+  speaker_pic_filename: giulia.jpeg
+  speaker_bio: "is a former digital strategist, and now is a community manager and event organizer"
+  speaker_role: "Community manager @ GrUSP"
 
 tracks:
   track_1: &track_1
@@ -33,30 +42,40 @@ tracks:
   track_2: &track_2
     title: "Track 2"
 
+
+# NB "item_type": tipi di "talk"
+#   "talk" -- un talk vero e proprio, che va anche in components/speakers e nella pagina talks_speakers
+#   "service" -- coffee break, lunch break, etc
+#   "keynote" -- **non** viene messo in components/speakers e nella pagina talks_speakers
+#   "workshop" -- sessione straordinaria (non workshop full-day), x es community workshop / UG
+#   "other" -- altro; si inseriranno solo ora, titolo, descrizione facoltativa
+
 days:
   day_1:
     date: 2020-09-16T09:00
     title: "Day 1"
     talks:
       talk_1:
-        is_service_item: true
+        item_type: "service"
         start_datetime: 2020-09-16T09:00
         end_datetime: 2020-09-16T09:30
         talk_title: "Check-in"
       talk_2:
-        is_service_item: true
+        item_type: "service"
         start_datetime: 2020-09-16T09:30
         end_datetime: 2020-09-16T09:45
         talk_title: "GrUSP presentation"
         host_name: "Francesco Fullone"
       talk_3:
-        is_service_item: true
+        item_type: "keynote"
         start_datetime: 2020-09-16T09:45
         end_datetime: 2020-09-16T10:00
-        talk_title: "Conference presentation"
-        host_name: "Giulia Tosato"
+        talk_title: "Keynote title (optional)"
+        talk_description: "Keynote description (optional)"
+        speakers:
+          speaker_1: *keynote_speaker
       talk_4:
-        is_service_item: false
+        item_type: "talk"
         track: *track_1
         start_datetime: 2020-09-16T10:00
         end_datetime: 2020-09-16T10:45
@@ -66,7 +85,7 @@ days:
         speakers:
           speaker_1: *luca_guidi
       talk_5:
-        is_service_item: false
+        item_type: "talk"
         track: *track_2
         start_datetime: 2020-09-16T10:00
         end_datetime: 2020-09-16T10:45
@@ -76,24 +95,39 @@ days:
         speakers:
           speaker_1: *filippo_gangidino
       talk_6:
-        is_service_item: true
+        item_type: "service"
         start_datetime: 2020-09-16T10:45
         end_datetime: 2020-09-16T11:00
         talk_title: "Coffee break"
         service_icon: "coffee"
       talk_7:
-        is_service_item: false
+        item_type: "talk"
         track: *track_1
-        start_datetime: 2020-09-16T12:00
-        end_datetime: 2020-09-16T13:00
-        talk_title: "This is another talk by the first speaker of the first talk and a second speaker"
+        start_datetime: 2020-09-16T11:00
+        end_datetime: 2020-09-16T12:00
+        talk_title: "This is a talk in track 2 by a new speaker"
         talk_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         talk_video_url:
         speakers:
-          speaker_1: *luca_guidi
-          speaker_2: *nick_sutterer
+          speaker_1: *giulia_tosato
       talk_8:
-        is_service_item: false
+        item_type: "workshop"
+        track: *track_2
+        start_datetime: 2020-09-16T11:00
+        end_datetime: 2020-09-16T12:00
+        talk_title: "Workshop title (optional)"
+        talk_description: "Workshop description (optional)"
+        speakers:
+          speaker_1: *giulia_tosato
+      talk_9:
+        item_type: "other"
+        track: *track_1
+        start_datetime: 2020-09-16T12:00
+        end_datetime: 2020-09-16T13:00
+        talk_title: "'other' event sample"
+        talk_description: "Optional description for this rather peculiar kind of event"
+      talk_10:
+        item_type: "talk"
         track: *track_2
         start_datetime: 2020-09-16T12:00
         end_datetime: 2020-09-16T13:00
@@ -102,33 +136,39 @@ days:
         talk_video_url:
         speakers:
           speaker_1: *andrea_sartori
-  day_2:
-    date: 2020-09-17T09:00
-    title: "Day 2"
-    talks:
-      talk_1:
-        is_service_item: true
-        start_datetime: 2020-09-16T09:00
-        end_datetime: 2020-09-16T09:30
-        talk_title: "Welcome Coffee"
-        service_icon: "coffee"
-      talk_2:
-        track: *track_1
-        is_service_item: false
-        start_datetime: 2020-09-17T09:30
-        end_datetime: 2020-09-17T10:45
-        talk_title: "This is a talk at the beginning of the second day"
-        talk_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        talk_video_url:
-        speakers:
-          speaker_1: *andrea_sartori
-      talk_3:
-        track: *track_2
-        is_service_item: false
-        start_datetime: 2020-09-17T09:30
-        end_datetime: 2020-09-17T10:45
-        talk_title: "This is a talk in the second day, track 2"
-        talk_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        talk_video_url:
-        speakers:
-          speaker_1: *filippo_gangidino
+      talk_11:
+        item_type: "service"
+        start_datetime: 2020-09-16T13:00
+        end_datetime: 2020-09-16T14:00
+        talk_title: "Lunch break"
+        service_icon: "cutlery"
+  # day_2:
+  #   date: 2020-09-17T09:00
+  #   title: "Day 2"
+  #   talks:
+  #     talk_1:
+  #       item_type: "service"
+  #       start_datetime: 2020-09-16T09:00
+  #       end_datetime: 2020-09-16T09:30
+  #       talk_title: "Welcome Coffee"
+  #       service_icon: "coffee"
+  #     talk_2:
+  #       track: *track_1
+  #       item_type: "talk"
+  #       start_datetime: 2020-09-17T09:30
+  #       end_datetime: 2020-09-17T10:45
+  #       talk_title: "This is a talk at the beginning of the second day"
+  #       talk_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  #       talk_video_url:
+  #       speakers:
+  #         speaker_1: *andrea_sartori
+  #     talk_3:
+  #       track: *track_2
+  #       item_type: "talk"
+  #       start_datetime: 2020-09-17T09:30
+  #       end_datetime: 2020-09-17T10:45
+  #       talk_title: "This is a talk in the second day, track 2"
+  #       talk_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  #       talk_video_url:
+  #       speakers:
+  #         speaker_1: *filippo_gangidino

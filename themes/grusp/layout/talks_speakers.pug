@@ -4,7 +4,7 @@ block content
   section(id="speakers")
     include includes/_breadcrumbs.pug
 
-    //- first we create a unique list of speaker names. it will be used for both assigning the right anchor (see right below) for the seconday menu, and for tcreating the secondary menu itself.
+    //- first we create a unique list of speaker names. it will be used for both assigning the right anchor (see right below) for the talk titles (linked from schedule) and the secondary menu items, and for creating the secondary menu itself.
     //- EXPLANATION: the items in the secondary menu must point to the title of the talk where the first occurrence of the speaker is found.
     - const var_speakers = []
     //- also, we count the days - useful for the page layout
@@ -12,10 +12,10 @@ block content
     each day in site.data.talks_speakers.days
       - no_days++
       each talk in day.talks
-        if(!talk.is_service_item)
+        if(talk.item_type == 'talk')
           each speaker in talk.speakers
             - var_speakers.push(speaker)
-    - const filtered_speaker_names = var_speakers.map(speaker => speaker.speaker_name).filter((value, index, self) => self.indexOf(value) === index).sort((a, b) => (a.speaker_name > b.speaker_name) ? 1 : -1)
+    - const filtered_speaker_names = var_speakers.map(speaker => speaker.speaker_name).filter((value, index, self) => self.indexOf(value) === index).sort((a, b) => (a > b) ? 1 : -1)
 
     .container
       .inner
@@ -34,6 +34,7 @@ block content
             each day in site.data.talks_speakers.days
               - anchor = `#${day.title}`
               a(role="button" href=anchor).button.is-rounded.is-primary.is-medium !{day.title}
+
     //- day title band if there is more than 1 day
     each day in site.data.talks_speakers.days
       if(no_days > 1)
@@ -51,8 +52,8 @@ block content
                 - start_date = date(site.data.defaults.conference.date, config.date_format_hero)
               .info__date
                 time(datetime=site.data.defaults.conference.date) !{start_date}
-      each talk in day.talks
-        if(!talk.is_service_item)
+      each talk, key in day.talks
+        if(talk.item_type == 'talk')
           .container.has-dynamic-background
             .inner
               if(talk.start_datetime && talk.end_datetime)
@@ -69,16 +70,12 @@ block content
                     time(datetime=talk.start_datetime, config.time_format_schedule) !{start_time}
                     | &nbsp;-&nbsp;
                     time(talk.end_datetime, config.time_format_schedule) !{end_time}
-              
 
-              //- here we define which "id" to assign
-              each speaker in talk.speakers
-                - the_id = ""
-                each name in filtered_speaker_names
-                  if(speaker.speaker_name === name)
-                    - the_id = speaker.speaker_name
-                    break
-              h2(role="heading" aria-level="2" id=the_id).is-title.is-2 !{talk.talk_title}
+              //- the key to the talk will be user as the ID of the anchor: same in secondary menu below
+              - schedule_url = url_for("schedule") + "#" + key
+
+              h2(role="heading" aria-level="2" id=key).is-title.is-2
+                a(href=schedule_url).schedule-anchor !{talk.talk_title}
               p !{talk.talk_description}
               if(talk.talk_video_url)
                 .video-container
@@ -120,7 +117,15 @@ block content
         .chevron(id="speaker_menu_chevron")
     ul.menu-list
       each name in filtered_speaker_names
-          - target_href = "#" + name
-          li
-            a(href=target_href role="button" aria-label=name).secondary-menu-list-item !{name}
+        - the_id = ""
+        each day in site.data.talks_speakers.days
+          each talk, key in day.talks
+            if(talk.item_type == 'talk')
+              each speaker in talk.speakers
+                if(speaker.speaker_name === name)
+                  - the_id = key
+          - target_href = "#" + the_id
+        li
+          a(href=target_href role="button" aria-label=name).secondary-menu-list-item !{name}
+
   include components/newsletter/newsletter.pug

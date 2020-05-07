@@ -32,31 +32,15 @@
 
 ## features
 
-* schema.org:
-  * welcome e figlie
-  * talks
-  * schedule
-
 
 * talks
   * si vorrebbe poter scegliere l'ordine (possibilmente l'ordine in cui sono scritti nel file)
-  * track title nello stesso rigo dell'orario (con icona apposta)
-  * aggiungere un parametro facoltativo per il tipo di talk (keynote, workshop...) da mettere tra titolo e descrizione
-  * titolo cliccabile = link al talk nello schedule
+    * compatibilmente coi giorni!
+
 * schedule
-  **da giulia**
-    [ ] schedule: prevedere eventi tipo “PUG MEETING” che vanno in schedule ma non in pagina talk
-    [ ] schedule: prevedere keynote e workshop
-    [ ] speaker - schedule: link reciproci tra talk e schedule
   * ordinare i dati per ora inizio invece che per ordine del file
-  * titolo talk cliccabile = link al talk nei talk
   * possono esserci talk di lunghezza maggiore (doppia)
   * nella stessa track ci possono essere slot vuoti
-  * aggiungere un parametro facoltativo per il tipo di talk (keynote by, workshop by...) da prependere al/ai nome/i speaker(s)
-  * in una track ci possono essere "eventi" che non sono né talk né service e insomma si mette solo:
-    * ora (of course)
-    * titolo (non cliccabile)
-    * descrizione facoltativa
 
 * workshop
   * ottimizzare logica
@@ -67,6 +51,31 @@
 
 
 # DONE
+
+* 20200507
+  * components/speakers
+    * non sono più in ordine alfabetico
+  * talks
+    * aggiunti diversi tipi di talk (talk normale, keynote, workshop, service)
+    * titolo cliccabile = link al talk nello schedule
+    * track title nello stesso rigo dell'orario (con icona apposta)
+    [ ] schedule: prevedere eventi tipo “PUG MEETING” che vanno in schedule ma non in pagina talk
+  * schedule
+    * schedule: prevedere keynote e workshop
+    * titolo talk cliccabile = link al talk nei talk
+    * aggiungere un parametro facoltativo per il tipo di talk (keynote by, workshop by...) da prependere al/ai nome/i speaker(s)
+    * in una track ci possono essere "eventi" che non sono né talk né service e insomma si mette solo:
+      * ora (of course)
+      * titolo (non cliccabile)
+      * descrizione facoltativa
+    * speaker - schedule: link reciproci tra talk e schedule
+
+* 2020506
+  * schema.org:
+    * welcome e figlie
+    * talks
+    * schedule
+
 
 * 20200505
   * fixes

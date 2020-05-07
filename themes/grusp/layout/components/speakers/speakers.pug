@@ -5,7 +5,7 @@ section(id="hero__speakers").section_nopadding
     - const var_speakers = []
     each day in site.data.talks_speakers.days
       each talk in day.talks
-        if(!talk.is_service_item)
+        if(talk.item_type == 'talk')
           each speaker in talk.speakers
             - var_speakers.push(speaker)
     each speaker in var_speakers.map(speaker => speaker.speaker_name).filter((value, index, self) => self.indexOf(value) === index)
@@ -16,7 +16,9 @@ section(id="hero__speakers").section_nopadding
       .column.inner
         h2(role="heading" aria-level="2").title.is-2 !{no_of_speakers} !{site.data.defaults.conference.speakers_title}!{suffix}
         .inner_holder
-          - const filtered_speaker_names = var_speakers.map(speaker => speaker.speaker_name).filter((value, index, self) => self.indexOf(value) === index).sort((a, b) => (a.speaker_name > b.speaker_name) ? 1 : -1)
+          //- removed sort
+          //-- const filtered_speaker_names = var_speakers.map(speaker => speaker.speaker_name).filter((value, index, self) => self.indexOf(value) === index).sort((a, b) => (a.speaker_name > b.speaker_name) ? 1 : -1)
+          - const filtered_speaker_names = var_speakers.map(speaker => speaker.speaker_name).filter((value, index, self) => self.indexOf(value) === index)
           - const map = new Map()
           - const filtered = []
           each item in var_speakers
