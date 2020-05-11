@@ -32,6 +32,7 @@ block content
                 - anchor = `#${day.title}`
                 a(role="button" href=anchor).button.is-rounded.is-primary.is-medium !{day.title}
         each day in site.data.talks_speakers.days
+
           - the_id = day.title
           .timeline
             .info-bar
@@ -44,98 +45,104 @@ block content
             table.table.is-fullwidth.is-hoverable
               tbody
                 - colcount = 0
+                //- we transform the talks into an array
+                - const items = []
                 each talk, key in day.talks
+                  - items.push(talk)
+                //- order the array by ntrack and time
+                - items.sort((a, b) => (a.track > b.track) ? 1 : -1).sort((a, b) => (a.start_datetime > b.start_datetime) ? 1 : -1)
+                each item, key in items
                   - tr_classes = ""
                   - td_classes = ""
-                  if(talk.item_type !== 'service')
+                  if(item.item_type !== 'service')
                     - tr_classes += "has-background "
-                  if(talk.service_icon)
+                  if(item.service_icon)
                     - td_classes += "has-service-icon "
-                  if(talk.item_type == 'service')
+                  if(item.item_type == 'service')
                     tr(class=tr_classes)
                       td(class=td_classes colspan=no_tracks)
-                        time(datetime=talk.start_datetime) !{time(talk.start_datetime, config.time_format_schedule)} - !{time(talk.end_datetime, config.time_format_schedule)}
+                        time(datetime=item.start_datetime) !{time(item.start_datetime, config.time_format_schedule)} - !{time(item.end_datetime, config.time_format_schedule)}
                         br
-                        strong !{talk.talk_title}
-                        if(talk.service_icon)
-                          if(talk.service_icon == "coffee")
+                        strong !{item.talk_title}
+                        if(item.service_icon)
+                          if(item.service_icon == "coffee")
                             include ../source/assets/ico/ico-coffee.svg
-                          if(talk.service_icon == "cutlery")
+                          if(item.service_icon == "cutlery")
                             include ../source/assets/ico/ico-cutlery.svg
-                          if(talk.service_icon == "glass")
+                          if(item.service_icon == "glass")
                             include ../source/assets/ico/ico-glass.svg
                         br
-                        if(talk.host_name)
-                          span !{talk.host_name}
-                  else if(talk.item_type == 'keynote')
+                        if(item.host_name)
+                          span !{item.host_name}
+                  else if(item.item_type == 'keynote')
                     tr(class=tr_classes)
                       td(class=td_classes colspan=no_tracks)
-                        time(datetime=talk.start_datetime) !{time(talk.start_datetime, config.time_format_schedule)} - !{time(talk.end_datetime, config.time_format_schedule)}
+                        time(datetime=item.start_datetime) !{time(item.start_datetime, config.time_format_schedule)} - !{time(item.end_datetime, config.time_format_schedule)}
                         br
                         strong Keynote
-                          if(talk.talk_title)
-                            | :&nbsp!{talk.talk_title}
+                          if(item.item)
+                            | :&nbsp!{item.talk_title}
                         br
-                        if(talk.host_name)
-                          span !{talk.host_name}
-                        if(talk.speakers)
-                          each speaker in talk.speakers
+                        if(item.host_name)
+                          span !{item.host_name}
+                        if(item.speakers)
+                          each speaker in item.speakers
                             span !{speaker.speaker_name}
                             if(speaker.speaker_role)
                               span !{speaker.speaker_role}
-                        if(talk.talk_description)
+                        if(item.talk_description)
                           br
-                          | !{talk.talk_description}
+                          | !{item.talk_description}
                   else
                     if(colcount == no_tracks)
                       tr(class=tr_classes)
                       - colcount = 0
-                    if(talk.item_type == 'talk')
+                    if(item.item_type == 'talk')
                       - colcount++
                       td(style=`width: calc(100% / ${no_tracks})`).has-background
-                        time(datetime=talk.start_datetime) !{time(talk.start_datetime, config.time_format_schedule)} - !{time(talk.end_datetime, config.time_format_schedule)}
+                        time(datetime=item.start_datetime) !{time(item.start_datetime, config.time_format_schedule)} - !{time(item.end_datetime, config.time_format_schedule)}
                         br
-                        if(talk.track)
-                          span.track-title !{talk.track.title}
+                        if(item.track)
+                          span.track-title !{item.track.title}
                         br
                         - talk_url = url_for("talks_speakers") + "#" + key
                         strong(id=key).talk-anchor
-                          a(href=talk_url) !{talk.talk_title}
+                          a(href=talk_url) !{item.talk_title}
                         br
-                        if(talk.host_name)
-                          span !{talk.host_name}
-                        if(talk.speakers)
-                          each speaker in talk.speakers
+                        if(item.host_name)
+                          span !{item.host_name}
+                        if(item.speakers)
+                          each speaker in item.speakers
                             span !{speaker.speaker_name}
-                    else if(talk.item_type == 'workshop')
+                    else if(item.item_type == 'workshop')
                       - colcount++
                       td(style=`width: calc(100% / ${no_tracks})`).has-background
-                        time(datetime=talk.start_datetime) !{time(talk.start_datetime, config.time_format_schedule)} - !{time(talk.end_datetime, config.time_format_schedule)}
+                        time(datetime=item.start_datetime) !{time(item.start_datetime, config.time_format_schedule)} - !{time(item.end_datetime, config.time_format_schedule)}
                         br
                         strong Workshop
-                          if(talk.talk_title)
-                            | :&nbsp!{talk.talk_title}
+                          if(item.talk_title)
+                            | :&nbsp!{item.talk_title}
                         br
-                        if(talk.host_name)
-                          span !{talk.host_name}
-                        if(talk.speakers)
-                          each speaker in talk.speakers
+                        if(item.host_name)
+                          span !{item.host_name}
+                        if(item.speakers)
+                          each speaker in item.speakers
                             span !{speaker.speaker_name}
                             if(speaker.speaker_role)
                               span !{speaker.speaker_role}
-                        if(talk.talk_description)
+                        if(item.talk_description)
                           br
-                          | !{talk.talk_description}
-                    else if(talk.item_type == 'other')
+                          | !{item.talk_description}
+                    else if(item.item_type == 'other')
                       - colcount++
                       td(style=`width: calc(100% / ${no_tracks})`).has-background
-                        time(datetime=talk.start_datetime) !{time(talk.start_datetime, config.time_format_schedule)} - !{time(talk.end_datetime, config.time_format_schedule)}
+                        time(datetime=item.start_datetime) !{time(item.start_datetime, config.time_format_schedule)} - !{time(item.end_datetime, config.time_format_schedule)}
                         br
-                        if(talk.talk_title)
-                          strong !{talk.talk_title}
-                        if(talk.talk_description)
+                        if(item.talk_title)
+                          strong !{item.talk_title}
+                        if(item.talk_description)
                           br
-                          | !{talk.talk_description}
+                          | !{item.talk_description}
 
     //- imported components
     include components/newsletter/newsletter

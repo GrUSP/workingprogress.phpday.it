@@ -49,6 +49,7 @@ tracks:
 #   "keynote" -- **non** viene messo in components/speakers e nella pagina talks_speakers
 #   "workshop" -- sessione straordinaria (non workshop full-day), x es community workshop / UG
 #   "other" -- altro; si inseriranno solo ora, titolo, descrizione facoltativa
+# NB tutti i "talk" devono avere una track. I "service" e i "keynote" dovrebbero avere track_1
 
 days:
   day_1:
@@ -57,17 +58,20 @@ days:
     talks:
       talk_1:
         item_type: "service"
+        track: *track_1
         start_datetime: 2020-09-16T09:00
         end_datetime: 2020-09-16T09:30
         talk_title: "Check-in"
       talk_2:
         item_type: "service"
+        track: *track_1
         start_datetime: 2020-09-16T09:30
         end_datetime: 2020-09-16T09:45
         talk_title: "GrUSP presentation"
         host_name: "Francesco Fullone"
       talk_3:
         item_type: "keynote"
+        track: *track_1
         start_datetime: 2020-09-16T09:45
         end_datetime: 2020-09-16T10:00
         talk_title: "Keynote title (optional)"
@@ -86,22 +90,6 @@ days:
           speaker_1: *luca_guidi
       talk_5:
         item_type: "talk"
-        track: *track_2
-        start_datetime: 2020-09-16T10:00
-        end_datetime: 2020-09-16T10:45
-        talk_title: "Lucy in the sky with rubies (and video)"
-        talk_description: "After the coffee we resume with an interesting talk by a special guest. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        talk_video_url: "https://www.youtube.com/embed/hcQyFtHMfbs"
-        speakers:
-          speaker_1: *filippo_gangidino
-      talk_6:
-        item_type: "service"
-        start_datetime: 2020-09-16T10:45
-        end_datetime: 2020-09-16T11:00
-        talk_title: "Coffee break"
-        service_icon: "coffee"
-      talk_7:
-        item_type: "talk"
         track: *track_1
         start_datetime: 2020-09-16T11:00
         end_datetime: 2020-09-16T12:00
@@ -110,6 +98,23 @@ days:
         talk_video_url:
         speakers:
           speaker_1: *giulia_tosato
+      talk_6:
+        item_type: "service"
+        track: *track_1
+        start_datetime: 2020-09-16T10:45
+        end_datetime: 2020-09-16T11:00
+        talk_title: "Coffee break"
+        service_icon: "coffee"
+      talk_7:
+        item_type: "talk"
+        track: *track_2
+        start_datetime: 2020-09-16T10:00
+        end_datetime: 2020-09-16T10:45
+        talk_title: "Lucy in the sky with rubies (and video)"
+        talk_description: "After the coffee we resume with an interesting talk by a special guest. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        talk_video_url: "https://www.youtube.com/embed/hcQyFtHMfbs"
+        speakers:
+          speaker_1: *filippo_gangidino
       talk_8:
         item_type: "workshop"
         track: *track_2
@@ -138,6 +143,7 @@ days:
           speaker_1: *andrea_sartori
       talk_11:
         item_type: "service"
+        track: *track_1
         start_datetime: 2020-09-16T13:00
         end_datetime: 2020-09-16T14:00
         talk_title: "Lunch break"
