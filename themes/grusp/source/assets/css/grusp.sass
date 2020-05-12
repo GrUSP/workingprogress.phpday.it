@@ -299,52 +299,60 @@ header
 
 .container_404 .button.is-primary:hover, .container_404 .button.is-primary:active, .container_404 .button.is-primary:focus
   border-color: $main-color !important
+
 //- Footer
 
-footer .columns.inner
-  margin: 0 auto
-  *
-    color: $main-text-color_inverted
-  .footer__p_padded, .footer__a_padded
-    padding: 1em 0
-  a
-    font-weight: 600
-  a.past-edition
-    display: inline-block
-    margin-right: 8px
-    &:after
-      content: "|"
-      display: inline
-      padding-left: 8px
-  a.past-edition:last-of-type:after
-      content: ""
-  .row__social
-    font-size: .9em
-    font-weight: 700
-    padding: 2em 0
-    p
-      margin-bottom: 8px
-    .social-icon
-      background-color: $main-text-color_inverted
-      border: 1px solid $main-text-color_inverted
-      &:hover, &:active, &:focus
-        background-color: $main-color
-        svg 
-          path, rect, ellipse
-            fill: $main-text-color_inverted
-    svg
-      path, rect, ellipse
-        fill: $main-color
-  nav
-    text-align: left
-    ul
-      li
-        display: block
-        padding: .5em 0
-        a
-          text-transform: uppercase
-  .footer__logo, .footer__logo svg
-    max-width: 300px
+footer
+  background-color: #4e4d4d
+  .columns.inner
+    margin: 0 auto
+    *
+      color: $main-text-color_inverted
+    .footer__p_padded, .footer__a_padded
+      padding: 1em 0
+    a
+      font-weight: 600
+    a.past-edition
+      display: inline-block
+      margin-right: 8px
+      &:after
+        content: "|"
+        display: inline
+        padding-left: 8px
+    a.past-edition:last-of-type:after
+        content: ""
+    .row__social
+      font-size: .9em
+      font-weight: 700
+      padding: 2em 0
+      p
+        margin-bottom: 8px
+      .social-icon
+        background-color: $main-text-color_inverted
+        border: 1px solid $main-text-color_inverted
+        &:hover, &:active, &:focus
+          background-color: $main-color
+          svg 
+            path, rect, ellipse
+              fill: $main-text-color_inverted
+      svg
+        path, rect, ellipse
+          fill: $main-color
+    nav
+      padding: 1em
+      margin-top: .5em
+      text-align: left
+      ul
+        li
+          display: block
+          padding: .5em 0
+          a
+            text-transform: uppercase
+    .footer__logo, .footer__logo svg
+      max-width: 300px
+      +desktop
+        max-width: 400px
+
 footer .inner.is-centered .column
   font-size: .9em
 

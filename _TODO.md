@@ -18,8 +18,6 @@
 
 # TODO
 
-* **DOMANDA**: il logo in footer è quello giusto? (è una lunga storia)
-
 ## assets
   * per le palette di colori, mettere tutti i relativi file sass nel repo base (fatto), poi estrarre temi singoli (branches?)
   * fare la stessa cosa per logo, favicon, tiles (fatto file, mettere nel tema)
@@ -32,15 +30,18 @@
 
 ## features
 
-
-* talks
-  * si vorrebbe poter scegliere l'ordine (possibilmente l'ordine in cui sono scritti nel file)
-    * compatibilmente coi giorni!
+* talks_speakers
+  * se c'è una giornata sola, luogo e data in alto a destra del titolo
+  * se ci sono più giornate, aggiungere giorno vicino all'orario
+  * se c'è una track sola non mettere la track vicino all'orario
 
 * schedule
+  * METTERE SEMPRE NOME TRACK anche negli extra, perché magari come titolo track si usa il nome della sala
   * ordinare i dati per ora inizio invece che per ordine del file
   * possono esserci talk di lunghezza maggiore (doppia)
   * nella stessa track ci possono essere slot vuoti
+
+* SCRIVERE README
 
 * workshop
   * ottimizzare logica
@@ -51,6 +52,10 @@
 
 
 # DONE
+
+* 20200512
+  * cambiare il logo in footer <- da manu
+    * footer background #4e4d4d
 
 * 20200507
   * components/speakers
