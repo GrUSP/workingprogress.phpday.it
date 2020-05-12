@@ -30,11 +30,6 @@
 
 ## features
 
-* talks_speakers
-  * se c'è una giornata sola, luogo e data in alto a destra del titolo
-  * se ci sono più giornate, aggiungere giorno vicino all'orario
-  * se c'è una track sola non mettere la track vicino all'orario
-
 * schedule
   * METTERE SEMPRE NOME TRACK anche negli extra, perché magari come titolo track si usa il nome della sala
   * ordinare i dati per ora inizio invece che per ordine del file
@@ -56,6 +51,10 @@
 * 20200512
   * cambiare il logo in footer <- da manu
     * footer background #4e4d4d
+  * talks_speakers
+    * se c'è una giornata sola, luogo e data in alto a destra del titolo
+    * se ci sono più giornate, aggiungere giorno vicino all'orario
+  * se c'è una track sola non mettere la track vicino all'orario
 
 * 20200507
   * components/speakers
@@ -80,7 +79,6 @@
     * welcome e figlie
     * talks
     * schedule
-
 
 * 20200505
   * fixes

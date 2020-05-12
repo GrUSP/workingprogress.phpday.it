@@ -4,10 +4,31 @@
 @import "bulma/sass/utilities/mixins"
 
 #speakers
+  .title-container
+    .columns
+      width: 100%
+      .row-info
+        display: flex
+        flex-direction: row
+        align-items: center
+        justify-content: flex-end
+        text-transform: uppercase
+        color: $main-text-color
+        font-size: .7em
+        +tablet
+          font-size: 1em
+        .info-icon
+          margin-top: 6px
+          svg
+            background-color: $main-text-color_inverted
+            path
+              fill: $main-color
+        .info-icon.padded
+          padding: 0 0 0 10px
+          +tablet
+            padding: 0 0 0 30px
   h1
     color: $main-color
-    &.has-text-left
-      margin-bottom: 1em
     &.is-centered
       margin: 0 auto
   h2

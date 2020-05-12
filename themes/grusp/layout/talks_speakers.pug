@@ -17,16 +17,34 @@ block content
             - var_speakers.push(speaker)
     - const filtered_speaker_names = var_speakers.map(speaker => speaker.speaker_name).filter((value, index, self) => self.indexOf(value) === index).sort((a, b) => (a > b) ? 1 : -1)
 
+    //- we count the number of tracks in order to know if we have to add the track title to the talks' info row
+    - no_tracks = 0
+    each track in site.data.talks_speakers.tracks
+      - no_tracks++
+
     .container
       .inner
         .title-container
           - title_classes = ""
           if(no_days > 1)
             - title_classes += "is-centered"
+            h1(class=title_classes role="heading" aria-level="1").title-is-1= page.title
           else
             - title_classes += "has-text-left"
-          h1(class=title_classes role="heading" aria-level="1").title-is-1= page.title
-            
+            .columns
+              .column
+                h1(class=title_classes role="heading" aria-level="1").title-is-1= page.title
+              .column.has-text-right
+                .row-info
+                  .info-icon
+                    include ../source/assets/ico/ico-where.svg
+                  .info__location !{site.data.defaults.conference.city}
+                  | &nbsp;|&nbsp;
+                  .info-icon.padded
+                    include ../source/assets/ico/ico-calendar.svg
+                  - start_date = date(site.data.defaults.conference.date, config.date_format_hero)
+                  .info__date
+                    time(datetime=site.data.defaults.conference.date) !{start_date}
       //- links to every day in page if there is more than 1 day
       if(no_days > 1)
         .container.date-menu
@@ -42,14 +60,14 @@ block content
           .inner
             - the_date = date(day.date, config.date_format_hero)
             - the_id = day.title
-            .row-info
+            .row-info(id=the_id)
               .info-icon
                 include ../source/assets/ico/ico-where.svg
               .info__location !{site.data.defaults.conference.city}
               | &nbsp;|&nbsp;
               .info-icon.padded
                 include ../source/assets/ico/ico-calendar.svg
-                - start_date = date(site.data.defaults.conference.date, config.date_format_hero)
+              - start_date = date(site.data.defaults.conference.date, config.date_format_hero)
               .info__date
                 time(datetime=site.data.defaults.conference.date) !{start_date}
       each talk, key in day.talks
@@ -58,9 +76,10 @@ block content
             .inner
               if(talk.start_datetime && talk.end_datetime)
                 .row-info
-                  if(talk.track)
-                    strong !{talk.track.title}
-                    .info-icon.padded
+                  if(no_tracks > 1)
+                    if(talk.track)
+                      strong !{talk.track.title}
+                      .info-icon.padded
                   else
                     .info-icon
                   include ../source/assets/ico/ico-clock.svg
