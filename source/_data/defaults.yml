@@ -1,4 +1,8 @@
-# conference tag: used to load theme stylesheet. uncomment out the right one and generate!
+###################################################################################################################
+# Additional config (necessary because the `header` and `layout` views cannot read directly the CSS default colors)
+###################################################################################################################
+
+# Conference tag: used to add the theme's main color to "MS Tile" and "Safari pinned tabs" objects when generating. Uncomment the right one and generate!
 # conference_tag: "angularday"
 # conference_tag: "containerday"
 # conference_tag: "cssday"
@@ -26,6 +30,10 @@ meta_colors:
   rubyday: "#5e4e9b"
   sfday: "#ae9440"
   vueday: "#35495e"
+
+#####################
+# Conference defaults
+#####################
 
 # conference config
 conference:
@@ -132,6 +140,7 @@ conference:
   # this is for the Newsletter block
   newsletter_title: "Stay in the loop!"
   newsletter_subtitle: "Subscribe to our newsletter"
+  # fields taken from the Mail chimp default form -- set to `true` to add subscription
   newsletter_lists:
     php: false
     javascript: false
