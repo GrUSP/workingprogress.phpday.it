@@ -49,6 +49,7 @@
 * 20200514
   * schedule
     * ripristinati link a talks_speakers
+    * corretto layout celle vuote
 
 * 20200514
   * schedule
