@@ -80,7 +80,7 @@ block content
                       - cell_classes = ""
 
                       if row_item.item_type === 'empty'
-                        td(colspan=cell_colspan style=cell_style class=" has-background")
+                        td(colspan=cell_colspan style=cell_style)
                           span &nbsp;
                         - continue
 
@@ -152,7 +152,11 @@ block content
 
                               br
 
-                              //- ripr the_key!!!1
+                              //- prendere la key (es. "talk_5") dalla lista originale, usarla per popolare l'ancora del link a talks_speakers
+                              - the_key = ""
+                              each talk, key in day.talks
+                                if(talk.item_type == "talk" && talk.start_datetime == datetime && talk.start_datetime == row_item.start_datetime && talk.track.id == row_item.track.id)
+                                  - the_key = key
 
                               - talk_url = url_for("talks_speakers") + "#" + the_key
                               strong(id=key).talk-anchor

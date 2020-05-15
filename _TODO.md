@@ -31,10 +31,8 @@
 ## features
 
 * schedule
-  * METTERE SEMPRE NOME TRACK anche negli extra, perché magari come titolo track si usa il nome della sala
-  * ordinare i dati per ora inizio invece che per ordine del file
   * possono esserci talk di lunghezza maggiore (doppia)
-  * nella stessa track ci possono essere slot vuoti
+  * GESTIRE SLOT DI DURATA MAGGIORE
 
 * SCRIVERE README
 
@@ -47,6 +45,16 @@
 
 
 # DONE
+
+* 20200514
+  * schedule
+    * ripristinati link a talks_speakers
+
+* 20200514
+  * schedule
+    * METTERE SEMPRE NOME TRACK anche negli extra, perché magari come titolo track si usa il nome della sala
+    * ordinare i dati per ora inizio invece che per ordine del file
+    * nella stessa track ci possono essere slot vuoti
 
 * 20200512
   * cambiare il logo in footer <- da manu
