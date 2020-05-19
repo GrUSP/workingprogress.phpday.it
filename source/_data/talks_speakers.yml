@@ -121,16 +121,18 @@ days:
         start_datetime: 2020-09-16T11:00
         end_datetime: 2020-09-16T13:00
         talk_title: "Workshop title (optional)"
-        talk_description: "Workshop description (optional)"
+        talk_description: "Workshop description (optional) very long very long very long very long very long very long very long very long very long very long very long very long very long very long very long very long very long very long very long very long very long very long very long "
         speakers:
           speaker_1: *giulia_tosato
-      # talk_9:
-      #   item_type: "other"
-      #   track: *track_3
-      #   start_datetime: 2020-09-16T10:00
-      #   end_datetime: 2020-09-16T10:45
-      #   talk_title: "'other' event sample"
-      #   talk_description: "Optional description for this rather peculiar kind of event, in third 'track'"
+      talk_9:
+        item_type: "talk"
+        track: *track_1
+        start_datetime: 2020-09-16T12:00
+        end_datetime: 2020-09-16T13:00
+        talk_title: "talk in second slot #1"
+        talk_description: "test per rowspan"
+        speakers:
+          speaker_1: *andrea_sartori
       talk_10:
         item_type: "talk"
         track: *track_2
@@ -147,6 +149,15 @@ days:
         end_datetime: 2020-09-16T14:00
         talk_title: "Lunch break"
         service_icon: "cutlery"
+      talk_12:
+        item_type: "talk"
+        track: *track_2
+        start_datetime: 2020-09-16T12:00
+        end_datetime: 2020-09-16T13:00
+        talk_title: "talk in second slot #2"
+        talk_description: "test per rowspan"
+        speakers:
+          speaker_1: *andrea_sartori
 
   # day_2:
   #   date: 2020-09-17T09:00

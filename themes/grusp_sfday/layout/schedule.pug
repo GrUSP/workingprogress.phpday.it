@@ -64,16 +64,52 @@ block content
                       - row_items[datetime].push(item)
                   //- end loop 2
 
-                each datetime in Object.keys(row_items)
+                - var cell_colspan = 1
+                - var cell_rowspan = 1
+                - var cell_style = ""
+                - var cell_classes = ""
+                - var previous_duration = 0
+                - var current_duration = 0
+
+                //- &calculate_rowspan
+                //- [AS] qui si creano i presupposti per dare colspan > 1 agli item che durano più del normale (x es. workshop)
+                //- vorremmo dare un'occhiata alla riga successiva per capire quale sia la durata massima dei talk
+                each datetime, index in datetimes
+                  - cell_rowspan = 1
+                  //- se esiste (non è undefined) una prossima riga...
+                  if(datetimes[index+1] !== undefined)
+                    - for (let i = 0; i < no_tracks; i++)
+                      //- se esiste la colonna `i` nella prossima riga...
+                      if(row_items[datetimes[index+1]][i] !== undefined)
+                        //- se la *riga corrente* esiste ed esiste la corrispondente colonna...
+                        if(row_items[datetimes[index]] !== undefined)
+                          if(row_items[datetimes[index]][i] !== undefined)
+                            //- ...allora aggiungiamo all'oggetto l'attributo rowspan...
+                            - row_items[datetimes[index]][i].rowspan = cell_rowspan
+                        if(row_items[datetimes[index+1]][i].item_type == 'talk' || row_items[datetimes[index+1]][i].item_type == 'workshop' || row_items[datetimes[index+1]][i].item_type == 'other')
+                          //- ...ma aumentiamo effettivamente il *valore* di cell_rowspan solo passando alla riga successiva
+                          - cell_rowspan++
+
+                //- loop datetimes
+                each datetime, index in Object.keys(row_items)
+
                   tr
                     if(row_items[datetime][0].item_type == 'talk' || row_items[datetime][0].item_type == 'workshop' || row_items[datetime][0].item_type == 'other')
 
                       - for (let i = 0; i < no_tracks; i++)
-                        if row_items[datetime][i] === undefined
+                        //- qui si verifica l'effettiva durata dell'item. se non è maggiore della durata dell'item corrispondente nella riga precedente, non verrà creata una cella vuota sotto di lui, in modo che possa sfruttare il proprio rowspan
+                        if(row_items[datetime][i] !== undefined)
+                          - var start = new Date(row_items[datetime][i].start_datetime)
+                          - var end = new Date(row_items[datetime][i].end_datetime)
+                          - current_duration = end - start
+
+                        //- qui si creano celle vuote solo dove servono effettivamente
+                        if(row_items[datetime][i] === undefined && current_duration <= previous_duration)
                           - row_items[datetime][i] = {'track': {'id': i}, 'item_type': 'empty'}
 
                     - ordered_row_items = row_items[datetime].sort((a, b) => (a.track.id > b.track.id) ? 1 : -1)
 
+                    //- loop in single row
                     each row_item in ordered_row_items
                       - cell_colspan = 1
                       - cell_style = ""
@@ -89,6 +125,8 @@ block content
                       else
                         - cell_style = `width: calc(100% / ${no_tracks})`
                         - cell_classes += " has-background"
+                        //- recuperiamo l'attributo `rowspan` (attenzione: non viene peso dal file YML ed esiste *solo* per gli item cui è stato aggiunto in *calculate_rowspan)
+                        - cell_rowspan=row_item.rowspan
 
                       if(row_item.item_type == 'service')
                         td(colspan=cell_colspan style=cell_style class=cell_classes)
@@ -141,7 +179,7 @@ block content
                         - current_item_track = row_item['track']
 
                         if(row_item.track.title == current_item_track.title)
-                          td(colspan=cell_colspan style=cell_style class=cell_classes)
+                          td(colspan=cell_colspan style=cell_style class=cell_classes rowspan=cell_rowspan)
 
                             if(row_item.item_type == 'talk')
                               time(datetime=row_item.start_datetime) !{time(row_item.start_datetime, config.time_format_schedule)} - !{time(row_item.end_datetime, config.time_format_schedule)}
@@ -214,6 +252,13 @@ block content
                               if(row_item.talk_description)
                                 br
                                 | !{row_item.talk_description}
+
+                      //- prima di passare alla prossima riga si switcha la duration per usarla alla prossima iterazione
+                      - previous_duration = current_duration
+                      - current_duration = 0
+                    //- end loop in single row
+                  //- </tr>
+                //- end loop datetimes
 
     //- imported components
     include components/newsletter/newsletter
