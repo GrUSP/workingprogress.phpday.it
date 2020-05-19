@@ -21,6 +21,11 @@
 * community partner
   * aggiungere (stampare) NOME sponsor
 
+* iubenda & google analytics
+  * (procedura loro interna per generare id etc: https://gist.github.com/mbeccati/1bd9e562905a90e14d7d88ed3dcea34c)
+  * scripts: https://github.com/GrUSP/2020.phpday.it/blob/master/_includes/layout/scripts.html
+  * config (site.data.defaults): https://github.com/GrUSP/2020.phpday.it/blob/master/_data/conference.yml 
+
 ## features
 
 * schedule
@@ -39,12 +44,9 @@
     * il fuso orario! aggiungerlo all'ora in chiaro se online
     * stamparlo, ma: è il caso di aggiungerlo nelle date ISO?
 
-
 * SCRIVERE README
-
-* workshop
-  * ottimizzare logica
-    * **DOCUMENTARE** l'utilizzo
+  * workshop
+    * **DOCUMENTARE BENE** l'utilizzo
 
 * https://developer.mozilla.org/en-US/docs/Web/Performance/dns-prefetch
   * (x es link google maps): `- url_to_prefetch = new URL(data.location_maps_url)`

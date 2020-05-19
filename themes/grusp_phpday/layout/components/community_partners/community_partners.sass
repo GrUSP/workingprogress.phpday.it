@@ -11,8 +11,19 @@
       display: flex
       flex: 1
       justify-content: center
-      align-items: center
       .partner-holder
+        display: flex
+        flex-direction: column
         margin: 1em
+        color: $main-text-color
         img
           max-width: 120px
+          transition: transform .5s
+          &:hover, &:active, &:focus
+            transform: scale(1.1)
+        p
+          margin-top: 0
+          &:first-of-type
+            flex-grow: 1
+          &:last-of-type
+            margin-top: auto
