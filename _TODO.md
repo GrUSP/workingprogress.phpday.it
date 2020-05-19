@@ -18,21 +18,27 @@
 
 # TODO
 
-## assets
-  * per le palette di colori, mettere tutti i relativi file sass nel repo base (fatto), poi estrarre temi singoli (branches?)
-  * fare la stessa cosa per logo, favicon, tiles (fatto file, mettere nel tema)
-  * **OCIO** safari-pinned-tab[_conf] <- SVG da manu
-  * background x hero, venue, workshop:
-    * fatti tutti in tema base, [filename]_[conftag]
-    * nei singoli temi rinominare a solo [filename]
-    * ....oppure aggiungerlo a `defaults.sass`?
-
+* community partner
+  * aggiungere (stampare) NOME sponsor
 
 ## features
 
 * schedule
+  * se la schedule è ancora vuota, non generare pagina o generarla parziale?
   * possono esserci talk di lunghezza maggiore (doppia)
   * GESTIRE SLOT DI DURATA MAGGIORE
+
+* conferenze online
+  * icone: quelle a destra nella prova di manu
+  * home page
+    * location non scompare; cambiano le info e l'immagine di background
+    * (online) in hero, aggiungere l'ora col fuso orario in chiaro
+    * ? il countdown fa già il conto considerando il fuso? 
+  * venue diventa WHERE (sempre)!
+  * schedule
+    * il fuso orario! aggiungerlo all'ora in chiaro se online
+    * stamparlo, ma: è il caso di aggiungerlo nelle date ISO?
+
 
 * SCRIVERE README
 
@@ -46,10 +52,15 @@
 
 # DONE
 
-* 20200514
+* 20200519
+  * venue diventa WHERE (sempre)!
+
+* 20200515
   * schedule
     * ripristinati link a talks_speakers
     * corretto layout celle vuote
+  * temi
+    * completati (manca solo qualche immagine negli asset, in particolare per workshop) e testati
 
 * 20200514
   * schedule

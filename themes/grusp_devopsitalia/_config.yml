@@ -23,7 +23,7 @@ welcome_submenu:
   about: about
   coc: code of conduct
   scholarships: scholarships
-  venue: venue
+  where: where
   # delete this row to take out of the menu
   cfp: call for papers
 

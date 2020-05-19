@@ -1,9 +1,9 @@
 ---
-title: venue
+title: where
 date: 2020-04-15 13:27:00
-layout: venue
-path: welcome/venue
-permalink: welcome/venue
+layout: where
+path: welcome/where
+permalink: welcome/where
 # Used to generate breadcrumbs
 parent: welcome
 ---
