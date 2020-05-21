@@ -18,22 +18,19 @@
 
 # TODO
 
-* community partner
-  * aggiungere (stampare) NOME sponsor
-
 * iubenda & google analytics
   * (procedura loro interna per generare id etc: https://gist.github.com/mbeccati/1bd9e562905a90e14d7d88ed3dcea34c)
   * scripts: https://github.com/GrUSP/2020.phpday.it/blob/master/_includes/layout/scripts.html
   * config (site.data.defaults): https://github.com/GrUSP/2020.phpday.it/blob/master/_data/conference.yml 
+    * **ocio** la privacy policy url è specificata **due** volte. toglierne una!
 
 ## features
 
 * schedule
   * se la schedule è ancora vuota, non generare pagina o generarla parziale?
-  * possono esserci talk di lunghezza maggiore (doppia)
-  * GESTIRE SLOT DI DURATA MAGGIORE
 
 * conferenze online
+  * date: aggiungere `timezone` in `site.config` [doc](https://hexo.io/docs/configuration.html)
   * icone: quelle a destra nella prova di manu
   * home page
     * location non scompare; cambiano le info e l'immagine di background
@@ -42,11 +39,13 @@
   * venue diventa WHERE (sempre)!
   * schedule
     * il fuso orario! aggiungerlo all'ora in chiaro se online
-    * stamparlo, ma: è il caso di aggiungerlo nelle date ISO?
+    * stamparlo **ovunque** appaiano date
 
 * SCRIVERE README
   * workshop
     * **DOCUMENTARE BENE** l'utilizzo
+
+* togliere da `_data/defaults` i dati che non sono contenuti e spostarli in `_config`?
 
 * https://developer.mozilla.org/en-US/docs/Web/Performance/dns-prefetch
   * (x es link google maps): `- url_to_prefetch = new URL(data.location_maps_url)`
@@ -54,8 +53,16 @@
 
 # DONE
 
+* 20200520
+  * readme
+  * (qualche rioridnatina negli YML dei dati)
+
 * 20200519
   * venue diventa WHERE (sempre)!
+  * community partner
+    * aggiungere (stampare) NOME sponsor
+  * schedule
+    * possono esserci talk di lunghezza maggiore (doppia): gestire slot di durata maggiore
 
 * 20200515
   * schedule

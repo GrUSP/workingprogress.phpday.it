@@ -51,6 +51,43 @@ pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
   trailing_html: true # Set to false to remove trailing '.html' from permalinks
 
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+date_format_hero: MMMM DD, YYYY
+time_format_schedule: HH:mm
+
+# responsive images
+responsive_images:
+  - pattern: '**/*.+(jpg|jpeg)'
+    sizes:
+      mobile_small:
+        width: 360
+        height: 640
+      mobile_medium:
+        width: 600
+        height: 1066
+      tablet_vertical:
+        width: 1024
+        height: 1366
+      tablet:
+        width: 1024
+        height: 576
+      desktop:
+        width: 1215
+        height: 684
+      widescreen:
+        width: 1407
+        height: 792
+    fit: cover
+    quality: 80
+    withoutEnlargement: true
+
+############# standard config: do not change
+
 # Directory
 source_dir: source
 public_dir: public
@@ -100,15 +137,6 @@ tag_map:
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
 meta_generator: true
 
-# Date / Time format
-## Hexo uses Moment.js to parse and display date
-## You can customize the date format as defined in
-## http://momentjs.com/docs/#/displaying/format/
-date_format: YYYY-MM-DD
-time_format: HH:mm:ss
-date_format_hero: MMMM DD, YYYY
-time_format_schedule: HH:mm
-
 ## Use post's date for updated date unless set in front-matter
 use_date_for_updated: false
 
@@ -134,29 +162,3 @@ node_sass:
   sourceComments: false
   includePaths:
     - "./node_modules"
-
-# responsive images
-responsive_images:
-  - pattern: '**/*.+(jpg|jpeg)'
-    sizes:
-      mobile_small:
-        width: 360
-        height: 640
-      mobile_medium:
-        width: 600
-        height: 1066
-      tablet_vertical:
-        width: 1024
-        height: 1366
-      tablet:
-        width: 1024
-        height: 576
-      desktop:
-        width: 1215
-        height: 684
-      widescreen:
-        width: 1407
-        height: 792
-    fit: cover
-    quality: 80
-    withoutEnlargement: true

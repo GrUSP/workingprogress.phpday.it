@@ -46,9 +46,11 @@ conference:
   md_postal_code: "37138"
   md_address: "Via Longhena 42"
   organizer_url: "http://grusp.org/"
+  # contact email
+  contact_email: "info@grusp.org"
   # these are for the hero section
   title_pre: "Welcome to"
-  title: "Ruby Day"
+  title: "RubyDay"
   city: "Verona"
   date: 2020-09-16T09:00
   countdown_visible: true
@@ -67,7 +69,7 @@ conference:
   update_title: "Important information"
   update_description: "This is the description of such important information"
   update_link_url: "https://google.com/"
-  update_link_label: "a link to google, just for the demo"
+  update_link_label: "link to google, just for the demo"
   # "call for papers" component. set the first parameter to true to make it appear in home page, false means hidden
   cfp_open: true
   cfp_readmore_label: "Read more"
@@ -84,6 +86,31 @@ conference:
   geninfo_coc_label: "Code of conduct"
   geninfo_scholarships_label: "Scholarships"
   geninfo_tickets_label: "Buy tickets"
+  # this is for the Newsletter block
+  newsletter_title: "Stay in the loop!"
+  newsletter_subtitle: "Subscribe to our newsletter"
+  # fields taken from the Mail chimp default form -- set to `true` to add subscription
+  newsletter_lists:
+    php: false
+    javascript: false
+    design: false
+    devops: false
+    frontend: false
+    ruby: true
+    entrepreneurship: false
+    local_events: false
+    everything: false
+  newsletter_firstname_label: "First name"
+  newsletter_lastname_label: "Surname"
+  newsletter_email_label: "Email"
+  newsletter_lang_challenge: "Can you understand Italian?"
+  newsletter_lang_label: "Of course, certamente!"
+  newsletter_privacy_label: "I have read and accept the "
+  newsletter_privacy_link_label: "privacy policy"
+  newsletter_privacy_link_url: "https://www.iubenda.com/privacy-policy/13404179"
+  newsletter_disclaimer: "We use Mailchimp as our email marketing platform. By subscribing to the newsletter, you accept that your data are transmitted to Mailchimp to be processed. "
+  newsletter_legal_url: "https://mailchimp.com/legal/"
+  newsletter_legal_label: "Information about Mailchimp's privacy policy"
   # "speakers" component. set the first parameter to true to make it appear in home page, false means hidden
   speakers_visible: true
   speakers_title: "speaker"
@@ -137,31 +164,6 @@ conference:
   # this is for the Community partners section in home page
   community_partners: true
   community_partners_title: "Community Partners"
-  # this is for the Newsletter block
-  newsletter_title: "Stay in the loop!"
-  newsletter_subtitle: "Subscribe to our newsletter"
-  # fields taken from the Mail chimp default form -- set to `true` to add subscription
-  newsletter_lists:
-    php: false
-    javascript: false
-    design: false
-    devops: false
-    frontend: false
-    ruby: true
-    entrepreneurship: false
-    local_events: false
-    everything: false
-  newsletter_firstname_label: "First name"
-  newsletter_lastname_label: "Surname"
-  newsletter_email_label: "Email"
-  newsletter_lang_challenge: "Can you understand Italian?"
-  newsletter_lang_label: "Of course, certamente!"
-  newsletter_privacy_label: "I have read and accept the "
-  newsletter_privacy_link_label: "privacy policy"
-  newsletter_privacy_link_url: "https://www.iubenda.com/privacy-policy/13404179"
-  newsletter_disclaimer: "We use Mailchimp as our email marketing platform. By subscribing to the newsletter, you accept that your data are transmitted to Mailchimp to be processed. "
-  newsletter_legal_url: "https://mailchimp.com/legal/"
-  newsletter_legal_label: "Information about Mailchimp's privacy policy"
   # this is for the Social links block
   social_follow: "Follow us on"
   social_fb_url: "https://www.facebook.com/RubyDayIT/"
@@ -174,7 +176,6 @@ conference:
   # footer
   #   this is for the "previous editions" links
   base_url: "rubyday.it/"
-  contact_email: "info@grusp.org"
   past_editions_pre: "Browse past editions:"
   past_editions:
     2011: "2011"

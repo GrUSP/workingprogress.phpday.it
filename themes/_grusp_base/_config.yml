@@ -7,7 +7,6 @@ language: "en"
 menu:
   welcome: welcome
   talks_speakers: talks
-  # Workshops: workshops
   sponsor: sponsor
   schedule: schedule
   # menu item for workshop
@@ -30,9 +29,6 @@ welcome_submenu:
 # stylesheets loaded in the <head>
 stylesheets:
 - /assets/css/global.css
-
-# favicon
-# favicon: /assets/favicons/favicon.ico
 
 # scripts loaded in the end of the body / commented out to prevent errors in compiling layout.pug
 scripts:
