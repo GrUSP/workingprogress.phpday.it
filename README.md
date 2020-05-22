@@ -1,5 +1,34 @@
 # Hexo/Bulma Grusp Themes
 
+
+<!--ToC-->
+* [Hexo/Bulma Grusp Themes](#hexobulma-grusp-themes)
+  * [Informazioni generali](#informazioni-generali)
+  * [Configurazione](#configurazione)
+    * [Importante](#importante)
+    * [Configurazione generale del sito](#configurazione-generale-del-sito)
+    * [Tema](#tema)
+    * [Configurazione generale del tema](#configurazione-generale-del-tema)
+  * [Contenuti](#contenuti)
+    * [Info base sulla conferenza](#info-base-sulla-conferenza)
+    * [Home page e componenti](#home-page-e-componenti)
+    * [Footer](#footer)
+    * [welcome](#welcome)
+    * [welcome/about](#welcomeabout)
+    * [welcome/coc](#welcomecoc)
+    * [welcome/scholarships](#welcomescholarships)
+    * [welcome/where](#welcomewhere)
+    * [welcome/cfp](#welcomecfp)
+    * [talks](#talks)
+    * [schedule](#schedule)
+      * [La logica](#la-logica)
+    * [workshop](#workshop)
+  * [Sponsor](#sponsor)
+    * [pagina "sponsor"](#pagina-sponsor)
+    * [componente "sponsors"](#componente-sponsors)
+ 
+<!--/ToC-->
+
 ## Informazioni generali
 
 Il file di configurazione del sito si trova nella root directory del repo; i file di configurazione nelle rispettive directory (in `themes/[directory del tema]/`).
@@ -19,7 +48,7 @@ Ci deve essere **almeno un post**, anche se vuoto, in `/source/_posts`, altrimen
 La configurazione generale si trova nel file `_config.yml` nella root directory del repo.
 
 Qui si definiscono:
-* il **tema** (cfr. paragrafo successivo "Tema")
+* il **tema** (cfr. capitolo successivo "Tema")
 * i dati per schema.org e OpenGraph
 * la visualizzazione (o no) della *breadcrumbs* nelle pagine interne
 * l'URL del sito
@@ -299,6 +328,8 @@ E questi sono i dati per creare i link alle privacy policy -- quella di Mailchim
   speakers_title: "speaker"
 ```
 Gli altri dati vengono presi dal file `talks_speakers.yml`; vedere più avanti.
+
+**NB** se la lingua del sito è l'inglese, e ci sono più speakers, sl titolo del componente viene aggiunto programmaticamente il suffisso "S" ("speaker" => "speakers").
 
 **topics**
 ```
@@ -731,3 +762,545 @@ contact:
   help_url: "http://helpmeabstract.com/"
 ```
 (Il pulsante *Apply* è generato programmaticamente; label e URL sono stati definiti in `defaults`)
+
+### talks
+
+I dati si trovano in `/source/_data/talks_speakers.yml`. Questo è l'unico file realmente complesso, perché include sia le informazioni per questa pagina sia quelle per la schedule e per il componente `speakers` della home page.
+
+È diviso in tre sezioni: speakers, tracks, e "talks" propriamente detti.
+
+La prima sezione è puramente di utilità: ci serve a definire gli speakers e dare a ognuno un identificativo, in modo da non dover scrivere tutti i dati nella struttura -- già complessa -- dei singoli talk, e da non doverli scrivere più volte (se ad es. uno speaker partecipa a più talk).
+
+**speakers**
+```
+# Speakers. I mixin "&nome" servono per indicare quali speaker partecipano a ogni talk, sotto
+speaker_1: &luca_guidi
+  speaker_name: Luca Guidi
+  speaker_pic_filename: lucaguidi.png
+  speaker_role: Author of Hanami
+  speaker_bio: "[testo libero e/o HTML]"
+  speaker_github_url: "https://github.com/jodosha"
+  speaker_twitter_url: "https://twitter.com/jodosha"
+```
+Cominciamo dalla prima riga:
+```
+speaker_1: &luca_guidi
+```
+Il "mixin" `speaker_1: &[qualcosa]` è l'identificativo. Ha un doppio valore:
+* La chiave `speaker_X` deve essere univoca. Non ha importanza che sia per forza `speaker_[num]`; è importante che sia univoca e che possibilmente non contenga spazi o caratteri speciali, perché viene usata per creare l'`id` HTML del rispettivo oggetto nella pagina. Questo `id` è usato per
+  * creare i link del menu laterale a scomparsa, che puntano alla prima istanza dello speaker presente nella pagina
+  * creare i link corrispondenti nella pagina *schedule*, che puntano alla prima istanza dello speaker presente in questa pagina
+* Il valore `&[qualcosa]` viene invece usato in questo stesso file (vedere anche più avanti) per associare lo speaker al/ai talk cui partecipa. Non ha importanza che sia il nome; è importante che sia univoco e che non contenga spazi o caratteri speciali (se no il compilatore potrebbe esplodere).
+
+Gli altri dati vengono semplicemente ripresi e visualizzati ogni volta che in un talk si "richiama" lo stesso speaker. Note:
+* `speaker_pic_filename`: il file corrispondente va messo in `/source/img/speakers`
+* `speaker_github_url` e `speaker_twitter_url` sono facoltativi
+
+Nota: C'è un particolare tipo di speaker, chiamiamolo "di servizio", che **non** viene visualizzato né in questa pagina né nel componente *speakers*; ne parliamo nel capitolo dedicato alla pagina *schedule*.
+
+**tracks**
+Le tracks vengono usate nella *schedule*, per cui ne parliamo nella sezione dedicata.
+
+**talks**
+I talk hanno una struttura più complessa, che serve soprattutto per la *schedule*, per cui ne parliamo più avanti. Qui diciamo solo che i talk possono essere inseriti in un ordine a piacere; nella *schedule* vengono riordinati in ordine cronologico, mentre nel componente *speakers* vengono visualizzati nell'ordine in cui vengono inseriti i rispettivi talk nello YML.
+
+**@todo**: in una prossima release si potrebbe pensare di inserire un ordinamento, in modo da poter scrivere i talk in ordine cronologico (più comodo per chi cura i contenuti) e poter comunque visualizzare gli speaker nell'ordine desiderato nel componente *speakers*.
+
+La sezione dei talk propriamente detti ha una struttura complessa, che serve per la *schedule*, per cui ne parliamo meglio più avanti; riassumiamo però con quale logica viene creata questa pagina.
+1. si cerca ogni istanza di ogni speaker nell'elenco
+2. si recuperano i dati del talk corrispondente
+  * la `track` viene visualizzata solo se ce ne sono più di una
+  * la parte del titolo viene composta con gli altri dati del talk -- ora, titolo, descrizione
+3. per ogni speaker che partecipa al talk, viene visualizzato il box con i suoi dati
+
+**NB** se la conferenza si sviluppa su più giornate, in cima alla pagina viene creata una "menu bar" con i pulsanti che "puntano" all'altezza del primo talk visualizzato per la giornata in questione; all'inizio di ogni "giornata" compare una fascia colorata con la data.
+
+### schedule
+
+I dati si trovano in `/source/_data/talks_speakers.yml`. Qui analizziamo meglio la struttura del file.
+
+Degli speaker abbiamo già parlato nel capitolo precedente. Qui ci concentriamo su come viene costruita la schedule, partendo dalle `track`:
+```
+tracks:
+  track_1: &track_1
+    id: 1
+    title: "Track 1"
+```
+Ogni track deve avere una chiave univoca (per es. `track_1`), un mixin univoco (per es. `&track_1`), e un `id` univoco. Per chiave e mixin valgono le stesse regole viste per gli speakers, mentre `id` **deve** essere un numero, e possibilmente **progressivo**. Questo è importante per poter gestire la tabella della schedule nei casi in cui ci sia un talk (o comunque un evento nel corso della giornata) che abbia durata differente dasi "talk normali", ad es. un workshop o un community event che duri due ore e avvenga in contemporanea ad altri talk di 45'...
+Il `title` è testo libero. Potrebbe ad es. essere il nome della sala in cui si tengono i talk.
+
+Finalmente la schedule propriamente detta: inizia con
+```
+days:
+  day_1:
+    date: 2020-09-16T09:00
+    title: "Day 1"
+```
+Se la conferenza si sviluppa su più giorni, basterà inserire un secondo `day`: come sempre, la chiave può anche non essere nel formato `day_[num]`, basta che sia univoca. Il `title` è testo libero. La `date` serve a creare i microdati (schema.org) "sotto il cofano".
+
+In ogni `day` ci sono tanti talk:
+```
+    talks:
+      talk_1:
+        ...
+      talk_2:
+        ...
+```
+Come al solito, le chiavi devono essere univoche. Non ha importanza se sono nel formato `day_[num]`; però, non devono contenere spazi, e possibilmente non dovrebbero contenere caratteri speciali, perché vengono utilizzate per creare dei link.
+Come visto per la pagina *talks_speakers*, se ci sono più giornate viene creata una tabella per giornata con il programma, e in cima alla pagina viene creata la "menubar" con i pulsanti che "puntano" alle rispettive tabelle. La chiave del `day` viene usata come `id` del corrispondente oggetto nel DOM.
+
+Ci sono diversi tipi di "talk": la cosa è descritta direttamente nel file YML
+```
+# NB "item_type": tipi di "talk"
+#   "talk" -- un talk vero e proprio, che va anche in components/speakers e nella pagina talks_speakers
+#   "service" -- coffee break, lunch break, etc
+#   "keynote" -- **non** viene messo in components/speakers e nella pagina talks_speakers
+#   "workshop" -- sessione straordinaria (non workshop full-day), x es community workshop / UG
+#   "other" -- altro; si inseriranno solo ora, titolo, descrizione facoltativa
+# NB tutti i "talk" devono avere una track. I "service" e i "keynote" dovrebbero avere track_1
+```
+Come accennato sopra, gli speaker associati ai "talk normali" (`item_type: "talk"`) vengono inclusi nel componente *speakers* e nella pagina *talks_speakers*, e gli altri no.
+
+Tutti hanno attributi comuni:
+```
+        item_type: ["talk" | "service" | "keynote" | "workshop" | "other"]
+        start_datetime: 2020-09-16T09:00
+        end_datetime: 2020-09-16T09:30
+        talk_title: "testo libero"
+```
+Ora e data di inzio e fine (in formato ISO come al solito) sono fondamentali per poter creare le tabelle.
+
+Ogni tipo specifico può avere attributi diversi.
+
+**service**
+```
+        item_type: "service"
+        start_datetime: 2020-09-16T09:00
+        end_datetime: 2020-09-16T09:30
+        talk_title: "Coffee break"
+        service_icon: "coffee"
+```
+`service_icon` è facoltativo; se è vuoto, o se non esiste, verrà trascurato.
+I valori possibili:
+* "coffee" -- nella riga corrispondente viene visualizzata l'icona della tazza di caffè
+* "cutlery" -- nella riga corrispondente viene visualizzata l'icona delle posate
+* "glass" -- nella riga corrispondente viene visualizzata l'icona del calice
+Questo permette di mostrare a colpo d'occhio le pause -- coffee break, pranzo, rinfresco, aperitivo post conf etc.
+
+Gli item di tipo "service" hanno un altro attributo facoltativo:
+```
+        host_name: "[testo libero]"
+```
+che può essere utile per informare su chi tiene una presentazione, una sessione informativa, etc.
+
+**keynote**
+```
+        item_type: "keynote"
+        start_datetime: 2020-09-16T09:45
+        end_datetime: 2020-09-16T10:00
+        talk_title: "Keynote title (optional)"
+        talk_description: "Keynote description (optional)"
+        speakers:
+          speaker_1: *keynote_speaker
+```
+La notazione `*identificativo_speaker` richiama automaticamente le informazioni inserite nella prima sezione del file: ogni mixin (`&id`) viene richiamato scrivendo `*id`.
+Il `talk_title` e la `talk_description` sono facoltativi; se sono vuoti o inesistenti, nella riga corrispondente comparirà solo "keynote" e gli autori.
+
+Per aggiungere uno o più speaker, basta aggiungere righe sotto la chiave `speakers`: come al solito, attenzione all'allineamento; l'ID può essere in qualsiasi forma basta che sia univoco; non deve includere spazi.
+Per capirci, se si vogliono avere identificativi più "parlanti", basta inserire ad es.
+```
+speaker_1: &yukihiro_matsumoto
+  speaker_name: Yukihiro Matsumoto
+  ...
+
+      talk_X:
+        ...
+        speakers:
+          yukihiro_matsumoto: *yukihiro_matsumoto
+```
+
+Tutti i tipi di talk possono avere più speaker, con l'eccezione di quelli di tipo "service".
+
+**NB** i talk di tipo "service" o "keynote" occupano **sempre** l'intera largehzza della tabella. Non è enceassario indicare la `track`, perché non viene visualizzata.
+
+**talk** propriamente detti
+```
+      talk_4:
+        item_type: "talk"
+        track: *track_1
+        start_datetime: 2020-09-16T10:00
+        end_datetime: 2020-09-16T10:45
+        talk_title: [testo libero]
+        talk_description: "[testo libero e/o HTML]"
+        talk_video_url: "[URL]"
+        host_name: "[testo libero]"
+        speakers:
+          speaker_1: *luca_guidi
+```
+Sia `host_name` sia gli `speakers` sono facoltativi. Lo stesso vale per `talk_video_url`.
+
+Invece è importante specificare sempre la `track`, soprattutto quando ce ne sono più di una: viene usata come indice per capire in quale colonna della tabella posizionare i dati del talk.
+
+**workshop**
+Serve a identificare gli "eventi" che non sono propriamente talk, né item di servizio come pause o presentazioni, ma fanno parte dell'organizzazione della conferenza e magari avvengono in contemporanea ad altre attività. Di fatto la differenza rispetto ai talk "veri e propri" è che nella tabella verrà automaticamente aggiunta la parola "Workshop" prima del titolo. (i due punti, come in `Workshop: ` vengono aggiunti solo se il titolo è presente, se no comparirà la sola parola "Workshop" senza punteggiatura).
+
+**other**
+Un item "di appoggio" per qualsiasi uso. Nella tabella verranno visualizzati solo ora, titolo, descrizione (facoltativa).
+
+#### La logica
+
+Per riassumere, la pagina viene creata in questo modo:
+* se ci sono più `day`, in testa alla pagina viene creata una "menubar" con pulsanti che "puntano" all'altezza delle rispettive tabelle
+* per ogni `day` viene creata una tabella con il programma della giornata
+
+Nella singola tabella, a parte l'intestazione colorata che ripete semplicemente la data:
+* le righe vengono inserite in ordine cronologico, una per ogni `start_datetime` trovato nell'elenco dei talk. Questo permette, entro certi limiti, di avere tabelle "asincrone". Per fortuna le conferenze sono eventi ordinati ;)
+* gli item di tipo "service" e "keynote" occupano sempre l'intera larghezza della colonna
+* se ci sono più `track`, viene inserita una colonna per track
+* gli item **non** di servizio vengono posizionati nella colonna corrispondente alla rispettiva `track`
+* se un item dura di più rispetto agli altri che iniziano in contemporanea, "invaderà" la riga successiva
+
+### workshop
+
+I dati si trovano in `/source/_data/workshop.yml`.
+
+Qui conviene affrontare prima la logica di creazione delle pagine, e poi vedere come è strutturato il file.
+
+La situazione più comune è quella in cui si ha un solo workshop.
+
+Nel filesystem del sito avremo
+```
+/source/ 
+  workshop/
+    index/ # directory vuoto
+    index.md
+```
+Il file `index.md` contiene solo il `front-matter` di Hexo: ovvero il contenuto viene definito altrove (il layout nei nostri template, il contenuto nei file YML)
+```
+---
+title: workshop
+date: 2020-04-07 14:11:15
+layout: page_workshops
+---
+```
+`title` corrisponde a quanto definito in `_config` e di fatto serve solo nel caso in cui ci siano più workshop (vedere più avanti). `date` non serve a nulla, ma è un dato obbligatorio per cui possiamo lasciarlo così com'è (a meno che non interessi a noi specificarla, per motivi esterni alla generazione del sito in sé). `layout` è invece fondamentale perché l'interprete sappia che template usare!
+Insomma non modifichiamo questo file :)
+
+Se invece ci sono più **workshop**, bisogna creare i rispettivi file: ad esempio
+```
+/source/ 
+  workshop/
+    workshop_1/
+      index/ # directory vuoto
+      index.md
+    workshop_2/
+      index/ # directory vuoto
+      index.md
+    index/ # directory vuoto
+    index.md
+```
+Le subdirectory non devono per forza essere chiamate `workshop_X`. Potrebbe essere opportuno usare nomi più "parlanti". Ad esempio, se la directory si chiama `workshop_1`, quando si genera il sito verrà generata una pagina `/workshop/workshop_1.html`, che dal punto di vista SEO non è proprio il massimo. Basterà chiamare la subdirectory ad es. `workshop-on-rails` per avere `/workshop/workshop-on-rails.html`.
+
+**Attenzione** però: nel `_config` del tema (`/themes/[mytheme]/_config.yml`), bisogna allineare il submenu:
+```
+workshop_submenu:
+  workshop-on-rails: rails and vue
+  workshop_2: sample second workshop
+```
+
+In ogni subdirectory, il file `index.md` contiene qualche dato in più rispetto a quello del directory genitore:
+```
+---
+title: rails and vue
+date: 2020-04-21 09:27:00
+layout: workshop_single
+ws_id: workshop_1
+path: workshop/workshop_1
+permalink: workshop/workshop_1
+# Used to generate breadcrumbs
+parent: workshop
+---
+```
+
+Le differenze rispetto al genitore:
+
+* `layout: workshop_single` dice all'interprete di usare il template corrispondente per creare la pagina del workshop
+* `ws_id`, `path`, `permalink`:
+  * `ws_id` viene usato per far capire all'interprete quale dei `workshop` presenti nel nostro YML mostrare nella rispettiva pagina
+  * `path` e `permalink` sono attributi predefiniti di Hexo. Non vengono usati direttamente, ma per leggibilità potrebbe essere buona cosa dar loro lo stesso valore di `ws_id`
+
+C'è poi l'attributo `parent`, che viene usato per generare le *breadcrumbs*, e nel nostro caso non è da modificare.
+
+In pratica:
+
+* nel primo caso (un workshop) verrà generata solo la pagina `workshop.html` con i dati del singolo workshop
+* nel secondo caso (più workshop) saranno generate:
+  * `workshop.html` che però ha lo stesso aspetto del componente *workshop* della home page;
+  * per ogni workshop, una pagina `/workshop/[title].html` che presenterà il rispettivo workshop;
+  * nel menu principale, compariranno i sub-item come definiti in `/themes/[mytheme]/_config.yml`
+
+Veniamo al **file YML con i dati**.
+
+Inizia con alcuni dati di uso generale:
+```
+read_more_label: "read more"
+summary_page_aria_label: "workshops page"
+summary_page_button_label: "See all workshops"
+# image credits (l'esempio è per la hero del CSS Day!)
+# workshop_img_credits: "Image by Gianni Careddu - Own work, <a href='https://commons.wikimedia.org/w/index.php?curid=74821344ì target='_blank' rel='noopener noreferrer'>CC BY-SA 4.0</a>"
+```
+Le prime tre chiavi vengono usate per i link / pulsanti; `workshop_img_credits`, facoltativo, serve a inserire le informazioni di licensing dell'immagine di testata se necessario.
+
+**NB** l'immagine di testata si trova in `/themes/[mytheme]/source/assets/img/workshop`. Per cambiarla, basta inserire in questo directory un file `worskhop_header.jpg`. Quando si genera il sito, verranno automaticamente creati i "tagli" dell'immagine per i vari device.
+
+```
+workshops:
+  workshop_1:
+    ws_id: workshop_1
+```
+`ws_id` è lo stesso valore inserito nel rispettivo file `index.md`
+```
+    is_external: false
+```
+`is_external`: usato nel caso in cui si ospita un workshop organizzato da terzi, che magari ha il suo sistema di ticketing; se impostato a `true`, alcuni dei dati del worskhop verranno trattati diversamente.
+```
+    page_uri: "workshop/workshop_1.html"
+```
+Ripete quanto definito nel rispettivo file `index.md`
+
+Informazioni generali:
+```
+    page_title: "[testo libero]"
+    workshop_title: "[testo libero]"
+    ticket_url: ""
+    ticket_label: "Register now"
+```
+`ticket_url` e `ticket_label` servono per i pulsanti "iscriviti" ripetuti più volte nella pagina.
+
+Seguono i dati per il blocco riassuntivo in fondo alla pagina (vengono inseriti in cima perché alcuni vengono usati anche prima):
+
+Dati sulla location (utili solo se c'è una venue fisica; **@todo** da integrare con le varianti per l'opzione "online conf"), usati per il blocco "where":
+```
+    location_title: "Dove"
+    location: "Verona"
+    location_name: "Hotel San Marco"
+    location_contact_phone: "+045569011"
+    location_contact_email: "sanmarco@sanmarco.vr.it"
+    location_contact_url: "https://www.sanmarco.vr.it/"
+    location_address: "Via Longhena 42, 37138 Verona (VE) Italy"
+    location_maps_url: "https://www.google.com/maps/place/Hotel+San+Marco+Fitness+Pool+%26+SPA/@45.4399961,10.9697441,17z/data=!3m1!4b1!4m8!3m7!1s0x4781e1e30a8be6af:0x8091b108e1d130c6!5m2!4m1!1i2!8m2!3d45.4399961!4d10.9719328"
+    location_maps_label: "Get directions"
+    location_additional_info: "L'hotel offre tariffe scontate ai partecipanti ai workshop, sia per camere singole sia per camere doppie."
+```
+
+Info addizionali, usate per il secondo blocco:
+```
+    whatandwhen_title: "Cosa e quando"
+    whatandwhen_additional_info: "Registrazione, caffè e pranzo inclusi"
+    date: 2020-09-15T09:30
+    end_date: 2020-09-15T16:30
+```
+
+Info sulla lingua di lavoro: usato anche in cima alla pagina, sotto il titolo
+```
+    language_title: "Lingua"
+    language: "italian / italiano"
+    language_ext: "Language: Italian / Lingua: italiano"
+    language_additional_info: "No translation provided."  
+```
+
+Il quarto blocco "teacher" riprende i dati dei teacher (vedere più avanti).
+
+Info sull'eventuale collaborazione con soggetti terzi (facoltativo):
+```
+    collab: "Workshop realizzato in collaborazione con <a href='https://nebulab.it/' target='_blank' rel='external noopener nofererrer'>Nebulab</a>"
+```
+
+Descrizione breve, usata nel componente *worskhop* (home page, e pagina "riassuntiva" se presente):
+```
+    description: "Lorem ipsum dolor sic amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+```
+
+Descrizione lunga: testo libero e/o HTML, usato nella parima sezione della pagina del workshop singolo
+```
+    description_long: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+```
+
+Video se presente:
+```
+    # video trailer?
+    trailer: true
+    trailer_url: "https://player.vimeo.com/video/352012164"
+```
+(se `trailer: false`, non verrà visualizzato alcun video)
+
+**Sezione teacher**
+```
+    # nota sul titolo: se il linguaggio specificato in `language` NON in clude 'italian', in pagina viene aggiunta la "s" finale
+    teacher_title: "Teacher"
+```
+`teacher_title` è il titolo della sezione
+
+E poi definiamo i teacher propriamente detti.
+```
+    teachers:
+      teacher_1:
+        teacher_name: "Andrea Vassallo"
+        teacher_bio: "[testo libero e/o HTML]"
+        pic_filename: "andreavassallo.png"
+        teacher_role: "full stack developer"
+        teacher_org: "Nebulab"
+      teacher_2:
+        ...
+```
+Valgono le regole sulle chiavi viste per i talk, gli speaker, etc. 
+
+L'immagine dello speaker va messa in `/source/img/ws_teachers`.
+
+Fascia Topics:
+```
+    topics_title: "Argomenti"
+    topics:
+      - "Topic 1"
+      - "Topic 2"
+      - ...
+```
+Vengono usati per creare la lista puntata degli argomenti. Testo libero. Per aggiungerne, basta aggiungere righe; non hanno chiave, ma attenzione all'allineamento!
+
+Ulteriori informazioni
+```
+    addressees_title: "A chi è rivolto"
+    addressees_description: "[testo libero e/o HTML]"
+    requirements_title: "Requisiti di partecipazione"
+    requirements_description: "[testo libero e/o HTML]"
+    useful_info_title: "Informazioni utili"
+    useful_info_description: "[testo libero e/o HTML]"
+```
+Naturalmente si possono cambiare sia i titoli sia i contenuti; anche se le chiavi si chiamano `addressees_...`, `requirements_...`, è testo libero. In questo modo si possono distribuire le informazioni liberamente.
+
+Fascia colorata
+```
+    # CTA
+    cta_title: "Hurry up. There are only a few available places!"
+```
+(il pulsante viene generato con URL e label comuni, definite sopra)
+
+Per creare un altro workshop, oltre a inserire una nuova sezione corrispondente alla prima, con le stesse regole...
+```
+  workshop_2:
+    ws_id: workshop_2
+    is_external: false
+    ...
+```
+...bisogna ricordarsi di creare i corrispondenti file in `/source/worshop/` come spiegato all'inizio del capitolo.
+
+
+## Sponsor
+
+Questa parte riguarda sia la pagina *sponsor*, dove vengono descritte le varie tipologie di sponsorship disponibili, sia il componente *sponsors* che compare nella homepage e in quasi tutte le altre pagine del sito.
+
+### pagina "sponsor"
+
+I dati si trovano in `/source/_data/page_sponsor.yml`.
+
+Intro:
+```
+intro:
+  slogan_1: "Is your activity connected with Ruby or the Web?"
+  slogan_2: "Do you want to participate in the making of Ruby Day?"
+  content_1: "Great idea! You will contribute to the success of an event that is unique in Italy and will receive a remarkable visibility."
+  content_2: "A short description of the venue is necessary before detailing the six levels of sponsorship: the conference will be held in different rooms, all facing an atrium with a reception where various stands will be available for informations. GrUSP will be present with a stand for informations and registrations."
+  content_3: "By stand we mean a space at your disposal with 1 or 2 tables, a couple of chairs, network connectivity and power supply."
+```
+`content_3` è facoltativo.
+
+Fascia colorata:
+```
+block_2: 
+  title: "Sponsorship options"
+  slogan: "You can sponsor RubyDay in several ways:"
+  subtitle_1: "Special events"
+  content_1: "During the conference there are various moments for social aggregation between participants: coffee breaks, lunch, social night, speaker's dinners and pre-dinner aperitifs. Please get in touch with us to arrange the options that best suits your needs, or to share a brilliant sponsoring idea."
+  subtitle_2: "Full packages"
+  content_2: "You can also choose between one of the following sponsorship packages. May you need any additional information just get in touch with an email to "
+```
+
+(Segue un blocco di commenti che è servito a me come promemoria per impostare le feature dei vari livelli)
+
+Infine, le opzioni disponibili. 
+```
+levels:
+  level_1:
+```
+(Per le chiavi dei livelli valgono le stesse regole viste per le chiavi delle altre liste)
+
+Per ogni livello di sponsorship, si definiscono il nome, l'importo, l'eventuale dicitura sull'IVA, e il numero di slot disponibili in totale:
+```
+  level_1:
+    name: Main
+    amount: 10000
+    vat_label: "(+ VAT 22%)"
+    available_slots: 1
+```
+(Il numero di slot *ancora disponibili* viene calcolato automaticamente sulla base del file dove si elencano gli sponsor; vedere più avanti)
+
+E poi le feature del livello:
+```
+    description_1:
+      - "1 dedicated session (30 mins max, no commercial talks accepted)"
+      - "One direct email marketing campaign"
+    description_2:
+      - "Access to opt-in attendees list"
+    description_3:
+      - "Your logo in pre-event communications"
+      - "Your logo on conference website"
+      - "Your logo on conference rollups"
+      - "Your own rollup in the conference room"
+    description_4:
+      - "Main Stand (table 2m x 1m)"
+    description_5:
+      - "Bring your own gadgets (flyers, stickers, t-shirts)"
+    description_6:
+      - "<strong>5</strong> free tickets"
+    description_7:
+      - "<strong>5</strong> tickets with <strong>50%</strong> discount"
+```
+**Tutte** le `description_...` sono facoltative. Conviene comunque inserirle in ordine, non solo per chiarezza, ma perché la loro gerarchia serve al template per colorare le varie righe delle tabelline.
+
+### componente "sponsors"
+
+I dati dei soggetti che hanno offerto la sponsorship si trovano in `/source/_data/sponsors.yml`.
+
+A parte il titolo del componente...
+```
+sponsors_block_title: "Thanks to"
+```
+
+...per ogni livello si elencano gli sponsor:
+```
+main:
+  sponsor1:
+    name: "weLaika"
+    logo_filename: "logo-welaika.png"
+    site_url: "https://welaika.com/"
+diamond:
+  sponsor1:
+    name: "weLaika"
+    logo_filename: "logo-welaika.png"
+    site_url: "https://welaika.com/"
+...
+```
+Il logo va messo in `/source/img/logos/` (un luogo solo per tutti, compresi i community e i diversity sponsor)
+
+Per aggiungere uno o più sponsor, basta aggiungere un blocco `sponsorX`. Come al solito, non è importante che la chiave contenga un ordinale, basta che sia univoca).
+
+In fondo al file c'è una sezione dedicata ai **community partner**, che vengono visualizzati nel componente *community_partners*:
+
+```
+community_partners:
+  cp_1:
+    name: "React Alicante"
+    website_url: "http://reactalicante.es/"
+    logo_filename: "react-alicante.png"
+```
+Valgono le stesse regole, tranne che i loghi vanno messi in `/source/img/community/`.

@@ -41,10 +41,6 @@
     * il fuso orario! aggiungerlo all'ora in chiaro se online
     * stamparlo **ovunque** appaiano date
 
-* SCRIVERE README
-  * workshop
-    * **DOCUMENTARE BENE** l'utilizzo
-
 * togliere da `_data/defaults` i dati che non sono contenuti e spostarli in `_config`?
 
 * https://developer.mozilla.org/en-US/docs/Web/Performance/dns-prefetch
@@ -53,9 +49,13 @@
 
 # DONE
 
+* 20200522
+  * readme
+  * (qualche riordinatina negli YML dei dati)
+
 * 20200520
   * readme
-  * (qualche rioridnatina negli YML dei dati)
+  * (qualche riordinatina negli YML dei dati)
 
 * 20200519
   * venue diventa WHERE (sempre)!

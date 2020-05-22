@@ -11,6 +11,9 @@ workshops:
     page_uri: "workshop/workshop_1.html"
     page_title: "Workshop on Rails and Vue"
     workshop_title: "Create an application with Rails and Vue.js"
+    ticket_url: ""
+    ticket_label: "Register now"
+    location_title: "Dove"
     location: "Verona"
     location_name: "Hotel San Marco"
     location_contact_phone: "+045569011"
@@ -65,9 +68,6 @@ workshops:
     useful_info_description: "Anche *avere* un computer aiuta! E se possibile dovreste avere installato rbenv, Bundler, node.js e yarn. Inoltre se avete un buon editor vi conviene: non dico VSCode, ma probabilmente Kate non è proprio l'ideale."
     # CTA
     cta_title: "Hurry up. There are only a few available places!"
-    location_title: "Dove"
-    ticket_url: ""
-    ticket_label: "Register now"
   workshop_2:
     ws_id: workshop_2
     is_external: false
