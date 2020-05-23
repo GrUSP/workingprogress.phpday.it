@@ -27,7 +27,14 @@
 ## features
 
 * schedule
-  * se la schedule è ancora vuota, non generare pagina o generarla parziale?
+  * se la schedule è ancora vuota, **non generare pagina**
+  * decidere **quando** generarla, con un parametro
+
+* aggiungere i **parametri per la privacy policy** come da gist di daniel
+
+* talks_speakers
+   * l'host della keynote **PUÒ** comparire tra gli speakers (default: sì, facoltativamente lo facciamo "scomparire)
+   * l'host di un `item_type: workshop` **PUÒ** comparire tra gli speakers (default: sì, facoltativamente lo facciamo "scomparire)
 
 * conferenze online
   * date: aggiungere `timezone` in `site.config` [doc](https://hexo.io/docs/configuration.html)
@@ -40,6 +47,8 @@
   * schedule
     * il fuso orario! aggiungerlo all'ora in chiaro se online
     * stamparlo **ovunque** appaiano date
+
+* aggiornare readme
 
 * togliere da `_data/defaults` i dati che non sono contenuti e spostarli in `_config`?
 

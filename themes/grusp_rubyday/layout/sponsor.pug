@@ -12,7 +12,8 @@ block content
         p.is-size-4.has-text-weight-bold !{site.data.page_sponsor.intro.slogan_2}
         p !{site.data.page_sponsor.intro.content_1}
         p !{site.data.page_sponsor.intro.content_2}
-        p !{site.data.page_sponsor.intro.content_3}
+        if(site.data.page_sponsor.intro.content_3)
+          p !{site.data.page_sponsor.intro.content_3}
     .container.background-light.is-centered
       .inner
         h2(role="heading" aria-level="2").title.is-2 !{site.data.page_sponsor.block_2.title}
