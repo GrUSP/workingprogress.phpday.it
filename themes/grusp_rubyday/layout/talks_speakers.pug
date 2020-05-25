@@ -12,9 +12,9 @@ block content
     each day in site.data.talks_speakers.days
       - no_days++
       each talk in day.talks
-        if(talk.item_type == 'talk')
-          if(talk.speakers)
-            each speaker in talk.speakers
+        if(talk.speakers)
+          each speaker in talk.speakers
+            if(speaker.speaker_in_speaker_lists === true)
               - var_speakers.push(speaker)
     - const filtered_speaker_names = var_speakers.map(speaker => speaker.speaker_name).filter((value, index, self) => self.indexOf(value) === index).sort((a, b) => (a > b) ? 1 : -1)
 
@@ -72,7 +72,14 @@ block content
               .info__date
                 time(datetime=site.data.defaults.conference.date) !{start_date}
       each talk, key in day.talks
-        if(talk.item_type == 'talk')
+        //- verifichiamo se tra gli speaker ce n'è almeno uno che deve comparire
+        - include_talk = false
+        if(talk.speakers)
+          each speaker in talk.speakers
+            if(speaker.speaker_in_speaker_lists === true)
+              - include_talk = true
+
+        if(include_talk === true)
           .container.has-dynamic-background
             .inner
               if(talk.start_datetime && talk.end_datetime)
@@ -102,34 +109,35 @@ block content
                   iframe(type="text/html" src=talk.talk_video_url frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen width="400px" height="225px")
               if(talk.speakers)
                 each speaker in talk.speakers
-                  .block-speaker
-                    .has-border
-                      .columns
-                        .column.column_speaker
-                          - filename = `/img/speakers/${speaker.speaker_pic_filename}`
-                          .card.speaker-card
-                            .card-image
-                              img(src=filename role="figure" aria-label=speaker.speaker_name alt=speaker.speaker_name)
-                          .row__social
-                            if(speaker.speaker_github_url)
-                              a(role="button" href=speaker.speaker_github_url rel="external noopener noreferrer" aria-label="github profile")
-                                .social-icon
-                                  include ../source/assets/ico/ico-social-github.svg
-                            if(speaker.speaker_twitter_url)
-                              a(role="button" href=speaker.speaker_twitter_url rel="external noopener noreferrer" aria-label="twitter profile")
-                                .social-icon
-                                  include ../source/assets/ico/ico-social-twitter.svg
-                        .column
-                          .columns.speaker-info
-                            .column
-                              h3(role="heading" aria-level="3" id=speaker.speaker_name).speaker-name !{speaker.speaker_name}
-                            .column
-                              p !{speaker.speaker_role}
-                          .columns.speaker-bio
-                            .column
-                              p 
-                                strong !{speaker.speaker_name}
-                                | !{speaker.speaker_bio}
+                  if(speaker.speaker_in_speaker_lists === true)
+                    .block-speaker
+                      .has-border
+                        .columns
+                          .column.column_speaker
+                            - filename = `/img/speakers/${speaker.speaker_pic_filename}`
+                            .card.speaker-card
+                              .card-image
+                                img(src=filename role="figure" aria-label=speaker.speaker_name alt=speaker.speaker_name)
+                            .row__social
+                              if(speaker.speaker_github_url)
+                                a(role="button" href=speaker.speaker_github_url rel="external noopener noreferrer" aria-label="github profile")
+                                  .social-icon
+                                    include ../source/assets/ico/ico-social-github.svg
+                              if(speaker.speaker_twitter_url)
+                                a(role="button" href=speaker.speaker_twitter_url rel="external noopener noreferrer" aria-label="twitter profile")
+                                  .social-icon
+                                    include ../source/assets/ico/ico-social-twitter.svg
+                          .column
+                            .columns.speaker-info
+                              .column
+                                h3(role="heading" aria-level="3" id=speaker.speaker_name).speaker-name !{speaker.speaker_name}
+                              .column
+                                p !{speaker.speaker_role}
+                            .columns.speaker-bio
+                              .column
+                                p 
+                                  strong !{speaker.speaker_name}
+                                  | !{speaker.speaker_bio}
 
   script(type="text/javascript" src='/assets/js/speakers_menu.js')
   aside(id="secondary_menu").menu.secondary-menu
@@ -141,11 +149,10 @@ block content
         - the_id = ""
         each day in site.data.talks_speakers.days
           each talk, key in day.talks
-            if(talk.item_type == 'talk')
-              if(talk.speakers)
-                each speaker in talk.speakers
-                  if(speaker.speaker_name === name)
-                    - the_id = key
+            if(talk.speakers)
+              each speaker in talk.speakers
+                if(speaker.speaker_name === name)
+                  - the_id = key
           - target_href = "#" + the_id
         li
           a(href=target_href role="button" aria-label=name).secondary-menu-list-item !{name}

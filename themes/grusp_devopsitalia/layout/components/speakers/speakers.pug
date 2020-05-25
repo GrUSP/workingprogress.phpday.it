@@ -5,9 +5,9 @@ section(id="hero__speakers").section_nopadding
     - const var_speakers = []
     each day in site.data.talks_speakers.days
       each talk in day.talks
-        if(talk.item_type == 'talk')
-          if(talk.speakers)
-            each speaker in talk.speakers
+        if(talk.speakers)
+          each speaker in talk.speakers
+            if(speaker.speaker_in_speaker_lists === true)
               - var_speakers.push(speaker)
     each speaker in var_speakers.map(speaker => speaker.speaker_name).filter((value, index, self) => self.indexOf(value) === index)
       - no_of_speakers++

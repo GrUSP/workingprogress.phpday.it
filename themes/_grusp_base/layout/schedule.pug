@@ -159,6 +159,10 @@ block content
 
                             if(row_item.host_name)
                               span !{row_item.host_name}
+                            
+                            if(row_item.speakers)
+                              each speaker in row_item.speakers
+                                span !{speaker.speaker_name}
 
                         else if(row_item.item_type == 'keynote')
                           td(colspan=cell_colspan style=cell_style class=cell_classes)

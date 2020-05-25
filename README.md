@@ -329,6 +329,8 @@ E questi sono i dati per creare i link alle privacy policy -- quella di Mailchim
 ```
 Gli altri dati vengono presi dal file `talks_speakers.yml`; vedere più avanti.
 
+**NB** vengono inclusi solo gli speaker che hanno l'attributo `speaker_in_speaker_lists` === `true` (che è il valore predefinito): vedere [talks](#talks).
+
 **NB** se la lingua del sito è l'inglese, e ci sono più speakers, sl titolo del componente viene aggiunto programmaticamente il suffisso "S" ("speaker" => "speakers").
 
 **topics**
@@ -775,6 +777,7 @@ La prima sezione è puramente di utilità: ci serve a definire gli speakers e da
 ```
 # Speakers. I mixin "&nome" servono per indicare quali speaker partecipano a ogni talk, sotto
 speaker_1: &luca_guidi
+  speaker_in_speaker_lists: true
   speaker_name: Luca Guidi
   speaker_pic_filename: lucaguidi.png
   speaker_role: Author of Hanami
@@ -796,7 +799,7 @@ Gli altri dati vengono semplicemente ripresi e visualizzati ogni volta che in un
 * `speaker_pic_filename`: il file corrispondente va messo in `/source/img/speakers`
 * `speaker_github_url` e `speaker_twitter_url` sono facoltativi
 
-Nota: C'è un particolare tipo di speaker, chiamiamolo "di servizio", che **non** viene visualizzato né in questa pagina né nel componente *speakers*; ne parliamo nel capitolo dedicato alla pagina *schedule*.
+**NB**: non tutti gli speaker devono comparire in questa pagina (e nel componente *speakers*). Il primo attributo, `speaker_in_speaker_lists`, serve proprio a questo. Il valore predefinito è `true`: se impostato a `false`, lo speaker (e il/i relativo/i talk) non comparirà nella pagina
 
 **tracks**
 Le tracks vengono usate nella *schedule*, per cui ne parliamo nella sezione dedicata.
@@ -809,6 +812,7 @@ I talk hanno una struttura più complessa, che serve soprattutto per la *schedul
 La sezione dei talk propriamente detti ha una struttura complessa, che serve per la *schedule*, per cui ne parliamo meglio più avanti; riassumiamo però con quale logica viene creata questa pagina.
 1. si cerca ogni istanza di ogni speaker nell'elenco
 2. si recuperano i dati del talk corrispondente
+  * orario e track vengono visualizzate solo se l'orario (`start_datetime`, `end_datetime`) è definito (serve per quando si sa già chi saranno gli speaker ma ancora non si è definita la schedule propriamente detta)
   * la `track` viene visualizzata solo se ce ne sono più di una
   * la parte del titolo viene composta con gli altri dati del talk -- ora, titolo, descrizione
 3. per ogni speaker che partecipa al talk, viene visualizzato il box con i suoi dati

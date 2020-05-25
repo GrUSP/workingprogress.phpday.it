@@ -28,9 +28,6 @@
 
 * aggiungere i **parametri per la privacy policy** come da gist di daniel
 
-* talks_speakers
-   * l'host della keynote **PUÒ** comparire tra gli speakers (default: sì, facoltativamente lo facciamo "scomparire)
-   * l'host di un `item_type: workshop` **PUÒ** comparire tra gli speakers (default: sì, facoltativamente lo facciamo "scomparire)
 
 * conferenze online
   * date: aggiungere `timezone` in `site.config` [doc](https://hexo.io/docs/configuration.html)
@@ -58,6 +55,10 @@
   * schedule
     * se la schedule è ancora vuota, **generare tabelle**
     * decidere **quando** generarla, con un parametro
+  * talks_speakers
+    * l'host della keynote **PUÒ** comparire tra gli speakers (default: sì, facoltativamente lo facciamo "scomparire")
+    * l'host di un `item_type: workshop` **PUÒ** comparire tra gli speakers (default: sì, facoltativamente lo facciamo "scomparire")
+    * in sostanza tutti gli speaker hanno ora un attributo `speaker_in_speaker_lists` (default `true`) che si può impostare a `false`
 
 
 * 20200522
