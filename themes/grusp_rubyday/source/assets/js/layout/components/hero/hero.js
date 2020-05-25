@@ -1,5 +1,5 @@
 const countDownClock = (dateEvent) => {
-  let number = 100;
+  let number = 60;
   let format = 'days';
 
   // Get timestamps
@@ -14,18 +14,28 @@ const countDownClock = (dateEvent) => {
   difference = Math.abs(difference);
 
   // Calculate time unit
-  if (difference / (60 * 60 * 24) > 1) {
+  if (difference / (60 * 60 * 24) >= 1) {
     // Days
     format = 'days';
-    number = Math.floor(difference / (60 * 60 * 24));
-  } else if (difference / (60 * 60) > 1) {
+    number = difference / (60 * 60 * 24);
+    difference = difference - number;
+  }
+  if (difference / (60 * 60) >= 1) {
     // Hours
     format = 'hours';
-    number = Math.floor(difference / (60 * 60));
-  } else {
+    number = difference / (60 * 60);
+    difference = difference - number;
+  }
+  if (difference / 60 >= 1) {
+    // Minutes
+    format = 'minutes';
+    number = difference / 60;
+    difference = difference - number;
+  }
+  else {
     // Seconds
     format = 'seconds';
-    number = Math.floor(difference);
+    number = difference;
   }
 
   const d = document;
