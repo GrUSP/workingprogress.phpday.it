@@ -37,6 +37,12 @@ meta_colors:
 
 # conference config
 conference:
+  # Online-only conferences
+  is_online_only: true
+  online_location: "online"
+  online_location_title: "The Internet"
+  online_location_info: "The conference will be held online"
+
   # menu and general params
   menu_buy_tickets_label: "Buy tickets"
   buy_tickets_url: "https://rubyday-2020.eventbrite.com/"

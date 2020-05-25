@@ -22,6 +22,10 @@ const countDownClock = (dateEvent) => {
     // Hours
     format = 'hours';
     number = Math.floor(difference / (60 * 60));
+  } else if (difference / 60 > 1) {
+    // Minutes
+    format = 'minutes';
+    number = Math.floor(difference / 60);
   } else {
     // Seconds
     format = 'seconds';

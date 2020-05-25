@@ -10,7 +10,13 @@ block content
         .title-container
           include ../source/assets/ico/ico-cfp.svg
           h1(role="heading" aria-level="1").is-title-is-1 !{site.data.page_cfp.intro.main_title}
-        - cfp_deadline = date(site.data.defaults.conference.cfp_deadline, config.date_format_hero)
+
+        - var cfp_deadline = ""
+        if(site.data.defaults.conference.is_online_only === true)
+          - cfp_deadline = date(site.data.defaults.conference.date, config.date_format_hero_online)
+        else
+          - cfp_deadline = date(site.data.defaults.conference.date, config.date_format_hero)
+
         p
           strong !{site.data.page_cfp.intro.date_intro} #{cfp_deadline}
         p !{site.data.page_cfp.intro.content_1}

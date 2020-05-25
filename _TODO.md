@@ -18,16 +18,10 @@
 
 # TODO
 
-* iubenda & google analytics
-  * (procedura loro interna per generare id etc: https://gist.github.com/mbeccati/1bd9e562905a90e14d7d88ed3dcea34c)
-  * scripts: https://github.com/GrUSP/2020.phpday.it/blob/master/_includes/layout/scripts.html
-  * config (site.data.defaults): https://github.com/GrUSP/2020.phpday.it/blob/master/_data/conference.yml 
-    * **ocio** la privacy policy url è specificata **due** volte. toglierne una!
 
 ## features
 
-* aggiungere i **parametri per la privacy policy** come da gist di daniel
-
+* **OCIO IL COUNTDOWN È BACATO**
 
 * conferenze online
   * date: aggiungere `timezone` in `site.config` [doc](https://hexo.io/docs/configuration.html)
@@ -35,8 +29,6 @@
   * home page
     * location non scompare; cambiano le info e l'immagine di background
     * (online) in hero, aggiungere l'ora col fuso orario in chiaro
-    * ? il countdown fa già il conto considerando il fuso? 
-  * venue diventa WHERE (sempre)!
   * schedule
     * il fuso orario! aggiungerlo all'ora in chiaro se online
     * stamparlo **ovunque** appaiano date
@@ -59,7 +51,13 @@
     * l'host della keynote **PUÒ** comparire tra gli speakers (default: sì, facoltativamente lo facciamo "scomparire")
     * l'host di un `item_type: workshop` **PUÒ** comparire tra gli speakers (default: sì, facoltativamente lo facciamo "scomparire")
     * in sostanza tutti gli speaker hanno ora un attributo `speaker_in_speaker_lists` (default `true`) che si può impostare a `false`
-
+  * iubenda & google analytics
+    * (procedura loro interna per generare id etc: https://gist.github.com/mbeccati/1bd9e562905a90e14d7d88ed3dcea34c)
+    * scripts: https://github.com/GrUSP/2020.phpday.it/blob/master/_includes/layout/scripts.html
+    * config (site.data.defaults): https://github.com/GrUSP/2020.phpday.it/blob/master/_data/conference.yml 
+    * aggiunti i parametri per la privacy policy e lo script come da gist
+    * aggiunti i parametri e lo script per google tag manager come da gist
+  * aggiornato README
 
 * 20200522
   * readme

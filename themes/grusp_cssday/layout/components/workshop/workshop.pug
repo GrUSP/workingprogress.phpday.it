@@ -21,13 +21,29 @@ section(id="workshop").section_nopadding
           - aria_label = site.data.workshop.read_more_label
           .row-info
             .info-icon
-              include ../../../source/assets/ico/ico-where.svg
-            .info__location !{workshop.location}
+
+              if(site.data.defaults.conference.is_online_only === true)
+                include ../../../source/assets/ico/ico-online-conference.svg
+              else
+                include ../../../source/assets/ico/ico-where.svg
+
+            if(site.data.defaults.conference.is_online_only === true)
+              .info__location !{site.data.defaults.conference.online_location}
+            else
+              .info__location !{site.data.defaults.conference.city}
+
             | &nbsp;|&nbsp;
+
             .info-icon.padded
               include ../../../source/assets/ico/ico-calendar.svg
             .info__date
-              - start_date = date(workshop.date, config.date_format_hero)
+
+              - var start_date = ""
+              if(site.data.defaults.conference.is_online_only === true)
+                - start_date = date(site.data.defaults.conference.date, config.date_format_hero_online)
+              else
+                - start_date = date(site.data.defaults.conference.date, config.date_format_hero)
+
               time(datetime=workshop.date) !{start_date}
           a(href=url_for(read_more_url) role="button" aria-label=aria_label)
             h5(role="heading" aria-level="5") !{workshop.workshop_title}

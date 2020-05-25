@@ -57,7 +57,8 @@ pretty_urls:
 ## http://momentjs.com/docs/#/displaying/format/
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
-date_format_hero: MMMM DD, YYYY
+date_format_hero: MMMM DD, YYYY HH:mm
+date_format_hero_online: MMMM DD, YYYY HH:mm z
 time_format_schedule: HH:mm
 
 # responsive images

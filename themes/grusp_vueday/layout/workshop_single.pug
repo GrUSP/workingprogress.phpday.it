@@ -11,20 +11,36 @@ block content
             a(role="button" href=ws.ticket_url aria-label=ws.ticket_label target="_blank" rel="external noopener noreferrer").button.is-medium.is-rounded.is-primary !{ws.ticket_label}
         if(site.data.defaults.conference.venue_img_credits)
           .image-credits !{site.data.defaults.conference.venue_img_credits}
+
         include includes/_breadcrumbs.pug
+
         .workshop-single__container
           section(id="workshop-single__intro").section_nopadding.workshop-single__intro
             .inner
               .columns.row-info
                 .column
                   .info-icon
-                    include ../source/assets/ico/ico-where.svg
-                  .info__location !{ws.location}
+                    if(site.data.defaults.conference.is_online_only === true)
+                      include ../source/assets/ico/ico-online-conference.svg
+                    else
+                      include ../source/assets/ico/ico-where.svg
+
+                  if(site.data.defaults.conference.is_online_only === true)
+                    .info__location !{ws.online_location}
+                  else
+                    .info__location !{ws.location}
+
                 .column
                   .info-icon
                     include ../source/assets/ico/ico-calendar.svg
+
                   .info__date 
-                    - start_date = date(ws.date, config.date_format_hero)
+                    - var start_date = ""
+                    if(site.data.defaults.conference.is_online_only === true)
+                      - start_date = date(site.data.defaults.conference.date, config.date_format_hero_online)
+                    else
+                      - start_date = date(site.data.defaults.conference.date, config.date_format_hero)
+
                     time(datetime=ws.date) !{start_date}
                 .column
                   .info-icon
@@ -68,6 +84,7 @@ block content
                     .card.speaker-card
                       .card-image
                         img(src=filename role="figure" aria-label=teacher.teacher_name alt=teacher.teacher_name)
+
           section(id="workshop-single__moreinfo").section_nopadding.workshop-single__moreinfo
             .inner
               h3(role="heading" aria-level="3").is-title.is-3 !{ws.topics_title}
@@ -80,36 +97,49 @@ block content
               p !{ws.requirements_description}
               h3(role="heading" aria-level="3").is-title.is-3 !{ws.useful_info_title}
               p !{ws.useful_info_description}
+
           section(id="workshop-single__cta").section_nopadding.workshop-single__cta
             .inner
               h3(role="heading" aria-level="3").is-title.is-3 !{ws.cta_title}
               a(role="button" href=ws.ticket_url aria-label=ws.ticket_label target="_blank" rel="external noopener noreferrer").button.is-medium.is-rounded.is-primary !{ws.ticket_label}
+
           section(id="workshop-single__summary").section_nopadding.workshop-single__summary
             .inner
               .summary-blocks
                 .block
                   .row-info
                     .info-icon
-                      include ../source/assets/ico/ico-where.svg
+
+                      if(site.data.defaults.conference.is_online_only === true)
+                        include ../source/assets/ico/ico-online-conference.svg
+                      else
+                        include ../source/assets/ico/ico-where.svg
+
                     .info__location
                       span !{ws.location_title}
+
                   strong !{ws.location_name}
                   br
-                  a(role="button" href=ws.location_maps_url target="_blank" rel="external noopener noreferrer") !{ws.location_address} 
-                  br
-                  if(ws.location_contact_phone)
-                    - phone_url = `tel:${ws.location_contact_phone}`
-                    a(role="button" href=phone_url target="_blank" rel="external noopener noreferrer") !{ws.location_contact_phone}
-                    | &nbsp;
-                  if(ws.location_contact_email)
-                    | -&nbsp;
-                    - email_url = `mailto:${ws.location_contact_email}`
-                    a(role="button" href=email_url target="_blank" rel="external noopener noreferrer") !{ws.location_contact_email}
+
+                  if(site.data.defaults.conference.is_online_only === false)
+                    a(role="button" href=ws.location_maps_url target="_blank" rel="external noopener noreferrer") !{ws.location_address} 
                     br
-                  if(ws.location_contact_url)
-                    a(role="button" href=ws.location_contact_url target="_blank" rel="external noopener noreferrer") !{ws.location_contact_url}
+
+                    if(ws.location_contact_phone)
+                      - phone_url = `tel:${ws.location_contact_phone}`
+                      a(role="button" href=phone_url target="_blank" rel="external noopener noreferrer") !{ws.location_contact_phone}
+                      | &nbsp;
+                    if(ws.location_contact_email)
+                      | -&nbsp;
+                      - email_url = `mailto:${ws.location_contact_email}`
+                      a(role="button" href=email_url target="_blank" rel="external noopener noreferrer") !{ws.location_contact_email}
+                      br
+                    if(ws.location_contact_url)
+                      a(role="button" href=ws.location_contact_url target="_blank" rel="external noopener noreferrer") !{ws.location_contact_url}
+
                   if(ws.location_additional_info)
                     p !{ws.location_additional_info}
+
                 .block
                   .row-info
                     .info-icon
@@ -117,7 +147,12 @@ block content
                     .info__location
                       span !{ws.whatandwhen_title}
                   strong
-                    - start_date = date(ws.date, config.date_format_hero)
+                    - var start_date = ""
+                    if(site.data.defaults.conference.is_online_only === true)
+                      - start_date = date(site.data.defaults.conference.date, config.date_format_hero_online)
+                    else
+                      - start_date = date(site.data.defaults.conference.date, config.date_format_hero)
+
                     time(datetime=ws.date) !{start_date}
                   br
                   - start_time = date(ws.date, config.time_format_schedule)

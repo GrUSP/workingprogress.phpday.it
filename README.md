@@ -179,6 +179,16 @@ welcome_submenu:
 ```
 Qui si definisce il sottomenu di "welcome". In genere si può non toccare; se si vuole non creare una voce del sottomenu, basta commentare la riga corrispondente (ad es. per non fare apparire nel menu la voce "cfp")
 
+## Conferenze online
+
+**Fuso orario**: è specificato in `/_config.yml`
+```
+timezone: 'Europe/Rome'
+```
+Hexo applica automaticamente la conversione delle date usando `moment.js`.
+
+
+
 ## Contenuti
 
 **NB** scrivere **sempre** le date in Formato ISO (`YYYY-MM-DDTHH:MM`), ad es. `2020-09-16T09:00`; le date, oltre a essere riformattate per la visualizzazione in pagina, vengono usate per generare i tag `<time>` nelle varie pagine, e in alcuni casi per fare dei calcoli

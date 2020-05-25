@@ -2,9 +2,18 @@ footer
   - contact_url = "mailto:" + site.data.defaults.conference.contact_email
   .columns.inner
     .column.first.is-one-third
-      - start_date = date(site.data.defaults.conference.date, config.date_format_hero)
+
+      - var start_date = ""
+      - var where = ""
+      if(site.data.defaults.conference.is_online_only === true)
+        - start_date = date(site.data.defaults.conference.date, config.date_format_hero_online)
+        - where = site.data.defaults.conference.online_location
+      else
+        - start_date = date(site.data.defaults.conference.date, config.date_format_hero)
+        - where = site.data.defaults.conference.city
+
       p.footer__p_padded 
-        strong !{site.data.defaults.conference.city}
+        strong !{where}
           | ,&nbsp;
           time(datetime=site.data.defaults.conference.date) !{start_date}
       p !{site.data.defaults.conference.past_editions_pre}
