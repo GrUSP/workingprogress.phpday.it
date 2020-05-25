@@ -107,7 +107,6 @@ conference:
   newsletter_lang_label: "Of course, certamente!"
   newsletter_privacy_label: "I have read and accept the "
   newsletter_privacy_link_label: "privacy policy"
-  newsletter_privacy_link_url: "https://www.iubenda.com/privacy-policy/13404179"
   newsletter_disclaimer: "We use Mailchimp as our email marketing platform. By subscribing to the newsletter, you accept that your data are transmitted to Mailchimp to be processed. "
   newsletter_legal_url: "https://mailchimp.com/legal/"
   newsletter_legal_label: "Information about Mailchimp's privacy policy"
@@ -194,6 +193,17 @@ conference:
   footer_contact_text: "Contact us at "
   footer_links_pre: "You can read our "
   footer_links_privacy_link_label: "privacy policy"
+  iubenda:
+    # sostituire tutti questi parametri con quelli generati nel dashboard di iubenda.com cfr. https://gist.github.com/mbeccati/1bd9e562905a90e14d7d88ed3dcea34c
+    cookiePolicyId: 55680650
+    siteId: 1063123
+    lang: en
+    enableRemoteConsent: true
+    localConsentDomain: phpday.it
+    rebuildIframe: true
+  privacy_policy_url_common: "https://www.iubenda.com/privacy-policy/"
   footer_link_middle: " and our "
-  privacy_policy_url: "https://www.iubenda.com/privacy-policy/13404179"
   footer_coc_link_label: "code of conduct"
+  # Google Tag Manager
+  google:
+    tag_manager_id: "GTM-KJHB748"

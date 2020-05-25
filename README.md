@@ -23,9 +23,9 @@
     * [schedule](#schedule)
       * [La logica](#la-logica)
     * [workshop](#workshop)
-  * [Sponsor](#sponsor)
-    * [pagina "sponsor"](#pagina-sponsor)
-    * [componente "sponsors"](#componente-sponsors)
+    * [Sponsor](#sponsor)
+      * [pagina "sponsor"](#pagina-sponsor)
+      * [componente "sponsors"](#componente-sponsors)
  
 <!--/ToC-->
 
@@ -313,9 +313,8 @@ Queste sono le label dei campi della form:
   newsletter_privacy_label: "I have read and accept the "
   newsletter_privacy_link_label: "privacy policy"
 ```
-E questi sono i dati per creare i link alle privacy policy -- quella di Mailchimp ma anche quella del sito!
+E questi sono i dati per creare i link alla privacy policy di Mailchimp
 ```
-  newsletter_privacy_link_url: "https://www.iubenda.com/privacy-policy/13404179"
   newsletter_disclaimer: "We use Mailchimp as our email marketing platform. By subscribing to the newsletter, you accept that your data are transmitted to Mailchimp to be processed. "
   newsletter_legal_url: "https://mailchimp.com/legal/"
   newsletter_legal_label: "Information about Mailchimp's privacy policy"
@@ -493,9 +492,25 @@ L'URL base dei siti:
   footer_links_pre: "You can read our "
   footer_links_privacy_link_label: "privacy policy"
   footer_link_middle: " and our "
-  privacy_policy_url: "https://www.iubenda.com/privacy-policy/13404179"
+  iubenda:
+    # sostituire tutti questi parametri con quelli generati nel dashboard di iubenda.com per la conferenza cfr. https://gist.github.com/mbeccati/1bd9e562905a90e14d7d88ed3dcea34c
+    cookiePolicyId: 55680650
+    siteId: 1063123
+    lang: en
+    enableRemoteConsent: true
+    localConsentDomain: phpday.it
+    rebuildIframe: true
+  privacy_policy_url_common: "https://www.iubenda.com/privacy-policy/"
   footer_coc_link_label: "code of conduct"
 ```
+L'URL del link "privacy policy" in fondo al footer vioene composta con `privacy_policy_url_common` + `cookiePolicyId` per puntare alla policy giusta, generata nel dashboard di Iubenda.
+```
+  # Google Tag Manager
+  google:
+    tag_manager_id: "GTM-KJHB748"
+```
+`tag_manager_id` viene preso dal dashboard di Google (cfr. https://gist.github.com/mbeccati/1bd9e562905a90e14d7d88ed3dcea34c)
+
 
 ### welcome
 
@@ -1214,11 +1229,11 @@ Per creare un altro workshop, oltre a inserire una nuova sezione corrispondente 
 ...bisogna ricordarsi di creare i corrispondenti file in `/source/worshop/` come spiegato all'inizio del capitolo.
 
 
-## Sponsor
+### Sponsor
 
 Questa parte riguarda sia la pagina *sponsor*, dove vengono descritte le varie tipologie di sponsorship disponibili, sia il componente *sponsors* che compare nella homepage e in quasi tutte le altre pagine del sito.
 
-### pagina "sponsor"
+#### pagina "sponsor"
 
 I dati si trovano in `/source/_data/page_sponsor.yml`.
 
@@ -1286,7 +1301,7 @@ E poi le feature del livello:
 ```
 **Tutte** le `description_...` sono facoltative. Conviene comunque inserirle in ordine, non solo per chiarezza, ma perché la loro gerarchia serve al template per colorare le varie righe delle tabelline.
 
-### componente "sponsors"
+#### componente "sponsors"
 
 I dati dei soggetti che hanno offerto la sponsorship si trovano in `/source/_data/sponsors.yml`.
 

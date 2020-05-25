@@ -20,8 +20,7 @@ html(lang=config.language)
     link(rel="icon" type="image/png" sizes="32x32" href=`/assets/favicons/favicon-32x32.png`)
     link(rel="icon" type="image/png" sizes="16x16" href=`/assets/favicons/favicon-16x16.png`)
     
-    //- TODO this: revert to `site.webmanifest` in theme
-    link(rel="manifest" href=`/assets/favicons/site_.webmanifest`)
+    link(rel="manifest" href=`/assets/favicons/site.webmanifest`)
     
     each value, key in site.data.defaults.meta_colors
       if(key === site.data.defaults.conference_tag)
@@ -33,7 +32,7 @@ html(lang=config.language)
       if(key === site.data.defaults.conference_tag)
         meta(name="msapplication-TileColor" content=value)
 
-    meta(name="msapplication-config" content=`/assets/favicons/browserconfig.xml`)
+    meta(name="msapplication-config" content=`/assets/favicons/browserconfig_.xml`)
     meta(name="theme-color" content="#ffffff")
 
     != open_graph()

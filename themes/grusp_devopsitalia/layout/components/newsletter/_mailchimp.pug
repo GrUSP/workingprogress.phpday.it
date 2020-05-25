@@ -19,8 +19,9 @@
       .columns
         //- visible: accept privacy policy
         .column.mc-field-group.input-group
+          - privacy_policy_url = site.data.defaults.conference.privacy_policy_url_common + site.data.defaults.conference.iubenda.cookiePolicyId
           span !{site.data.defaults.conference.newsletter_privacy_label}
-            a(role="button" href=site.data.defaults.conference.newsletter_privacy_link_url target="_blank" rel="external noopener noreferrer" aria-label=site.data.defaults.conference.newsletter_privacy_link_label) !{site.data.defaults.conference.newsletter_privacy_link_label}
+            a(role="button" href=privacy_policy_url target="_blank" rel="external noopener noreferrer" aria-label=site.data.defaults.conference.newsletter_privacy_link_label) !{site.data.defaults.conference.newsletter_privacy_link_label}
           ul
             li
               label(for="mce-MMERGE11-0") &nbsp;
