@@ -1,3 +1,8 @@
+# NB impostare a `true` per generare la pagina, a `false` per NON generarla
+generate_schedule_page: true
+schedule_under_construction_title: "Schedule under construction"
+schedule_under_construction_description: "We are still defining the schedule. Please be patient"
+
 # Speakers. I mixin "&nome" servono per indicare quali speaker partecipano a ogni talk, sotto
 speaker_1: &luca_guidi
   speaker_name: Luca Guidi

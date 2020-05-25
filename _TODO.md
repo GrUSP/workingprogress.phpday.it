@@ -26,10 +26,6 @@
 
 ## features
 
-* schedule
-  * se la schedule è ancora vuota, **non generare pagina**
-  * decidere **quando** generarla, con un parametro
-
 * aggiungere i **parametri per la privacy policy** come da gist di daniel
 
 * talks_speakers
@@ -57,6 +53,12 @@
 
 
 # DONE
+
+* 20200525
+  * schedule
+    * se la schedule è ancora vuota, **generare tabelle**
+    * decidere **quando** generarla, con un parametro
+
 
 * 20200522
   * readme

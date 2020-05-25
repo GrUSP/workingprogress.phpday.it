@@ -819,6 +819,21 @@ La sezione dei talk propriamente detti ha una struttura complessa, che serve per
 
 I dati si trovano in `/source/_data/talks_speakers.yml`. Qui analizziamo meglio la struttura del file.
 
+**NB** se non si vuole generare la pagina della schedule:
+in `theme/_config.yml`, commentare la riga relativa in `menu` (in questo modo non viene aggiunto il relativo item al menu)
+```
+menu:
+  ...
+  # scommentare per generare pagina
+  # schedule: schedule
+```
+La pagina viene comunque generata, ma non è raggiungibile da menu, e le tabelle della schedule non vengono generate. Il corpo della pagina consisterà in una sezione che contiene solo un titolo e un testo (liberi): questo perché se un crawler indicizza la pagina, almeno chi la visualizza non vedrà né un errore né una pagina bianca
+```
+generate_schedule_page: true
+schedule_under_construction_title: "Schedule under construction"
+schedule_under_construction_description: "We are still defining the schedule. Please be patient"
+```
+
 Degli speaker abbiamo già parlato nel capitolo precedente. Qui ci concentriamo su come viene costruita la schedule, partendo dalle `track`:
 ```
 tracks:
