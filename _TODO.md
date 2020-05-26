@@ -18,30 +18,20 @@
 
 # TODO
 
-
 ## features
 
-* **OCIO IL COUNTDOWN È BACATO**
+* **OCIO** mancano le testate (hero, where) per le conferenze online (detto a giulia)
 
-* conferenze online
-  * date: aggiungere `timezone` in `site.config` [doc](https://hexo.io/docs/configuration.html)
-  * icone: quelle a destra nella prova di manu
-  * home page
-    * location non scompare; cambiano le info e l'immagine di background
-    * (online) in hero, aggiungere l'ora col fuso orario in chiaro
-  * schedule
-    * il fuso orario! aggiungerlo all'ora in chiaro se online
-    * stamparlo **ovunque** appaiano date
-
-* aggiornare readme
-
-* togliere da `_data/defaults` i dati che non sono contenuti e spostarli in `_config`?
-
-* https://developer.mozilla.org/en-US/docs/Web/Performance/dns-prefetch
-  * (x es link google maps): `- url_to_prefetch = new URL(data.location_maps_url)`
+* optional
+  * togliere da `_data/defaults` i dati che non sono contenuti e spostarli in `_config`?
+  * https://developer.mozilla.org/en-US/docs/Web/Performance/dns-prefetch
+    * (x es link google maps): `- url_to_prefetch = new URL(data.location_maps_url)`
 
 
 # DONE
+
+* 20200526
+  * aggiornato README
 
 * 20200525
   * schedule
@@ -58,6 +48,16 @@
     * aggiunti i parametri per la privacy policy e lo script come da gist
     * aggiunti i parametri e lo script per google tag manager come da gist
   * aggiornato README
+  * conferenze online
+    * date: aggiungere `timezone` in `site.config` [doc](https://hexo.io/docs/configuration.html)
+    * icone: quelle a destra nella prova di manu
+    * home page
+      * location non scompare; cambiano le info e l'immagine di background
+      * (online) in hero, aggiungere l'ora col fuso orario in chiaro
+    * schedule
+      * il fuso orario! aggiungerlo all'ora in chiaro se online
+      * stamparlo **ovunque** appaiano date
+  * eliminazione di un fastidioso bug nel countdown del componente *hero*
 
 * 20200522
   * readme

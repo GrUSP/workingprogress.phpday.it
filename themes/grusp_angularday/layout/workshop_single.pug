@@ -5,7 +5,12 @@ block content
 
     each ws in site.data.workshop.workshops
       if ws.ws_id == page.ws_id
-        .workshop-single__header
+
+        - classes = "workshop-single__header"
+        if(site.data.defaults.conference.is_online_only === true)
+          - classes += " is-online-conference"
+
+        div(class=classes)
           .inner
             h2(role="header" aria-level="2").is-title.is-2 !{ws.page_title}
             a(role="button" href=ws.ticket_url aria-label=ws.ticket_label target="_blank" rel="external noopener noreferrer").button.is-medium.is-rounded.is-primary !{ws.ticket_label}

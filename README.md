@@ -1,6 +1,5 @@
 # Hexo/Bulma Grusp Themes
 
-
 <!--ToC-->
 * [Hexo/Bulma Grusp Themes](#hexobulma-grusp-themes)
   * [Informazioni generali](#informazioni-generali)
@@ -9,6 +8,7 @@
     * [Configurazione generale del sito](#configurazione-generale-del-sito)
     * [Tema](#tema)
     * [Configurazione generale del tema](#configurazione-generale-del-tema)
+  * [Conferenze online](#conferenze-online)
   * [Contenuti](#contenuti)
     * [Info base sulla conferenza](#info-base-sulla-conferenza)
     * [Home page e componenti](#home-page-e-componenti)
@@ -26,7 +26,6 @@
     * [Sponsor](#sponsor)
       * [pagina "sponsor"](#pagina-sponsor)
       * [componente "sponsors"](#componente-sponsors)
- 
 <!--/ToC-->
 
 ## Informazioni generali
@@ -181,12 +180,75 @@ Qui si definisce il sottomenu di "welcome". In genere si può non toccare; se si
 
 ## Conferenze online
 
-**Fuso orario**: è specificato in `/_config.yml`
+**Fuso orario**: è specificato in `/_config.yml`, default "Europe/Rome"
 ```
 timezone: 'Europe/Rome'
 ```
 Hexo applica automaticamente la conversione delle date usando `moment.js`.
 
+La direttiva che dice se una conferenza è online è all'inizio del file `/source/_data/defaults.yml`:
+
+```
+  # Online-only conferences
+  is_online_only: false
+```
+Impostandola a `true`, alcuni componenti e pagine assumono un layout diverso; inoltre cambiano alcune impostazioni generali di visualizzazione.
+
+Inoltre ci sono alcune chiavi che vengono utilizzate come alternativa ai dati relativi alla location (visto che non c'è una location fisica):
+```
+  online_location: "online"
+  online_location_title: "The Internet"
+  online_location_info: "The conference will be held online"
+```
+Nelle pagine in cui è specificato la location (o assenza di),
+* `online_location` viene utilizzato nelle righe informative (quelle con le icone placeholder, calendario, etc.) al posto di `city`
+* `online_location_title` viene utilizzato come titolo (ad es. in *welcome/where*)
+* `online_location_info` viene utilizzato come sottotitolo nel componente *location*
+
+Quando si imposta `is_online_only: true`, alla generazione del sito vengono variate le seguenti cose:
+* date
+  * ovunque compaia un orario, viene visualizzata specificando il **fuso orario**, ad es. "September 16, 2020 09:00 CEST"
+  * in tutti i casi in cui viene visualizzata la "location", al posto dell'icona "placeholder" a goccia viene mostrata l'icona "internet"
+* home page
+  * hero:
+    * "location" (viene visualizzato `online_location`)
+    * formato data/ora (viene specificato il fuso orario)
+    * come sfondo viene usato `hero-online.jpg` invece di `hero.jpg`; **@TODO** al momento (20200526) le due immagini sono uguali; bisogna sostituire `hero-online.jpg` con un'immagine ad hoc
+  * cfp
+    * formato data/ora deadline (viene specificato il fuso orario)
+  * workshop
+    * "location" (viene visualizzato `online_location`)
+    * formato data/ora (viene specificato il fuso orario)
+  * location
+    * vengono visualizzati `online_location`, `online_location_title`, `online_location_info` al posto di città, nome hotel, indirizzo
+    * viene nascosto il pulsante *get directions*
+    * come sfondo viene usato `venue-online.jpg` invece di `venue.jpg`; **@TODO** al momento (20200526) le due immagini sono uguali; bisogna sostituire `venue-online.jpg` con un'immagine ad hoc
+* welcome
+  * where
+    * icona "internet" al posto di icona "placeholder" accanto al titolo
+    * **NB** per gli altri contenuti di *welcome/where/* si utilizzano le stesse chiavi, ma si scriveranno le info relative a modalità di accesso, etc.
+* talks
+  * riga informativa accanto al titolo (o righe colorate con luogo, data e ora, se ci sono più giornate):
+    * viene visualizzato `online_location`
+  * formato data/ora (viene specificato il fuso orario)
+* schedule
+  * formato data/ora (viene specificato il fuso orario)
+
+* workshop (single)
+  * come sfondo viene usato `worskhop_header-online.jpg` invece di `worskhop_header.jpg`; **@TODO** al momento (20200526) le due immagini sono uguali; bisogna sostituire `worskhop_header-online.jpg` con un'immagine ad hoc
+  * sopra il titolo viene visualizzato `online_location` (che va specificato in `/source/_data/workshop.yml`) con la relativa icona
+  * formato data/ora (viene specificato il fuso orario)
+  * box informativi neri in fondo alla pagina
+    * "where"
+      * si continua a usare `location_name` (che va specificato in `/source/_data/workshop.yml`)
+      * **non** vengono visualizzati indirizzo e contatti
+    * "cosa e quando"
+      * formato data/ora (viene specificato il fuso orario)
+      * si continua a usare `location_additional_info` (che va specificato in `/source/_data/workshop.yml`)
+
+**Q&A**:
+*Q*: Perché bisogna specificare la location online sia in `defaults` sia in `workshop`?
+*R*: per coprire il caso in cui si tenga una conferenza in una location fisica e un workshop online.
 
 
 ## Contenuti
@@ -202,6 +264,14 @@ Si trovano in `/source/_data/defaults.yml`. Il file è diviso in diverse sezioni
 Il file inoltre contiene alcuni dati usati "sotto il cofano" nella generazione del sito.
 
 Dopo la sezione "Additional config" dove come detto si seleziona il tema, segue "Conference defaults". Tutti i dati si trovano all'interno della chiave `conference:`
+```
+  # Online-only conferences
+  is_online_only: true
+  online_location: "online"
+  online_location_title: "The Internet"
+  online_location_info: "The conference will be held online"
+```
+(per questa prima parte vedere [Conferenze online](#conferenze-online))
 
 ```
   # menu and general params
@@ -228,7 +298,7 @@ La mail di contatto, usata un po' ovunque (footer, pagina COC, etc.)
 
 ### Home page e componenti
 
-**hero section**
+#### hero section
 ```
   # these are for the hero section
   title_pre: "Welcome to"
@@ -250,7 +320,9 @@ La mail di contatto, usata un po' ovunque (footer, pagina COC, etc.)
 ```
 Se si usano immagini per le quali bisogna accreditare l'autore (o altre informazioni di licensing), si può usare `hero_img_credits` per farle visualizzare. Oltre al background di `hero`, vale lo stesso meccanismo per `location` e per le testate della pagina *Where* e delle pagine dei workshop.
 
-**Update**: fascia da visualizzare subito sotto la `hero` in caso si voglia mettere in evidenza un annuncio o un'informazione "extra"
+**NB** il componente ha come sfondo `hero.jpg`. Se la conferenza è [online](#conferenze-online), viene invece usato `hero-online.jpg`.
+
+#### Update: fascia da visualizzare subito sotto la `hero` in caso si voglia mettere in evidenza un annuncio o un'informazione "extra"
 ```
   # "update" component. set the first parameter to true to make it appear in home page, false means hidden
   update_visible: true
@@ -263,7 +335,7 @@ Se si usano immagini per le quali bisogna accreditare l'autore (o altre informaz
 ```
 Impostando `update_visible` a `false` si nasconde il componente. Questo vale anche per **tutti gli altri componenti della home page**.
 
-**Call for papers**
+#### Call for papers
 ```
   # "call for papers" component. set the first parameter to true to make it appear in home page, false means hidden
   cfp_open: true
@@ -276,7 +348,7 @@ Impostando `update_visible` a `false` si nasconde il componente. Questo vale anc
 ```
 (Non viene nascosta automaticamente qyando si raggiunge la data della deadline perché si potrebbe voler visualizzare per un periodo "Call for papers closed"...)
 
-**General info**: la fascia con i 4 pulsanti quadrati sulla destra
+#### General info: la fascia con i 4 pulsanti quadrati sulla destra
 ```
   # "general information" ("what is it?") component
   geninfo_visible: true
@@ -289,7 +361,7 @@ Impostando `update_visible` a `false` si nasconde il componente. Questo vale anc
 ```
 **NB** le info per il blocco dei pulsanti social vegono inserite più avanti, vedere "Footer"
 
-**newsletter**
+#### newsletter
 
 Il componente *newsletter* viene riutilizzato in (quasi) tutte le pagine.
 
@@ -330,7 +402,7 @@ E questi sono i dati per creare i link alla privacy policy di Mailchimp
   newsletter_legal_label: "Information about Mailchimp's privacy policy"
 ```
 
-**speakers**
+#### speakers
 ```
   # "speakers" component. set the first parameter to true to make it appear in home page, false means hidden
   speakers_visible: true
@@ -342,7 +414,7 @@ Gli altri dati vengono presi dal file `talks_speakers.yml`; vedere più avanti.
 
 **NB** se la lingua del sito è l'inglese, e ci sono più speakers, sl titolo del componente viene aggiunto programmaticamente il suffisso "S" ("speaker" => "speakers").
 
-**topics**
+#### topics
 ```
   # "topics" component. set the first parameter to true to make it appear in home page, false means hidden
   topics_visible: true
@@ -359,7 +431,7 @@ I topic non sono altro che tag. Per inserirne di nuovi, aggiungere righe
 ```
 Attenzione al trattino iniziale! è **necessario** (perchè non c'è `key`: i topic sono un array e non un oggetto JSON)
 
-**workshops**
+#### workshops
 ```
   # "workshop" component. set the first parameter to true to make it appear in home page, false means hidden
   workshop_visible: true
@@ -370,7 +442,7 @@ Attenzione al trattino iniziale! è **necessario** (perchè non c'è `key`: i to
 ```
 Gli altri dati vengono presi dal file `workshop.yml`; vedere più avanti.
 
-***media** (fascia con immagini e video)
+#### media (fascia con immagini e video)
 ```
   # Media section in home page. set the first parameter to true to make it appear in home page, false means hidden
   media_visible: true
@@ -410,7 +482,7 @@ Qui invece i dati "veri": l'ID della playlist di YouTube, o l'ID dello "showcase
   vimeo_showcase_id: "6048109"
 ```
 
-**location**
+#### location / where
 ```
   # Location section in home page. set the first parameter to true to make it appear in home page, false means hidden
   location_visible: true
@@ -424,7 +496,9 @@ Qui invece i dati "veri": l'ID della playlist di YouTube, o l'ID dello "showcase
 ```
 Impostare `location_visible` a `false` se non si vuole fare comparire la fascia! Ad es. nel caso delle conferenze solo online
 
-**sponsor**
+**NB** nel caso delle [conferenze online](#conferenze-online) questo componente viene nascosto.
+
+#### sponsor
 
 Il componente *sponsor* viene riutilizzato in (quasi) tutte le pagine.
 ```
@@ -434,7 +508,7 @@ Il componente *sponsor* viene riutilizzato in (quasi) tutte le pagine.
 ```
 Gli altri dati vengono presi dal file `sponsors.yml`; vedere più avanti.
 
-**community partner**
+#### community partner
 ```
   # this is for the Community partners section in home page
   community_partners: true
@@ -1096,6 +1170,7 @@ summary_page_button_label: "See all workshops"
 Le prime tre chiavi vengono usate per i link / pulsanti; `workshop_img_credits`, facoltativo, serve a inserire le informazioni di licensing dell'immagine di testata se necessario.
 
 **NB** l'immagine di testata si trova in `/themes/[mytheme]/source/assets/img/workshop`. Per cambiarla, basta inserire in questo directory un file `worskhop_header.jpg`. Quando si genera il sito, verranno automaticamente creati i "tagli" dell'immagine per i vari device.
+**NB** se la conferenza è [online](#conferenze-online), viene invece usato `worskhop_header-online.jpg`. **@TODO** al momento (20200526) le due immagini sono uguali; bisogna sostituire `worskhop_header-online.jpg` con un'immagine ad hoc
 
 ```
 workshops:
@@ -1123,11 +1198,18 @@ Informazioni generali:
 
 Seguono i dati per il blocco riassuntivo in fondo alla pagina (vengono inseriti in cima perché alcuni vengono usati anche prima):
 
-Dati sulla location (utili solo se c'è una venue fisica; **@todo** da integrare con le varianti per l'opzione "online conf"), usati per il blocco "where":
+Dati sulla location, usati per il blocco "where":
 ```
     location_title: "Dove"
     location: "Verona"
-    location_name: "Hotel San Marco"
+    online_location: "online"
+    # location_name: "Hotel San Marco"
+    location_name: "The Internet"
+```
+`online_location` viene usato al posto di `location` se la conferenza è online (vedere [Conferenze online](#conferenze-online)).
+
+Seguono le informazioni di contatto della location (usate solo se la conferenza **non** è online):
+```
     location_contact_phone: "+045569011"
     location_contact_email: "sanmarco@sanmarco.vr.it"
     location_contact_url: "https://www.sanmarco.vr.it/"
@@ -1144,6 +1226,7 @@ Info addizionali, usate per il secondo blocco:
     date: 2020-09-15T09:30
     end_date: 2020-09-15T16:30
 ```
+(Se la conferenza è online, in pagina verrà visualizzato il fuso orario)
 
 Info sulla lingua di lavoro: usato anche in cima alla pagina, sotto il titolo
 ```
@@ -1221,6 +1304,11 @@ Ulteriori informazioni
     useful_info_description: "[testo libero e/o HTML]"
 ```
 Naturalmente si possono cambiare sia i titoli sia i contenuti; anche se le chiavi si chiamano `addressees_...`, `requirements_...`, è testo libero. In questo modo si possono distribuire le informazioni liberamente.
+Se si desidera ad es. visualizzare solo due sezioni titolo + paragrafo, basta annullare i valori di `useful_info_...`:
+```
+    useful_info_title:
+    useful_info_description:
+```
 
 Fascia colorata
 ```

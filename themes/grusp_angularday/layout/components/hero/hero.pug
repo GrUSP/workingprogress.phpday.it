@@ -1,5 +1,10 @@
 section(id="hero").section_nopadding
-  .hero__container
+
+  - classes = "hero__container"
+  if(site.data.defaults.conference.is_online_only === true)
+    - classes += " is-online-conference"
+
+  div(class=classes)
     .columns.inner
       .column
         .row-info

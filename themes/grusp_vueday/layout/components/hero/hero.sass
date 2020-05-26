@@ -9,7 +9,7 @@
   width: 100vw
   //- this is to avoid having `hero-head` and `hero-foot` (see bulma docs)
   height: 100vh
-  background-image: url("/assets/img/hero/hero.jpg")
+  background-image: url("/assets/img/hero/hero.jpg") 
   background-size: cover
   background-repeat: no-repeat
   background-position: center center
@@ -65,7 +65,22 @@
       line-height: 1.5
     +widescreen
       font-size: 4em
-
+  &.is-online-conference
+    background-image: url("/assets/img/hero/hero-online.jpg")
+    +tablet
+      background-image: url("/assets/img/hero/tablet_hero-online.jpg")
+    +desktop
+      background-image: url("/assets/img/hero/desktop_hero-online.jpg")
+    +widescreen
+      background-image: url("/assets/img/hero/widescreen_hero-online.jpg")
+    +fullhd
+      background-image: url("/assets/img/hero/hero-online.jpg")
+    +tablet-vertical
+      background-image: url("/assets/img/hero/tablet_vertical_hero-online.jpg")
+    +medium-phone
+      background-image: url("/assets/img/hero/mobile_medium_hero-online.jpg")
+    +small-phone
+      background-image: url("/assets/img/hero/mobile_small_hero-online.jpg")
 .info__location
   padding: 0 30px 0 10px
 

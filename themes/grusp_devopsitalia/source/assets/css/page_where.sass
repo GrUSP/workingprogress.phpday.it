@@ -4,7 +4,7 @@
 @import "bulma/sass/utilities/mixins"
 @import "_mixins"
 
-.venue__header
+.venue__header 
   width: 100vw
   padding: 8em 0
   background-image: url("/assets/img/venue/venue.jpg")
@@ -26,6 +26,22 @@
     color: $main-text-color_inverted
     font-style: normal
     font-size: 3em
+  &.is-online-conference
+    background-image: url("/assets/img/venue/venue-online.jpg")
+    +tablet
+      background-image: url("/assets/img/venue/tablet_venue-online.jpg")
+    +desktop
+      background-image: url("/assets/img/venue/desktop_venue-online.jpg")
+    +widescreen
+      background-image: url("/assets/img/venue/widescreen_venue-online.jpg")
+    +fullhd
+      background-image: url("/assets/img/venue/venue-online.jpg")
+    +tablet-vertical
+      background-image: url("/assets/img/venue/tablet_vertical_venue-online.jpg")
+    +medium-phone
+      background-image: url("/assets/img/venue/mobile_medium_venue-online.jpg")
+    +small-phone
+      background-image: url("/assets/img/venue/mobile_small_venue-online.jpg")
 
 .title-container
   display: flex

@@ -3,7 +3,12 @@ extends includes/layout.pug
 block content
   - contact_url = "mailto:" + site.data.defaults.conference.contact_email
   section(id="venue")
-    .venue__header
+
+    - classes = "venue__header"
+    if(site.data.defaults.conference.is_online_only === true)
+      - classes += " is-online-conference"
+    
+    div(class=classes)
       .inner
 
         - title = ""
@@ -21,7 +26,11 @@ block content
     .container
       .inner
         .title-container
-          include ../source/assets/ico/ico-where-120.svg
+          if(site.data.defaults.conference.is_online_only === true)
+            include ../source/assets/ico/ico-online-conference-120.svg
+          else
+            include ../source/assets/ico/ico-where-120.svg
+
           h1(role="heading" aria-level="1").is-title-is-1 !{site.data.page_where.intro.main_title}
         p !{site.data.page_about.intro.content_1}
         if(site.data.page_about.intro.content_2)
