@@ -28,9 +28,9 @@ keywords: conference,software conference,ruby,ruby on rails
 author: GrUSP
 language: en
 timezone: 'Europe/Rome'
-image: 'img/grusp-logo-full.svg'
+image: 'img/grusp-logo-full.png'
 open_graph:
-  image: 'img/grusp-logo-full.svg'
+  image: 'img/grusp-logo-full.png'
 twitter:
   twitter_id: rubydayIT
 fb:

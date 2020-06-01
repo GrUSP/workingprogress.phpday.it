@@ -1,32 +1,35 @@
 # Hexo/Bulma Grusp Themes
 
 <!--ToC-->
-* [Hexo/Bulma Grusp Themes](#hexobulma-grusp-themes)
-  * [Informazioni generali](#informazioni-generali)
-  * [Configurazione](#configurazione)
-    * [Importante](#importante)
-    * [Configurazione generale del sito](#configurazione-generale-del-sito)
-    * [Tema](#tema)
-    * [Configurazione generale del tema](#configurazione-generale-del-tema)
-  * [Conferenze online](#conferenze-online)
-  * [Contenuti](#contenuti)
-    * [Info base sulla conferenza](#info-base-sulla-conferenza)
-    * [Home page e componenti](#home-page-e-componenti)
-    * [Footer](#footer)
-    * [welcome](#welcome)
-    * [welcome/about](#welcomeabout)
-    * [welcome/coc](#welcomecoc)
-    * [welcome/scholarships](#welcomescholarships)
-    * [welcome/where](#welcomewhere)
-    * [welcome/cfp](#welcomecfp)
-    * [talks](#talks)
-    * [schedule](#schedule)
-      * [La logica](#la-logica)
-    * [workshop](#workshop)
-    * [Sponsor](#sponsor)
-      * [pagina "sponsor"](#pagina-sponsor)
-      * [componente "sponsors"](#componente-sponsors)
+* [Installazione](#installazione)
+* [Informazioni generali](#informazioni-generali)
+* [Configurazione](#configurazione)
+  * [Importante](#importante)
+  * [Configurazione generale del sito](#configurazione-generale-del-sito)
+  * [Tema](#tema)
+  * [Configurazione generale del tema](#configurazione-generale-del-tema)
+* [Conferenze online](#conferenze-online)
+* [Contenuti](#contenuti)
+  * [Info base sulla conferenza](#info-base-sulla-conferenza)
+  * [Home page e componenti](#home-page-e-componenti)
+  * [Footer](#footer)
+  * [welcome](#welcome)
+  * [welcome/about](#welcomeabout)
+  * [welcome/coc](#welcomecoc)
+  * [welcome/scholarships](#welcomescholarships)
+  * [welcome/where](#welcomewhere)
+  * [welcome/cfp](#welcomecfp)
+  * [talks](#talks)
+  * [schedule](#schedule)
+    * [La logica](#la-logica)
+  * [workshop](#workshop)
+  * [Sponsor](#sponsor)
+    * [pagina "sponsor"](#pagina-sponsor)
+    * [componente "sponsors"](#componente-sponsors)
 <!--/ToC-->
+
+
+
 
 ## Informazioni generali
 
@@ -34,7 +37,7 @@ Il file di configurazione del sito si trova nella root directory del repo; i fil
 
 Gli asset comuni (icone, immagini di sfondo delle testate, etc.) si trovano nei singoli temi.
 
-I contenuti (testi) invece si trovano in `/source/_data/`; gli asset specifici della singola conferenza (le foto degli speaker, i loghi dei partner, etc) si trovano in si trovano in `/source/_data/img/`. Per i dettagli vedere "Contenuti".
+I contenuti (testi) invece si trovano in `/source/_data/`; gli asset specifici della singola conferenza (le foto degli speaker, i loghi dei partner, etc) si trovano in `/source/_data/img/`. Per i dettagli vedere [Contenuti](#contenuti).
 
 ## Configurazione
 
@@ -68,20 +71,22 @@ keywords: conference,software conference,ruby,ruby on rails
 author: GrUSP
 language: en
 timezone: 'Europe/Rome'
-image: 'img/grusp-logo-full.svg'
+# si può sostituire con il logo della conferenza (`img/conference-logo.png`)
+image: 'img/grusp-logo-full.png'
 open_graph:
-  image: 'img/grusp-logo-full.svg'
+  # si può sostituire con il logo della conferenza (`img/conference-logo.png`)
+  image: 'img/grusp-logo-full.png'
 twitter:
   twitter_id: rubydayIT
 fb:
   fb_id: RubyDayIT
 ```
-**NB** c'è un bug aperto per cui
+**NB** c'è una issue bug aperto per cui
 ```
 open_graph:
-  image: 'img/grusp-logo-full.svg'
+  image: 'img/grusp-logo-full.png'
 ```
-a volte non viene interpretato correttamente e in OpenGraph non risulta l'immagine
+a volte non viene interpretato correttamente, open_grpah.js non genera tutti i tag `og:`, e in OpenGraph non risulta l'immagine
 
 **Breadcrumbs**
 
