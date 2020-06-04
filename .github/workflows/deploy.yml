@@ -11,20 +11,14 @@ jobs:
     steps:
     - name: Checkout source
       uses: actions/checkout@v2
-      with:
-        path: main
     - name: Setup node
       uses: actions/setup-node@v1
       with:
         node-version: 10.x
     - name: Install hexo dependencies
-      run: |
-        cd /
-        npm install
+      run: npm install
     - name: Generate website
-      run: |
-        cd /
-        npm run generate
+      run: npm run generate
     - name: Checkout gh-pages
       uses: actions/checkout@v2
       with:
