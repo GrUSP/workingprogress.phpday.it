@@ -1,12 +1,17 @@
 {
-  "name": "hexo-site",
-  "version": "0.0.0",
+  "name": "grusp-sites",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "build": "hexo generate",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
-    "server": "hexo server"
+    "server": "hexo server",
+    "generate": "hexo clean && hexo generate",
+    "watch": "hexo server --watch"
+  },
+  "engines": {
+    "node": "~10"
   },
   "hexo": {
     "version": "4.2.0"

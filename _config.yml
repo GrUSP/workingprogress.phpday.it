@@ -28,8 +28,10 @@ keywords: conference,software conference,ruby,ruby on rails
 author: GrUSP
 language: en
 timezone: 'Europe/Rome'
+# si può sostituire con il logo della conferenza (`img/conference-logo.png`)
 image: 'img/grusp-logo-full.png'
 open_graph:
+  # si può sostituire con il logo della conferenza (`img/conference-logo.png`)
   image: 'img/grusp-logo-full.png'
 twitter:
   twitter_id: rubydayIT

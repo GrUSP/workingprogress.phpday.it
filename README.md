@@ -2,9 +2,14 @@
 
 <!--ToC-->
 * [Installazione](#installazione)
+  * [Requirements](#requirements)
+  * [Setup](#setup)
+  * [Componenti aggiuntivi](#componenti-aggiuntivi)
 * [Informazioni generali](#informazioni-generali)
+  * [Generare il sito](#generare-il-sito)
 * [Configurazione](#configurazione)
   * [Importante](#importante)
+  * [GitHub Pages](#github-pages)
   * [Configurazione generale del sito](#configurazione-generale-del-sito)
   * [Tema](#tema)
   * [Configurazione generale del tema](#configurazione-generale-del-tema)
@@ -13,37 +18,99 @@
   * [Info base sulla conferenza](#info-base-sulla-conferenza)
   * [Home page e componenti](#home-page-e-componenti)
   * [Footer](#footer)
-  * [welcome](#welcome)
-  * [welcome/about](#welcomeabout)
-  * [welcome/coc](#welcomecoc)
-  * [welcome/scholarships](#welcomescholarships)
-  * [welcome/where](#welcomewhere)
-  * [welcome/cfp](#welcomecfp)
-  * [talks](#talks)
-  * [schedule](#schedule)
+  * [Welcome](#welcome)
+  * [Welcome/about](#welcomeabout)
+  * [Welcome/coc](#welcomecoc)
+  * [Welcome/scholarships](#welcomescholarships)
+  * [Welcome/where](#welcomewhere)
+  * [Welcome/cfp](#welcomecfp)
+  * [Talks](#talks)
+  * [Schedule](#schedule)
     * [La logica](#la-logica)
-  * [workshop](#workshop)
+  * [Workshop](#workshop)
   * [Sponsor](#sponsor)
-    * [pagina "sponsor"](#pagina-sponsor)
-    * [componente "sponsors"](#componente-sponsors)
+    * [Pagina "sponsor"](#pagina-sponsor)
+    * [Componente "sponsors"](#componente-sponsors)
 <!--/ToC-->
 
 
+## Installazione
 
+### Pre-requirements
+
+I prerequisiti all'installazione di Hexo sono:
+
+* node.js 10.x (current 10.21)
+  * npm
+* git
+
+La [documentazione di Hexo](https://hexo.io/docs/) include le istruzioni per installare entrambi (Windows, Mac, Linux) e naturalmente le istruzioni per installare Hexo stesso.
+
+### Setup
+
+`npm install`
+
+## Componenti aggiuntivi
+
+Oltre al setup standard di Hexo sono stati aggiunti i seguenti plugins:
+
+* **Bulma** CSS framework
+* hexo-filter-responsive-images
+* hexo-render-pug
+* hexo-renderer-markdown-it-plus
+* hexo-renderer-sass
+* markdown-it
+* node-sass
+
+Essi vengono installati automaticamente dal setup come dipendenze.
 
 ## Informazioni generali
 
-Il file di configurazione del sito si trova nella root directory del repo; i file di configurazione nelle rispettive directory (in `themes/[directory del tema]/`).
+Il file di configurazione del sito si trova nella root directory del repo; i file di configurazione dei temi nelle rispettive directory (in `themes/[directory del tema]/`).
 
 Gli asset comuni (icone, immagini di sfondo delle testate, etc.) si trovano nei singoli temi.
 
 I contenuti (testi) invece si trovano in `/source/_data/`; gli asset specifici della singola conferenza (le foto degli speaker, i loghi dei partner, etc) si trovano in `/source/_data/img/`. Per i dettagli vedere [Contenuti](#contenuti).
+
+### Generare il sito
+
+Per generare il sito in locale:
+
+`npm run generate`
+
+Il comando svuota la directory `/public`, genera tutti i contenuti e li pubblica appunto in `/public`.
+
+Per testare in locale si può usare la funzionalità di Hexo che avvia un miniserver:
+
+`npm run server`
+
+La variante `watch` serve a lavorare sui contenuti senza dover riavviare continuamente il "server" di Hexo:
+
+`npm run watch`
+
+Il server ricarica dinamicamente i contenuti ogni volta che un file viene salvato. In questo modo si può lavorare sulla propria macchina con un'anteprima in tempo reale delle modifiche che si fanno. È necessario riavviare il server / rigenerare il sito solo se si fanno modifiche alla configurazione del tema o alla struttura dei template.
 
 ## Configurazione
 
 ### Importante
 
 Ci deve essere **almeno un post**, anche se vuoto, in `/source/_posts`, altrimenti **non viene generato l'`index` del sito**
+
+### GitHub Pages
+
+**Build and deploy**
+
+Il repository contiene un esempio di build-deploy.yml, a cui bisogna aggiungere le chiavi etc etc
+--------------------------------------------------
+@todo * `build-deploy.yml` sample per github pages
+--------------------------------------------------
+
+
+**404 page**
+
+Quando si lavora in locale, la  pagina 404 / Not Found viene generata, ma non utilizzata. Per utilizzarla sul server, seguire le [indicazioni fornite da GitHub](https://help.github.com/en/github/working-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site).
+
+È sufficiente specificare `404.html`.
 
 ### Configurazione generale del sito
 
@@ -66,7 +133,7 @@ Tra i dati "interessanti" ci sono `title`, `description`, etc.; vengono usati pe
 type: website
 title: "ruby day 2020"
 description: "Ruby Day 2020, Verona, Italy"
-#   separate keywords by comma, no spaces
+# separate keywords by comma, no spaces
 keywords: conference,software conference,ruby,ruby on rails
 author: GrUSP
 language: en
@@ -76,17 +143,22 @@ image: 'img/grusp-logo-full.png'
 open_graph:
   # si può sostituire con il logo della conferenza (`img/conference-logo.png`)
   image: 'img/grusp-logo-full.png'
+```
+C'è anche la sezione dove inserire gli account social:
+
+```
 twitter:
   twitter_id: rubydayIT
 fb:
   fb_id: RubyDayIT
 ```
-**NB** c'è una issue bug aperto per cui
+
+**NB** c'è una issue di Hexo per cui
 ```
 open_graph:
   image: 'img/grusp-logo-full.png'
 ```
-a volte non viene interpretato correttamente, open_grpah.js non genera tutti i tag `og:`, e in OpenGraph non risulta l'immagine
+a volte non viene interpretato correttamente, open_graph.js non genera tutti i tag `og:`, e in OpenGraph non risulta l'immagine. Stiamo monitorando la cosa...
 
 **Breadcrumbs**
 
@@ -103,7 +175,7 @@ Es.: `url: https://grusp.isunder.review/` è il valore predefinito nel repo orig
 
 Viene usato per generare FQURLs dagli URI relativi.
 
-**formati data**
+**Formati data**
 
 Usati sia nel frontend, sia per generare i valori dei tag `<time>` delle pagine.
 
@@ -114,10 +186,9 @@ time_format: HH:mm:ss
 date_format_hero: MMMM DD, YYYY
 time_format_schedule: HH:mm
 ```
-Oltre a quello standard, ce ne sono due specifici per `hero` (inrealtà viene usato quasi ovunque questo) e per `schedule` (viene *visualizzata* solo l'ora)
+Oltre a quello standard, ce ne sono due specifici per `hero` (in realtà viene usato quasi ovunque questo) e per `schedule` (viene *visualizzata* solo l'ora)
 
 * i parametri di configurazione standard di Hexo (separati da un commento "############# standard config: do not change")
-
 
 ### Tema
 
@@ -135,13 +206,13 @@ Si trova in `themes/[directory del tema]/_config.yml` e contiene:
 * welcome submenu
 * stylesheets e scripts (da non cambiare! puntano direttamente ai file compilati e vengono usati in `<header>`)
 
-**selezione della lingua**
+**Selezione della lingua**
 
 Es.: `language: "en"`
 
 La lingua è in formato ISO (ovvero si potrebbe usare `"en-us"`)
 
-**main menu**
+**Main menu**
 
 ```
 # main menu navigation
@@ -157,7 +228,7 @@ Ad es. se non si vuole la pagina `schedule` nel menu, perché per esempio non è
 
 La chiave è il filename della pagina corrispondente (ad es. `talks_speakers`; nel menu viene creato il link a `talks_speakers.html`); il valore è la label della voce di menu.
 
-**workshops submenu**
+**Workshops submenu**
 
 ```
 # workshops submenu (comment out if only one workshop: add items for multiple workshops)
@@ -169,7 +240,7 @@ Se c'è un solo workshop, si commenta l'intera sezione. Altrimenti, qui si defin
 
 Vedere anche più avanti, "Workshop"
 
-**welcome submenu**
+**Welcome submenu**
 
 ```
 # welcome submenu
@@ -253,14 +324,25 @@ Quando si imposta `is_online_only: true`, alla generazione del sito vengono vari
 
 **Q&A**:
 *Q*: Perché bisogna specificare la location online sia in `defaults` sia in `workshop`?
-*R*: per coprire il caso in cui si tenga una conferenza in una location fisica e un workshop online.
+*A*: per coprire il caso in cui si tenga una conferenza in una location fisica e un workshop online.
 
 
 ## Contenuti
 
-**NB** scrivere **sempre** le date in Formato ISO (`YYYY-MM-DDTHH:MM`), ad es. `2020-09-16T09:00`; le date, oltre a essere riformattate per la visualizzazione in pagina, vengono usate per generare i tag `<time>` nelle varie pagine, e in alcuni casi per fare dei calcoli
+**NB** scrivere **sempre** le date in Formato ISO (`YYYY-MM-DDTHH:MM`), ad es. `2020-09-16T09:00`; le date, oltre a essere riformattate per la visualizzazione in pagina, vengono usate per generare i tag `<time>` nelle varie pagine, e in alcuni casi per fare dei calcoli.
 
-**NB** per tutte le chiavi che contengono testo, si può scrivere HTML, basta che il valore sia incluso fra doppi apici **"** -- se servono apici nel contenuto, ad es. per un link, usare apici singoli **'** : ad es. `"bla bla <a href='url' >"...`
+**NB** per tutte le chiavi che contengono testo, si può scrivere HTML, basta che il valore sia incluso fra doppi apici **"** -- se servono apici nel contenuto, ad es. per un link, usare apici singoli **'** : ad es. `"lorem ipsum <a href='url' >label</a>"...`
+
+In generale, quando un valore non serve (o non se ne conosce ancora il contenuto), è buona prassi non cancellare la chiave corrispondente, ma semplicemente lasciarla al suo posto senza specificare un valore, ad es.:
+
+```
+  location_address: ""
+```
+o
+
+```
+  location_address:
+```
 
 ### Info base sulla conferenza
 
@@ -1093,7 +1175,7 @@ La situazione più comune è quella in cui si ha un solo workshop.
 
 Nel filesystem del sito avremo
 ```
-/source/ 
+/source/
   workshop/
     index/ # directory vuoto
     index.md
@@ -1111,7 +1193,7 @@ Insomma non modifichiamo questo file :)
 
 Se invece ci sono più **workshop**, bisogna creare i rispettivi file: ad esempio
 ```
-/source/ 
+/source/
   workshop/
     workshop_1/
       index/ # directory vuoto
@@ -1238,7 +1320,7 @@ Info sulla lingua di lavoro: usato anche in cima alla pagina, sotto il titolo
     language_title: "Lingua"
     language: "italian / italiano"
     language_ext: "Language: Italian / Lingua: italiano"
-    language_additional_info: "No translation provided."  
+    language_additional_info: "No translation provided."
 ```
 
 Il quarto blocco "teacher" riprende i dati dei teacher (vedere più avanti).
@@ -1285,7 +1367,7 @@ E poi definiamo i teacher propriamente detti.
       teacher_2:
         ...
 ```
-Valgono le regole sulle chiavi viste per i talk, gli speaker, etc. 
+Valgono le regole sulle chiavi viste per i talk, gli speaker, etc.
 
 L'immagine dello speaker va messa in `/source/img/ws_teachers`.
 
@@ -1353,7 +1435,7 @@ intro:
 
 Fascia colorata:
 ```
-block_2: 
+block_2:
   title: "Sponsorship options"
   slogan: "You can sponsor RubyDay in several ways:"
   subtitle_1: "Special events"
@@ -1364,7 +1446,7 @@ block_2:
 
 (Segue un blocco di commenti che è servito a me come promemoria per impostare le feature dei vari livelli)
 
-Infine, le opzioni disponibili. 
+Infine, le opzioni disponibili.
 ```
 levels:
   level_1:
