@@ -25,7 +25,6 @@ deploy_prod:
   script:
     # - npx hexo clean && npx hexo g
     - npm run generate
-    # added above command in netlify
     - "LIVE_URL=$(netlify deploy --json --prod --dir=public/ -s $NETLIFY_SITE_ID -a $NETLIFY_AUTH_TOKEN | grep -oP '(?<=\"url\": \")[^\"]*')"
     - "curl -X POST $SLACK_WEBHOOK_URL -H 'Content-type: application/json' --data '{\"text\": \"Una nuova versione del sito è stata pubblicata con successo\"}'"
   only:
