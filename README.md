@@ -100,17 +100,14 @@ Ci deve essere **almeno un post**, anche se vuoto, in `/source/_posts`, altrimen
 
 **Build and deploy**
 
-Il repository contiene un esempio di build-deploy.yml, a cui bisogna aggiungere le chiavi etc etc
---------------------------------------------------
-@todo * `build-deploy.yml` sample per github pages
---------------------------------------------------
+Il repository contiene un esempio di build-deploy: `/.github/workflows/deploy.yml` che contiene le impostazioni per generare il sito e pubblicarlo su GitHub Pages.
 
 
 **404 page**
 
 Quando si lavora in locale, la  pagina 404 / Not Found viene generata, ma non utilizzata. Per utilizzarla sul server, seguire le [indicazioni fornite da GitHub](https://help.github.com/en/github/working-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site).
 
-È sufficiente specificare `404.html`.
+È sufficiente specificare `404.html` (la pagina viene generata nel root directory del sito).
 
 ### Configurazione generale del sito
 
