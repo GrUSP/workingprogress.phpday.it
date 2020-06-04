@@ -4,18 +4,19 @@ cache:
   paths:
     - node_modules/
 
-deploy:
-  stage: deploy
-  before_script:
-    - npm install netlify-cli -g
-    - npm install
-  script:
-    - npx hexo clean && npx hexo g
-    - "LIVE_URL=$(netlify deploy --json --dir=public/ -s $NETLIFY_SITE_ID -a $NETLIFY_AUTH_TOKEN | grep -oP '(?<=\"deploy_url\": \")[^\"]*')"
-    - "curl -X POST -H 'Content-type: application/json' --data '{\"text\": \"$CI_PROJECT_NAME deployato con successo dal branch $CI_COMMIT_REF_NAME, $LIVE_URL\"}' $SLACK_WEBHOOK_URL"
-  only:
-    - branches
-  when: manual
+# created for initial tests; not used
+# deploy:
+#   stage: deploy
+#   before_script:
+#     - npm install netlify-cli -g
+#     - npm install
+#   script:
+#     - npx hexo clean && npx hexo g
+#     - "LIVE_URL=$(netlify deploy --json --dir=public/ -s $NETLIFY_SITE_ID -a $NETLIFY_AUTH_TOKEN | grep -oP '(?<=\"deploy_url\": \")[^\"]*')"
+#     - "curl -X POST -H 'Content-type: application/json' --data '{\"text\": \"$CI_PROJECT_NAME deployato con successo dal branch $CI_COMMIT_REF_NAME, $LIVE_URL\"}' $SLACK_WEBHOOK_URL"
+#   only:
+#     - branches
+#   when: manual
 
 deploy_prod:
   stage: deploy
