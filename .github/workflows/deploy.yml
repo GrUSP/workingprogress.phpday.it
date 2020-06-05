@@ -33,7 +33,7 @@ jobs:
         fetch-depth: 0
     - name: Publish to gh-pages
       run: |
-        mv main gh-pages
+        mv main/public gh-pages
         cp -r gh-pages-pre/.git gh-pages/
         cd gh-pages
         git config --local user.email "bot@grusp.org"
