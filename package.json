@@ -8,6 +8,7 @@
     "deploy": "hexo deploy",
     "server": "hexo server",
     "generate": "hexo clean && hexo generate",
+    "debug": "hexo clean --debug && hexo generate --debug",
     "watch": "hexo server --watch"
   },
   "engines": {

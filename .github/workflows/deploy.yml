@@ -18,9 +18,13 @@ jobs:
       with:
         node-version: 10.x
     - name: Install hexo dependencies
-      run: npm install
+      run: |
+        cd main
+        npm install
     - name: Generate website
-      run: npm run generate
+      run: |
+        cd main
+        npm run generate
     - name: Checkout gh-pages
       uses: actions/checkout@v2
       with:
