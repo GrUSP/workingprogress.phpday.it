@@ -104,6 +104,8 @@ Il repository contiene lo script per la generazione del sito: `/.github/workflow
 
 La "action" specificata nello script, che scatta quando si fa `push` su `master`, genera le pagine e gli assets e li pubblica in `gh-pages`.
 
+**Attenzione**: il file `CNAME` che specifica il dominio custom per GitHubPages deve essere incluso in `/source`, in modo che Hexo lo includa fra i file generati durante il deploy. Ovvero, in questo modo il file verrà copiato nel root directory di destinazione, e GitHub Pages potrà fare il redirect usando il dominio specificato.
+
 
 **404 page**
 
