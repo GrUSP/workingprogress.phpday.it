@@ -24,6 +24,9 @@ jobs:
     - name: Generate website
       run: |
         cd main
+        npm install
+    - name: Generate website
+      run: |
         npm run generate
     - name: Checkout gh-pages
       uses: actions/checkout@v2
