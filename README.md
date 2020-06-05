@@ -100,7 +100,9 @@ Ci deve essere **almeno un post**, anche se vuoto, in `/source/_posts`, altrimen
 
 **Build and deploy**
 
-Il repository contiene un esempio di build-deploy: `/.github/workflows/deploy.yml` che contiene le impostazioni per generare il sito e pubblicarlo su GitHub Pages.
+Il repository contiene lo script per la generazione del sito: `/.github/workflows/deploy.yml` che contiene le impostazioni per generare il sito e pubblicarlo su GitHub Pages.
+
+La "action" specificata nello script, che scatta quando si fa `push` su `master`, genera le pagine e gli assets e li pubblica in `gh-pages`.
 
 
 **404 page**
