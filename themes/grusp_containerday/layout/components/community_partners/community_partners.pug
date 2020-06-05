@@ -1,0 +1,23 @@
+section(id="hero__community_partners")
+  .container.community-partners-container
+    .inner
+      h2(role="heading" aria-level="2").is-title.is-2 !{site.data.defaults.conference.community_partners_title}
+      .inner-flex
+        each partner in site.data.sponsors.community_partners
+          .partner-holder
+            - filename = `/img/community/${partner.logo_filename}`
+            p
+              a(role="button" rel="external noopener noreferrer" target="_blank" href=partner.website_url)
+                img(src=filename alt=partner.name)
+            p
+              a(role="button" rel="external noopener noreferrer" target="_blank" href=partner.website_url) !{partner.name}
+  each partner in site.data.sponsors.community_partners
+    script(type="application/ld+json").
+      {
+        "sponsor":
+        {
+          "type": "Organization",
+          "name": "#{partner.name}",
+          "url": "#{partner.website_url}"
+        }
+      }

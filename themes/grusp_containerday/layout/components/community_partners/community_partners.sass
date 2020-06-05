@@ -1,0 +1,29 @@
+.community-partners-container
+  h2
+    color: $main-color
+    font-size: 2em
+    font-style: normal
+  .inner
+    border: 8px solid $main-color_hue-medium !important
+    padding: 2em
+    text-align: center
+    .inner-flex
+      display: flex
+      flex: 1
+      justify-content: center
+      .partner-holder
+        display: flex
+        flex-direction: column
+        margin: 1em
+        color: $main-text-color
+        img
+          max-width: 120px
+          transition: transform .5s
+          &:hover, &:active, &:focus
+            transform: scale(1.1)
+        p
+          margin-top: 0
+          &:first-of-type
+            flex-grow: 1
+          &:last-of-type
+            margin-top: auto

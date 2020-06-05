@@ -1,0 +1,19 @@
+intro:
+  main_title: "Call for papers"
+  date_intro: "The call for papers is open until "
+  # NB la data è definita in `defaults`
+  content_1: "This is not just about the Ruby programming language. All things related to the Ruby world is interesting."
+  content_2: "Ruby on Rails, Docker, bla bla qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
+more_info:
+  title: "More information"
+  description_1: "The speaker package includes the pass to the conference including the breakfast and coffee breaks, a night at the hotel offered by us, the speakers' dinner the night before the event, and the HD recording of your talk."
+  description_2: "If you or your company decide to cover the accommodation costs on your own, you will be granted a Bronze sponsorship badge."
+contact:
+  email_intro: "For any information that you may need, please write to "
+  help_intro: "If you need suggestions on how to write the abstract, see "
+  help_url: "http://helpmeabstract.com/"
+address_aria_label: "hotel address"
+email_aria_label: "hotel email"
+phone_aria_label: "hotel phone"
+website_aria_label: "hotel phone"
+ 
