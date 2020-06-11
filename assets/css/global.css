@@ -4794,6 +4794,8 @@ header {
 .countdown-container {
   display: flex;
   justify-content: flex-start; }
+  .countdown-container .is-hidden {
+    display: none; }
 
 .days-container, .hours-container, .minutes-container, .seconds-container {
   display: flex;
