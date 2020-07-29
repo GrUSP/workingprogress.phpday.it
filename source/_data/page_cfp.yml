@@ -12,8 +12,8 @@ contact:
   email_intro: "For any information that you may need, please write to "
   help_intro: "If you need suggestions on how to write the abstract, see "
   help_url: "http://helpmeabstract.com/"
+cfp_register_url: "goo.gl"
 address_aria_label: "hotel address"
 email_aria_label: "hotel email"
 phone_aria_label: "hotel phone"
 website_aria_label: "hotel phone"
- 

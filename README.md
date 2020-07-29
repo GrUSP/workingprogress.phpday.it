@@ -949,8 +949,9 @@ contact:
   email_intro: "For any information that you may need, please write to "
   help_intro: "If you need suggestions on how to write the abstract, see "
   help_url: "http://helpmeabstract.com/"
+cfp_register_url: ""
 ```
-(Il pulsante *Apply* è generato programmaticamente; label e URL sono stati definiti in `defaults`)
+(Il pulsante *Apply* è generato programmaticamente; la label è quella definita in `defaults`, qui c'è l'URL)
 
 ### talks
 
