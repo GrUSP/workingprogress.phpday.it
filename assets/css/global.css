@@ -6335,6 +6335,9 @@ header {
   .container__contact .is-centered {
     padding: 2em 0; }
 
+.button.is-primary:hover, .button.is-primary:active, .button.is-primary:focus {
+  border-color: #5e4e9b !important; }
+
 .is-unselectable, .button, .breadcrumb {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
