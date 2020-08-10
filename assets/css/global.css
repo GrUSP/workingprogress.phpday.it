@@ -4743,6 +4743,7 @@ header {
       .hero__container .row__title {
         padding: 1em 0; } }
   .hero__container .row__title h1 {
+    text-transform: none;
     font-weight: 700;
     color: #fff;
     font-size: 2.2em;
@@ -5330,27 +5331,6 @@ header {
         .community-partners-container .inner .inner-flex .partner-holder p:last-of-type {
           margin-top: auto; }
 
-.newsletter__container {
-  background-color: #5e4e9b;
-  color: #fff;
-  padding: 4em 0; }
-  .newsletter__container p, .newsletter__container strong {
-    color: #fff; }
-  .newsletter__container .inner {
-    margin: 0 auto;
-    align-items: center;
-    text-align: center;
-    padding: 1em 0; }
-    .newsletter__container .inner h2 {
-      font-style: normal; }
-  .newsletter__container .button.is-primary {
-    background-color: #fff !important;
-    border-color: #fff;
-    color: #5e4e9b; }
-    .newsletter__container .button.is-primary:hover, .newsletter__container .button.is-primary:active, .newsletter__container .button.is-primary:focus {
-      background-color: #000 !important;
-      color: #fff !important; }
-
 .mailchimp-container a {
   color: #fff; }
 
@@ -5424,6 +5404,42 @@ header {
   .mailchimp-container .checkbox-container input:checked ~ .checkmark:after {
     display: block;
     background-color: #5e4e9b; }
+
+.newsletter__container {
+  background-color: #5e4e9b;
+  color: #fff;
+  padding: 4em 0; }
+  .newsletter__container p, .newsletter__container strong {
+    color: #fff; }
+  .newsletter__container .inner {
+    margin: 0 auto;
+    align-items: center;
+    text-align: center;
+    padding: 1em 0; }
+    .newsletter__container .inner h2 {
+      font-style: normal; }
+  .newsletter__container .button.is-primary {
+    background-color: #fff !important;
+    border-color: #fff;
+    color: #5e4e9b; }
+    .newsletter__container .button.is-primary:hover, .newsletter__container .button.is-primary:active, .newsletter__container .button.is-primary:focus {
+      background-color: #000 !important;
+      color: #fff !important; }
+  .newsletter__container.negative {
+    background-color: #fff;
+    color: #000; }
+    .newsletter__container.negative p, .newsletter__container.negative strong {
+      color: #5e4e9b; }
+    .newsletter__container.negative .button.is-primary {
+      background-color: #5e4e9b !important;
+      border-color: #000;
+      color: #fff; }
+      .newsletter__container.negative .button.is-primary:hover, .newsletter__container.negative .button.is-primary:active, .newsletter__container.negative .button.is-primary:focus {
+        background-color: #fff !important;
+        border-color: #000 !important;
+        color: #000 !important; }
+    .newsletter__container.negative .mailchimp-container a {
+      color: #000; }
 
 .is-unselectable, .button, .breadcrumb {
   -webkit-touch-callout: none;
