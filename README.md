@@ -1515,6 +1515,17 @@ Il logo va messo in `/source/img/logos/` (un luogo solo per tutti, compresi i co
 
 Per aggiungere uno o più sponsor, basta aggiungere un blocco `sponsorX`. Come al solito, non è importante che la chiave contenga un ordinale, basta che sia univoca).
 
+Se **non ci sono** sponsor a un dato livello, per esempio "diamond", basta commentare o cancellare *tutto* il relativo blocco, inclusa la chiave del livello: ad es.
+```
+# diamond:
+#   sponsor1:
+#     name: "weLaika"
+#     logo_filename: "logo-welaika.png"
+#     site_url: "https://welaika.com/"
+...
+```
+In questo modo, nella visualizzazione non comparirà per nulla la sezione relativa al livello "diamond".
+
 In fondo al file c'è una sezione dedicata ai **community partner**, che vengono visualizzati nel componente *community_partners*:
 
 ```

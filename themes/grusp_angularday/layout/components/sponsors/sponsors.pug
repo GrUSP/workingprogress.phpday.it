@@ -70,63 +70,69 @@ section(id="sponsors").section_nopadding
                 img(src=filename alt=sponsor.name)
 
   //- schema.org microdata
-  each sponsor in site.data.sponsors.main
-    script(type="application/ld+json").
-      {
-        "sponsor":
+  if site.data.sponsors.main
+    each sponsor in site.data.sponsors.main
+      script(type="application/ld+json").
         {
-          "type": "Organization",
-          "name": "#{sponsor.name}",
-          "url": "#{sponsor.site_url}"
+          "sponsor":
+          {
+            "type": "Organization",
+            "name": "#{sponsor.name}",
+            "url": "#{sponsor.site_url}"
+          }
         }
-      }
-  each sponsor in site.data.sponsors.diamond
-    script(type="application/ld+json").
-      {
-        "sponsor":
+  if site.data.sponsors.diamond
+    each sponsor in site.data.sponsors.diamond
+      script(type="application/ld+json").
         {
-          "type": "Organization",
-          "name": "#{sponsor.name}",
-          "url": "#{sponsor.site_url}"
+          "sponsor":
+          {
+            "type": "Organization",
+            "name": "#{sponsor.name}",
+            "url": "#{sponsor.site_url}"
+          }
         }
-      }
-  each sponsor in site.data.sponsors.platinum
-    script(type="application/ld+json").
-      {
-        "sponsor":
+  if site.data.sponsors.platinum
+    each sponsor in site.data.sponsors.platinum
+      script(type="application/ld+json").
         {
-          "type": "Organization",
-          "name": "#{sponsor.name}",
-          "url": "#{sponsor.site_url}"
+          "sponsor":
+          {
+            "type": "Organization",
+            "name": "#{sponsor.name}",
+            "url": "#{sponsor.site_url}"
+          }
         }
-      }
-  each sponsor in site.data.sponsors.gold
-    script(type="application/ld+json").
-      {
-        "sponsor":
+  if site.data.sponsors.gold
+    each sponsor in site.data.sponsors.gold
+      script(type="application/ld+json").
         {
-          "type": "Organization",
-          "name": "#{sponsor.name}",
-          "url": "#{sponsor.site_url}"
+          "sponsor":
+          {
+            "type": "Organization",
+            "name": "#{sponsor.name}",
+            "url": "#{sponsor.site_url}"
+          }
         }
-      }
-  each sponsor in site.data.sponsors.silver
-    script(type="application/ld+json").
-      {
-        "sponsor":
+  if site.data.sponsors.silver
+    each sponsor in site.data.sponsors.silver
+      script(type="application/ld+json").
         {
-          "type": "Organization",
-          "name": "#{sponsor.name}",
-          "url": "#{sponsor.site_url}"
+          "sponsor":
+          {
+            "type": "Organization",
+            "name": "#{sponsor.name}",
+            "url": "#{sponsor.site_url}"
+          }
         }
-      }
-  each sponsor in site.data.sponsors.bronze
-    script(type="application/ld+json").
-      {
-        "sponsor":
+  if site.data.sponsors.bronze
+    each sponsor in site.data.sponsors.bronze
+      script(type="application/ld+json").
         {
-          "type": "Organization",
-          "name": "#{sponsor.name}",
-          "url": "#{sponsor.site_url}"
+          "sponsor":
+          {
+            "type": "Organization",
+            "name": "#{sponsor.name}",
+            "url": "#{sponsor.site_url}"
+          }
         }
-      }

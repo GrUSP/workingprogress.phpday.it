@@ -18,8 +18,8 @@ footer
           time(datetime=site.data.defaults.conference.date) !{start_date}
       p !{site.data.defaults.conference.past_editions_pre}
       p
-        each item in site.data.defaults.conference.past_editions
-          - url = "https://" + item + "/" + site.data.defaults.conference.base_url
+        each item in site.data.defaults.conference.past_editions 
+          - url = "https://" + item + "." + site.data.defaults.conference.base_url
           a(href=url target="_blank" rel="noopener noreferrer").past-edition !{item}
       p !{site.data.defaults.conference.past_editions_videos_pre}
         a(href=site.data.defaults.conference.social_vimeo_url) !{site.data.defaults.conference.past_editions_videos_vimeo_label}

@@ -1,62 +1,70 @@
-sponsors_block_title: "Thanks to"
-main:
-  sponsor1:
-    name: "weLaika"
-    logo_filename: "logo-welaika.png"
-    site_url: "https://welaika.com/"
-diamond:
-  sponsor1:
-    name: "weLaika"
-    logo_filename: "logo-welaika.png"
-    site_url: "https://welaika.com/"
-platinum:
-  sponsor1:
-    name: "weLaika"
-    logo_filename: "logo-welaika.png"
-    site_url: "https://welaika.com/"
+sponsors_block_title: "Thanks to our awesome sponsors"
+# main:
+#   sponsor1:
+#     name: ""
+#     logo_filename: ""
+#     site_url: ""
+# diamond:
+#   sponsor1:
+#     name: ""
+#     logo_filename: ""
+#     site_url: ""
+# platinum:
+#   sponsor1:
+#     name: ""
+#     logo_filename: ""
+#     site_url: ""
 gold:
   sponsor1:
-    name: "weLaika"
-    logo_filename: "logo-welaika.png"
-    site_url: "https://welaika.com/"
+    name: "workwave"
+    logo_filename: "workwave.svg"
+    site_url: "https://www.workwave.com/?utm_source=sfday"
 silver:
   sponsor1:
-    name: "weLaika"
-    logo_filename: "logo-welaika.png"
-    site_url: "https://welaika.com/"
+    name: "facile"
+    logo_filename: "facile.svg"
+    site_url: "https://www.facile.it/?utm_source=sfday"
   sponsor2:
-    name: "weLaika"
-    logo_filename: "logo-welaika.png"
-    site_url: "https://welaika.com/"
-bronze:
-  sponsor1:
-    name: "weLaika"
-    logo_filename: "logo-welaika.png"
-    site_url: "https://welaika.com/"
-  sponsor2:
-    name: "weLaika"
-    logo_filename: "logo-welaika.png"
-    site_url: "https://welaika.com/"
-  sponsor3:
-    name: "weLaika"
-    logo_filename: "logo-welaika.png"
-    site_url: "https://welaika.com/"
-media:
-  sponsor1:
-    name: "weLaika"
-    logo_filename: "logo-welaika.png"
-    site_url: "https://welaika.com/"
+    name: "Madisoft"
+    logo_filename: "madisoft.svg"
+    site_url: "https://labs.madisoft.it/symfony-developer/?utm_source=sfday"
+# bronze:
+#   sponsor1:
+#     name: ""
+#     logo_filename: ""
+#     site_url: ""
+#   sponsor2:
+#     name: ""
+#     logo_filename: ""
+#     site_url: ""
+#   sponsor3:
+#     name: ""
+#     logo_filename: ""
+#     site_url: ""
+# media:
+#   sponsor1:
+#     name: ""
+#     logo_filename: ""
+#     site_url: ""
 
 community_partners:
   cp_1:
-    name: "React Alicante"
-    website_url: "http://reactalicante.es/"
-    logo_filename: "react-alicante.png"
+    name: "PUG Roma"
+    website_url: "http://roma.grusp.org/"
+    logo_filename: "pug-roma.svg"
   cp_2:
-    name: "React Amsterdam"
-    website_url: "https://react.amsterdam/"
-    logo_filename: "react-amsterdam.png"
+    name: "PUG Romagna"
+    website_url: "https://www.meetup.com/it-IT/PUG-Romagna-PHP-User-Group-Romagnolo/"
+    logo_filename: "pug-romagna.svg"
   cp_3:
-    name: "React Scotland"
-    website_url: "https://www.meetup.com/React-Scotland/"
-    logo_filename: "react-scotland.png"
+    name: "PUG Rovigo"
+    website_url: "https://rovigo.grusp.org/"
+    logo_filename: "pug-rovigo.svg"
+  cp_4:
+    name: ""
+    website_url: ""
+    logo_filename: ""
+  cp_5:
+    name: ""
+    website_url: ""
+    logo_filename: ""      

@@ -10,7 +10,7 @@ block_2:
   subtitle_1: "Special events"
   content_1: "During the conference there are various moments for social aggregation between participants: coffee breaks, lunch, social night, speaker's dinners and pre-dinner aperitifs. Please get in touch with us to arrange the options that best suits your needs, or to share a brilliant sponsoring idea."
   subtitle_2: "Full packages"
-  content_2: "You can also choose between one of the following sponsorship packages. May you need any additional information just get in touch with an email to "
+  content_2: "You can also choose between one of the following sponsorship packages. May you need any additional information just get in touch with an email to <a href='mailto:info@grusp.org' role='button' rel='external' aria-label='contact email'>info@grusp.org</a>."
 # level description blocks:
 #   If the numbered description is not there, the relevant section will not be displayed
 #   Every block has its own background color based on the block number

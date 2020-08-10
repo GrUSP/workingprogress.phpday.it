@@ -132,7 +132,7 @@ conference:
     - "Frameworks"
   topics_payoff: "...and much more!"
   # "workshop" component. set the first parameter to true to make it appear in home page, false means hidden
-  workshop_visible: true
+  workshop_visible: false
   workshops_title: "workshop"
   workshops_tickets_label: "Buy tickets"
   workshops_readmore_label: "Read more"
