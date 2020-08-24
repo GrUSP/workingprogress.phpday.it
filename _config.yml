@@ -3,21 +3,10 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Theme selection
-# Default theme -- contains ALL assets and configs for all themes -- use for testing
-theme: "_grusp_base"
-# Actual conference themes -- each one only contains the specific assets
-# theme: "grusp_angularday"
-# theme: "grusp_containerday"
-# theme: "grusp_cssday"
-# theme: "grusp_devopsitalia"
-# theme: "grusp_jsday"
-# theme: "grusp_laravelday"
-# theme: "grusp_nodejsday"
-# theme: "grusp_phpday"
-# theme: "grusp_reactjsday"
-# theme: "grusp_rubyday"
-# theme: "grusp_sfday"
-# theme: "grusp_vueday"
+# Default theme -- contains ALL assets and configs -- use for testing
+# theme: "_grusp_base"
+# Actual conference theme -- only contains the specific assets (copy from _grusp_base as needed)
+theme: "grusp_conf"
 
 # Site / OG
 type: website

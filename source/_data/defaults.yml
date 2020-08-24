@@ -1,35 +1,3 @@
-###################################################################################################################
-# Additional config (necessary because the `header` and `layout` views cannot read directly the CSS default colors)
-###################################################################################################################
-
-# Conference tag: used to add the theme's main color to "MS Tile" and "Safari pinned tabs" objects when generating. Uncomment the right one and generate!
-# conference_tag: "angularday"
-# conference_tag: "containerday"
-# conference_tag: "cssday"
-# conference_tag: "devopsitalia"
-# conference_tag: "jsday"
-# conference_tag: "laravelday"
-# conference_tag: "nodejsday"
-# conference_tag: "phpday"
-# conference_tag: "reactjsday"
-conference_tag: "rubyday"
-# conference_tag: "sfday"
-# conference_tag: "vueday"
-
-# Default colors for Safari pinned tabs and MS application tiles
-meta_colors:
-  angularday: "#dd0031"
-  containerday: "#f7941e"
-  cssday: "#5ab5c9"
-  devopsitalia: "#267e3e"
-  jsday: "#5e4e9b"
-  laravelday: "#fc372a"
-  nodejsday: "#8cc34b"
-  phpday: "#dd0031"
-  reactjsday: "#30aade"
-  rubyday: "#5e4e9b"
-  sfday: "#ae9440"
-  vueday: "#35495e"
 
 #####################
 # Conference defaults
