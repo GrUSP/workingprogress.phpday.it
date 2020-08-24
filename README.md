@@ -40,7 +40,7 @@
 
 I prerequisiti all'installazione di Hexo sono:
 
-* node.js 10.x (current 10.21)
+* node.js 12.18.3 (LTS)
   * npm
 * git
 
